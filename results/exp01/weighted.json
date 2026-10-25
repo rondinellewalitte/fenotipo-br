@@ -1,0 +1,140 @@
+{
+  "git": {
+    "commit": "c5b58893786628f9fcd6dfa68eada8d9f1a0d7dc",
+    "dirty": false
+  },
+  "definitions": "results/exp01/PREREG.md, Desvios, 25/out/2026",
+  "n_case_term_pairs_total": 92068,
+  "by_method": {
+    "bge-m3": {
+      "weight_phenopacket_cases": {
+        "n_queries_with_weight": 1688,
+        "total_weight": 35270.0,
+        "top1_weighted": 0.8173,
+        "top5_weighted": 0.9369,
+        "top10_weighted": 0.9498,
+        "top1_weighted_ci95_bootstrap": [
+          0.7649,
+          0.8609
+        ],
+        "top1_unweighted_same_subset": 0.8051
+      },
+      "weight_hpoa_diseases": {
+        "n_queries_with_weight": 4690,
+        "total_weight": 107898.0,
+        "top1_weighted": 0.8028,
+        "top5_weighted": 0.9279,
+        "top10_weighted": 0.939,
+        "top1_weighted_ci95_bootstrap": [
+          0.7629,
+          0.8375
+        ],
+        "top1_unweighted_same_subset": 0.8256
+      }
+    },
+    "e5-base": {
+      "weight_phenopacket_cases": {
+        "n_queries_with_weight": 1688,
+        "total_weight": 35270.0,
+        "top1_weighted": 0.6877,
+        "top5_weighted": 0.85,
+        "top10_weighted": 0.8871,
+        "top1_weighted_ci95_bootstrap": [
+          0.6186,
+          0.7478
+        ],
+        "top1_unweighted_same_subset": 0.7062
+      },
+      "weight_hpoa_diseases": {
+        "n_queries_with_weight": 4690,
+        "total_weight": 107898.0,
+        "top1_weighted": 0.7029,
+        "top5_weighted": 0.855,
+        "top10_weighted": 0.8892,
+        "top1_weighted_ci95_bootstrap": [
+          0.6601,
+          0.7456
+        ],
+        "top1_unweighted_same_subset": 0.7294
+      }
+    },
+    "e5-base_qp": {
+      "weight_phenopacket_cases": {
+        "n_queries_with_weight": 1688,
+        "total_weight": 35270.0,
+        "top1_weighted": 0.6423,
+        "top5_weighted": 0.8482,
+        "top10_weighted": 0.8902,
+        "top1_weighted_ci95_bootstrap": [
+          0.5707,
+          0.7166
+        ],
+        "top1_unweighted_same_subset": 0.7464
+      },
+      "weight_hpoa_diseases": {
+        "n_queries_with_weight": 4690,
+        "total_weight": 107898.0,
+        "top1_weighted": 0.6649,
+        "top5_weighted": 0.8525,
+        "top10_weighted": 0.8925,
+        "top1_weighted_ci95_bootstrap": [
+          0.6127,
+          0.7159
+        ],
+        "top1_unweighted_same_subset": 0.7714
+      }
+    },
+    "lexical_token_sort": {
+      "weight_phenopacket_cases": {
+        "n_queries_with_weight": 1688,
+        "total_weight": 35270.0,
+        "top1_weighted": 0.5053,
+        "top5_weighted": 0.6341,
+        "top10_weighted": 0.7014,
+        "top1_weighted_ci95_bootstrap": [
+          0.4285,
+          0.577
+        ],
+        "top1_unweighted_same_subset": 0.5954
+      },
+      "weight_hpoa_diseases": {
+        "n_queries_with_weight": 4690,
+        "total_weight": 107898.0,
+        "top1_weighted": 0.549,
+        "top5_weighted": 0.6623,
+        "top10_weighted": 0.7183,
+        "top1_weighted_ci95_bootstrap": [
+          0.4983,
+          0.6002
+        ],
+        "top1_unweighted_same_subset": 0.5983
+      }
+    },
+    "mpnet-multi": {
+      "weight_phenopacket_cases": {
+        "n_queries_with_weight": 1688,
+        "total_weight": 35270.0,
+        "top1_weighted": 0.4824,
+        "top5_weighted": 0.6777,
+        "top10_weighted": 0.7331,
+        "top1_weighted_ci95_bootstrap": [
+          0.407,
+          0.5529
+        ],
+        "top1_unweighted_same_subset": 0.5059
+      },
+      "weight_hpoa_diseases": {
+        "n_queries_with_weight": 4690,
+        "total_weight": 107898.0,
+        "top1_weighted": 0.4941,
+        "top5_weighted": 0.6778,
+        "top10_weighted": 0.7494,
+        "top1_weighted_ci95_bootstrap": [
+          0.4464,
+          0.5439
+        ],
+        "top1_unweighted_same_subset": 0.5362
+      }
+    }
+  }
+}
