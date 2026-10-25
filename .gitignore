@@ -1,0 +1,25 @@
+# Data: downloads and derived files are never committed (see CLAUDE.md)
+data/
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Tool caches
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Model caches if HF_HOME is pointed inside the repo
+.cache/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
