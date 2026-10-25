@@ -1,0 +1,137 @@
+{
+  "experiment": "exp01_normalization",
+  "run_at": "2026-10-25T14:06:43+00:00",
+  "seed": 42,
+  "git": {
+    "commit": "2e761e19fddb512358ae2d57720842be5cdfd29a",
+    "dirty": false
+  },
+  "data": {
+    "hp.json": {
+      "release_tag": "v2026-09-01",
+      "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-09-01/hp.json",
+      "sha256": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501"
+    },
+    "phenotype.hpoa": {
+      "release_tag": "v2026-09-01",
+      "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-09-01/phenotype.hpoa",
+      "sha256": "e89aa39c8f97bf5a52c5d160f9250a603681d630ade8ec2679d84ac5aece1f72"
+    },
+    "hp-pt.babelon.tsv": {
+      "release_tag": "v2026-09-01",
+      "url": "https://raw.githubusercontent.com/obophenotype/human-phenotype-ontology/v2026-09-01/src/translations/hp-pt.babelon.tsv",
+      "sha256": "31f642ef8f6951287d9386d3b3454990504143520161ef4615c1c5c0ed85ebd0"
+    },
+    "all_phenopackets.zip": {
+      "release_tag": "0.1.27",
+      "url": "https://github.com/monarch-initiative/phenopacket-store/releases/download/0.1.27/all_phenopackets.zip",
+      "sha256": "d0c70005bb09b87035087516252b6b539fbc0415be7c664b73c9cde7eedf205a"
+    }
+  },
+  "hpo_release": "v2026-09-01",
+  "phenopacket_store_release": "0.1.27",
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cpu": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+  "libs": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "rapidfuzz": "3.14.6",
+    "torch": "2.14.1+cu130",
+    "sentence-transformers": "6.2.0",
+    "transformers": "5.20.2"
+  },
+  "hpo_version_in_file": "2026-09-01",
+  "queries": {
+    "source": "hp-pt.babelon.tsv",
+    "filter": "predicate_id == rdfs:label, translation_status == OFFICIAL, non-empty, subject is an active HP term (hpo.pt_labels)",
+    "n_total": 7154,
+    "n_main_under_HP:0000118": 6976,
+    "n_outside_HP:0000118": 178,
+    "n_main_identical": 96,
+    "n_main_stale": 227,
+    "identical_definition": "fold(pt_label) equals fold() of the gold term's English label or one of its exact synonyms"
+  },
+  "index": {
+    "main": "exact",
+    "variants": {
+      "exact": {
+        "scopes": [
+          "label",
+          "exact"
+        ],
+        "n_texts": 42581,
+        "n_ids": 19894,
+        "n_texts_mapping_to_several_ids": 1
+      },
+      "all_scopes": {
+        "scopes": [
+          "label",
+          "exact",
+          "related",
+          "broad",
+          "narrow"
+        ],
+        "n_texts": 45175,
+        "n_ids": 19894,
+        "n_texts_mapping_to_several_ids": 1
+      }
+    },
+    "language": "en"
+  },
+  "ranking": {
+    "unit": "unique HPO id, score = max over its strings",
+    "ties": "pessimistic rank for top-k; optimistic reported separately",
+    "near_miss": "gold strictly below top, and all top-scoring ids are direct is_a parent/child of gold; reported separately, never added to top-k",
+    "topk_saved": 10
+  },
+  "lexical": {
+    "lexical_token_sort": {
+      "scorer": "rapidfuzz.fuzz.token_sort_ratio",
+      "preprocess": "casefold, strip accents, non-alphanumerics -> space (retrieval.fold)"
+    }
+  },
+  "embeddings": {
+    "e5-base": {
+      "model": "intfloat/multilingual-e5-base",
+      "query_prefix": "query: ",
+      "index_prefix": "query: ",
+      "note": "primary e5 scheme (symmetric task, per model card)",
+      "revision": "d128750597153bb5987e10b1c3493a34e5a4502a"
+    },
+    "e5-base_qp": {
+      "model": "intfloat/multilingual-e5-base",
+      "query_prefix": "query: ",
+      "index_prefix": "passage: ",
+      "note": "variant: asymmetric retrieval prefixes",
+      "revision": "d128750597153bb5987e10b1c3493a34e5a4502a"
+    },
+    "mpnet-multi": {
+      "model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+      "query_prefix": "",
+      "index_prefix": "",
+      "revision": "4328cf26390c98c5e3c738b4460a05b95f4911f5"
+    },
+    "bge-m3": {
+      "model": "BAAI/bge-m3",
+      "query_prefix": "",
+      "index_prefix": "",
+      "revision": "5617a9f61b028005a4858fdac845db406aefb181"
+    }
+  },
+  "max_seq_length": 128,
+  "encode_device": {
+    "device": "cuda",
+    "dtype": "float32",
+    "torch_cuda": "13.0",
+    "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "gpu_memory_gib": 6.0,
+    "compute_capability": "8.6",
+    "cudnn": 92400
+  },
+  "torch_threads": 8,
+  "pilot": {
+    "n_queries": 200,
+    "index_sample": 2000
+  }
+}

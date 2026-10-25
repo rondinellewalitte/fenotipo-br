@@ -1,0 +1,54 @@
+{
+  "n_queries_full": 7154,
+  "lexical": {
+    "exact": {
+      "seconds_pilot": 2.54,
+      "est_seconds_full": 91.0
+    },
+    "all_scopes": {
+      "seconds_pilot": 2.37,
+      "est_seconds_full": 84.6
+    }
+  },
+  "embeddings": {
+    "e5-base": {
+      "model": "intfloat/multilingual-e5-base",
+      "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+      "load_seconds_incl_download_if_first": 19.3,
+      "index_strings_per_s": 1123.5,
+      "query_strings_per_s": 712.6,
+      "est_seconds_full": 50.2,
+      "truncated_in_mini_index": 0
+    },
+    "e5-base_qp": {
+      "model": "intfloat/multilingual-e5-base",
+      "revision": "d128750597153bb5987e10b1c3493a34e5a4502a",
+      "load_seconds_incl_download_if_first": 19.3,
+      "index_strings_per_s": 1054.9,
+      "query_strings_per_s": 604.1,
+      "est_seconds_full": 42.8,
+      "truncated_in_mini_index": 0
+    },
+    "mpnet-multi": {
+      "model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+      "revision": "4328cf26390c98c5e3c738b4460a05b95f4911f5",
+      "load_seconds_incl_download_if_first": 4.7,
+      "index_strings_per_s": 1123.2,
+      "query_strings_per_s": 742.6,
+      "est_seconds_full": 49.9,
+      "truncated_in_mini_index": 0
+    },
+    "bge-m3": {
+      "model": "BAAI/bge-m3",
+      "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+      "load_seconds_incl_download_if_first": 5.0,
+      "index_strings_per_s": 372.9,
+      "query_strings_per_s": 237.6,
+      "est_seconds_full": 151.3,
+      "truncated_in_mini_index": 0
+    }
+  },
+  "est_seconds_full_total": 469.8,
+  "est_minutes_full_total": 7.8,
+  "n_union_index_texts": 45175
+}
