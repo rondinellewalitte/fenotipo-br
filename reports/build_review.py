@@ -68,6 +68,15 @@ SCHEMA = {
     "additionalProperties": False,
 }
 MT_WARNING = "TRADUÇÃO AUTOMÁTICA (gerada por máquina). Exige revisão humana; não usar sem revisão."
+# Marker the reviewer writes in reviewer_notes when the candidate is kept verbatim; lets us
+# measure machine-translation accuracy and counters anchoring on the candidate.
+ACCEPTED_MARK = "candidata aceita sem alteração"
+NO_FEAR = (
+    "A tradução candidata é só um ponto de partida e pode estar errada ou soar estranha. "
+    "Corrija sem receio sempre que preferir outro termo. Se aceitar a candidata exatamente "
+    f"como está, copie-a em reviewer_pt e escreva em reviewer_notes: {ACCEPTED_MARK}. "
+    "Isso permite medir quanto a tradução automática acertou."
+)
 
 
 def synonyms_text(term: Term) -> str:
@@ -256,6 +265,7 @@ def write_xlsx(df: pd.DataFrame, s: dict, prov: dict, examples: list[dict]) -> N
             "O que fazer",
             "Na aba 'termos', preencha só as colunas em amarelo: reviewer_pt (o rótulo final em PT-BR, mesmo que seja igual ao candidato) e reviewer_notes (opcional).",
         ),
+        ("Corrija sem receio", NO_FEAR),
         (
             "candidate_pt",
             MT_WARNING
@@ -338,7 +348,7 @@ def write_xlsx(df: pd.DataFrame, s: dict, prov: dict, examples: list[dict]) -> N
     notes = {
         "candidate_pt": MT_WARNING,
         "reviewer_pt": "Preencha com o rótulo final em PT-BR (mesmo que igual ao candidato).",
-        "reviewer_notes": "Opcional: dúvidas, termo alternativo, uso regional.",
+        "reviewer_notes": f"Opcional: dúvidas, termo alternativo, uso regional. Se mantiver a candidata sem mudar nada, escreva: {ACCEPTED_MARK}",
     }
     for j, col in enumerate(COLUMNS, start=1):
         c = ws.cell(1, j, col)
@@ -392,7 +402,9 @@ Os {N_TERMS} termos do HPO ({prov["hpo_release"]}) **sem rótulo oficial em port
   - O ganho médio é de {pts(g["mean"])} (faixa {pts(g["min"])} a {pts(g["max"])}). Ele foi medido em {n_seeds} divisões dos genes em duas metades: a lista é ordenada numa metade e o ganho é medido na outra.
   - Casos 100% traduzidos: de {pct(base_full)} para {pct(min(a, b))}–{pct(max(a, b))}, fora da amostra.
   - Para comparação: dentro da amostra, que é um teto otimista, a cobertura chega a {pct(ins["annotation_coverage"])}. Com uma lista ordenada pelo `phenotype.hpoa`, que independe destes casos, chega a {pct(hp["annotation_coverage"])}.
-- **Limite:** os casos vêm da literatura e foram anotados em inglês. A frequência num ambulatório brasileiro pode ser outra.
+- **Limites:**
+  - Os casos vêm da literatura e foram anotados em inglês. A frequência num ambulatório brasileiro pode ser outra.
+  - **Viés de ancoragem:** quem revisa tende a aprovar a tradução candidata que já está na planilha. Por isso pedimos que corrija sem receio e marque explicitamente quando aceitar a candidata sem alteração. A taxa de aceitação deve ser lida como teto do acerto da tradução automática, não como medida independente.
 
 ## Como revisar
 
@@ -400,6 +412,7 @@ Preencha as duas colunas em amarelo:
 
 - **`reviewer_pt`:** o rótulo final em PT-BR, mesmo que seja igual ao candidato. Use grafia brasileira, o termo usual na clínica e na genética médica no Brasil, e a forma de rótulo do HPO (substantivo, só a primeira letra maiúscula, sem ponto final).
 - **`reviewer_notes`:** opcional. Dúvidas, termos alternativos, uso regional.
+- **Corrija sem receio.** {NO_FEAR}
 
 As colunas `label_en`, `definition_en` e `synonyms_en` trazem o conceito oficial em inglês. Sinônimos que não são exatos vêm marcados, por exemplo `[related]`.
 
