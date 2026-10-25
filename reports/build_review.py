@@ -411,7 +411,7 @@ As colunas `label_en`, `definition_en` e `synonyms_en` trazem o conceito oficial
 
 - **Configuração:** modelo fixo `{s["model"]}`, esforço `{s["effort"]}` e saída em JSON validado por esquema.
   - A API não aceita mais o parâmetro de temperatura. Por isso, cada resposta é guardada em `results/review/translations.jsonl` e reaproveitada, em vez de ser gerada de novo.
-- **Custo:** as chamadas, com tokens e custo, ficam em `results/review/llm_calls.jsonl`. O resumo está em `results/review/run_summary.json`, com teto de US$ {s["budget_usd"]:.2f}.
+- **Custo:** as chamadas, com tokens e custo, ficam em `results/review/llm_calls.jsonl`. O resumo está em `results/review/run_summary.json`, com teto de US$ {f"{s['budget_usd']:.2f}".replace(".", ",")}.
 
 ## Depois da revisão
 
