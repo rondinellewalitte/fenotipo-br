@@ -486,8 +486,9 @@ def main() -> None:
             indent=2,
         )
     )
-    if not s["api_key_present"]:
-        print("WARNING: ANTHROPIC_API_KEY not set; candidate_pt left empty.")
+    missing = s["n_terms"] - s["n_with_candidate"]
+    if missing and not s["api_key_present"]:
+        print(f"WARNING: ANTHROPIC_API_KEY not set; candidate_pt left empty for {missing} terms.")
 
 
 if __name__ == "__main__":
