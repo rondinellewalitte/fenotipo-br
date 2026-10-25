@@ -18,6 +18,8 @@ from collections.abc import Iterator
 from datetime import UTC, datetime
 from pathlib import Path
 
+import pandas as pd
+
 ROOT = Path(__file__).resolve().parents[2]
 RAW_DIR = ROOT / "data" / "raw"
 PROCESSED_DIR = ROOT / "data" / "processed"
@@ -147,6 +149,54 @@ def iter_phenopackets(zip_path: Path = RAW_DIR / PPKT_ASSET) -> Iterator[tuple[s
         for name in sorted(zf.namelist()):
             if name.endswith(".json"):
                 yield name, json.loads(zf.read(name))
+
+
+def phenopacket_case(member: str, pp: dict) -> dict:
+    """Fields Exp 02 needs from one phenopacket. HPO ids are returned as written
+    (not resolved to primary ids); excluded features are dropped."""
+    genes: set[str] = set()
+    diseases: dict[str, str] = {}
+    for interp in pp.get("interpretations", []):
+        dx = interp.get("diagnosis", {})
+        if "disease" in dx:
+            diseases[dx["disease"]["id"]] = dx["disease"].get("label", "")
+        for gi in dx.get("genomicInterpretations", []):
+            vd = gi.get("variantInterpretation", {}).get("variationDescriptor", {})
+            if "geneContext" in vd:
+                genes.add(vd["geneContext"]["symbol"])
+            if "gene" in gi:
+                genes.add(gi["gene"]["symbol"])
+    cohort = member.split("/")[1] if member.count("/") >= 2 else ""
+    observed = [
+        f["type"]["id"] for f in pp.get("phenotypicFeatures", []) if not f.get("excluded", False)
+    ]
+    return {
+        "case_id": pp["id"],
+        "member": member,
+        "cohort": cohort,
+        "gene": "|".join(sorted(genes)) if genes else cohort,
+        "gene_source": "variant" if genes else "cohort_folder",
+        "disease_id": "|".join(sorted(diseases)),
+        "disease_label": "|".join(diseases[d] for d in sorted(diseases)),
+        "observed": observed,
+    }
+
+
+def load_hpoa(path: Path = RAW_DIR / "phenotype.hpoa") -> tuple[pd.DataFrame, dict]:
+    """phenotype.hpoa as strings, plus its '#key: value' header lines."""
+    header: dict[str, str] = {}
+    with path.open(encoding="utf-8") as fh:
+        n_skip = 0
+        for line in fh:
+            if not line.startswith("#"):
+                break
+            key, _, value = line[1:].partition(":")
+            header[key.strip()] = value.strip()
+            n_skip += 1
+    df = pd.read_csv(
+        path, sep="\t", skiprows=n_skip, dtype=str, keep_default_na=False, encoding="utf-8"
+    )
+    return df, header
 
 
 def manifest_versions() -> dict[str, str]:
