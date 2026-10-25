@@ -1,0 +1,8 @@
+{
+  "n_index_texts": 45175,
+  "pt_marker_regex": "[ãõç]|ção|ções|ões",
+  "n_texts_with_pt_markers": 0,
+  "texts_with_pt_markers": [],
+  "n_texts_equal_to_pt_label_of_other_term": 0,
+  "examples_equal_to_pt_label_of_other_term": []
+}

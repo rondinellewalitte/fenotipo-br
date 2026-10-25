@@ -69,7 +69,7 @@ tests/
 
 ## Estado
 
-- [ ] Exp 01: normalização PT→HPO por embeddings (rótulos PT oficiais como gabarito, índice só em inglês)
+- [x] Exp 01: normalização PT→HPO por embeddings (rótulos PT oficiais como gabarito, índice só em inglês). Resultados em `results/exp01/` (commit dos resultados `847a27e`; pré-registro em `PREREG.md`, hipóteses em `hypotheses.json`)
 - [ ] Exp 02: cobertura da tradução PT por caso no Phenopacket Store
 - [ ] Exp 03 (opcional, LLM): vinhetas PT-BR → extração direta vs traduzir-depois-extrair
 - [ ] Relatório do piloto + e-mail para geneticistas

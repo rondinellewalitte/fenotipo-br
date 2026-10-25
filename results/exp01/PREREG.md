@@ -76,4 +76,5 @@ Todas se referem ao desfecho primário, salvo indicação.
 
 ## Desvios
 
-(nenhum até agora)
+- **25/out/2026, tamanho dos subconjuntos:** os n de `main_identical` (95) e `main_nonidentical` (6.881) citados acima vieram de uma exploração anterior ao código. Ela usava uma normalização sem a troca de pontuação por espaço. A definição implementada (`retrieval.fold`, commitada antes dos resultados) dá **96 e 6.880** (`config.json` → `queries.n_main_identical`). A definição e os critérios das hipóteses não mudam.
+- **25/out/2026, análise por `surface_sim`** (`experiments/exp01_analysis.py`): faixas <50, 50–70, 70–85, 85–100 e idênticos, fixadas antes de ler a saída. A faixa "idênticos" usa a flag `identical`, porque `surface_sim` é gravado com 1 casa decimal e um par não idêntico pode arredondar para 100,0. Isso foi notado na primeira execução do script e corrigido antes de qualquer interpretação.
