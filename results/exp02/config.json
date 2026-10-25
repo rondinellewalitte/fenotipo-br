@@ -1,0 +1,66 @@
+{
+  "experiment": "exp02_coverage",
+  "run_at": "2026-10-25T14:33:00+00:00",
+  "seed": 42,
+  "git": {
+    "commit": "f93b18d59e2b22fbb783cb47095ea0182705be2e",
+    "dirty": false
+  },
+  "data": {
+    "hp.json": {
+      "release_tag": "v2026-09-01",
+      "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-09-01/hp.json",
+      "sha256": "a7b3a012e7b4007a35a7cf8da35f2373b54cc16907f80d13d62470d31f833501"
+    },
+    "phenotype.hpoa": {
+      "release_tag": "v2026-09-01",
+      "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-09-01/phenotype.hpoa",
+      "sha256": "e89aa39c8f97bf5a52c5d160f9250a603681d630ade8ec2679d84ac5aece1f72"
+    },
+    "hp-pt.babelon.tsv": {
+      "release_tag": "v2026-09-01",
+      "url": "https://raw.githubusercontent.com/obophenotype/human-phenotype-ontology/v2026-09-01/src/translations/hp-pt.babelon.tsv",
+      "sha256": "31f642ef8f6951287d9386d3b3454990504143520161ef4615c1c5c0ed85ebd0"
+    },
+    "all_phenopackets.zip": {
+      "release_tag": "0.1.27",
+      "url": "https://github.com/monarch-initiative/phenopacket-store/releases/download/0.1.27/all_phenopackets.zip",
+      "sha256": "d0c70005bb09b87035087516252b6b539fbc0415be7c664b73c9cde7eedf205a"
+    }
+  },
+  "hpo_release": "v2026-09-01",
+  "phenopacket_store_release": "0.1.27",
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cpu": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+  "libs": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "rapidfuzz": "3.14.6",
+    "torch": "2.14.1+cu130",
+    "sentence-transformers": "6.2.0",
+    "transformers": "5.20.2"
+  },
+  "hpo_version_in_file": "2026-09-01",
+  "counts": {
+    "n_observed_annotations": 92068,
+    "n_alt_or_obsolete_resolved": 17,
+    "unresolvable": {},
+    "n_cases": 10377,
+    "n_cases_without_observed_terms": 3,
+    "n_cases_gene_from_cohort_folder": 69,
+    "n_case_term_pairs": 92068,
+    "n_distinct_terms": 4319,
+    "n_distinct_terms_outside_HP:0000118": 0
+  },
+  "translated_definition": "active term with an official PT label (hpo.pt_labels), stale included; coverage_translated_current excludes stale",
+  "n_translated_terms": 7154,
+  "n_translated_current_terms": 6927,
+  "top_missing": 300,
+  "gain_k": [
+    50,
+    100,
+    300
+  ],
+  "hpoa_top": 500
+}

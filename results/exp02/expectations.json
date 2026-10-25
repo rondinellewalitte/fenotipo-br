@@ -1,0 +1,35 @@
+{
+  "expectations": {
+    "E1_annotation_coverage_0.40_to_0.60": {
+      "value": 0.3831,
+      "met": false
+    },
+    "E2_pct_cases_full_le_0.10": {
+      "value": 0.0576,
+      "met": true
+    },
+    "E3_median_frac_0.35_to_0.65": {
+      "value": 0.3636,
+      "met": true
+    },
+    "E4_top300_gain_ge_0.15": {
+      "value": 0.4632,
+      "met": true
+    },
+    "E5_hpoa_close_to_claude_md": {
+      "annotation_coverage": 0.4031,
+      "claude_md_annotation_coverage": "~0.40",
+      "top500_with_pt": 193,
+      "claude_md_top500_with_pt": 193,
+      "met": true,
+      "tolerance": "±3 points and ±15 terms (set when writing this check)"
+    }
+  },
+  "summary": {
+    "E1_annotation_coverage_0.40_to_0.60": false,
+    "E2_pct_cases_full_le_0.10": true,
+    "E3_median_frac_0.35_to_0.65": true,
+    "E4_top300_gain_ge_0.15": true,
+    "E5_hpoa_close_to_claude_md": true
+  }
+}

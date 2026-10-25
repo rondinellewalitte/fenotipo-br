@@ -1,0 +1,301 @@
+rank,hpo_id,en_label,n_cases,pct_cases,n_genes,n_diseases,branches
+1,HP:0001263,Global developmental delay,2623,0.2528,254,269,Abnormality of the nervous system
+2,HP:0000750,Delayed speech and language development,1765,0.1701,182,190,Abnormality of the nervous system
+3,HP:0001249,Intellectual disability,1627,0.1568,165,171,Abnormality of the nervous system
+4,HP:0001252,Hypotonia,1544,0.1488,206,218,Abnormality of the musculoskeletal system
+5,HP:0001250,Seizure,825,0.0795,178,188,Abnormality of the nervous system
+6,HP:0001270,Motor delay,796,0.0767,121,124,Abnormality of the nervous system
+7,HP:0011968,Feeding difficulties,774,0.0746,136,138,Abnormality of the digestive system
+8,HP:0031936,Delayed ability to walk,755,0.0728,96,100,Abnormality of the nervous system
+9,HP:0000729,Autistic behavior,634,0.0611,89,92,Abnormality of the nervous system
+10,HP:0002650,Scoliosis,571,0.055,146,155,Abnormality of the musculoskeletal system
+11,HP:0001344,Absent speech,501,0.0483,86,89,Abnormality of the nervous system
+12,HP:0001508,Failure to thrive,488,0.047,127,129,Growth abnormality
+13,HP:0010864,Severe intellectual disability,414,0.0399,69,73,Abnormality of the nervous system
+14,HP:0001251,Ataxia,413,0.0398,82,88,Abnormality of the nervous system
+15,HP:0001382,Joint hypermobility,385,0.0371,78,80,Abnormality of the musculoskeletal system
+16,HP:0005280,Depressed nasal bridge,359,0.0346,101,102,Abnormality of head or neck
+17,HP:0033725,Thin corpus callosum,331,0.0319,99,101,Abnormality of the nervous system
+18,HP:0001763,Pes planus,324,0.0312,72,73,Abnormality of limbs
+19,HP:0001272,Cerebellar atrophy,300,0.0289,65,73,Abnormality of the nervous system
+20,HP:0000365,Hearing impairment,299,0.0288,82,83,Abnormality of the ear
+21,HP:0001256,Mild intellectual disability,287,0.0277,80,81,Abnormality of the nervous system
+22,HP:0001260,Dysarthria,281,0.0271,58,63,Abnormality of the nervous system
+23,HP:0002069,Bilateral tonic-clonic seizure,281,0.0271,55,57,Abnormality of the nervous system
+24,HP:0011344,Severe global developmental delay,266,0.0256,44,44,Abnormality of the nervous system
+25,HP:0001631,Atrial septal defect,260,0.0251,77,80,Abnormality of the cardiovascular system
+26,HP:0001511,Intrauterine growth retardation,254,0.0245,80,80,Growth abnormality
+27,HP:0002342,Moderate intellectual disability,251,0.0242,64,66,Abnormality of the nervous system
+28,HP:0002194,Delayed gross motor development,249,0.024,36,37,Abnormality of the nervous system
+29,HP:0002376,Developmental regression,244,0.0235,55,57,Abnormality of the nervous system
+30,HP:0008936,Axial hypotonia,242,0.0233,63,65,Abnormality of the musculoskeletal system
+31,HP:0002020,Gastroesophageal reflux,241,0.0232,66,68,Abnormality of the digestive system
+32,HP:0002119,Ventriculomegaly,238,0.0229,73,75,Abnormality of the nervous system
+33,HP:0001629,Ventricular septal defect,233,0.0225,83,85,Abnormality of the cardiovascular system
+34,HP:0002553,Highly arched eyebrow,233,0.0225,42,42,Abnormality of head or neck|Abnormality of the integument
+35,HP:0001257,Spasticity,229,0.0221,66,69,Abnormality of the musculoskeletal system|Abnormality of the nervous system
+36,HP:0000767,Pectus excavatum,223,0.0215,67,71,Abnormality of the musculoskeletal system
+37,HP:0000664,Synophrys,222,0.0214,52,52,Abnormality of head or neck|Abnormality of the integument
+38,HP:0001572,Macrodontia,222,0.0214,8,8,Abnormality of head or neck
+39,HP:0002353,EEG abnormality,222,0.0214,31,32,Abnormality of the nervous system
+40,HP:0011220,Prominent forehead,221,0.0213,46,48,Abnormality of head or neck
+41,HP:0025336,Delayed ability to sit,218,0.021,47,48,Abnormality of the nervous system
+42,HP:0001347,Hyperreflexia,217,0.0209,55,59,Abnormality of the nervous system
+43,HP:0000717,Autism,214,0.0206,41,41,Abnormality of the nervous system
+44,HP:0000718,Aggressive behavior,211,0.0203,63,63,Abnormality of the nervous system
+45,HP:0011800,Midface retrusion,207,0.02,50,51,Abnormality of head or neck
+46,HP:0001288,Gait disturbance,204,0.0197,47,49,Abnormality of the nervous system
+47,HP:0001156,Brachydactyly,198,0.0191,52,54,Abnormality of limbs|Abnormality of the musculoskeletal system
+48,HP:0002059,Cerebral atrophy,196,0.0189,56,58,Abnormality of the nervous system
+49,HP:0002151,Increased circulating lactate concentration,192,0.0185,20,20,Abnormality of metabolism/homeostasis
+50,HP:0001155,Abnormality of the hand,189,0.0182,1,1,Abnormality of limbs
+51,HP:0002719,Recurrent infections,186,0.0179,30,30,Abnormality of the immune system
+52,HP:0000739,Anxiety,183,0.0176,61,61,Abnormality of the nervous system
+53,HP:0002015,Dysphagia,181,0.0174,72,74,Abnormality of the digestive system|Abnormality of the nervous system
+54,HP:0002521,Hypsarrhythmia,179,0.0173,21,21,Abnormality of the nervous system
+55,HP:0001513,Obesity,172,0.0166,30,32,Growth abnormality
+56,HP:0001337,Tremor,169,0.0163,32,35,Abnormality of the nervous system
+57,HP:0002007,Frontal bossing,168,0.0162,68,69,Abnormality of head or neck|Abnormality of the musculoskeletal system
+58,HP:0002360,Sleep disturbance,168,0.0162,38,38,Abnormality of the nervous system
+59,HP:0002240,Hepatomegaly,167,0.0161,64,65,Abnormality of the digestive system
+60,HP:0001166,Arachnodactyly,165,0.0159,21,23,Abnormality of limbs|Abnormality of the musculoskeletal system
+61,HP:0001518,Small for gestational age,165,0.0159,43,43,Growth abnormality
+62,HP:0002019,Constipation,165,0.0159,42,43,Abnormality of the digestive system
+63,HP:0001332,Dystonia,164,0.0158,60,61,Abnormality of the nervous system
+64,HP:0001999,Abnormal facial shape,164,0.0158,25,25,Abnormality of head or neck
+65,HP:0000662,Nyctalopia,161,0.0155,21,23,Abnormality of the eye
+66,HP:0045075,Sparse eyebrow,160,0.0154,36,37,Abnormality of head or neck|Abnormality of the integument
+67,HP:0000648,Optic atrophy,157,0.0151,45,45,Abnormality of the eye
+68,HP:0001643,Patent ductus arteriosus,154,0.0148,56,57,Abnormality of the cardiovascular system
+69,HP:0002540,Inability to walk,153,0.0147,23,24,Abnormality of the nervous system
+70,HP:0002066,Gait ataxia,148,0.0143,38,41,Abnormality of the nervous system
+71,HP:0001480,Freckling,147,0.0142,2,2,Abnormality of the integument
+72,HP:0002079,Hypoplasia of the corpus callosum,147,0.0142,42,42,Abnormality of the nervous system
+73,HP:0002188,Delayed CNS myelination,147,0.0142,65,65,Abnormality of the nervous system
+74,HP:0002616,Aortic root aneurysm,147,0.0142,15,16,Abnormality of the cardiovascular system
+75,HP:0010862,Delayed fine motor development,144,0.0139,26,26,Abnormality of the nervous system
+76,HP:0002750,Delayed skeletal maturation,140,0.0135,32,33,Abnormality of the musculoskeletal system
+77,HP:0000733,Motor stereotypy,137,0.0132,32,32,Abnormality of the nervous system
+78,HP:0001903,Anemia,136,0.0131,49,50,Abnormality of blood and blood-forming tissues
+79,HP:0001290,Generalized hypotonia,135,0.013,31,32,Abnormality of the musculoskeletal system
+80,HP:0002384,Focal impaired awareness seizure,133,0.0128,30,31,Abnormality of the nervous system
+81,HP:0001397,Hepatic steatosis,131,0.0126,15,15,Abnormality of metabolism/homeostasis|Abnormality of the digestive system
+82,HP:0002373,Febrile seizure (within the age range of 3 months to 6 years),131,0.0126,39,39,Abnormality of the nervous system
+83,HP:0002061,Lower limb spasticity,128,0.0123,30,30,Abnormality of the musculoskeletal system|Abnormality of the nervous system
+84,HP:0005484,Secondary microcephaly,128,0.0123,42,42,Abnormality of head or neck|Abnormality of the musculoskeletal system|Abnormality of the nervous system
+85,HP:0030084,Clinodactyly,128,0.0123,36,36,Abnormality of limbs|Abnormality of the musculoskeletal system
+86,HP:0031956,Elevated circulating aspartate aminotransferase concentration,127,0.0122,26,26,Abnormality of metabolism/homeostasis
+87,HP:0001873,Thrombocytopenia,126,0.0121,45,46,Abnormality of blood and blood-forming tissues
+88,HP:0008897,Postnatal growth retardation,126,0.0121,37,37,Growth abnormality
+89,HP:0000997,Axillary freckling,125,0.012,1,1,Abnormality of the integument
+90,HP:0001762,Talipes equinovarus,125,0.012,54,56,Abnormality of limbs
+91,HP:0031964,Elevated circulating alanine aminotransferase concentration,125,0.012,25,25,Abnormality of metabolism/homeostasis
+92,HP:0000954,Single transverse palmar crease,120,0.0116,38,38,Abnormality of limbs|Abnormality of the integument
+93,HP:0001634,Mitral valve prolapse,119,0.0115,23,26,Abnormality of the cardiovascular system
+94,HP:0002714,Downturned corners of mouth,117,0.0113,28,28,Abnormality of head or neck
+95,HP:0002720,Decreased circulating IgA concentration,116,0.0112,24,24,Abnormal cellular phenotype|Abnormality of blood and blood-forming tissues|Abnormality of metabolism/homeostasis|Abnormality of the immune system
+96,HP:0001274,Agenesis of corpus callosum,114,0.011,31,32,Abnormality of the nervous system
+97,HP:0001324,Muscle weakness,112,0.0108,33,34,Abnormality of the musculoskeletal system
+98,HP:0002155,Hypertriglyceridemia,112,0.0108,15,16,Abnormality of metabolism/homeostasis
+99,HP:0012385,Camptodactyly,110,0.0106,36,37,Abnormality of the musculoskeletal system
+100,HP:0200134,Epileptic encephalopathy,110,0.0106,13,13,Abnormality of the nervous system
+101,HP:0100716,Self-injurious behavior,109,0.0105,34,34,Abnormality of the nervous system
+102,HP:0008551,Microtia,108,0.0104,33,33,Abnormality of the ear
+103,HP:0009002,Loss of truncal subcutaneous adipose tissue,108,0.0104,1,1,Abnormality of the musculoskeletal system
+104,HP:0010818,Generalized tonic seizure,108,0.0104,11,11,Abnormality of the nervous system
+105,HP:0010841,Multifocal epileptiform discharges,108,0.0104,9,9,Abnormality of the nervous system
+106,HP:0025502,Overweight,108,0.0104,7,7,Growth abnormality
+107,HP:0000768,Pectus carinatum,107,0.0103,32,34,Abnormality of the musculoskeletal system
+108,HP:0001310,Dysmetria,107,0.0103,24,26,Abnormality of the nervous system
+109,HP:0000752,Hyperactivity,106,0.0102,34,35,Abnormality of the nervous system
+110,HP:0001159,Syndactyly,106,0.0102,26,27,Abnormality of limbs|Abnormality of the musculoskeletal system
+111,HP:0001510,Growth delay,106,0.0102,17,17,Growth abnormality
+112,HP:0001642,Pulmonic stenosis,106,0.0102,38,42,Abnormality of the cardiovascular system
+113,HP:0100704,Cerebral visual impairment,106,0.0102,39,40,Abnormality of the eye
+114,HP:0001655,Patent foramen ovale,105,0.0101,49,50,Abnormality of the cardiovascular system
+115,HP:0001761,Pes cavus,104,0.01,43,45,Abnormality of limbs
+116,HP:0001265,Hyporeflexia,103,0.0099,32,33,Abnormality of the nervous system
+117,HP:0001943,Hypoglycemia,102,0.0098,22,22,Abnormality of metabolism/homeostasis
+118,HP:0001276,Hypertonia,101,0.0097,45,45,Abnormality of the musculoskeletal system
+119,HP:0001639,Hypertrophic cardiomyopathy,99,0.0095,21,23,Abnormality of the cardiovascular system
+120,HP:0010976,Decreased total B cell count,98,0.0094,14,14,Abnormality of blood and blood-forming tissues|Abnormality of the immune system
+121,HP:0011451,Primary microcephaly,98,0.0094,30,30,Abnormality of head or neck|Abnormality of the musculoskeletal system|Abnormality of the nervous system
+122,HP:0005978,Type II diabetes mellitus,96,0.0093,6,6,Abnormality of metabolism/homeostasis|Abnormality of the endocrine system
+123,HP:0010851,EEG with burst suppression,96,0.0093,14,14,Abnormality of the nervous system
+124,HP:0001321,Cerebellar hypoplasia,94,0.0091,29,30,Abnormality of the nervous system
+125,HP:0002505,Loss of ambulation,94,0.0091,31,33,Abnormality of the nervous system
+126,HP:0008872,Feeding difficulties in infancy,94,0.0091,5,5,Abnormality of the digestive system
+127,HP:0040217,Elevated hemoglobin A1c,93,0.009,6,6,Abnormality of blood and blood-forming tissues
+128,HP:0001083,Ectopia lentis,92,0.0089,5,7,Abnormality of the eye
+129,HP:0001212,Prominent fingertip pads,92,0.0089,16,16,Abnormality of limbs|Abnormality of the integument|Abnormality of the musculoskeletal system
+130,HP:0008997,Proximal upper limb muscle weakness,92,0.0089,10,10,Abnormality of limbs|Abnormality of the musculoskeletal system
+131,HP:0030052,Inguinal freckling,92,0.0089,1,1,Abnormality of the integument
+132,HP:0001336,Myoclonus,91,0.0088,40,43,Abnormality of the nervous system
+133,HP:0001744,Splenomegaly,91,0.0088,48,51,Abnormality of the cardiovascular system|Abnormality of the digestive system|Abnormality of the immune system
+134,HP:0001773,Short foot,91,0.0088,19,20,Abnormality of limbs|Abnormality of the musculoskeletal system
+135,HP:0011342,Mild global developmental delay,91,0.0088,28,28,Abnormality of the nervous system
+136,HP:0034391,Elbow contracture,90,0.0087,16,16,Abnormality of the musculoskeletal system
+137,HP:0002093,Respiratory insufficiency,89,0.0086,22,22,Abnormality of the respiratory system
+138,HP:0002063,Rigidity,87,0.0084,18,18,Abnormality of the musculoskeletal system
+139,HP:0008994,Proximal lower limb muscle weakness,87,0.0084,13,13,Abnormality of limbs|Abnormality of the musculoskeletal system
+140,HP:0002421,Poor head control,86,0.0083,28,29,Abnormality of the musculoskeletal system
+141,HP:0025190,Bilateral tonic-clonic seizure with generalized onset,86,0.0083,32,33,Abnormality of the nervous system
+142,HP:0002133,Status epilepticus,85,0.0082,31,32,Abnormality of the nervous system
+143,HP:0001875,Decreased total neutrophil count,84,0.0081,27,28,Abnormality of blood and blood-forming tissues|Abnormality of the immune system
+144,HP:0002197,Generalized-onset seizure,84,0.0081,33,33,Abnormality of the nervous system
+145,HP:0001007,Hirsutism,83,0.008,24,25,Abnormality of the integument
+146,HP:0002205,Recurrent respiratory infections,83,0.008,30,30,Abnormality of the immune system|Abnormality of the respiratory system
+147,HP:0000964,Eczematoid dermatitis,82,0.0079,23,22,Abnormality of the immune system|Abnormality of the integument
+148,HP:0001348,Brisk reflexes,82,0.0079,22,23,Abnormality of the nervous system
+149,HP:0001537,Umbilical hernia,82,0.0079,34,34,Abnormality of the digestive system|Abnormality of the musculoskeletal system
+150,HP:0002317,Unsteady gait,82,0.0079,24,26,Abnormality of the nervous system
+151,HP:0001067,Neurofibroma,80,0.0077,1,1,Abnormality of the integument|Abnormality of the nervous system|Neoplasm
+152,HP:0008959,Distal upper limb muscle weakness,80,0.0077,11,11,Abnormality of limbs|Abnormality of the musculoskeletal system
+153,HP:0011097,Epileptic spasm,80,0.0077,11,11,Abnormality of the nervous system
+154,HP:0011304,Broad thumb,80,0.0077,19,20,Abnormality of limbs|Abnormality of the musculoskeletal system
+155,HP:0002187,Profound intellectual disability,79,0.0076,20,20,Abnormality of the nervous system
+156,HP:0002283,Global brain atrophy,79,0.0076,17,18,Abnormality of the nervous system
+157,HP:0001284,Areflexia,78,0.0075,27,27,Abnormality of the nervous system
+158,HP:0002067,Bradykinesia,78,0.0075,13,14,Abnormality of the nervous system
+159,HP:0200055,Small hand,78,0.0075,29,29,Abnormality of limbs|Abnormality of the musculoskeletal system
+160,HP:0000829,Hypoparathyroidism,77,0.0074,4,4,Abnormality of the endocrine system
+161,HP:0001182,Tapered finger,77,0.0074,40,41,Abnormality of limbs|Abnormality of the musculoskeletal system
+162,HP:0001561,Polyhydramnios,77,0.0074,45,45,Abnormality of prenatal development or birth
+163,HP:0001622,Premature birth,77,0.0074,20,21,Abnormality of prenatal development or birth
+164,HP:0001644,Dilated cardiomyopathy,77,0.0074,9,10,Abnormality of the cardiovascular system
+165,HP:0002149,Hyperuricemia,77,0.0074,6,7,Abnormality of metabolism/homeostasis
+166,HP:0002172,Postural instability,76,0.0073,17,18,Abnormality of the nervous system
+167,HP:0000978,Bruising susceptibility,75,0.0072,17,18,Abnormality of blood and blood-forming tissues|Abnormality of the cardiovascular system|Abnormality of the integument
+168,HP:0001300,Parkinsonism,74,0.0071,15,16,Abnormality of the nervous system
+169,HP:0033454,Tube feeding,74,0.0071,19,19,Abnormality of the digestive system
+170,HP:0002280,Enlarged cisterna magna,73,0.007,26,26,Abnormality of head or neck|Abnormality of the musculoskeletal system
+171,HP:0000687,Widely spaced teeth,72,0.0069,24,25,Abnormality of head or neck
+172,HP:0002395,Lower limb hyperreflexia,71,0.0068,13,14,Abnormality of the nervous system
+173,HP:0001987,Hyperammonemia,70,0.0067,12,12,Abnormality of metabolism/homeostasis
+174,HP:0002080,Intention tremor,70,0.0067,16,18,Abnormality of the nervous system
+175,HP:0000817,Reduced eye contact,69,0.0067,27,27,Abnormality of the nervous system
+176,HP:0002136,Broad-based gait,68,0.0066,25,27,Abnormality of the nervous system
+177,HP:0002307,Drooling,68,0.0066,29,29,Abnormality of head or neck
+178,HP:0001162,Postaxial hand polydactyly,66,0.0064,11,13,Abnormality of limbs|Abnormality of the musculoskeletal system
+179,HP:0001519,Disproportionate tall stature,66,0.0064,9,9,Growth abnormality
+180,HP:0002099,Asthma,66,0.0064,26,27,Abnormality of the immune system|Abnormality of the respiratory system
+181,HP:0025373,Interictal EEG abnormality,66,0.0064,22,22,Abnormality of the nervous system
+182,HP:0001596,Alopecia,65,0.0063,21,21,Abnormality of the integument
+183,HP:0000989,Pruritus,63,0.0061,9,9,Abnormality of the integument
+184,HP:0001822,Hallux valgus,63,0.0061,21,21,Abnormality of limbs|Abnormality of the musculoskeletal system
+185,HP:0001942,Metabolic acidosis,63,0.0061,11,11,Abnormality of metabolism/homeostasis
+186,HP:0011003,High myopia,63,0.0061,27,28,Abnormality of the eye
+187,HP:0011343,Moderate global developmental delay,63,0.0061,16,16,Abnormality of the nervous system
+188,HP:0002123,Generalized myoclonic seizure,62,0.006,5,5,Abnormality of the nervous system
+189,HP:0002263,Exaggerated cupid's bow,62,0.006,8,8,Abnormality of head or neck
+190,HP:0002266,Focal clonic seizure,62,0.006,8,8,Abnormality of the nervous system
+191,HP:0000726,Dementia,61,0.0059,9,10,Abnormality of the nervous system
+192,HP:0001635,Congestive heart failure,61,0.0059,14,15,Abnormality of the cardiovascular system
+193,HP:0008944,Distal lower limb amyotrophy,61,0.0059,11,12,Abnormality of the musculoskeletal system
+194,HP:0025811,Trichorrhexis invaginata,61,0.0059,1,1,Abnormality of the integument
+195,HP:0001298,Encephalopathy,60,0.0058,28,28,Abnormality of the nervous system
+196,HP:0000737,Irritability,59,0.0057,36,36,Abnormality of the nervous system
+197,HP:0002013,Vomiting,59,0.0057,25,25,Abnormality of the digestive system
+198,HP:0002121,Generalized non-motor (absence) seizure,59,0.0057,20,21,Abnormality of the nervous system
+199,HP:0001320,Cerebellar vermis hypoplasia,58,0.0056,32,32,Abnormality of the nervous system
+200,HP:0001653,Mitral regurgitation,58,0.0056,21,23,Abnormality of the cardiovascular system
+201,HP:0002092,Pulmonary arterial hypertension,58,0.0056,18,18,Abnormality of the cardiovascular system|Abnormality of the respiratory system
+202,HP:0001771,Achilles tendon contracture,57,0.0055,8,9,Abnormality of limbs|Abnormality of the musculoskeletal system
+203,HP:0010804,Tented upper lip vermilion,57,0.0055,20,20,Abnormality of head or neck
+204,HP:0011471,Gastrostomy tube feeding in infancy,57,0.0055,15,15,Abnormality of the digestive system
+205,HP:0000678,Dental crowding,56,0.0054,27,27,Abnormality of head or neck
+206,HP:0000716,Depression,56,0.0054,31,31,Abnormality of the nervous system
+207,HP:0002028,Chronic diarrhea,56,0.0054,19,19,Abnormality of the digestive system
+208,HP:0002460,Distal muscle weakness,56,0.0054,15,15,Abnormality of the musculoskeletal system
+209,HP:0001647,Bicuspid aortic valve,55,0.0053,30,30,Abnormality of the cardiovascular system
+210,HP:0002120,Cerebral cortical atrophy,55,0.0053,23,24,Abnormality of the nervous system
+211,HP:0011185,EEG with focal epileptiform discharges,55,0.0053,2,2,Abnormality of the nervous system
+212,HP:0001847,Long hallux,54,0.0052,4,4,Abnormality of limbs|Abnormality of the musculoskeletal system
+213,HP:0001888,Decreased total lymphocyte count,54,0.0052,28,28,Abnormality of blood and blood-forming tissues|Abnormality of the immune system
+214,HP:0002299,Brittle hair,54,0.0052,10,10,Abnormality of the integument
+215,HP:0011448,Ankle clonus,54,0.0052,16,18,Abnormality of limbs|Abnormality of the musculoskeletal system|Abnormality of the nervous system
+216,HP:0011410,Caesarean section,53,0.0051,17,17,Abnormality of prenatal development or birth
+217,HP:0000926,Platyspondyly,52,0.005,15,16,Abnormality of the musculoskeletal system
+218,HP:0002014,Diarrhea,52,0.005,26,26,Abnormality of the digestive system
+219,HP:0002209,Sparse scalp hair,52,0.005,12,12,Abnormality of head or neck|Abnormality of the integument
+220,HP:0010819,Atonic seizure,52,0.005,20,20,Abnormality of the nervous system
+221,HP:0100259,Postaxial polydactyly,52,0.005,11,11,Abnormality of limbs|Abnormality of the musculoskeletal system
+222,HP:0001841,Preaxial foot polydactyly,51,0.0049,4,4,Abnormality of limbs|Abnormality of the musculoskeletal system
+223,HP:0002322,Resting tremor,51,0.0049,11,11,Abnormality of the nervous system
+224,HP:0009027,Foot dorsiflexor weakness,51,0.0049,12,12,Abnormality of limbs|Abnormality of the musculoskeletal system
+225,HP:0000957,Cafe-au-lait spot,50,0.0048,24,24,Abnormality of the integument
+226,HP:0001258,Spastic paraplegia,50,0.0048,11,11,Abnormality of the musculoskeletal system|Abnormality of the nervous system
+227,HP:0001363,Craniosynostosis,50,0.0048,20,20,Abnormality of head or neck|Abnormality of the musculoskeletal system
+228,HP:0002643,Neonatal respiratory distress,50,0.0048,27,27,Abnormality of the respiratory system
+229,HP:0011167,Focal tonic seizure,50,0.0048,4,4,Abnormality of the nervous system
+230,HP:0034671,Knee contracture,50,0.0048,15,16,Abnormality of limbs|Abnormality of the musculoskeletal system
+231,HP:0410263,Brain imaging abnormality,50,0.0048,1,1,Abnormality of the nervous system
+232,HP:0000870,Increased circulating prolactin concentration,49,0.0047,3,3,Abnormality of the endocrine system|Abnormality of the nervous system
+233,HP:0000953,Hyperpigmentation of the skin,49,0.0047,5,6,Abnormality of the integument
+234,HP:0001065,Striae distensae,49,0.0047,11,12,Abnormality of the integument
+235,HP:0002150,Hypercalciuria,49,0.0047,5,5,Abnormality of metabolism/homeostasis|Abnormality of the genitourinary system
+236,HP:0007814,Retinal pigment epithelial mottling,49,0.0047,7,7,Abnormality of the eye
+237,HP:0008947,Floppy infant,49,0.0047,6,6,Abnormality of the musculoskeletal system
+238,HP:0000938,Osteopenia,48,0.0046,24,25,Abnormality of the musculoskeletal system
+239,HP:0005110,Atrial fibrillation,48,0.0046,5,6,Abnormality of the cardiovascular system
+240,HP:0001385,Hip dysplasia,47,0.0045,29,29,Abnormality of the musculoskeletal system
+241,HP:0001997,Gout,47,0.0045,4,4,Abnormality of the musculoskeletal system
+242,HP:0002751,Kyphoscoliosis,47,0.0045,24,25,Abnormality of the musculoskeletal system
+243,HP:0100543,Cognitive impairment,47,0.0045,16,16,Abnormality of the nervous system
+244,HP:0001357,Plagiocephaly,46,0.0044,29,30,Abnormality of head or neck|Abnormality of the musculoskeletal system
+245,HP:0002002,Deep philtrum,46,0.0044,20,20,Abnormality of head or neck
+246,HP:0005403,Decreased total T cell count,46,0.0044,12,12,Abnormality of blood and blood-forming tissues|Abnormality of the immune system
+247,HP:0010845,EEG with generalized slow activity,46,0.0044,1,1,Abnormality of the nervous system
+248,HP:0001376,Limitation of joint mobility,45,0.0043,4,4,Abnormality of the musculoskeletal system
+249,HP:0002162,Low posterior hairline,45,0.0043,18,19,Abnormality of head or neck|Abnormality of the integument
+250,HP:0002273,Tetraparesis,45,0.0043,16,16,Abnormality of the nervous system
+251,HP:0100660,Dyskinesia,45,0.0043,10,10,Abnormality of the nervous system
+252,HP:0000960,Sacral dimple,44,0.0042,26,26,Abnormality of the integument|Abnormality of the musculoskeletal system
+253,HP:0012378,Fatigue,44,0.0042,27,27,Constitutional symptom
+254,HP:0000998,Hypertrichosis,43,0.0041,17,17,Abnormality of the integument
+255,HP:0001273,Abnormal corpus callosum morphology,43,0.0041,8,8,Abnormality of the nervous system
+256,HP:0001399,Hepatic failure,43,0.0041,9,10,Abnormality of the digestive system
+257,HP:0001581,Recurrent skin infections,43,0.0041,6,6,Abnormality of the immune system|Abnormality of the integument
+258,HP:0001852,Sandal gap,43,0.0041,18,18,Abnormality of limbs|Abnormality of the musculoskeletal system
+259,HP:0002509,Limb hypertonia,43,0.0041,18,18,Abnormality of limbs|Abnormality of the musculoskeletal system
+260,HP:0002515,Waddling gait,43,0.0041,18,18,Abnormality of the nervous system
+261,HP:0002721,Immunodeficiency,43,0.0041,14,14,Abnormality of the immune system
+262,HP:0005116,Arterial tortuosity,43,0.0041,6,6,Abnormality of the cardiovascular system
+263,HP:0011203,EEG with abnormally slow frequencies,43,0.0041,3,3,Abnormality of the nervous system
+264,HP:0012368,Flat face,43,0.0041,18,19,Abnormality of head or neck
+265,HP:0001845,Overlapping toe,42,0.004,30,30,Abnormality of limbs|Abnormality of the musculoskeletal system
+266,HP:0002548,Parkinsonism with favorable response to dopaminergic medication,42,0.004,5,5,Abnormality of the nervous system
+267,HP:0025810,Ichthyosis linearis circumflexa,42,0.004,1,1,Abnormality of the integument
+268,HP:0100021,Cerebral palsy,42,0.004,25,25,Abnormality of the nervous system
+269,HP:0000958,Dry skin,41,0.004,20,20,Abnormality of the integument
+270,HP:0001199,Triphalangeal thumb,41,0.004,4,5,Abnormality of limbs|Abnormality of the musculoskeletal system
+271,HP:0007737,Spicular pigmentation of the retina,41,0.004,10,11,Abnormality of the eye
+272,HP:0032218,Decreased total CD4+ T cell proportion,41,0.004,12,12,Abnormality of blood and blood-forming tissues|Abnormality of the immune system
+273,HP:0034392,Joint contracture,41,0.004,17,17,Abnormality of the musculoskeletal system
+274,HP:0045025,Narrow palpebral fissure,41,0.004,19,19,Abnormality of head or neck
+275,HP:0000736,Short attention span,40,0.0039,10,10,Abnormality of the nervous system
+276,HP:0001684,Secundum atrial septal defect,40,0.0039,12,12,Abnormality of the cardiovascular system
+277,HP:0001945,Fever,40,0.0039,23,23,Abnormality of metabolism/homeostasis
+278,HP:0002064,Spastic gait,40,0.0039,13,14,Abnormality of the musculoskeletal system|Abnormality of the nervous system
+279,HP:0012110,Hypoplasia of the pons,40,0.0039,16,16,Abnormality of the nervous system
+280,HP:0000709,Psychosis,39,0.0038,16,17,Abnormality of the nervous system
+281,HP:0001152,Saccadic smooth pursuit interruptions,39,0.0038,5,5,Abnormality of the eye
+282,HP:0001880,Increased total eosinophil count,39,0.0038,13,13,Abnormality of blood and blood-forming tissues|Abnormality of the immune system
+283,HP:0002126,Polymicrogyria,39,0.0038,16,16,Abnormality of the nervous system
+284,HP:0002728,Recurrent mucocutaneous candidiasis,39,0.0038,5,5,Abnormality of the immune system|Abnormality of the integument
+285,HP:0005487,Prominent metopic ridge,39,0.0038,20,20,Abnormality of head or neck|Abnormality of the musculoskeletal system
+286,HP:0032122,Very low visual acuity,39,0.0038,1,2,Abnormality of the eye
+287,HP:0000973,Cutis laxa,38,0.0037,10,10,Abnormality of the integument
+288,HP:0000977,Soft skin,38,0.0037,16,16,Abnormality of the integument
+289,HP:0001245,Small thenar eminence,38,0.0037,7,7,Abnormality of limbs|Abnormality of the musculoskeletal system
+290,HP:0001558,Decreased fetal movement,38,0.0037,26,26,Abnormality of prenatal development or birth
+291,HP:0001998,Neonatal hypoglycemia,38,0.0037,6,6,Abnormality of metabolism/homeostasis
+292,HP:0002090,Pneumonia,38,0.0037,22,22,Abnormality of the immune system|Abnormality of the respiratory system
+293,HP:0002098,Respiratory distress,38,0.0037,21,21,Abnormality of the respiratory system
+294,HP:0002174,Postural tremor,38,0.0037,8,11,Abnormality of the nervous system
+295,HP:0000653,Sparse eyelashes,37,0.0036,9,9,Abnormality of head or neck|Abnormality of the integument
+296,HP:0000708,Atypical behavior,37,0.0036,10,10,Abnormality of the nervous system
+297,HP:0000952,Jaundice,37,0.0036,20,21,Abnormality of the digestive system|Abnormality of the integument
+298,HP:0001433,Hepatosplenomegaly,37,0.0036,22,22,Abnormality of the cardiovascular system|Abnormality of the digestive system|Abnormality of the immune system
+299,HP:0002104,Apnea,37,0.0036,18,18,Abnormality of the respiratory system
+300,HP:0002572,Episodic vomiting,37,0.0036,15,15,Abnormality of the digestive system

@@ -17,6 +17,7 @@ O objetivo imediato é um **piloto com números** para fundamentar o contato com
 ## Fatos já levantados (out/2026)
 
 - HPO: 19.894 termos ativos. Tradução PT oficial (`src/translations/hp-pt.babelon.tsv` no repo `obophenotype/human-phenotype-ontology`): **7.213 rótulos (~36%)**, sem sinônimos, algumas grafias de Portugal. Cobre ~40% das anotações de doença e só 193 dos 500 termos mais usados. O README de traduções do HPO lista o português como "procurando ajuda".
+  - "~40% das anotações" e "193 dos 500" reconferidos com `phenotype.hpoa` 2026-09-02: 40,3% das anotações P (sem NOT) e 193 dos 500 termos com mais doenças (`results/exp02/metrics.json` → `hpoa_check`).
   - Conferido em 25/out/2026 no release **v2026-09-01** (`python -m hpolab.hpo`): 19.894 ativos (19.177 sob HP:0000118), 588 obsoletos. Das 7.213 linhas `rdfs:label` OFFICIAL, **59 são de termos obsoletos** → **7.154 rótulos PT de termos ativos (36,0%)**; 227 deles traduzem um rótulo inglês antigo (`source_value` ≠ rótulo atual, coluna `stale`).
 - Phenopacket Store (`monarch-initiative/phenopacket-store`): o release atual é **v0.1.27** (09/jun/2026, asset `all_phenopackets.zip`) com **10.377 phenopackets** (a v0.1.26 tinha 9.588). Casos resolvidos, curados da literatura, com termos HPO. Gabarito exato, mas em inglês.
 - Já existem vinhetas em 10 idiomas geradas desses casos (Zenodo 10.5281/zenodo.14907503, repo `p2gx/phenopacket2prompt`), **sem português**.
@@ -70,6 +71,6 @@ tests/
 ## Estado
 
 - [x] Exp 01: normalização PT→HPO por embeddings (rótulos PT oficiais como gabarito, índice só em inglês). Resultados em `results/exp01/` (commit dos resultados `847a27e`; pré-registro em `PREREG.md`, hipóteses em `hypotheses.json`)
-- [ ] Exp 02: cobertura da tradução PT por caso no Phenopacket Store
+- [x] Exp 02: cobertura da tradução PT por caso no Phenopacket Store. Resultados em `results/exp02/` (código `f93b18d`; `PREREG.md`, `expectations.json`, `missing_terms.csv`)
 - [ ] Exp 03 (opcional, LLM): vinhetas PT-BR → extração direta vs traduzir-depois-extrair
 - [ ] Relatório do piloto + e-mail para geneticistas
