@@ -93,3 +93,12 @@ Todas se referem ao desfecho primário, salvo indicação.
 - **25/out/2026, contagem exploratória pós-hoc de trocas mão↔pé.** Ao inspecionar a métrica de irmãos, vi que as confusões "dedo da mão vs. dedo do pé" caem quase todas em "distante": as subárvores de mão e pé se separam alto na ontologia. A contagem foi definida depois de ver exemplos e é só descritiva.
   - **Regra:** regex nos rótulos ingleses do termo certo e do top-1 previsto. Um menciona finger/thumb/hand/metacarp e o outro toe/hallux/foot/metatars.
   - **Saída:** `hierarchy_errors.json` → `hand_foot_swaps`.
+- **25/out/2026, top-k ponderado por frequência clínica** (pós-hoc; responde à ameaça de que o Exp 01 trata todos os termos traduzidos igualmente).
+  - **Peso de cada consulta:** o n de casos do Phenopacket Store v0.1.27 em que o termo é observado (definição do Exp 02).
+  - **Top-k ponderado:** Σ peso · acerto / Σ peso, no índice exact e no escopo principal. Termos que não aparecem em nenhum caso têm peso 0.
+  - **IC95:** bootstrap sobre as consultas com peso > 0 (1.000 reamostragens, seed 42).
+  - **Também reportados:**
+    - o top-1 sem peso no mesmo subconjunto (peso > 0);
+    - uma variante com peso = n de doenças no `phenotype.hpoa`.
+  - **Saída:** `weighted.json` (`experiments/exp01_weighted.py`).
+  - **Limite:** só mede termos que têm tradução. Os termos-pai sem tradução continuam fora do gabarito.

@@ -44,3 +44,13 @@ Quanto da descrição fenotípica de casos reais de doença rara (Phenopacket St
 
 - **25/out/2026, tolerância da E5:** o pré-registro dizia só "perto". A tolerância numérica usada em `expectations.json` (±3 pontos de cobertura e ±15 termos no top-500) foi fixada **depois** de ver os valores (40,3% e 193). Os valores coincidem com o CLAUDE.md, então a conclusão não depende da tolerância.
 - **25/out/2026, checagem pontual fora do pipeline:** para confirmar que termos muito usados (Seizure, Hypotonia, Global developmental delay) não têm tradução, consultei `src/translations/hp-pt-not-translated.babelon.tsv` no mesmo tag v2026-09-01. Ele os marca como `NOT_TRANSLATED`. Esse arquivo não entra em nenhum número.
+- **25/out/2026, checagens pós-hoc** (`experiments/exp02_checks.py`). Definidas antes de calcular:
+  - **Ganho fora da amostra.** Os 700 genes (valor `gene` do caso) são embaralhados com seed 42 e divididos em duas metades por gene, nunca por caso, para que uma coorte grande como STXBP1 não vaze entre as metades.
+    - A lista de termos sem tradução é ordenada numa metade (n de casos, desempate por ID). Mede-se, na outra, a cobertura com os k primeiros adicionados (k = 50, 100, 300).
+    - Faz-se nas duas direções e compara-se com o ganho dentro da própria metade (teto).
+    - Repete-se com as seeds 0–19 para medir a variação. Primária: seed 42.
+  - **Lista ordenada pelo `phenotype.hpoa`.** Os termos sem tradução são ordenados pelo n de doenças anotadas (aspect P, sem NOT), uma fonte independente dos phenopackets. Mede-se o ganho em todos os casos, com os mesmos k.
+  - **Generalidade dos termos.** Cobertura PT de folha (sem filhos) vs. não folha e por profundidade (menor n de passos is_a até HP:0000118: 1–3, 4–5, 6–7, 8+).
+    - Medida por termo distinto e por anotação nos casos.
+    - Também medida em todos os termos ativos sob HP:0000118.
+  - **Saídas:** `out_of_sample.json` e `generality.json`.
