@@ -120,7 +120,7 @@ Gerado em {datetime.now(UTC).strftime("%Y-%m-%d")} (commit `{sha}`). Assunto + c
 | {pct(full)} dos casos com todos os fenótipos traduzidos | {full} | `results/exp02/metrics.json` → `coverage.pct_cases_full` |
 | ≈{APPROVED_AFTER_PCT}% das anotações após os {N_TERMS} termos | {base} + {gain["mean"]} = {after:.4f} | `results/exp02/out_of_sample.json` → `{gain_src}` |
 
-- O ≈{APPROVED_AFTER_PCT}% é a cobertura atual mais o ganho médio fora da amostra em {len(oos["gene_split"]["seeds"])} divisões por gene: {pts(gain["mean"])}, faixa {pts(gain["min"])} a {pts(gain["max"])}. Cada divisão mede o ganho na metade de teste; somar à cobertura da amostra toda é uma aproximação.
+- O ≈{APPROVED_AFTER_PCT}% é a cobertura atual mais o ganho médio fora da amostra em {len(oos["gene_split"]["seeds"])} divisões por gene: {pts(gain["mean"])} (faixa {pts(gain["min"])} a {pts(gain["max"])}). Cada divisão mede o ganho na metade de teste; somar à cobertura da amostra toda é uma aproximação.
 - Exemplos citados: {", ".join(EXAMPLES)}, entre os 5 termos sem tradução mais frequentes (`results/exp02/missing_terms.csv`).
 
 **Antes de enviar**
