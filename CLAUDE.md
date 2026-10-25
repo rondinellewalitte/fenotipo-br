@@ -73,4 +73,5 @@ tests/
 - [x] Exp 01: normalização PT→HPO por embeddings (rótulos PT oficiais como gabarito, índice só em inglês). Resultados em `results/exp01/` (commit dos resultados `847a27e`; pré-registro em `PREREG.md`, hipóteses em `hypotheses.json`)
 - [x] Exp 02: cobertura da tradução PT por caso no Phenopacket Store. Resultados em `results/exp02/` (código `f93b18d`; `PREREG.md`, `expectations.json`, `missing_terms.csv`)
 - [ ] Exp 03 (opcional, LLM): vinhetas PT-BR → extração direta vs traduzir-depois-extrair
-- [ ] Relatório do piloto + e-mail para geneticistas
+- [x] Relatório do piloto: `reports/piloto.md`, gerado por `uv run python reports/build_piloto.py` a partir de `results/`. Não editar o .md à mão; mudar o gerador.
+- [ ] E-mail para geneticistas

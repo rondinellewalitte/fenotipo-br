@@ -246,11 +246,20 @@ def summary(ont: Ontology, babelon: pd.DataFrame) -> dict:
 
 
 def main() -> None:
+    import argparse
+
     from hpolab.data import RAW_DIR
 
+    parser = argparse.ArgumentParser(description="Summary of hp.json + PT babelon")
+    parser.add_argument("--out", type=Path, help="also write the summary as JSON here")
+    args = parser.parse_args()
     ont = load_ontology(RAW_DIR / "hp.json")
     bab = load_babelon(RAW_DIR / "hp-pt.babelon.tsv")
-    print(json.dumps(summary(ont, bab), indent=2))
+    text = json.dumps(summary(ont, bab), indent=2)
+    print(text)
+    if args.out:
+        args.out.parent.mkdir(parents=True, exist_ok=True)
+        args.out.write_text(text + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":

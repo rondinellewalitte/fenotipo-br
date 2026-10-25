@@ -1,0 +1,13 @@
+{
+  "hpo_version": "2026-09-01",
+  "active_terms": 19894,
+  "active_terms_under_HP:0000118": 19177,
+  "obsolete_terms": 588,
+  "babelon_rows": 7214,
+  "babelon_label_rows": 7213,
+  "babelon_label_rows_on_obsolete_terms": 59,
+  "pt_labels_active": 7154,
+  "pt_labels_active_stale": 227,
+  "pt_labels_under_HP:0000118": 6976,
+  "pt_coverage_active": 0.3596
+}
