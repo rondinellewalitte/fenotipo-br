@@ -1,6 +1,6 @@
 # Revisão de 50 termos HPO sem tradução PT-BR
 
-Gerado por `reports/build_review.py` em 2026-10-25 (commit `b2fdad7`). Os números vêm de `results/`; não edite este arquivo à mão.
+Gerado por `reports/build_review.py` em 2026-10-25 (commit `6b1ec0b, com mudanças não commitadas`). Os números vêm de `results/`; não edite este arquivo à mão.
 
 > Apoio à pesquisa. Não é ferramenta diagnóstica nem orienta conduta clínica (ANVISA RDC 657/2022).
 
@@ -36,7 +36,7 @@ As colunas `label_en`, `definition_en` e `synonyms_en` trazem o conceito oficial
 
 **TRADUÇÃO AUTOMÁTICA (gerada por máquina). Exige revisão humana; não usar sem revisão.**
 
-**Vazia nesta versão**: a variável ANTHROPIC_API_KEY não estava definida. A revisão pode ser feita direto em `reviewer_pt`.
+Preenchida para os 50 termos pelo modelo `claude-opus-5-5` (prompt `prompts/translate_hpo_label_pt_br_v1.system.md`, sha256 `2778aaf0b0fc`).
 
 - **Configuração:** modelo fixo `claude-opus-5-5`, esforço `low` e saída em JSON validado por esquema.
   - A API não aceita mais o parâmetro de temperatura. Por isso, cada resposta é guardada em `results/review/translations.jsonl` e reaproveitada, em vez de ser gerada de novo.
