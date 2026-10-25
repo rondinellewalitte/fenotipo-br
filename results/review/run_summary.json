@@ -27,7 +27,7 @@
   "worst_case_usd_for_all_terms": 1.7,
   "generated_at": "2026-10-25",
   "git": {
-    "commit": "ecdfafc56a8e93b57025eb7b0da4f70182e39ff0",
-    "dirty": true
+    "commit": "e1c639c232eba51f75ce2f2a2c726c4f771aa98f",
+    "dirty": false
   }
 }

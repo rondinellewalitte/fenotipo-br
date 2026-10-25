@@ -1,6 +1,6 @@
 # Revisão de 50 termos HPO sem tradução PT-BR
 
-Gerado por `reports/build_review.py` em 2026-10-25 (commit `ecdfafc, com mudanças não commitadas`). Os números vêm de `results/`; não edite este arquivo à mão.
+Gerado por `reports/build_review.py` em 2026-10-25 (commit `e1c639c`). Os números vêm de `results/`; não edite este arquivo à mão.
 
 > Apoio à pesquisa. Não é ferramenta diagnóstica nem orienta conduta clínica (ANVISA RDC 657/2022).
 
