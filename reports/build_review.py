@@ -201,6 +201,13 @@ def translate(df: pd.DataFrame, prompt: llm.Prompt, requested: bool) -> dict:
         )
         df.at[i, "candidate_pt"] = out["candidate_pt"].strip()
     s["spent_usd_this_run"] = round(budget.spent_usd, 4)
+    calls = (
+        [json.loads(x) for x in CALL_LOG.read_text(encoding="utf-8").splitlines()]
+        if CALL_LOG.exists()
+        else []
+    )
+    s["n_logged_api_calls"] = len(calls)
+    s["logged_cost_usd_total"] = round(sum(c["cost_usd"] for c in calls), 4)
     s["n_with_candidate"] = int((df["candidate_pt"] != "").sum())
     avg_chars = len(prompt.system) + len(prompt.user_template) + 400
     s["worst_case_usd_for_all_terms"] = round(
@@ -424,7 +431,7 @@ As colunas `label_en`, `definition_en` e `synonyms_en` trazem o conceito oficial
 
 - **Configuração:** modelo fixo `{s["model"]}`, esforço `{s["effort"]}` e saída em JSON validado por esquema.
   - A API não aceita mais o parâmetro de temperatura. Por isso, cada resposta é guardada em `results/review/translations.jsonl` e reaproveitada, em vez de ser gerada de novo.
-- **Custo:** as chamadas, com tokens e custo, ficam em `results/review/llm_calls.jsonl`. O resumo está em `results/review/run_summary.json`, com teto de US$ {f"{s['budget_usd']:.2f}".replace(".", ",")}.
+- **Custo:** as chamadas, com tokens e custo, ficam em `results/review/llm_calls.jsonl`. O resumo está em `results/review/run_summary.json`, com teto de US$ {f"{s['budget_usd']:.2f}".replace(".", ",")}. Total gasto até agora: US$ {f"{s['logged_cost_usd_total']:.2f}".replace(".", ",")} em {s["n_logged_api_calls"]} chamadas.
 
 ## Depois da revisão
 
