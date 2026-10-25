@@ -75,4 +75,4 @@ tests/
 - [x] Exp 02: cobertura da tradução PT por caso no Phenopacket Store. Resultados em `results/exp02/` (código `f93b18d`; `PREREG.md`, `expectations.json`, `missing_terms.csv`)
 - [ ] Exp 03 (opcional, LLM): vinhetas PT-BR → extração direta vs traduzir-depois-extrair
 - [x] Relatório do piloto: `reports/piloto.md`, gerado por `uv run python reports/build_piloto.py` a partir de `results/`. Não editar o .md à mão; mudar o gerador.
-- [ ] E-mail para geneticistas
+- [ ] E-mail para geneticistas: rascunho Rede RARAS em `reports/emails/rede_raras.md` (gerado por `reports/build_email.py`; não editar o .md à mão). Não enviado; o `[link]` depende de publicar o repo.
