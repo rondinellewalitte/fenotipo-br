@@ -40,7 +40,7 @@ tests/
 ## Stack e comandos
 
 - Python 3.11+, gerenciado com `uv`. `uv sync`, `uv run pytest`, `uv run ruff check . && uv run ruff format .`
-- Embeddings: `sentence-transformers` em CPU. Modelos candidatos: `intfloat/multilingual-e5-base` (exige prefixos `query: ` / `passage: `), `sentence-transformers/paraphrase-multilingual-mpnet-base-v2`, `BAAI/bge-m3`.
+- Embeddings: `sentence-transformers`, na GPU (RTX 3050 Laptop, **6 GB**, torch `cu130`, fp32) com `--device cuda`; CPU continua possível com `--device cpu`. Modelos candidatos: `intfloat/multilingual-e5-base` (exige prefixos `query: ` / `passage: `), `sentence-transformers/paraphrase-multilingual-mpnet-base-v2`, `BAAI/bge-m3`.
 - Ontologia: ler `hp.json` (obographs) direto, ou `pyhpo`/`pronto`. Ranking por similaridade semântica: `pyhpo` (Resnik/IC).
 - LLM (opcional, só se `ANTHROPIC_API_KEY` existir): SDK `anthropic`. Nunca hardcode chave.
 

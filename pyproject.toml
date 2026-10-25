@@ -11,6 +11,7 @@ dependencies = [
     "numpy>=1.26",
     "pandas>=2.2",
     "rapidfuzz>=3.9",
+    "scipy>=1.11",
     "sentence-transformers>=3.0",
     "torch>=2.4",
 ]
@@ -26,12 +27,12 @@ requires = ["uv_build>=0.12.10,<0.13.0"]
 build-backend = "uv_build"
 
 [[tool.uv.index]]
-name = "pytorch-cpu"
-url = "https://download.pytorch.org/whl/cpu"
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
 explicit = true
 
 [tool.uv.sources]
-torch = { index = "pytorch-cpu" }
+torch = { index = "pytorch-cu130" }
 
 [tool.ruff]
 line-length = 100

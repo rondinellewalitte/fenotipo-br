@@ -152,6 +152,16 @@ def load_ontology(path: Path) -> Ontology:
         return parse_obographs(json.load(fh))
 
 
+def index_entries(ont: Ontology, scopes: tuple[str, ...] = ("exact",)) -> list[tuple[str, str]]:
+    """(English text, HPO id) for every active term: its label plus synonyms of `scopes`."""
+    out = []
+    for tid in sorted(ont.terms):
+        term = ont.terms[tid]
+        out.append((term.label, tid))
+        out.extend((s.text, tid) for s in term.synonyms if s.scope in scopes)
+    return out
+
+
 def load_babelon(path: Path) -> pd.DataFrame:
     """Raw babelon rows, all columns as strings."""
     return pd.read_csv(path, sep="\t", dtype=str, keep_default_na=False, encoding="utf-8")
