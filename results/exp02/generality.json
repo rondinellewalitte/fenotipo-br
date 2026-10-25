@@ -1,0 +1,97 @@
+{
+  "git": {
+    "commit": "26cfe201eac3a4bca307cb66093d9bc630de065c",
+    "dirty": false
+  },
+  "depth": "min is_a steps from the term up to HP:0000118",
+  "ontology_terms_under_HP:0000118": {
+    "by_leaf": {
+      "False": {
+        "n": 5902,
+        "share_translated": 0.4046
+      },
+      "True": {
+        "n": 13275,
+        "share_translated": 0.3456
+      }
+    },
+    "by_depth": {
+      "1-3": {
+        "n": 1048,
+        "share_translated": 0.3177
+      },
+      "4-5": {
+        "n": 6870,
+        "share_translated": 0.3371
+      },
+      "6-7": {
+        "n": 7883,
+        "share_translated": 0.3783
+      },
+      "8+": {
+        "n": 3376,
+        "share_translated": 0.3984
+      }
+    }
+  },
+  "case_terms_distinct": {
+    "by_leaf": {
+      "False": {
+        "n": 1603,
+        "share_translated": 0.393
+      },
+      "True": {
+        "n": 2716,
+        "share_translated": 0.3895
+      }
+    },
+    "by_depth": {
+      "1-3": {
+        "n": 204,
+        "share_translated": 0.3431
+      },
+      "4-5": {
+        "n": 1651,
+        "share_translated": 0.3773
+      },
+      "6-7": {
+        "n": 1802,
+        "share_translated": 0.3984
+      },
+      "8+": {
+        "n": 662,
+        "share_translated": 0.4184
+      }
+    }
+  },
+  "case_annotations": {
+    "by_leaf": {
+      "False": {
+        "n": 54061,
+        "share_translated": 0.3092
+      },
+      "True": {
+        "n": 38007,
+        "share_translated": 0.4882
+      }
+    },
+    "by_depth": {
+      "1-3": {
+        "n": 5505,
+        "share_translated": 0.406
+      },
+      "4-5": {
+        "n": 43226,
+        "share_translated": 0.3186
+      },
+      "6-7": {
+        "n": 32702,
+        "share_translated": 0.3966
+      },
+      "8+": {
+        "n": 10635,
+        "share_translated": 0.5916
+      }
+    }
+  }
+}

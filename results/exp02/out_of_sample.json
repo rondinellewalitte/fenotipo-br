@@ -1,0 +1,229 @@
+{
+  "git": {
+    "commit": "26cfe201eac3a4bca307cb66093d9bc630de065c",
+    "dirty": false
+  },
+  "definitions": "results/exp02/PREREG.md, Desvios, 25/out/2026",
+  "gene_split": {
+    "unit": "gene (cohort folder when no gene)",
+    "n_genes": 700,
+    "primary_seed": 42,
+    "primary": {
+      "A_to_B": {
+        "n_test_cases": 5172,
+        "baseline": {
+          "annotation_coverage": 0.3835,
+          "pct_cases_full": 0.0555,
+          "frac_median": 0.3636
+        },
+        "top50": {
+          "out_of_sample": {
+            "annotation_coverage": 0.613,
+            "pct_cases_full": 0.1185,
+            "frac_median": 0.625
+          },
+          "in_sample_ceiling": {
+            "annotation_coverage": 0.647,
+            "pct_cases_full": 0.1962,
+            "frac_median": 0.6667
+          },
+          "lists_overlap": 32
+        },
+        "top100": {
+          "out_of_sample": {
+            "annotation_coverage": 0.6798,
+            "pct_cases_full": 0.1527,
+            "frac_median": 0.6774
+          },
+          "in_sample_ceiling": {
+            "annotation_coverage": 0.732,
+            "pct_cases_full": 0.3126,
+            "frac_median": 0.7895
+          },
+          "lists_overlap": 61
+        },
+        "top300": {
+          "out_of_sample": {
+            "annotation_coverage": 0.789,
+            "pct_cases_full": 0.2703,
+            "frac_median": 0.8165
+          },
+          "in_sample_ceiling": {
+            "annotation_coverage": 0.865,
+            "pct_cases_full": 0.5149,
+            "frac_median": 1.0
+          },
+          "lists_overlap": 197
+        }
+      },
+      "B_to_A": {
+        "n_test_cases": 5202,
+        "baseline": {
+          "annotation_coverage": 0.3827,
+          "pct_cases_full": 0.0598,
+          "frac_median": 0.3636
+        },
+        "top50": {
+          "out_of_sample": {
+            "annotation_coverage": 0.5991,
+            "pct_cases_full": 0.114,
+            "frac_median": 0.6
+          },
+          "in_sample_ceiling": {
+            "annotation_coverage": 0.6308,
+            "pct_cases_full": 0.1342,
+            "frac_median": 0.6667
+          },
+          "lists_overlap": 32
+        },
+        "top100": {
+          "out_of_sample": {
+            "annotation_coverage": 0.6585,
+            "pct_cases_full": 0.1538,
+            "frac_median": 0.6667
+          },
+          "in_sample_ceiling": {
+            "annotation_coverage": 0.7165,
+            "pct_cases_full": 0.2249,
+            "frac_median": 0.75
+          },
+          "lists_overlap": 61
+        },
+        "top300": {
+          "out_of_sample": {
+            "annotation_coverage": 0.7969,
+            "pct_cases_full": 0.2889,
+            "frac_median": 0.8333
+          },
+          "in_sample_ceiling": {
+            "annotation_coverage": 0.8607,
+            "pct_cases_full": 0.4589,
+            "frac_median": 0.9231
+          },
+          "lists_overlap": 197
+        }
+      }
+    },
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "seeds_summary_annotation_coverage_gain": {
+      "top50": {
+        "oos_gain": {
+          "mean": 0.2226,
+          "min": 0.1946,
+          "max": 0.2441
+        },
+        "ceiling_gain": {
+          "mean": 0.2548,
+          "min": 0.2253,
+          "max": 0.2869
+        },
+        "ratio": {
+          "mean": 0.8738,
+          "min": 0.8377,
+          "max": 0.9113
+        }
+      },
+      "top100": {
+        "oos_gain": {
+          "mean": 0.2898,
+          "min": 0.2651,
+          "max": 0.3161
+        },
+        "ceiling_gain": {
+          "mean": 0.3385,
+          "min": 0.3112,
+          "max": 0.3692
+        },
+        "ratio": {
+          "mean": 0.8564,
+          "min": 0.8309,
+          "max": 0.8893
+        }
+      },
+      "top300": {
+        "oos_gain": {
+          "mean": 0.4108,
+          "min": 0.3844,
+          "max": 0.434
+        },
+        "ceiling_gain": {
+          "mean": 0.4788,
+          "min": 0.4507,
+          "max": 0.505
+        },
+        "ratio": {
+          "mean": 0.858,
+          "min": 0.8319,
+          "max": 0.8894
+        }
+      }
+    }
+  },
+  "hpoa_ranked_list": {
+    "baseline": {
+      "annotation_coverage": 0.3831,
+      "pct_cases_full": 0.0576,
+      "frac_median": 0.3636
+    },
+    "top50": {
+      "hpoa_ranked": {
+        "annotation_coverage": 0.6006,
+        "pct_cases_full": 0.1085,
+        "frac_median": 0.6
+      },
+      "phenopacket_ranked_in_sample": {
+        "annotation_coverage": 0.6294,
+        "pct_cases_full": 0.1418,
+        "frac_median": 0.6584
+      },
+      "lists_overlap": 31
+    },
+    "top100": {
+      "hpoa_ranked": {
+        "annotation_coverage": 0.6748,
+        "pct_cases_full": 0.1602,
+        "frac_median": 0.6667
+      },
+      "phenopacket_ranked_in_sample": {
+        "annotation_coverage": 0.7072,
+        "pct_cases_full": 0.2194,
+        "frac_median": 0.75
+      },
+      "lists_overlap": 68
+    },
+    "top300": {
+      "hpoa_ranked": {
+        "annotation_coverage": 0.7951,
+        "pct_cases_full": 0.2786,
+        "frac_median": 0.8182
+      },
+      "phenopacket_ranked_in_sample": {
+        "annotation_coverage": 0.8463,
+        "pct_cases_full": 0.4278,
+        "frac_median": 0.9091
+      },
+      "lists_overlap": 204
+    }
+  }
+}
