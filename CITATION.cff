@@ -1,0 +1,49 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite it as below, and also cite the HPO and Phenopacket Store papers listed under references."
+title: "HPO-PTBR Lab: mapping Brazilian Portuguese phenotype terms to the Human Phenotype Ontology"
+type: software
+authors:
+  - given-names: Rondinelle
+    family-names: Walitte
+    alias: "Rondinelle Walitte Pedro de Jesus"
+    orcid: "https://orcid.org/0009-0004-1776-2754"
+version: 0.1.0
+license: MIT
+abstract: >-
+  Research pilot measuring how well Brazilian Portuguese phenotype terms map to the Human
+  Phenotype Ontology (HPO) when only English labels are searched, and how much of published
+  rare-disease case descriptions already has an official Portuguese HPO label. Research
+  support only; not a clinical or diagnostic tool.
+keywords:
+  - Human Phenotype Ontology
+  - Brazilian Portuguese
+  - rare diseases
+  - phenotype normalization
+  - sentence embeddings
+  - phenopackets
+references:
+  - type: article
+    title: "The Human Phenotype Ontology in 2024: phenotypes around the world"
+    authors:
+      - family-names: Gargano
+        given-names: Michael A.
+      - name: "et al."
+    journal: "Nucleic Acids Research"
+    volume: 52
+    issue: "D1"
+    start: D1333
+    end: D1346
+    year: 2024
+    doi: 10.1093/nar/gkad1005
+  - type: article
+    title: "A corpus of GA4GH phenopackets: Case-level phenotyping for genomic diagnostics and discovery"
+    authors:
+      - family-names: Danis
+        given-names: Daniel
+      - name: "et al."
+    journal: "Human Genetics and Genomics Advances"
+    volume: 6
+    issue: "1"
+    start: 100371
+    year: 2025
+    doi: 10.1016/j.xhgg.2024.100371

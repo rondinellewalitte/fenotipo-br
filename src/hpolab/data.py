@@ -43,9 +43,10 @@ def _request(url: str) -> urllib.request.Request:
     return urllib.request.Request(url, headers=headers)
 
 
-def latest_release(repo: str) -> dict:
-    """Return the GitHub API payload for the latest release of `repo`."""
-    url = f"https://api.github.com/repos/{repo}/releases/latest"
+def get_release(repo: str, tag: str | None = None) -> dict:
+    """GitHub API payload for release `tag` of `repo`, or the latest release if None."""
+    path = f"tags/{tag}" if tag else "latest"
+    url = f"https://api.github.com/repos/{repo}/releases/{path}"
     with urllib.request.urlopen(_request(url), timeout=60) as resp:
         return json.load(resp)
 
@@ -126,10 +127,10 @@ def fetch(
     return entry
 
 
-def download_hpo(manifest: dict, force: bool = False) -> None:
-    """hp.json and phenotype.hpoa from the latest HPO release, and the PT
+def download_hpo(manifest: dict, force: bool = False, tag: str | None = None) -> None:
+    """hp.json and phenotype.hpoa from an HPO release (latest unless `tag`), and the PT
     translation table from the same git tag so all three match."""
-    release = latest_release(HPO_REPO)
+    release = get_release(HPO_REPO, tag)
     for name in HPO_ASSETS:
         fetch(name, asset_url(release, name), HPO_REPO, release, manifest, force)
     tag = release["tag_name"]
@@ -137,8 +138,8 @@ def download_hpo(manifest: dict, force: bool = False) -> None:
     fetch(Path(HPO_PT_PATH).name, pt_url, HPO_REPO, release, manifest, force)
 
 
-def download_phenopacket_store(manifest: dict, force: bool = False) -> None:
-    release = latest_release(PPKT_REPO)
+def download_phenopacket_store(manifest: dict, force: bool = False, tag: str | None = None) -> None:
+    release = get_release(PPKT_REPO, tag)
     fetch(PPKT_ASSET, asset_url(release, PPKT_ASSET), PPKT_REPO, release, manifest, force)
 
 
@@ -207,10 +208,12 @@ def manifest_versions() -> dict[str, str]:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--force", action="store_true", help="re-download even if present")
+    parser.add_argument("--hpo-tag", help="HPO release tag, e.g. v2026-09-01 (default: latest)")
+    parser.add_argument("--ppkt-tag", help="Phenopacket Store release tag, e.g. 0.1.27")
     args = parser.parse_args()
     manifest = load_manifest()
-    download_hpo(manifest, args.force)
-    download_phenopacket_store(manifest, args.force)
+    download_hpo(manifest, args.force, args.hpo_tag)
+    download_phenopacket_store(manifest, args.force, args.ppkt_tag)
     print(f"Manifest: {MANIFEST}")
 
 

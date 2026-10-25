@@ -1,0 +1,33 @@
+{
+  "title": "HPO-PTBR Lab: mapping Brazilian Portuguese phenotype terms to the Human Phenotype Ontology",
+  "upload_type": "software",
+  "description": "<p>Research pilot measuring how well Brazilian Portuguese phenotype terms map to the Human Phenotype Ontology (HPO) when only English labels are searched, and how much of published rare-disease case descriptions already has an official Portuguese HPO label.</p><p>Research support only; not a clinical or diagnostic tool. Uses only public data (HPO, Phenopacket Store); no patient data.</p>",
+  "creators": [
+    {
+      "name": "Walitte, Rondinelle",
+      "orcid": "0009-0004-1776-2754"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Human Phenotype Ontology",
+    "Brazilian Portuguese",
+    "rare diseases",
+    "phenotype normalization",
+    "sentence embeddings",
+    "phenopackets"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.1093/nar/gkad1005",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.1016/j.xhgg.2024.100371",
+      "relation": "references",
+      "scheme": "doi"
+    }
+  ],
+  "notes": "Full name: Rondinelle Walitte Pedro de Jesus. HPO data used under the HPO license (version v2026-09-01); Phenopacket Store v0.1.27 under BSD 3-Clause. Raw data files are not redistributed; see NOTICE.md."
+}
