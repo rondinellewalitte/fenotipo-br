@@ -30,7 +30,7 @@ ORCID 0009-0004-1776-2754
 
 ## NÃO ENVIAR: notas internas
 
-Gerado em 2026-10-25 (commit `dc67e7f, com mudanças não commitadas`). Assunto + corpo: **195 palavras** (limite 200).
+Gerado em 2026-10-25 (commit `2e8ced0`). Assunto + corpo: **195 palavras** (limite 200).
 
 **Números do e-mail e de onde vêm**
 
@@ -40,7 +40,7 @@ Gerado em 2026-10-25 (commit `dc67e7f, com mudanças não commitadas`). Assunto 
 | 5,8% dos casos com todos os fenótipos traduzidos | 0.0576 | `results/exp02/metrics.json` → `coverage.pct_cases_full` |
 | ≈61% das anotações após os 50 termos | 0.3831 + 0.2226 = 0.6057 | `results/exp02/out_of_sample.json` → `gene_split.seeds_summary_annotation_coverage_gain.top50.oos_gain.mean` |
 
-- O ≈61% é a cobertura atual mais o ganho médio fora da amostra em 20 divisões por gene: +22,3 p.p., faixa +19,5 p.p. a +24,4 p.p.. Cada divisão mede o ganho na metade de teste; somar à cobertura da amostra toda é uma aproximação.
+- O ≈61% é a cobertura atual mais o ganho médio fora da amostra em 20 divisões por gene: +22,3 p.p. (faixa +19,5 p.p. a +24,4 p.p.). Cada divisão mede o ganho na metade de teste; somar à cobertura da amostra toda é uma aproximação.
 - Exemplos citados: HP:0001263, HP:0001249, HP:0001252, entre os 5 termos sem tradução mais frequentes (`results/exp02/missing_terms.csv`).
 
 **Antes de enviar**
