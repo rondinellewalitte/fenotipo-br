@@ -25,6 +25,7 @@ TOY = {
                 _node(
                     "0001250",
                     "Seizure",
+                    definition={"val": "An intermittent abnormality of nervous system physiology."},
                     synonyms=[
                         {"pred": "hasExactSynonym", "val": "Epileptic seizure"},
                         {
@@ -72,6 +73,12 @@ def test_parse_counts_and_version():
     assert len(ont.terms) == 6
     assert "HP:0000057" not in ont.terms
     assert ont.obsolete == {"HP:0000057": "HP:0000252"}
+
+
+def test_definition_parsed():
+    ont = parse_obographs(TOY)
+    assert ont.terms["HP:0001250"].definition.startswith("An intermittent")
+    assert ont.terms["HP:0000252"].definition == ""
 
 
 def test_synonyms_scope_and_type():

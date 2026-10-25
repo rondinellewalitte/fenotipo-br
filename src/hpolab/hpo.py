@@ -39,6 +39,7 @@ class Term:
     id: str
     label: str
     synonyms: tuple[Synonym, ...] = ()
+    definition: str = ""
 
 
 @dataclass
@@ -157,7 +158,12 @@ def parse_obographs(data: dict) -> Ontology:
             repl = [p["val"] for p in props if p["pred"] == _REPLACED_BY]
             obsolete[cid] = repl[0] if repl else None
             continue
-        terms[cid] = Term(id=cid, label=node.get("lbl", ""), synonyms=_synonyms(meta))
+        terms[cid] = Term(
+            id=cid,
+            label=node.get("lbl", ""),
+            synonyms=_synonyms(meta),
+            definition=meta.get("definition", {}).get("val", ""),
+        )
         for p in props:
             if p["pred"] == _ALT_ID:
                 alt_ids[p["val"]] = cid
