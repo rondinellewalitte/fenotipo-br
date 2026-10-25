@@ -78,3 +78,18 @@ Todas se referem ao desfecho primário, salvo indicação.
 
 - **25/out/2026, tamanho dos subconjuntos:** os n de `main_identical` (95) e `main_nonidentical` (6.881) citados acima vieram de uma exploração anterior ao código. Ela usava uma normalização sem a troca de pontuação por espaço. A definição implementada (`retrieval.fold`, commitada antes dos resultados) dá **96 e 6.880** (`config.json` → `queries.n_main_identical`). A definição e os critérios das hipóteses não mudam.
 - **25/out/2026, análise por `surface_sim`** (`experiments/exp01_analysis.py`): faixas <50, 50–70, 70–85, 85–100 e idênticos, fixadas antes de ler a saída. A faixa "idênticos" usa a flag `identical`, porque `surface_sim` é gravado com 1 casa decimal e um par não idêntico pode arredondar para 100,0. Isso foi notado na primeira execução do script e corrigido antes de qualquer interpretação.
+- **25/out/2026, métrica secundária pós-hoc de irmãos** (pedida após ver os erros em Membros, onde dedo da mão é confundido com dedo do pé). Definida antes de ser calculada:
+  - `sibling_miss`: o ID certo fica estritamente abaixo do topo, e todos os IDs no topo compartilham ao menos um pai direto (is_a) com ele, sem ser ele mesmo.
+  - **Classificação descritiva dos erros de top-1.** Cada erro recebe a primeira categoria que se aplica, nesta ordem:
+    - (1) pai/filho direto;
+    - (2) irmão (pai direto em comum);
+    - (3) outro ancestral/descendente;
+    - (4) parente próximo: um ancestral comum a no máximo 2 passos is_a de cada um, como primo ou tio;
+    - (5) distante.
+  - **Empates no topo:** vale a categoria mais distante entre os empatados. Se o empate passar de 10 IDs, o erro fica "não classificado".
+  - **Escopo:** índice exact, escopo principal, por método e no ramo Membros.
+  - **Interpretação:** é uma categoria de erro, não crédito parcial. Um irmão errado (dedo da mão vs. do pé) pode ser clinicamente grave.
+  - Calculado a partir de `ranks.csv.gz`, sem novo run.
+- **25/out/2026, contagem exploratória pós-hoc de trocas mão↔pé.** Ao inspecionar a métrica de irmãos, vi que as confusões "dedo da mão vs. dedo do pé" caem quase todas em "distante": as subárvores de mão e pé se separam alto na ontologia. A contagem foi definida depois de ver exemplos e é só descritiva.
+  - **Regra:** regex nos rótulos ingleses do termo certo e do top-1 previsto. Um menciona finger/thumb/hand/metacarp e o outro toe/hallux/foot/metatars.
+  - **Saída:** `hierarchy_errors.json` → `hand_foot_swaps`.

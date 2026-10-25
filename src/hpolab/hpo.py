@@ -80,6 +80,40 @@ class Ontology:
         """True if `a` is a direct is_a parent or child of `b`."""
         return a in self.parents.get(b, ()) or a in self.children.get(b, ())
 
+    def is_sibling(self, a: str, b: str) -> bool:
+        """True if `a` != `b` and they share at least one direct is_a parent."""
+        return a != b and bool(self.parents.get(a, frozenset()) & self.parents.get(b, frozenset()))
+
+    def up_steps(self, hpo_id: str) -> dict[str, int]:
+        """Minimum number of is_a steps from the term up to each ancestor (self = 0)."""
+        steps, frontier, d = {hpo_id: 0}, [hpo_id], 0
+        while frontier:
+            d += 1
+            nxt = []
+            for node in frontier:
+                for p in self.parents.get(node, ()):
+                    if p not in steps:
+                        steps[p] = d
+                        nxt.append(p)
+            frontier = nxt
+        return steps
+
+    def relation(self, a: str, b: str, max_up: int = 2) -> str:
+        """First matching category: same, parent_child, sibling, ancestor_descendant,
+        close_relative (a common ancestor within `max_up` steps of both), distant."""
+        if a == b:
+            return "same"
+        if self.is_neighbor(a, b):
+            return "parent_child"
+        if self.is_sibling(a, b):
+            return "sibling"
+        if a in self.ancestors(b) or b in self.ancestors(a):
+            return "ancestor_descendant"
+        up_a, up_b = self.up_steps(a), self.up_steps(b)
+        if any(up_a[c] <= max_up and up_b[c] <= max_up for c in up_a.keys() & up_b.keys()):
+            return "close_relative"
+        return "distant"
+
 
 def iri_to_curie(iri: str) -> str:
     """http://purl.obolibrary.org/obo/HP_0000118 -> HP:0000118"""

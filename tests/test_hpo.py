@@ -101,6 +101,24 @@ def test_ancestors_branches_neighbors():
     assert not ont.is_neighbor("HP:0000118", "HP:0001250")
 
 
+def test_relation_categories():
+    ont = parse_obographs(TOY)
+    assert ont.relation("HP:0001250", "HP:0001250") == "same"
+    assert ont.relation("HP:0000707", "HP:0001250") == "parent_child"
+    assert ont.relation("HP:0000252", "HP:0001250") == "sibling"
+    assert ont.relation("HP:0000118", "HP:0001250") == "ancestor_descendant"
+    # Seizure (under nervous system) vs head-or-neck: common ancestor HP:0000118 is
+    # 2 steps up from Seizure and 1 step up from HP:0000152
+    assert ont.relation("HP:0001250", "HP:0000152") == "close_relative"
+    assert ont.relation("HP:0001250", "HP:0000152", max_up=1) == "distant"
+    assert ont.up_steps("HP:0001250") == {
+        "HP:0001250": 0,
+        "HP:0000707": 1,
+        "HP:0000118": 2,
+        "HP:0000001": 3,
+    }
+
+
 def test_pt_labels_filter_and_stale():
     ont = parse_obographs(TOY)
     bab = pd.DataFrame(

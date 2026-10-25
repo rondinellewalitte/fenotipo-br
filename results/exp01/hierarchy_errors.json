@@ -1,0 +1,540 @@
+{
+  "definition": "PREREG.md, Desvios, 25/out/2026 (post-hoc, secondary)",
+  "order": [
+    "parent_child",
+    "sibling",
+    "ancestor_descendant",
+    "close_relative",
+    "distant"
+  ],
+  "by_method": {
+    "bge-m3": {
+      "main": {
+        "n_queries": 6976,
+        "n_top1_errors": 1314,
+        "count": {
+          "parent_child": 277,
+          "sibling": 193,
+          "ancestor_descendant": 54,
+          "close_relative": 164,
+          "distant": 626,
+          "gold_tied_at_top": 0,
+          "unclassified_tie_gt10": 0
+        },
+        "share_of_errors": {
+          "parent_child": 0.2108,
+          "sibling": 0.1469,
+          "ancestor_descendant": 0.0411,
+          "close_relative": 0.1248,
+          "distant": 0.4764,
+          "gold_tied_at_top": 0.0,
+          "unclassified_tie_gt10": 0.0
+        },
+        "sibling_miss_rate": 0.0277
+      },
+      "limbs_HP:0040064": {
+        "n_queries": 1706,
+        "n_top1_errors": 437,
+        "count": {
+          "parent_child": 106,
+          "sibling": 66,
+          "ancestor_descendant": 15,
+          "close_relative": 50,
+          "distant": 200,
+          "gold_tied_at_top": 0,
+          "unclassified_tie_gt10": 0
+        },
+        "share_of_errors": {
+          "parent_child": 0.2426,
+          "sibling": 0.151,
+          "ancestor_descendant": 0.0343,
+          "close_relative": 0.1144,
+          "distant": 0.4577,
+          "gold_tied_at_top": 0.0,
+          "unclassified_tie_gt10": 0.0
+        },
+        "sibling_miss_rate": 0.0387
+      },
+      "hand_foot_swaps": {
+        "regex_hand": "finger|thumb|hand|metacarp",
+        "regex_foot": "toe|hallux|foot|metatars",
+        "n_strict_top1_errors": 1314,
+        "n_swaps": 97,
+        "share_of_errors": 0.0738,
+        "category_count": {
+          "distant": 87,
+          "close_relative": 6,
+          "sibling": 4
+        },
+        "examples": [
+          {
+            "gold": "Short middle phalanx of toe",
+            "pt": "Falange média curta em dedo do pé",
+            "pred": "Aplasia/Hypoplasia of the phalanges of the 3rd finger"
+          },
+          {
+            "gold": "3-4 finger osseus syndactyly",
+            "pt": "Sindactília de 3º e 4º dedos da mão",
+            "pred": "3-4 toe syndactyly"
+          },
+          {
+            "gold": "Shortening of all middle phalanges of the toes",
+            "pt": "Encurtamento de todas as falanges médias dos dedos dos pés",
+            "pred": "Shortening of all middle phalanges of the fingers"
+          },
+          {
+            "gold": "Bifid distal phalanx of the thumb",
+            "pt": "Falange distal bífida do polegar",
+            "pred": "Bifid distal phalanx of toe"
+          },
+          {
+            "gold": "Curved proximal phalanx of the thumb",
+            "pt": "Falange proximal curva do polegar",
+            "pred": "Curved proximal toe phalanx"
+          },
+          {
+            "gold": "Irregular thumb epiphysis",
+            "pt": "Epífise irregular do polegar",
+            "pred": "Irregular epiphyses of the toes"
+          },
+          {
+            "gold": "Absent epiphyses of the toes",
+            "pt": "Epífises ausentes dos dedos dos pés",
+            "pred": "Absent epiphyses of the phalanges of the hand"
+          },
+          {
+            "gold": "Enlarged epiphyses of the toes",
+            "pt": "Epífises ampliadas dos dedos dos pés",
+            "pred": "Enlarged epiphyses of the phalanges of the hand"
+          },
+          {
+            "gold": "Fragmentation of the epiphyses of the toes",
+            "pt": "Fragmentação das epífises dos dedos dos pés",
+            "pred": "Fragmented finger phalanx epiphysis"
+          },
+          {
+            "gold": "Epiphyseal stippling of toe phalanges",
+            "pt": "Pontilhamento epifisário das falanges do dedo do pé",
+            "pred": "Epiphyseal stippling of finger phalanges"
+          }
+        ]
+      }
+    },
+    "e5-base": {
+      "main": {
+        "n_queries": 6976,
+        "n_top1_errors": 1925,
+        "count": {
+          "parent_child": 307,
+          "sibling": 197,
+          "ancestor_descendant": 72,
+          "close_relative": 180,
+          "distant": 1169,
+          "gold_tied_at_top": 0,
+          "unclassified_tie_gt10": 0
+        },
+        "share_of_errors": {
+          "parent_child": 0.1595,
+          "sibling": 0.1023,
+          "ancestor_descendant": 0.0374,
+          "close_relative": 0.0935,
+          "distant": 0.6073,
+          "gold_tied_at_top": 0.0,
+          "unclassified_tie_gt10": 0.0
+        },
+        "sibling_miss_rate": 0.0282
+      },
+      "limbs_HP:0040064": {
+        "n_queries": 1706,
+        "n_top1_errors": 624,
+        "count": {
+          "parent_child": 156,
+          "sibling": 42,
+          "ancestor_descendant": 24,
+          "close_relative": 55,
+          "distant": 347,
+          "gold_tied_at_top": 0,
+          "unclassified_tie_gt10": 0
+        },
+        "share_of_errors": {
+          "parent_child": 0.25,
+          "sibling": 0.0673,
+          "ancestor_descendant": 0.0385,
+          "close_relative": 0.0881,
+          "distant": 0.5561,
+          "gold_tied_at_top": 0.0,
+          "unclassified_tie_gt10": 0.0
+        },
+        "sibling_miss_rate": 0.0246
+      },
+      "hand_foot_swaps": {
+        "regex_hand": "finger|thumb|hand|metacarp",
+        "regex_foot": "toe|hallux|foot|metatars",
+        "n_strict_top1_errors": 1925,
+        "n_swaps": 37,
+        "share_of_errors": 0.0192,
+        "category_count": {
+          "distant": 33,
+          "close_relative": 4
+        },
+        "examples": [
+          {
+            "gold": "Absent hand",
+            "pt": "Mão ausente",
+            "pred": "Absent toe"
+          },
+          {
+            "gold": "2nd-5th toe middle phalangeal hypoplasia",
+            "pt": "Hipoplasia da falange média do 2º ao 5º dedos do pé",
+            "pred": "Aplasia/Hypoplasia of the phalanges of the 5th finger"
+          },
+          {
+            "gold": "3-4 toe syndactyly",
+            "pt": "Sindactilia dos dedos 3 e 4 do pé",
+            "pred": "3-4 metacarpal synostosis"
+          },
+          {
+            "gold": "Epiphyseal stippling of toe phalanges",
+            "pt": "Pontilhamento epifisário das falanges do dedo do pé",
+            "pred": "Abnormal hand epiphysis morphology"
+          },
+          {
+            "gold": "Aplasia/Hypoplasia of the phalanges of the toes",
+            "pt": "Aplasia/Hipoplasia das falanges dos dedos do pé",
+            "pred": "Aplasia/Hypoplasia of fingers"
+          },
+          {
+            "gold": "Broad phalanx of the toes",
+            "pt": "Falange larga dos dedos dos pés",
+            "pred": "Long phalanx of finger"
+          },
+          {
+            "gold": "Curved toe phalanx",
+            "pt": "Falange do dedo do pé curva",
+            "pred": "Long phalanx of finger"
+          },
+          {
+            "gold": "Toe symphalangism",
+            "pt": "Sinfalangismo que afeta as falanges dos dedos dos pés",
+            "pred": "Distal finger symphalangism"
+          },
+          {
+            "gold": "Broad distal phalanx of the toes",
+            "pt": "Falange distal dos dedos dos pés larga",
+            "pred": "Broad distal phalanx of finger"
+          },
+          {
+            "gold": "Curved distal toe phalanx",
+            "pt": "Falange distal do dedo do pé encurvada",
+            "pred": "Bifid distal phalanx of the thumb"
+          }
+        ]
+      }
+    },
+    "e5-base_qp": {
+      "main": {
+        "n_queries": 6976,
+        "n_top1_errors": 1767,
+        "count": {
+          "parent_child": 343,
+          "sibling": 236,
+          "ancestor_descendant": 63,
+          "close_relative": 228,
+          "distant": 897,
+          "gold_tied_at_top": 0,
+          "unclassified_tie_gt10": 0
+        },
+        "share_of_errors": {
+          "parent_child": 0.1941,
+          "sibling": 0.1336,
+          "ancestor_descendant": 0.0357,
+          "close_relative": 0.129,
+          "distant": 0.5076,
+          "gold_tied_at_top": 0.0,
+          "unclassified_tie_gt10": 0.0
+        },
+        "sibling_miss_rate": 0.0338
+      },
+      "limbs_HP:0040064": {
+        "n_queries": 1706,
+        "n_top1_errors": 640,
+        "count": {
+          "parent_child": 186,
+          "sibling": 67,
+          "ancestor_descendant": 26,
+          "close_relative": 81,
+          "distant": 280,
+          "gold_tied_at_top": 0,
+          "unclassified_tie_gt10": 0
+        },
+        "share_of_errors": {
+          "parent_child": 0.2906,
+          "sibling": 0.1047,
+          "ancestor_descendant": 0.0406,
+          "close_relative": 0.1266,
+          "distant": 0.4375,
+          "gold_tied_at_top": 0.0,
+          "unclassified_tie_gt10": 0.0
+        },
+        "sibling_miss_rate": 0.0393
+      },
+      "hand_foot_swaps": {
+        "regex_hand": "finger|thumb|hand|metacarp",
+        "regex_foot": "toe|hallux|foot|metatars",
+        "n_strict_top1_errors": 1767,
+        "n_swaps": 46,
+        "share_of_errors": 0.026,
+        "category_count": {
+          "distant": 37,
+          "close_relative": 5,
+          "sibling": 4
+        },
+        "examples": [
+          {
+            "gold": "Finger joint hypermobility",
+            "pt": "Hipermobilidade articular dos dedos",
+            "pred": "Hypermobility of toe joints"
+          },
+          {
+            "gold": "Complete duplication of proximal phalanx of the thumb",
+            "pt": "Duplicação completa da falange proximal do polegar",
+            "pred": "Duplication of proximal phalanx of toe"
+          },
+          {
+            "gold": "Duplication of the proximal phalanx of the thumb",
+            "pt": "Duplicação da falange proximal do polegar",
+            "pred": "Duplication of proximal phalanx of toe"
+          },
+          {
+            "gold": "Aplasia/Hypoplasia of the proximal phalanx of the thumb",
+            "pt": "Aplasia/Hipoplasia da falange proximal do polegar",
+            "pred": "Aplasia/hypoplasia of proximal toe phalanx"
+          },
+          {
+            "gold": "Osteolytic defect of the proximal phalanx of the thumb",
+            "pt": "Defeito osteolítico da falange proximal do polegar",
+            "pred": "Osteolytic defect of the proximal toe phalanx"
+          },
+          {
+            "gold": "Absent epiphyses of the toes",
+            "pt": "Epífises ausentes dos dedos dos pés",
+            "pred": "Absent epiphyses of the phalanges of the hand"
+          },
+          {
+            "gold": "Epiphyseal stippling of toe phalanges",
+            "pt": "Pontilhamento epifisário das falanges do dedo do pé",
+            "pred": "Epiphyseal stippling of finger phalanges"
+          },
+          {
+            "gold": "Triangular epiphyses of the toes",
+            "pt": "Epífises triangulares dos dedos dos pés",
+            "pred": "Triangular epiphyses of the phalanges of the hand"
+          },
+          {
+            "gold": "Aplasia/Hypoplasia of the phalanges of the toes",
+            "pt": "Aplasia/Hipoplasia das falanges dos dedos do pé",
+            "pred": "Aplasia/Hypoplasia of fingers"
+          },
+          {
+            "gold": "Broad phalanx of the toes",
+            "pt": "Falange larga dos dedos dos pés",
+            "pred": "Broad phalanges of the hand"
+          }
+        ]
+      }
+    },
+    "lexical_token_sort": {
+      "main": {
+        "n_queries": 6976,
+        "n_top1_errors": 3201,
+        "count": {
+          "parent_child": 290,
+          "sibling": 344,
+          "ancestor_descendant": 65,
+          "close_relative": 404,
+          "distant": 2005,
+          "gold_tied_at_top": 93,
+          "unclassified_tie_gt10": 0
+        },
+        "share_of_errors": {
+          "parent_child": 0.0906,
+          "sibling": 0.1075,
+          "ancestor_descendant": 0.0203,
+          "close_relative": 0.1262,
+          "distant": 0.6264,
+          "gold_tied_at_top": 0.0291,
+          "unclassified_tie_gt10": 0.0
+        },
+        "sibling_miss_rate": 0.0493
+      },
+      "limbs_HP:0040064": {
+        "n_queries": 1706,
+        "n_top1_errors": 1284,
+        "count": {
+          "parent_child": 108,
+          "sibling": 104,
+          "ancestor_descendant": 36,
+          "close_relative": 171,
+          "distant": 841,
+          "gold_tied_at_top": 24,
+          "unclassified_tie_gt10": 0
+        },
+        "share_of_errors": {
+          "parent_child": 0.0841,
+          "sibling": 0.081,
+          "ancestor_descendant": 0.028,
+          "close_relative": 0.1332,
+          "distant": 0.655,
+          "gold_tied_at_top": 0.0187,
+          "unclassified_tie_gt10": 0.0
+        },
+        "sibling_miss_rate": 0.061
+      },
+      "hand_foot_swaps": {
+        "regex_hand": "finger|thumb|hand|metacarp",
+        "regex_foot": "toe|hallux|foot|metatars",
+        "n_strict_top1_errors": 3108,
+        "n_swaps": 278,
+        "share_of_errors": 0.0894,
+        "category_count": {
+          "distant": 262,
+          "close_relative": 14,
+          "sibling": 2
+        },
+        "examples": [
+          {
+            "gold": "Short distal phalanx of the 3rd finger",
+            "pt": "Falange distal curta do 3º dedo da mão da mão",
+            "pred": "Curved distal toe phalanx"
+          },
+          {
+            "gold": "Fourth finger symphalangism",
+            "pt": "Sinfalangismo do 4º dedo da mão",
+            "pred": "Proximal 3rd toe symphalangism"
+          },
+          {
+            "gold": "Clinodactyly of the 5th finger",
+            "pt": "Clinodactilia do 5º dedo da mão",
+            "pred": "Clinodactyly of the 5th toe"
+          },
+          {
+            "gold": "Curved phalanges of the 5th finger",
+            "pt": "Falanges curvas do 5º dedo da mão",
+            "pred": "Curved 5th toe phalanx"
+          },
+          {
+            "gold": "Fifth finger symphalangism",
+            "pt": "Sinfalangismo do 5º dedo da mão",
+            "pred": "Proximal 3rd toe symphalangism"
+          },
+          {
+            "gold": "Short middle phalanx of the 5th finger",
+            "pt": "Falange média curta do 5º dedo da mão",
+            "pred": "Curved 5th toe phalanx"
+          },
+          {
+            "gold": "Abnormality of the distal phalanx of the 5th finger",
+            "pt": "Anomalia da falange distal do 5º dedo da mão",
+            "pred": "Abnormality of the distal phalanx of the 5th toe"
+          },
+          {
+            "gold": "Curved distal phalanx of the 5th finger",
+            "pt": "Falange distal curva do 5º dedo da mão",
+            "pred": "Curved distal phalanx of the 5th toe"
+          },
+          {
+            "gold": "Short distal phalanx of the 5th finger",
+            "pt": "Falange distal curta do 5º dedo da mão",
+            "pred": "Curved distal phalanx of the 5th toe"
+          },
+          {
+            "gold": "Duplication of hand bones",
+            "pt": "Duplicação dos ossos da mão",
+            "pred": "Duplication of phalanx of the 3rd toe"
+          }
+        ]
+      }
+    },
+    "mpnet-multi": {
+      "main": {
+        "n_queries": 6976,
+        "n_top1_errors": 3346,
+        "count": {
+          "parent_child": 494,
+          "sibling": 387,
+          "ancestor_descendant": 167,
+          "close_relative": 393,
+          "distant": 1905,
+          "gold_tied_at_top": 0,
+          "unclassified_tie_gt10": 0
+        },
+        "share_of_errors": {
+          "parent_child": 0.1476,
+          "sibling": 0.1157,
+          "ancestor_descendant": 0.0499,
+          "close_relative": 0.1175,
+          "distant": 0.5693,
+          "gold_tied_at_top": 0.0,
+          "unclassified_tie_gt10": 0.0
+        },
+        "sibling_miss_rate": 0.0555
+      },
+      "limbs_HP:0040064": {
+        "n_queries": 1706,
+        "n_top1_errors": 1099,
+        "count": {
+          "parent_child": 228,
+          "sibling": 180,
+          "ancestor_descendant": 71,
+          "close_relative": 185,
+          "distant": 435,
+          "gold_tied_at_top": 0,
+          "unclassified_tie_gt10": 0
+        },
+        "share_of_errors": {
+          "parent_child": 0.2075,
+          "sibling": 0.1638,
+          "ancestor_descendant": 0.0646,
+          "close_relative": 0.1683,
+          "distant": 0.3958,
+          "gold_tied_at_top": 0.0,
+          "unclassified_tie_gt10": 0.0
+        },
+        "sibling_miss_rate": 0.1055
+      },
+      "hand_foot_swaps": {
+        "regex_hand": "finger|thumb|hand|metacarp",
+        "regex_foot": "toe|hallux|foot|metatars",
+        "n_strict_top1_errors": 3346,
+        "n_swaps": 4,
+        "share_of_errors": 0.0012,
+        "category_count": {
+          "distant": 3,
+          "parent_child": 1
+        },
+        "examples": [
+          {
+            "gold": "Absent hand",
+            "pt": "Mão ausente",
+            "pred": "Absent toe"
+          },
+          {
+            "gold": "Metacarpal synostosis",
+            "pt": "Sinostose metacarpal",
+            "pred": "Synostosis of metacarpals/metatarsals"
+          },
+          {
+            "gold": "Absent thumb",
+            "pt": "Polegar ausente",
+            "pred": "Absent toe"
+          },
+          {
+            "gold": "Hypoplastic thumbnail",
+            "pt": "Unha do polegar hipoplásica",
+            "pred": "Triangular epiphysis of the distal phalanx of the 3rd toe"
+          }
+        ]
+      }
+    }
+  }
+}
