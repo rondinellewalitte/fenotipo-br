@@ -1,6 +1,6 @@
 # Revisão de 50 termos HPO sem tradução PT-BR
 
-Gerado por `reports/build_review.py` em 2026-10-25 (commit `a12a360`). Os números vêm de `results/`; não edite este arquivo à mão.
+Gerado por `reports/build_review.py` em 2026-10-25 (commit `b2fdad7`). Os números vêm de `results/`; não edite este arquivo à mão.
 
 > Apoio à pesquisa. Não é ferramenta diagnóstica nem orienta conduta clínica (ANVISA RDC 657/2022).
 
@@ -18,7 +18,9 @@ Os 50 termos do HPO (v2026-09-01) **sem rótulo oficial em português** que mais
   - O ganho médio é de +22,3 p.p. (faixa +19,5 p.p. a +24,4 p.p.). Ele foi medido em 20 divisões dos genes em duas metades: a lista é ordenada numa metade e o ganho é medido na outra.
   - Casos 100% traduzidos: de 5,8% para 11,4%–11,8%, fora da amostra.
   - Para comparação: dentro da amostra, que é um teto otimista, a cobertura chega a 62,9%. Com uma lista ordenada pelo `phenotype.hpoa`, que independe destes casos, chega a 60,1%.
-- **Limite:** os casos vêm da literatura e foram anotados em inglês. A frequência num ambulatório brasileiro pode ser outra.
+- **Limites:**
+  - Os casos vêm da literatura e foram anotados em inglês. A frequência num ambulatório brasileiro pode ser outra.
+  - **Viés de ancoragem:** quem revisa tende a aprovar a tradução candidata que já está na planilha. Por isso pedimos que corrija sem receio e marque explicitamente quando aceitar a candidata sem alteração. A taxa de aceitação deve ser lida como teto do acerto da tradução automática, não como medida independente.
 
 ## Como revisar
 
@@ -26,6 +28,7 @@ Preencha as duas colunas em amarelo:
 
 - **`reviewer_pt`:** o rótulo final em PT-BR, mesmo que seja igual ao candidato. Use grafia brasileira, o termo usual na clínica e na genética médica no Brasil, e a forma de rótulo do HPO (substantivo, só a primeira letra maiúscula, sem ponto final).
 - **`reviewer_notes`:** opcional. Dúvidas, termos alternativos, uso regional.
+- **Corrija sem receio.** A tradução candidata é só um ponto de partida e pode estar errada ou soar estranha. Corrija sem receio sempre que preferir outro termo. Se aceitar a candidata exatamente como está, copie-a em reviewer_pt e escreva em reviewer_notes: candidata aceita sem alteração. Isso permite medir quanto a tradução automática acertou.
 
 As colunas `label_en`, `definition_en` e `synonyms_en` trazem o conceito oficial em inglês. Sinônimos que não são exatos vêm marcados, por exemplo `[related]`.
 
