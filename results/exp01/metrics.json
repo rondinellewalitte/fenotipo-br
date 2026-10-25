@@ -1,0 +1,4335 @@
+{
+  "primary": {
+    "index": "exact",
+    "subset": "main (gold under HP:0000118)",
+    "headline": "top-k with pessimistic ties"
+  },
+  "results": {
+    "lexical_token_sort": {
+      "exact": {
+        "main": {
+          "n": 6976,
+          "top1": 0.5411,
+          "top1_ci95": [
+            0.5294,
+            0.5528
+          ],
+          "top5": 0.6839,
+          "top5_ci95": [
+            0.6729,
+            0.6947
+          ],
+          "top10": 0.7304,
+          "top10_ci95": [
+            0.7198,
+            0.7406
+          ],
+          "top1_optimistic": 0.5545,
+          "top5_optimistic": 0.6908,
+          "top10_optimistic": 0.7358,
+          "top1_tied": 0.0133,
+          "near_miss": 0.0416
+        },
+        "main_identical": {
+          "n": 96,
+          "top1": 1.0,
+          "top1_ci95": [
+            0.9615,
+            1.0
+          ],
+          "top5": 1.0,
+          "top5_ci95": [
+            0.9615,
+            1.0
+          ],
+          "top10": 1.0,
+          "top10_ci95": [
+            0.9615,
+            1.0
+          ],
+          "top1_optimistic": 1.0,
+          "top5_optimistic": 1.0,
+          "top10_optimistic": 1.0,
+          "top1_tied": 0.0,
+          "near_miss": 0.0
+        },
+        "main_nonidentical": {
+          "n": 6880,
+          "top1": 0.5347,
+          "top1_ci95": [
+            0.5229,
+            0.5465
+          ],
+          "top5": 0.6795,
+          "top5_ci95": [
+            0.6684,
+            0.6904
+          ],
+          "top10": 0.7266,
+          "top10_ci95": [
+            0.7159,
+            0.737
+          ],
+          "top1_optimistic": 0.5483,
+          "top5_optimistic": 0.6865,
+          "top10_optimistic": 0.7321,
+          "top1_tied": 0.0135,
+          "near_miss": 0.0422
+        },
+        "main_stale": {
+          "n": 227,
+          "top1": 0.3877,
+          "top1_ci95": [
+            0.3267,
+            0.4524
+          ],
+          "top5": 0.6211,
+          "top5_ci95": [
+            0.5565,
+            0.6817
+          ],
+          "top10": 0.6784,
+          "top10_ci95": [
+            0.6151,
+            0.7358
+          ],
+          "top1_optimistic": 0.4361,
+          "top5_optimistic": 0.6344,
+          "top10_optimistic": 0.6872,
+          "top1_tied": 0.0485,
+          "near_miss": 0.1145
+        },
+        "main_current": {
+          "n": 6749,
+          "top1": 0.5463,
+          "top1_ci95": [
+            0.5344,
+            0.5582
+          ],
+          "top5": 0.686,
+          "top5_ci95": [
+            0.6749,
+            0.697
+          ],
+          "top10": 0.7321,
+          "top10_ci95": [
+            0.7214,
+            0.7425
+          ],
+          "top1_optimistic": 0.5585,
+          "top5_optimistic": 0.6927,
+          "top10_optimistic": 0.7374,
+          "top1_tied": 0.0121,
+          "near_miss": 0.0391
+        },
+        "outside_HP:0000118": {
+          "n": 178,
+          "top1": 0.6067,
+          "top1_ci95": [
+            0.5335,
+            0.6755
+          ],
+          "top5": 0.736,
+          "top5_ci95": [
+            0.6667,
+            0.7952
+          ],
+          "top10": 0.7697,
+          "top10_ci95": [
+            0.7025,
+            0.8254
+          ],
+          "top1_optimistic": 0.6067,
+          "top5_optimistic": 0.736,
+          "top10_optimistic": 0.7697,
+          "top1_tied": 0.0,
+          "near_miss": 0.0169
+        },
+        "all": {
+          "n": 7154,
+          "top1": 0.5428,
+          "top1_ci95": [
+            0.5312,
+            0.5543
+          ],
+          "top5": 0.6852,
+          "top5_ci95": [
+            0.6744,
+            0.6959
+          ],
+          "top10": 0.7313,
+          "top10_ci95": [
+            0.7209,
+            0.7415
+          ],
+          "top1_optimistic": 0.5558,
+          "top5_optimistic": 0.6919,
+          "top10_optimistic": 0.7367,
+          "top1_tied": 0.013,
+          "near_miss": 0.041
+        }
+      },
+      "all_scopes": {
+        "main": {
+          "n": 6976,
+          "top1": 0.5407,
+          "top1_ci95": [
+            0.529,
+            0.5524
+          ],
+          "top5": 0.6832,
+          "top5_ci95": [
+            0.6722,
+            0.694
+          ],
+          "top10": 0.7299,
+          "top10_ci95": [
+            0.7194,
+            0.7402
+          ],
+          "top1_optimistic": 0.5538,
+          "top5_optimistic": 0.6892,
+          "top10_optimistic": 0.7354,
+          "top1_tied": 0.013,
+          "near_miss": 0.0423
+        },
+        "main_identical": {
+          "n": 96,
+          "top1": 1.0,
+          "top1_ci95": [
+            0.9615,
+            1.0
+          ],
+          "top5": 1.0,
+          "top5_ci95": [
+            0.9615,
+            1.0
+          ],
+          "top10": 1.0,
+          "top10_ci95": [
+            0.9615,
+            1.0
+          ],
+          "top1_optimistic": 1.0,
+          "top5_optimistic": 1.0,
+          "top10_optimistic": 1.0,
+          "top1_tied": 0.0,
+          "near_miss": 0.0
+        },
+        "main_nonidentical": {
+          "n": 6880,
+          "top1": 0.5343,
+          "top1_ci95": [
+            0.5225,
+            0.5461
+          ],
+          "top5": 0.6788,
+          "top5_ci95": [
+            0.6676,
+            0.6897
+          ],
+          "top10": 0.7262,
+          "top10_ci95": [
+            0.7155,
+            0.7366
+          ],
+          "top1_optimistic": 0.5475,
+          "top5_optimistic": 0.6849,
+          "top10_optimistic": 0.7317,
+          "top1_tied": 0.0132,
+          "near_miss": 0.0429
+        },
+        "main_stale": {
+          "n": 227,
+          "top1": 0.3877,
+          "top1_ci95": [
+            0.3267,
+            0.4524
+          ],
+          "top5": 0.6167,
+          "top5_ci95": [
+            0.552,
+            0.6775
+          ],
+          "top10": 0.6784,
+          "top10_ci95": [
+            0.6151,
+            0.7358
+          ],
+          "top1_optimistic": 0.4361,
+          "top5_optimistic": 0.63,
+          "top10_optimistic": 0.6784,
+          "top1_tied": 0.0485,
+          "near_miss": 0.1145
+        },
+        "main_current": {
+          "n": 6749,
+          "top1": 0.5459,
+          "top1_ci95": [
+            0.534,
+            0.5577
+          ],
+          "top5": 0.6854,
+          "top5_ci95": [
+            0.6743,
+            0.6964
+          ],
+          "top10": 0.7317,
+          "top10_ci95": [
+            0.721,
+            0.7421
+          ],
+          "top1_optimistic": 0.5577,
+          "top5_optimistic": 0.6912,
+          "top10_optimistic": 0.7373,
+          "top1_tied": 0.0119,
+          "near_miss": 0.0399
+        },
+        "outside_HP:0000118": {
+          "n": 178,
+          "top1": 0.6067,
+          "top1_ci95": [
+            0.5335,
+            0.6755
+          ],
+          "top5": 0.7303,
+          "top5_ci95": [
+            0.6608,
+            0.7902
+          ],
+          "top10": 0.7697,
+          "top10_ci95": [
+            0.7025,
+            0.8254
+          ],
+          "top1_optimistic": 0.6067,
+          "top5_optimistic": 0.736,
+          "top10_optimistic": 0.7697,
+          "top1_tied": 0.0,
+          "near_miss": 0.0169
+        },
+        "all": {
+          "n": 7154,
+          "top1": 0.5424,
+          "top1_ci95": [
+            0.5308,
+            0.5539
+          ],
+          "top5": 0.6844,
+          "top5_ci95": [
+            0.6735,
+            0.695
+          ],
+          "top10": 0.7309,
+          "top10_ci95": [
+            0.7205,
+            0.7411
+          ],
+          "top1_optimistic": 0.5551,
+          "top5_optimistic": 0.6904,
+          "top10_optimistic": 0.7362,
+          "top1_tied": 0.0127,
+          "near_miss": 0.0417
+        }
+      }
+    },
+    "e5-base": {
+      "exact": {
+        "main": {
+          "n": 6976,
+          "top1": 0.7241,
+          "top1_ci95": [
+            0.7134,
+            0.7344
+          ],
+          "top5": 0.8833,
+          "top5_ci95": [
+            0.8756,
+            0.8906
+          ],
+          "top10": 0.916,
+          "top10_ci95": [
+            0.9093,
+            0.9223
+          ],
+          "top1_optimistic": 0.7241,
+          "top5_optimistic": 0.8833,
+          "top10_optimistic": 0.916,
+          "top1_tied": 0.0,
+          "near_miss": 0.044
+        },
+        "main_identical": {
+          "n": 96,
+          "top1": 1.0,
+          "top1_ci95": [
+            0.9615,
+            1.0
+          ],
+          "top5": 1.0,
+          "top5_ci95": [
+            0.9615,
+            1.0
+          ],
+          "top10": 1.0,
+          "top10_ci95": [
+            0.9615,
+            1.0
+          ],
+          "top1_optimistic": 1.0,
+          "top5_optimistic": 1.0,
+          "top10_optimistic": 1.0,
+          "top1_tied": 0.0,
+          "near_miss": 0.0
+        },
+        "main_nonidentical": {
+          "n": 6880,
+          "top1": 0.7202,
+          "top1_ci95": [
+            0.7095,
+            0.7307
+          ],
+          "top5": 0.8817,
+          "top5_ci95": [
+            0.8738,
+            0.8891
+          ],
+          "top10": 0.9148,
+          "top10_ci95": [
+            0.908,
+            0.9212
+          ],
+          "top1_optimistic": 0.7202,
+          "top5_optimistic": 0.8817,
+          "top10_optimistic": 0.9148,
+          "top1_tied": 0.0,
+          "near_miss": 0.0446
+        },
+        "main_stale": {
+          "n": 227,
+          "top1": 0.652,
+          "top1_ci95": [
+            0.588,
+            0.711
+          ],
+          "top5": 0.859,
+          "top5_ci95": [
+            0.8078,
+            0.8983
+          ],
+          "top10": 0.8855,
+          "top10_ci95": [
+            0.8375,
+            0.9206
+          ],
+          "top1_optimistic": 0.652,
+          "top5_optimistic": 0.859,
+          "top10_optimistic": 0.8855,
+          "top1_tied": 0.0,
+          "near_miss": 0.0749
+        },
+        "main_current": {
+          "n": 6749,
+          "top1": 0.7265,
+          "top1_ci95": [
+            0.7157,
+            0.737
+          ],
+          "top5": 0.8841,
+          "top5_ci95": [
+            0.8763,
+            0.8915
+          ],
+          "top10": 0.917,
+          "top10_ci95": [
+            0.9102,
+            0.9234
+          ],
+          "top1_optimistic": 0.7265,
+          "top5_optimistic": 0.8841,
+          "top10_optimistic": 0.917,
+          "top1_tied": 0.0,
+          "near_miss": 0.043
+        },
+        "outside_HP:0000118": {
+          "n": 178,
+          "top1": 0.882,
+          "top1_ci95": [
+            0.8264,
+            0.9215
+          ],
+          "top5": 0.9551,
+          "top5_ci95": [
+            0.9138,
+            0.9771
+          ],
+          "top10": 0.9663,
+          "top10_ci95": [
+            0.9284,
+            0.9845
+          ],
+          "top1_optimistic": 0.882,
+          "top5_optimistic": 0.9551,
+          "top10_optimistic": 0.9663,
+          "top1_tied": 0.0,
+          "near_miss": 0.0056
+        },
+        "all": {
+          "n": 7154,
+          "top1": 0.728,
+          "top1_ci95": [
+            0.7176,
+            0.7382
+          ],
+          "top5": 0.8851,
+          "top5_ci95": [
+            0.8775,
+            0.8923
+          ],
+          "top10": 0.9172,
+          "top10_ci95": [
+            0.9106,
+            0.9234
+          ],
+          "top1_optimistic": 0.728,
+          "top5_optimistic": 0.8851,
+          "top10_optimistic": 0.9172,
+          "top1_tied": 0.0,
+          "near_miss": 0.0431
+        }
+      },
+      "all_scopes": {
+        "main": {
+          "n": 6976,
+          "top1": 0.7232,
+          "top1_ci95": [
+            0.7126,
+            0.7336
+          ],
+          "top5": 0.8829,
+          "top5_ci95": [
+            0.8751,
+            0.8902
+          ],
+          "top10": 0.915,
+          "top10_ci95": [
+            0.9082,
+            0.9213
+          ],
+          "top1_optimistic": 0.7232,
+          "top5_optimistic": 0.8829,
+          "top10_optimistic": 0.915,
+          "top1_tied": 0.0,
+          "near_miss": 0.0444
+        },
+        "main_identical": {
+          "n": 96,
+          "top1": 1.0,
+          "top1_ci95": [
+            0.9615,
+            1.0
+          ],
+          "top5": 1.0,
+          "top5_ci95": [
+            0.9615,
+            1.0
+          ],
+          "top10": 1.0,
+          "top10_ci95": [
+            0.9615,
+            1.0
+          ],
+          "top1_optimistic": 1.0,
+          "top5_optimistic": 1.0,
+          "top10_optimistic": 1.0,
+          "top1_tied": 0.0,
+          "near_miss": 0.0
+        },
+        "main_nonidentical": {
+          "n": 6880,
+          "top1": 0.7193,
+          "top1_ci95": [
+            0.7086,
+            0.7298
+          ],
+          "top5": 0.8812,
+          "top5_ci95": [
+            0.8734,
+            0.8887
+          ],
+          "top10": 0.9138,
+          "top10_ci95": [
+            0.9069,
+            0.9202
+          ],
+          "top1_optimistic": 0.7193,
+          "top5_optimistic": 0.8812,
+          "top10_optimistic": 0.9138,
+          "top1_tied": 0.0,
+          "near_miss": 0.0451
+        },
+        "main_stale": {
+          "n": 227,
+          "top1": 0.6564,
+          "top1_ci95": [
+            0.5925,
+            0.7151
+          ],
+          "top5": 0.859,
+          "top5_ci95": [
+            0.8078,
+            0.8983
+          ],
+          "top10": 0.8855,
+          "top10_ci95": [
+            0.8375,
+            0.9206
+          ],
+          "top1_optimistic": 0.6564,
+          "top5_optimistic": 0.859,
+          "top10_optimistic": 0.8855,
+          "top1_tied": 0.0,
+          "near_miss": 0.0749
+        },
+        "main_current": {
+          "n": 6749,
+          "top1": 0.7254,
+          "top1_ci95": [
+            0.7147,
+            0.736
+          ],
+          "top5": 0.8837,
+          "top5_ci95": [
+            0.8758,
+            0.8911
+          ],
+          "top10": 0.916,
+          "top10_ci95": [
+            0.9091,
+            0.9224
+          ],
+          "top1_optimistic": 0.7254,
+          "top5_optimistic": 0.8837,
+          "top10_optimistic": 0.916,
+          "top1_tied": 0.0,
+          "near_miss": 0.0434
+        },
+        "outside_HP:0000118": {
+          "n": 178,
+          "top1": 0.882,
+          "top1_ci95": [
+            0.8264,
+            0.9215
+          ],
+          "top5": 0.9494,
+          "top5_ci95": [
+            0.9067,
+            0.9732
+          ],
+          "top10": 0.9607,
+          "top10_ci95": [
+            0.9211,
+            0.9808
+          ],
+          "top1_optimistic": 0.882,
+          "top5_optimistic": 0.9494,
+          "top10_optimistic": 0.9607,
+          "top1_tied": 0.0,
+          "near_miss": 0.0056
+        },
+        "all": {
+          "n": 7154,
+          "top1": 0.7271,
+          "top1_ci95": [
+            0.7167,
+            0.7373
+          ],
+          "top5": 0.8845,
+          "top5_ci95": [
+            0.8769,
+            0.8917
+          ],
+          "top10": 0.9161,
+          "top10_ci95": [
+            0.9095,
+            0.9223
+          ],
+          "top1_optimistic": 0.7271,
+          "top5_optimistic": 0.8845,
+          "top10_optimistic": 0.9161,
+          "top1_tied": 0.0,
+          "near_miss": 0.0435
+        }
+      }
+    },
+    "e5-base_qp": {
+      "exact": {
+        "main": {
+          "n": 6976,
+          "top1": 0.7467,
+          "top1_ci95": [
+            0.7364,
+            0.7568
+          ],
+          "top5": 0.8928,
+          "top5_ci95": [
+            0.8853,
+            0.8998
+          ],
+          "top10": 0.9257,
+          "top10_ci95": [
+            0.9194,
+            0.9317
+          ],
+          "top1_optimistic": 0.7467,
+          "top5_optimistic": 0.8928,
+          "top10_optimistic": 0.9257,
+          "top1_tied": 0.0,
+          "near_miss": 0.0492
+        },
+        "main_identical": {
+          "n": 96,
+          "top1": 0.9792,
+          "top1_ci95": [
+            0.9272,
+            0.9943
+          ],
+          "top5": 1.0,
+          "top5_ci95": [
+            0.9615,
+            1.0
+          ],
+          "top10": 1.0,
+          "top10_ci95": [
+            0.9615,
+            1.0
+          ],
+          "top1_optimistic": 0.9792,
+          "top5_optimistic": 1.0,
+          "top10_optimistic": 1.0,
+          "top1_tied": 0.0,
+          "near_miss": 0.0104
+        },
+        "main_nonidentical": {
+          "n": 6880,
+          "top1": 0.7435,
+          "top1_ci95": [
+            0.733,
+            0.7536
+          ],
+          "top5": 0.8913,
+          "top5_ci95": [
+            0.8837,
+            0.8984
+          ],
+          "top10": 0.9247,
+          "top10_ci95": [
+            0.9182,
+            0.9307
+          ],
+          "top1_optimistic": 0.7435,
+          "top5_optimistic": 0.8913,
+          "top10_optimistic": 0.9247,
+          "top1_tied": 0.0,
+          "near_miss": 0.0497
+        },
+        "main_stale": {
+          "n": 227,
+          "top1": 0.696,
+          "top1_ci95": [
+            0.6333,
+            0.7522
+          ],
+          "top5": 0.8634,
+          "top5_ci95": [
+            0.8127,
+            0.9021
+          ],
+          "top10": 0.9119,
+          "top10_ci95": [
+            0.8678,
+            0.9422
+          ],
+          "top1_optimistic": 0.696,
+          "top5_optimistic": 0.8634,
+          "top10_optimistic": 0.9119,
+          "top1_tied": 0.0,
+          "near_miss": 0.0485
+        },
+        "main_current": {
+          "n": 6749,
+          "top1": 0.7484,
+          "top1_ci95": [
+            0.7379,
+            0.7586
+          ],
+          "top5": 0.8938,
+          "top5_ci95": [
+            0.8862,
+            0.9009
+          ],
+          "top10": 0.9262,
+          "top10_ci95": [
+            0.9197,
+            0.9322
+          ],
+          "top1_optimistic": 0.7484,
+          "top5_optimistic": 0.8938,
+          "top10_optimistic": 0.9262,
+          "top1_tied": 0.0,
+          "near_miss": 0.0492
+        },
+        "outside_HP:0000118": {
+          "n": 178,
+          "top1": 0.8315,
+          "top1_ci95": [
+            0.7696,
+            0.8793
+          ],
+          "top5": 0.9326,
+          "top5_ci95": [
+            0.8859,
+            0.961
+          ],
+          "top10": 0.9607,
+          "top10_ci95": [
+            0.9211,
+            0.9808
+          ],
+          "top1_optimistic": 0.8315,
+          "top5_optimistic": 0.9326,
+          "top10_optimistic": 0.9607,
+          "top1_tied": 0.0,
+          "near_miss": 0.0112
+        },
+        "all": {
+          "n": 7154,
+          "top1": 0.7488,
+          "top1_ci95": [
+            0.7386,
+            0.7587
+          ],
+          "top5": 0.8938,
+          "top5_ci95": [
+            0.8864,
+            0.9007
+          ],
+          "top10": 0.9266,
+          "top10_ci95": [
+            0.9203,
+            0.9324
+          ],
+          "top1_optimistic": 0.7488,
+          "top5_optimistic": 0.8938,
+          "top10_optimistic": 0.9266,
+          "top1_tied": 0.0,
+          "near_miss": 0.0482
+        }
+      },
+      "all_scopes": {
+        "main": {
+          "n": 6976,
+          "top1": 0.7457,
+          "top1_ci95": [
+            0.7353,
+            0.7558
+          ],
+          "top5": 0.8928,
+          "top5_ci95": [
+            0.8853,
+            0.8998
+          ],
+          "top10": 0.9257,
+          "top10_ci95": [
+            0.9194,
+            0.9317
+          ],
+          "top1_optimistic": 0.7457,
+          "top5_optimistic": 0.8928,
+          "top10_optimistic": 0.9257,
+          "top1_tied": 0.0,
+          "near_miss": 0.0493
+        },
+        "main_identical": {
+          "n": 96,
+          "top1": 0.9792,
+          "top1_ci95": [
+            0.9272,
+            0.9943
+          ],
+          "top5": 1.0,
+          "top5_ci95": [
+            0.9615,
+            1.0
+          ],
+          "top10": 1.0,
+          "top10_ci95": [
+            0.9615,
+            1.0
+          ],
+          "top1_optimistic": 0.9792,
+          "top5_optimistic": 1.0,
+          "top10_optimistic": 1.0,
+          "top1_tied": 0.0,
+          "near_miss": 0.0104
+        },
+        "main_nonidentical": {
+          "n": 6880,
+          "top1": 0.7424,
+          "top1_ci95": [
+            0.732,
+            0.7526
+          ],
+          "top5": 0.8913,
+          "top5_ci95": [
+            0.8837,
+            0.8984
+          ],
+          "top10": 0.9247,
+          "top10_ci95": [
+            0.9182,
+            0.9307
+          ],
+          "top1_optimistic": 0.7424,
+          "top5_optimistic": 0.8913,
+          "top10_optimistic": 0.9247,
+          "top1_tied": 0.0,
+          "near_miss": 0.0499
+        },
+        "main_stale": {
+          "n": 227,
+          "top1": 0.696,
+          "top1_ci95": [
+            0.6333,
+            0.7522
+          ],
+          "top5": 0.8634,
+          "top5_ci95": [
+            0.8127,
+            0.9021
+          ],
+          "top10": 0.9119,
+          "top10_ci95": [
+            0.8678,
+            0.9422
+          ],
+          "top1_optimistic": 0.696,
+          "top5_optimistic": 0.8634,
+          "top10_optimistic": 0.9119,
+          "top1_tied": 0.0,
+          "near_miss": 0.0485
+        },
+        "main_current": {
+          "n": 6749,
+          "top1": 0.7474,
+          "top1_ci95": [
+            0.7369,
+            0.7576
+          ],
+          "top5": 0.8938,
+          "top5_ci95": [
+            0.8862,
+            0.9009
+          ],
+          "top10": 0.9262,
+          "top10_ci95": [
+            0.9197,
+            0.9322
+          ],
+          "top1_optimistic": 0.7474,
+          "top5_optimistic": 0.8938,
+          "top10_optimistic": 0.9262,
+          "top1_tied": 0.0,
+          "near_miss": 0.0493
+        },
+        "outside_HP:0000118": {
+          "n": 178,
+          "top1": 0.8315,
+          "top1_ci95": [
+            0.7696,
+            0.8793
+          ],
+          "top5": 0.9326,
+          "top5_ci95": [
+            0.8859,
+            0.961
+          ],
+          "top10": 0.9551,
+          "top10_ci95": [
+            0.9138,
+            0.9771
+          ],
+          "top1_optimistic": 0.8315,
+          "top5_optimistic": 0.9326,
+          "top10_optimistic": 0.9551,
+          "top1_tied": 0.0,
+          "near_miss": 0.0112
+        },
+        "all": {
+          "n": 7154,
+          "top1": 0.7478,
+          "top1_ci95": [
+            0.7376,
+            0.7578
+          ],
+          "top5": 0.8938,
+          "top5_ci95": [
+            0.8864,
+            0.9007
+          ],
+          "top10": 0.9265,
+          "top10_ci95": [
+            0.9202,
+            0.9323
+          ],
+          "top1_optimistic": 0.7478,
+          "top5_optimistic": 0.8938,
+          "top10_optimistic": 0.9265,
+          "top1_tied": 0.0,
+          "near_miss": 0.0484
+        }
+      }
+    },
+    "mpnet-multi": {
+      "exact": {
+        "main": {
+          "n": 6976,
+          "top1": 0.5204,
+          "top1_ci95": [
+            0.5086,
+            0.5321
+          ],
+          "top5": 0.7263,
+          "top5_ci95": [
+            0.7158,
+            0.7367
+          ],
+          "top10": 0.7887,
+          "top10_ci95": [
+            0.779,
+            0.7981
+          ],
+          "top1_optimistic": 0.5204,
+          "top5_optimistic": 0.7263,
+          "top10_optimistic": 0.7887,
+          "top1_tied": 0.0,
+          "near_miss": 0.0708
+        },
+        "main_identical": {
+          "n": 96,
+          "top1": 0.9167,
+          "top1_ci95": [
+            0.8441,
+            0.9572
+          ],
+          "top5": 0.9583,
+          "top5_ci95": [
+            0.8977,
+            0.9837
+          ],
+          "top10": 0.9688,
+          "top10_ci95": [
+            0.9121,
+            0.9893
+          ],
+          "top1_optimistic": 0.9167,
+          "top5_optimistic": 0.9583,
+          "top10_optimistic": 0.9688,
+          "top1_tied": 0.0,
+          "near_miss": 0.0
+        },
+        "main_nonidentical": {
+          "n": 6880,
+          "top1": 0.5148,
+          "top1_ci95": [
+            0.503,
+            0.5266
+          ],
+          "top5": 0.7231,
+          "top5_ci95": [
+            0.7124,
+            0.7336
+          ],
+          "top10": 0.7862,
+          "top10_ci95": [
+            0.7763,
+            0.7957
+          ],
+          "top1_optimistic": 0.5148,
+          "top5_optimistic": 0.7231,
+          "top10_optimistic": 0.7862,
+          "top1_tied": 0.0,
+          "near_miss": 0.0718
+        },
+        "main_stale": {
+          "n": 227,
+          "top1": 0.533,
+          "top1_ci95": [
+            0.4681,
+            0.5969
+          ],
+          "top5": 0.6828,
+          "top5_ci95": [
+            0.6197,
+            0.7399
+          ],
+          "top10": 0.7401,
+          "top10_ci95": [
+            0.6794,
+            0.7928
+          ],
+          "top1_optimistic": 0.533,
+          "top5_optimistic": 0.6828,
+          "top10_optimistic": 0.7401,
+          "top1_tied": 0.0,
+          "near_miss": 0.0617
+        },
+        "main_current": {
+          "n": 6749,
+          "top1": 0.5199,
+          "top1_ci95": [
+            0.508,
+            0.5318
+          ],
+          "top5": 0.7278,
+          "top5_ci95": [
+            0.7171,
+            0.7383
+          ],
+          "top10": 0.7903,
+          "top10_ci95": [
+            0.7805,
+            0.7999
+          ],
+          "top1_optimistic": 0.5199,
+          "top5_optimistic": 0.7278,
+          "top10_optimistic": 0.7903,
+          "top1_tied": 0.0,
+          "near_miss": 0.0711
+        },
+        "outside_HP:0000118": {
+          "n": 178,
+          "top1": 0.7528,
+          "top1_ci95": [
+            0.6845,
+            0.8104
+          ],
+          "top5": 0.8708,
+          "top5_ci95": [
+            0.8136,
+            0.9123
+          ],
+          "top10": 0.8933,
+          "top10_ci95": [
+            0.8393,
+            0.9306
+          ],
+          "top1_optimistic": 0.7528,
+          "top5_optimistic": 0.8708,
+          "top10_optimistic": 0.8933,
+          "top1_tied": 0.0,
+          "near_miss": 0.0056
+        },
+        "all": {
+          "n": 7154,
+          "top1": 0.5261,
+          "top1_ci95": [
+            0.5146,
+            0.5377
+          ],
+          "top5": 0.7299,
+          "top5_ci95": [
+            0.7195,
+            0.7401
+          ],
+          "top10": 0.7913,
+          "top10_ci95": [
+            0.7817,
+            0.8006
+          ],
+          "top1_optimistic": 0.5261,
+          "top5_optimistic": 0.7299,
+          "top10_optimistic": 0.7913,
+          "top1_tied": 0.0,
+          "near_miss": 0.0692
+        }
+      },
+      "all_scopes": {
+        "main": {
+          "n": 6976,
+          "top1": 0.5198,
+          "top1_ci95": [
+            0.5081,
+            0.5315
+          ],
+          "top5": 0.7253,
+          "top5_ci95": [
+            0.7147,
+            0.7357
+          ],
+          "top10": 0.7867,
+          "top10_ci95": [
+            0.7769,
+            0.7962
+          ],
+          "top1_optimistic": 0.5198,
+          "top5_optimistic": 0.7253,
+          "top10_optimistic": 0.7867,
+          "top1_tied": 0.0,
+          "near_miss": 0.0705
+        },
+        "main_identical": {
+          "n": 96,
+          "top1": 0.9167,
+          "top1_ci95": [
+            0.8441,
+            0.9572
+          ],
+          "top5": 0.9583,
+          "top5_ci95": [
+            0.8977,
+            0.9837
+          ],
+          "top10": 0.9688,
+          "top10_ci95": [
+            0.9121,
+            0.9893
+          ],
+          "top1_optimistic": 0.9167,
+          "top5_optimistic": 0.9583,
+          "top10_optimistic": 0.9688,
+          "top1_tied": 0.0,
+          "near_miss": 0.0
+        },
+        "main_nonidentical": {
+          "n": 6880,
+          "top1": 0.5142,
+          "top1_ci95": [
+            0.5024,
+            0.526
+          ],
+          "top5": 0.7221,
+          "top5_ci95": [
+            0.7114,
+            0.7326
+          ],
+          "top10": 0.7842,
+          "top10_ci95": [
+            0.7743,
+            0.7937
+          ],
+          "top1_optimistic": 0.5142,
+          "top5_optimistic": 0.7221,
+          "top10_optimistic": 0.7842,
+          "top1_tied": 0.0,
+          "near_miss": 0.0715
+        },
+        "main_stale": {
+          "n": 227,
+          "top1": 0.533,
+          "top1_ci95": [
+            0.4681,
+            0.5969
+          ],
+          "top5": 0.6828,
+          "top5_ci95": [
+            0.6197,
+            0.7399
+          ],
+          "top10": 0.7401,
+          "top10_ci95": [
+            0.6794,
+            0.7928
+          ],
+          "top1_optimistic": 0.533,
+          "top5_optimistic": 0.6828,
+          "top10_optimistic": 0.7401,
+          "top1_tied": 0.0,
+          "near_miss": 0.0617
+        },
+        "main_current": {
+          "n": 6749,
+          "top1": 0.5193,
+          "top1_ci95": [
+            0.5074,
+            0.5312
+          ],
+          "top5": 0.7268,
+          "top5_ci95": [
+            0.716,
+            0.7373
+          ],
+          "top10": 0.7883,
+          "top10_ci95": [
+            0.7784,
+            0.7978
+          ],
+          "top1_optimistic": 0.5193,
+          "top5_optimistic": 0.7268,
+          "top10_optimistic": 0.7883,
+          "top1_tied": 0.0,
+          "near_miss": 0.0708
+        },
+        "outside_HP:0000118": {
+          "n": 178,
+          "top1": 0.7528,
+          "top1_ci95": [
+            0.6845,
+            0.8104
+          ],
+          "top5": 0.8708,
+          "top5_ci95": [
+            0.8136,
+            0.9123
+          ],
+          "top10": 0.8933,
+          "top10_ci95": [
+            0.8393,
+            0.9306
+          ],
+          "top1_optimistic": 0.7528,
+          "top5_optimistic": 0.8708,
+          "top10_optimistic": 0.8933,
+          "top1_tied": 0.0,
+          "near_miss": 0.0056
+        },
+        "all": {
+          "n": 7154,
+          "top1": 0.5256,
+          "top1_ci95": [
+            0.514,
+            0.5371
+          ],
+          "top5": 0.729,
+          "top5_ci95": [
+            0.7185,
+            0.7391
+          ],
+          "top10": 0.7893,
+          "top10_ci95": [
+            0.7797,
+            0.7986
+          ],
+          "top1_optimistic": 0.5256,
+          "top5_optimistic": 0.729,
+          "top10_optimistic": 0.7893,
+          "top1_tied": 0.0,
+          "near_miss": 0.0689
+        }
+      }
+    },
+    "bge-m3": {
+      "exact": {
+        "main": {
+          "n": 6976,
+          "top1": 0.8116,
+          "top1_ci95": [
+            0.8023,
+            0.8206
+          ],
+          "top5": 0.9335,
+          "top5_ci95": [
+            0.9274,
+            0.9391
+          ],
+          "top10": 0.9495,
+          "top10_ci95": [
+            0.9442,
+            0.9544
+          ],
+          "top1_optimistic": 0.8116,
+          "top5_optimistic": 0.9335,
+          "top10_optimistic": 0.9495,
+          "top1_tied": 0.0,
+          "near_miss": 0.0397
+        },
+        "main_identical": {
+          "n": 96,
+          "top1": 0.9792,
+          "top1_ci95": [
+            0.9272,
+            0.9943
+          ],
+          "top5": 1.0,
+          "top5_ci95": [
+            0.9615,
+            1.0
+          ],
+          "top10": 1.0,
+          "top10_ci95": [
+            0.9615,
+            1.0
+          ],
+          "top1_optimistic": 0.9792,
+          "top5_optimistic": 1.0,
+          "top10_optimistic": 1.0,
+          "top1_tied": 0.0,
+          "near_miss": 0.0
+        },
+        "main_nonidentical": {
+          "n": 6880,
+          "top1": 0.8093,
+          "top1_ci95": [
+            0.7998,
+            0.8184
+          ],
+          "top5": 0.9326,
+          "top5_ci95": [
+            0.9264,
+            0.9382
+          ],
+          "top10": 0.9488,
+          "top10_ci95": [
+            0.9434,
+            0.9538
+          ],
+          "top1_optimistic": 0.8093,
+          "top5_optimistic": 0.9326,
+          "top10_optimistic": 0.9488,
+          "top1_tied": 0.0,
+          "near_miss": 0.0403
+        },
+        "main_stale": {
+          "n": 227,
+          "top1": 0.7621,
+          "top1_ci95": [
+            0.7027,
+            0.8129
+          ],
+          "top5": 0.8987,
+          "top5_ci95": [
+            0.8526,
+            0.9315
+          ],
+          "top10": 0.9295,
+          "top10_ci95": [
+            0.8886,
+            0.9562
+          ],
+          "top1_optimistic": 0.7621,
+          "top5_optimistic": 0.8987,
+          "top10_optimistic": 0.9295,
+          "top1_tied": 0.0,
+          "near_miss": 0.0573
+        },
+        "main_current": {
+          "n": 6749,
+          "top1": 0.8133,
+          "top1_ci95": [
+            0.8038,
+            0.8224
+          ],
+          "top5": 0.9347,
+          "top5_ci95": [
+            0.9285,
+            0.9403
+          ],
+          "top10": 0.9502,
+          "top10_ci95": [
+            0.9448,
+            0.9552
+          ],
+          "top1_optimistic": 0.8133,
+          "top5_optimistic": 0.9347,
+          "top10_optimistic": 0.9502,
+          "top1_tied": 0.0,
+          "near_miss": 0.0391
+        },
+        "outside_HP:0000118": {
+          "n": 178,
+          "top1": 0.927,
+          "top1_ci95": [
+            0.8791,
+            0.9568
+          ],
+          "top5": 0.9663,
+          "top5_ci95": [
+            0.9284,
+            0.9845
+          ],
+          "top10": 0.9831,
+          "top10_ci95": [
+            0.9516,
+            0.9943
+          ],
+          "top1_optimistic": 0.927,
+          "top5_optimistic": 0.9663,
+          "top10_optimistic": 0.9831,
+          "top1_tied": 0.0,
+          "near_miss": 0.0112
+        },
+        "all": {
+          "n": 7154,
+          "top1": 0.8145,
+          "top1_ci95": [
+            0.8053,
+            0.8233
+          ],
+          "top5": 0.9343,
+          "top5_ci95": [
+            0.9283,
+            0.9398
+          ],
+          "top10": 0.9504,
+          "top10_ci95": [
+            0.9451,
+            0.9552
+          ],
+          "top1_optimistic": 0.8145,
+          "top5_optimistic": 0.9343,
+          "top10_optimistic": 0.9504,
+          "top1_tied": 0.0,
+          "near_miss": 0.039
+        }
+      },
+      "all_scopes": {
+        "main": {
+          "n": 6976,
+          "top1": 0.8106,
+          "top1_ci95": [
+            0.8013,
+            0.8197
+          ],
+          "top5": 0.9325,
+          "top5_ci95": [
+            0.9264,
+            0.9381
+          ],
+          "top10": 0.9498,
+          "top10_ci95": [
+            0.9445,
+            0.9547
+          ],
+          "top1_optimistic": 0.8106,
+          "top5_optimistic": 0.9325,
+          "top10_optimistic": 0.9498,
+          "top1_tied": 0.0,
+          "near_miss": 0.0399
+        },
+        "main_identical": {
+          "n": 96,
+          "top1": 0.9792,
+          "top1_ci95": [
+            0.9272,
+            0.9943
+          ],
+          "top5": 1.0,
+          "top5_ci95": [
+            0.9615,
+            1.0
+          ],
+          "top10": 1.0,
+          "top10_ci95": [
+            0.9615,
+            1.0
+          ],
+          "top1_optimistic": 0.9792,
+          "top5_optimistic": 1.0,
+          "top10_optimistic": 1.0,
+          "top1_tied": 0.0,
+          "near_miss": 0.0
+        },
+        "main_nonidentical": {
+          "n": 6880,
+          "top1": 0.8083,
+          "top1_ci95": [
+            0.7988,
+            0.8174
+          ],
+          "top5": 0.9315,
+          "top5_ci95": [
+            0.9253,
+            0.9373
+          ],
+          "top10": 0.9491,
+          "top10_ci95": [
+            0.9437,
+            0.9541
+          ],
+          "top1_optimistic": 0.8083,
+          "top5_optimistic": 0.9315,
+          "top10_optimistic": 0.9491,
+          "top1_tied": 0.0,
+          "near_miss": 0.0404
+        },
+        "main_stale": {
+          "n": 227,
+          "top1": 0.7621,
+          "top1_ci95": [
+            0.7027,
+            0.8129
+          ],
+          "top5": 0.8987,
+          "top5_ci95": [
+            0.8526,
+            0.9315
+          ],
+          "top10": 0.9295,
+          "top10_ci95": [
+            0.8886,
+            0.9562
+          ],
+          "top1_optimistic": 0.7621,
+          "top5_optimistic": 0.8987,
+          "top10_optimistic": 0.9295,
+          "top1_tied": 0.0,
+          "near_miss": 0.0573
+        },
+        "main_current": {
+          "n": 6749,
+          "top1": 0.8123,
+          "top1_ci95": [
+            0.8028,
+            0.8214
+          ],
+          "top5": 0.9336,
+          "top5_ci95": [
+            0.9274,
+            0.9393
+          ],
+          "top10": 0.9505,
+          "top10_ci95": [
+            0.9451,
+            0.9554
+          ],
+          "top1_optimistic": 0.8123,
+          "top5_optimistic": 0.9336,
+          "top10_optimistic": 0.9505,
+          "top1_tied": 0.0,
+          "near_miss": 0.0393
+        },
+        "outside_HP:0000118": {
+          "n": 178,
+          "top1": 0.927,
+          "top1_ci95": [
+            0.8791,
+            0.9568
+          ],
+          "top5": 0.9663,
+          "top5_ci95": [
+            0.9284,
+            0.9845
+          ],
+          "top10": 0.9831,
+          "top10_ci95": [
+            0.9516,
+            0.9943
+          ],
+          "top1_optimistic": 0.927,
+          "top5_optimistic": 0.9663,
+          "top10_optimistic": 0.9831,
+          "top1_tied": 0.0,
+          "near_miss": 0.0112
+        },
+        "all": {
+          "n": 7154,
+          "top1": 0.8135,
+          "top1_ci95": [
+            0.8043,
+            0.8224
+          ],
+          "top5": 0.9333,
+          "top5_ci95": [
+            0.9273,
+            0.9389
+          ],
+          "top10": 0.9507,
+          "top10_ci95": [
+            0.9454,
+            0.9554
+          ],
+          "top1_optimistic": 0.8135,
+          "top5_optimistic": 0.9333,
+          "top10_optimistic": 0.9507,
+          "top1_tied": 0.0,
+          "near_miss": 0.0391
+        }
+      }
+    }
+  },
+  "by_branch": {
+    "lexical_token_sort": {
+      "HP:0000119": {
+        "label": "Abnormality of the genitourinary system",
+        "n": 618,
+        "top1": 0.746,
+        "top1_ci95": [
+          0.7102,
+          0.7787
+        ],
+        "top5": 0.843,
+        "top5_ci95": [
+          0.8123,
+          0.8696
+        ],
+        "top10": 0.8673,
+        "top10_ci95": [
+          0.8383,
+          0.8918
+        ],
+        "top1_optimistic": 0.7557,
+        "top5_optimistic": 0.8495,
+        "top10_optimistic": 0.8738,
+        "top1_tied": 0.0097,
+        "near_miss": 0.0113
+      },
+      "HP:0000152": {
+        "label": "Abnormality of head or neck",
+        "n": 601,
+        "top1": 0.5158,
+        "top1_ci95": [
+          0.4759,
+          0.5555
+        ],
+        "top5": 0.6606,
+        "top5_ci95": [
+          0.6218,
+          0.6973
+        ],
+        "top10": 0.7105,
+        "top10_ci95": [
+          0.673,
+          0.7453
+        ],
+        "top1_optimistic": 0.5241,
+        "top5_optimistic": 0.6689,
+        "top10_optimistic": 0.7138,
+        "top1_tied": 0.0083,
+        "near_miss": 0.02
+      },
+      "HP:0000478": {
+        "label": "Abnormality of the eye",
+        "n": 599,
+        "top1": 0.6928,
+        "top1_ci95": [
+          0.6547,
+          0.7284
+        ],
+        "top5": 0.8063,
+        "top5_ci95": [
+          0.7728,
+          0.836
+        ],
+        "top10": 0.8414,
+        "top10_ci95": [
+          0.81,
+          0.8685
+        ],
+        "top1_optimistic": 0.7095,
+        "top5_optimistic": 0.8063,
+        "top10_optimistic": 0.8464,
+        "top1_tied": 0.0167,
+        "near_miss": 0.0284
+      },
+      "HP:0000598": {
+        "label": "Abnormality of the ear",
+        "n": 94,
+        "top1": 0.4787,
+        "top1_ci95": [
+          0.3806,
+          0.5785
+        ],
+        "top5": 0.6064,
+        "top5_ci95": [
+          0.5053,
+          0.6991
+        ],
+        "top10": 0.6277,
+        "top10_ci95": [
+          0.5267,
+          0.7186
+        ],
+        "top1_optimistic": 0.4894,
+        "top5_optimistic": 0.6064,
+        "top10_optimistic": 0.6277,
+        "top1_tied": 0.0106,
+        "near_miss": 0.0213
+      },
+      "HP:0000707": {
+        "label": "Abnormality of the nervous system",
+        "n": 1081,
+        "top1": 0.592,
+        "top1_ci95": [
+          0.5625,
+          0.621
+        ],
+        "top5": 0.7549,
+        "top5_ci95": [
+          0.7283,
+          0.7796
+        ],
+        "top10": 0.7946,
+        "top10_ci95": [
+          0.7695,
+          0.8177
+        ],
+        "top1_optimistic": 0.5985,
+        "top5_optimistic": 0.7604,
+        "top10_optimistic": 0.8002,
+        "top1_tied": 0.0065,
+        "near_miss": 0.0564
+      },
+      "HP:0000769": {
+        "label": "Abnormality of the breast",
+        "n": 17,
+        "top1": 0.1765,
+        "top1_ci95": [
+          0.0619,
+          0.4103
+        ],
+        "top5": 0.2353,
+        "top5_ci95": [
+          0.0955,
+          0.4726
+        ],
+        "top10": 0.4118,
+        "top10_ci95": [
+          0.2161,
+          0.6399
+        ],
+        "top1_optimistic": 0.1765,
+        "top5_optimistic": 0.2941,
+        "top10_optimistic": 0.4118,
+        "top1_tied": 0.0,
+        "near_miss": 0.0
+      },
+      "HP:0000818": {
+        "label": "Abnormality of the endocrine system",
+        "n": 199,
+        "top1": 0.6734,
+        "top1_ci95": [
+          0.6055,
+          0.7347
+        ],
+        "top5": 0.8794,
+        "top5_ci95": [
+          0.8268,
+          0.9176
+        ],
+        "top10": 0.9095,
+        "top10_ci95": [
+          0.8616,
+          0.942
+        ],
+        "top1_optimistic": 0.7085,
+        "top5_optimistic": 0.8894,
+        "top10_optimistic": 0.9196,
+        "top1_tied": 0.0352,
+        "near_miss": 0.0653
+      },
+      "HP:0001197": {
+        "label": "Abnormality of prenatal development or birth",
+        "n": 93,
+        "top1": 0.6667,
+        "top1_ci95": [
+          0.5659,
+          0.7542
+        ],
+        "top5": 0.7634,
+        "top5_ci95": [
+          0.6677,
+          0.8383
+        ],
+        "top10": 0.7957,
+        "top10_ci95": [
+          0.7028,
+          0.8651
+        ],
+        "top1_optimistic": 0.6882,
+        "top5_optimistic": 0.7742,
+        "top10_optimistic": 0.7957,
+        "top1_tied": 0.0215,
+        "near_miss": 0.0215
+      },
+      "HP:0001507": {
+        "label": "Growth abnormality",
+        "n": 26,
+        "top1": 0.3077,
+        "top1_ci95": [
+          0.165,
+          0.4999
+        ],
+        "top5": 0.4615,
+        "top5_ci95": [
+          0.2876,
+          0.6454
+        ],
+        "top10": 0.4615,
+        "top10_ci95": [
+          0.2876,
+          0.6454
+        ],
+        "top1_optimistic": 0.3077,
+        "top5_optimistic": 0.4615,
+        "top10_optimistic": 0.4615,
+        "top1_tied": 0.0,
+        "near_miss": 0.0
+      },
+      "HP:0001574": {
+        "label": "Abnormality of the integument",
+        "n": 390,
+        "top1": 0.6154,
+        "top1_ci95": [
+          0.5662,
+          0.6623
+        ],
+        "top5": 0.7128,
+        "top5_ci95": [
+          0.666,
+          0.7555
+        ],
+        "top10": 0.741,
+        "top10_ci95": [
+          0.6953,
+          0.782
+        ],
+        "top1_optimistic": 0.6282,
+        "top5_optimistic": 0.7205,
+        "top10_optimistic": 0.7487,
+        "top1_tied": 0.0128,
+        "near_miss": 0.0231
+      },
+      "HP:0001608": {
+        "label": "Abnormality of the voice",
+        "n": 5,
+        "top1": 0.8,
+        "top1_ci95": [
+          0.3755,
+          0.9638
+        ],
+        "top5": 1.0,
+        "top5_ci95": [
+          0.5655,
+          1.0
+        ],
+        "top10": 1.0,
+        "top10_ci95": [
+          0.5655,
+          1.0
+        ],
+        "top1_optimistic": 0.8,
+        "top5_optimistic": 1.0,
+        "top10_optimistic": 1.0,
+        "top1_tied": 0.0,
+        "near_miss": 0.0
+      },
+      "HP:0001626": {
+        "label": "Abnormality of the cardiovascular system",
+        "n": 352,
+        "top1": 0.7188,
+        "top1_ci95": [
+          0.6696,
+          0.7632
+        ],
+        "top5": 0.8381,
+        "top5_ci95": [
+          0.796,
+          0.8729
+        ],
+        "top10": 0.8608,
+        "top10_ci95": [
+          0.8207,
+          0.8931
+        ],
+        "top1_optimistic": 0.7244,
+        "top5_optimistic": 0.8409,
+        "top10_optimistic": 0.8636,
+        "top1_tied": 0.0057,
+        "near_miss": 0.0511
+      },
+      "HP:0001871": {
+        "label": "Abnormality of blood and blood-forming tissues",
+        "n": 205,
+        "top1": 0.6146,
+        "top1_ci95": [
+          0.5465,
+          0.6786
+        ],
+        "top5": 0.8098,
+        "top5_ci95": [
+          0.7505,
+          0.8576
+        ],
+        "top10": 0.8244,
+        "top10_ci95": [
+          0.7665,
+          0.8704
+        ],
+        "top1_optimistic": 0.6537,
+        "top5_optimistic": 0.8098,
+        "top10_optimistic": 0.839,
+        "top1_tied": 0.039,
+        "near_miss": 0.0537
+      },
+      "HP:0001939": {
+        "label": "Abnormality of metabolism/homeostasis",
+        "n": 604,
+        "top1": 0.7185,
+        "top1_ci95": [
+          0.6814,
+          0.7529
+        ],
+        "top5": 0.8295,
+        "top5_ci95": [
+          0.7974,
+          0.8574
+        ],
+        "top10": 0.8593,
+        "top10_ci95": [
+          0.8293,
+          0.8847
+        ],
+        "top1_optimistic": 0.7401,
+        "top5_optimistic": 0.8328,
+        "top10_optimistic": 0.8642,
+        "top1_tied": 0.0215,
+        "near_miss": 0.0348
+      },
+      "HP:0002086": {
+        "label": "Abnormality of the respiratory system",
+        "n": 184,
+        "top1": 0.7446,
+        "top1_ci95": [
+          0.677,
+          0.8021
+        ],
+        "top5": 0.8207,
+        "top5_ci95": [
+          0.7588,
+          0.8693
+        ],
+        "top10": 0.8587,
+        "top10_ci95": [
+          0.801,
+          0.9017
+        ],
+        "top1_optimistic": 0.7609,
+        "top5_optimistic": 0.8207,
+        "top10_optimistic": 0.8587,
+        "top1_tied": 0.0163,
+        "near_miss": 0.0217
+      },
+      "HP:0002664": {
+        "label": "Neoplasm",
+        "n": 271,
+        "top1": 0.8155,
+        "top1_ci95": [
+          0.765,
+          0.8572
+        ],
+        "top5": 0.8782,
+        "top5_ci95": [
+          0.8339,
+          0.912
+        ],
+        "top10": 0.8967,
+        "top10_ci95": [
+          0.8547,
+          0.9275
+        ],
+        "top1_optimistic": 0.8155,
+        "top5_optimistic": 0.8856,
+        "top10_optimistic": 0.9004,
+        "top1_tied": 0.0,
+        "near_miss": 0.0148
+      },
+      "HP:0002715": {
+        "label": "Abnormality of the immune system",
+        "n": 421,
+        "top1": 0.7577,
+        "top1_ci95": [
+          0.7146,
+          0.7962
+        ],
+        "top5": 0.8741,
+        "top5_ci95": [
+          0.839,
+          0.9025
+        ],
+        "top10": 0.8931,
+        "top10_ci95": [
+          0.86,
+          0.9192
+        ],
+        "top1_optimistic": 0.7791,
+        "top5_optimistic": 0.8741,
+        "top10_optimistic": 0.9026,
+        "top1_tied": 0.0214,
+        "near_miss": 0.0475
+      },
+      "HP:0025031": {
+        "label": "Abnormality of the digestive system",
+        "n": 239,
+        "top1": 0.7322,
+        "top1_ci95": [
+          0.6727,
+          0.7844
+        ],
+        "top5": 0.8201,
+        "top5_ci95": [
+          0.7664,
+          0.8636
+        ],
+        "top10": 0.8577,
+        "top10_ci95": [
+          0.8078,
+          0.8964
+        ],
+        "top1_optimistic": 0.7448,
+        "top5_optimistic": 0.8285,
+        "top10_optimistic": 0.8619,
+        "top1_tied": 0.0126,
+        "near_miss": 0.0335
+      },
+      "HP:0025142": {
+        "label": "Constitutional symptom",
+        "n": 44,
+        "top1": 0.25,
+        "top1_ci95": [
+          0.1457,
+          0.3944
+        ],
+        "top5": 0.2727,
+        "top5_ci95": [
+          0.1635,
+          0.4185
+        ],
+        "top10": 0.2955,
+        "top10_ci95": [
+          0.1816,
+          0.4422
+        ],
+        "top1_optimistic": 0.25,
+        "top5_optimistic": 0.2727,
+        "top10_optimistic": 0.2955,
+        "top1_tied": 0.0,
+        "near_miss": 0.0
+      },
+      "HP:0025354": {
+        "label": "Abnormal cellular phenotype",
+        "n": 81,
+        "top1": 0.679,
+        "top1_ci95": [
+          0.5712,
+          0.7706
+        ],
+        "top5": 0.8025,
+        "top5_ci95": [
+          0.703,
+          0.8746
+        ],
+        "top10": 0.8272,
+        "top10_ci95": [
+          0.7305,
+          0.8942
+        ],
+        "top1_optimistic": 0.679,
+        "top5_optimistic": 0.8025,
+        "top10_optimistic": 0.8395,
+        "top1_tied": 0.0,
+        "near_miss": 0.037
+      },
+      "HP:0033127": {
+        "label": "Abnormality of the musculoskeletal system",
+        "n": 2312,
+        "top1": 0.3378,
+        "top1_ci95": [
+          0.3188,
+          0.3573
+        ],
+        "top5": 0.5134,
+        "top5_ci95": [
+          0.493,
+          0.5337
+        ],
+        "top10": 0.5856,
+        "top10_ci95": [
+          0.5654,
+          0.6056
+        ],
+        "top1_optimistic": 0.3482,
+        "top5_optimistic": 0.5238,
+        "top10_optimistic": 0.5917,
+        "top1_tied": 0.0104,
+        "near_miss": 0.0523
+      },
+      "HP:0040064": {
+        "label": "Abnormality of limbs",
+        "n": 1706,
+        "top1": 0.2474,
+        "top1_ci95": [
+          0.2275,
+          0.2684
+        ],
+        "top5": 0.4361,
+        "top5_ci95": [
+          0.4127,
+          0.4598
+        ],
+        "top10": 0.5141,
+        "top10_ci95": [
+          0.4903,
+          0.5377
+        ],
+        "top1_optimistic": 0.2614,
+        "top5_optimistic": 0.4467,
+        "top10_optimistic": 0.5211,
+        "top1_tied": 0.0141,
+        "near_miss": 0.0633
+      }
+    },
+    "e5-base": {
+      "HP:0000119": {
+        "label": "Abnormality of the genitourinary system",
+        "n": 618,
+        "top1": 0.7605,
+        "top1_ci95": [
+          0.7253,
+          0.7925
+        ],
+        "top5": 0.8948,
+        "top5_ci95": [
+          0.8681,
+          0.9166
+        ],
+        "top10": 0.9223,
+        "top10_ci95": [
+          0.8985,
+          0.9409
+        ],
+        "top1_optimistic": 0.7605,
+        "top5_optimistic": 0.8948,
+        "top10_optimistic": 0.9223,
+        "top1_tied": 0.0,
+        "near_miss": 0.0162
+      },
+      "HP:0000152": {
+        "label": "Abnormality of head or neck",
+        "n": 601,
+        "top1": 0.6622,
+        "top1_ci95": [
+          0.6235,
+          0.6989
+        ],
+        "top5": 0.8303,
+        "top5_ci95": [
+          0.7982,
+          0.8582
+        ],
+        "top10": 0.8586,
+        "top10_ci95": [
+          0.8284,
+          0.8842
+        ],
+        "top1_optimistic": 0.6622,
+        "top5_optimistic": 0.8303,
+        "top10_optimistic": 0.8586,
+        "top1_tied": 0.0,
+        "near_miss": 0.0283
+      },
+      "HP:0000478": {
+        "label": "Abnormality of the eye",
+        "n": 599,
+        "top1": 0.8063,
+        "top1_ci95": [
+          0.7728,
+          0.836
+        ],
+        "top5": 0.9499,
+        "top5_ci95": [
+          0.9294,
+          0.9647
+        ],
+        "top10": 0.9649,
+        "top10_ci95": [
+          0.947,
+          0.977
+        ],
+        "top1_optimistic": 0.8063,
+        "top5_optimistic": 0.9499,
+        "top10_optimistic": 0.9649,
+        "top1_tied": 0.0,
+        "near_miss": 0.0284
+      },
+      "HP:0000598": {
+        "label": "Abnormality of the ear",
+        "n": 94,
+        "top1": 0.6489,
+        "top1_ci95": [
+          0.5483,
+          0.7378
+        ],
+        "top5": 0.8404,
+        "top5_ci95": [
+          0.7533,
+          0.9008
+        ],
+        "top10": 0.8723,
+        "top10_ci95": [
+          0.79,
+          0.9254
+        ],
+        "top1_optimistic": 0.6489,
+        "top5_optimistic": 0.8404,
+        "top10_optimistic": 0.8723,
+        "top1_tied": 0.0,
+        "near_miss": 0.0213
+      },
+      "HP:0000707": {
+        "label": "Abnormality of the nervous system",
+        "n": 1081,
+        "top1": 0.7095,
+        "top1_ci95": [
+          0.6818,
+          0.7358
+        ],
+        "top5": 0.8807,
+        "top5_ci95": [
+          0.86,
+          0.8987
+        ],
+        "top10": 0.9251,
+        "top10_ci95": [
+          0.9078,
+          0.9393
+        ],
+        "top1_optimistic": 0.7095,
+        "top5_optimistic": 0.8807,
+        "top10_optimistic": 0.9251,
+        "top1_tied": 0.0,
+        "near_miss": 0.0472
+      },
+      "HP:0000769": {
+        "label": "Abnormality of the breast",
+        "n": 17,
+        "top1": 0.2353,
+        "top1_ci95": [
+          0.0955,
+          0.4726
+        ],
+        "top5": 0.5882,
+        "top5_ci95": [
+          0.3601,
+          0.7839
+        ],
+        "top10": 0.6471,
+        "top10_ci95": [
+          0.413,
+          0.8269
+        ],
+        "top1_optimistic": 0.2353,
+        "top5_optimistic": 0.5882,
+        "top10_optimistic": 0.6471,
+        "top1_tied": 0.0,
+        "near_miss": 0.0
+      },
+      "HP:0000818": {
+        "label": "Abnormality of the endocrine system",
+        "n": 199,
+        "top1": 0.8442,
+        "top1_ci95": [
+          0.7874,
+          0.888
+        ],
+        "top5": 0.9497,
+        "top5_ci95": [
+          0.91,
+          0.9725
+        ],
+        "top10": 0.9548,
+        "top10_ci95": [
+          0.9163,
+          0.976
+        ],
+        "top1_optimistic": 0.8442,
+        "top5_optimistic": 0.9497,
+        "top10_optimistic": 0.9548,
+        "top1_tied": 0.0,
+        "near_miss": 0.0151
+      },
+      "HP:0001197": {
+        "label": "Abnormality of prenatal development or birth",
+        "n": 93,
+        "top1": 0.7957,
+        "top1_ci95": [
+          0.7028,
+          0.8651
+        ],
+        "top5": 0.914,
+        "top5_ci95": [
+          0.8393,
+          0.9558
+        ],
+        "top10": 0.9247,
+        "top10_ci95": [
+          0.8527,
+          0.9631
+        ],
+        "top1_optimistic": 0.7957,
+        "top5_optimistic": 0.914,
+        "top10_optimistic": 0.9247,
+        "top1_tied": 0.0,
+        "near_miss": 0.0215
+      },
+      "HP:0001507": {
+        "label": "Growth abnormality",
+        "n": 26,
+        "top1": 0.6538,
+        "top1_ci95": [
+          0.4622,
+          0.8059
+        ],
+        "top5": 0.9615,
+        "top5_ci95": [
+          0.8111,
+          0.9932
+        ],
+        "top10": 0.9615,
+        "top10_ci95": [
+          0.8111,
+          0.9932
+        ],
+        "top1_optimistic": 0.6538,
+        "top5_optimistic": 0.9615,
+        "top10_optimistic": 0.9615,
+        "top1_tied": 0.0,
+        "near_miss": 0.0
+      },
+      "HP:0001574": {
+        "label": "Abnormality of the integument",
+        "n": 390,
+        "top1": 0.7103,
+        "top1_ci95": [
+          0.6634,
+          0.7531
+        ],
+        "top5": 0.841,
+        "top5_ci95": [
+          0.8014,
+          0.874
+        ],
+        "top10": 0.8692,
+        "top10_ci95": [
+          0.8321,
+          0.8991
+        ],
+        "top1_optimistic": 0.7103,
+        "top5_optimistic": 0.841,
+        "top10_optimistic": 0.8692,
+        "top1_tied": 0.0,
+        "near_miss": 0.0179
+      },
+      "HP:0001608": {
+        "label": "Abnormality of the voice",
+        "n": 5,
+        "top1": 0.8,
+        "top1_ci95": [
+          0.3755,
+          0.9638
+        ],
+        "top5": 1.0,
+        "top5_ci95": [
+          0.5655,
+          1.0
+        ],
+        "top10": 1.0,
+        "top10_ci95": [
+          0.5655,
+          1.0
+        ],
+        "top1_optimistic": 0.8,
+        "top5_optimistic": 1.0,
+        "top10_optimistic": 1.0,
+        "top1_tied": 0.0,
+        "near_miss": 0.0
+      },
+      "HP:0001626": {
+        "label": "Abnormality of the cardiovascular system",
+        "n": 352,
+        "top1": 0.7557,
+        "top1_ci95": [
+          0.7082,
+          0.7977
+        ],
+        "top5": 0.9176,
+        "top5_ci95": [
+          0.8842,
+          0.942
+        ],
+        "top10": 0.9347,
+        "top10_ci95": [
+          0.9039,
+          0.9561
+        ],
+        "top1_optimistic": 0.7557,
+        "top5_optimistic": 0.9176,
+        "top10_optimistic": 0.9347,
+        "top1_tied": 0.0,
+        "near_miss": 0.0256
+      },
+      "HP:0001871": {
+        "label": "Abnormality of blood and blood-forming tissues",
+        "n": 205,
+        "top1": 0.8293,
+        "top1_ci95": [
+          0.7718,
+          0.8746
+        ],
+        "top5": 0.9366,
+        "top5_ci95": [
+          0.8945,
+          0.9626
+        ],
+        "top10": 0.9561,
+        "top10_ci95": [
+          0.9187,
+          0.9767
+        ],
+        "top1_optimistic": 0.8293,
+        "top5_optimistic": 0.9366,
+        "top10_optimistic": 0.9561,
+        "top1_tied": 0.0,
+        "near_miss": 0.0585
+      },
+      "HP:0001939": {
+        "label": "Abnormality of metabolism/homeostasis",
+        "n": 604,
+        "top1": 0.8543,
+        "top1_ci95": [
+          0.8239,
+          0.8802
+        ],
+        "top5": 0.9619,
+        "top5_ci95": [
+          0.9435,
+          0.9745
+        ],
+        "top10": 0.9719,
+        "top10_ci95": [
+          0.9554,
+          0.9824
+        ],
+        "top1_optimistic": 0.8543,
+        "top5_optimistic": 0.9619,
+        "top10_optimistic": 0.9719,
+        "top1_tied": 0.0,
+        "near_miss": 0.0166
+      },
+      "HP:0002086": {
+        "label": "Abnormality of the respiratory system",
+        "n": 184,
+        "top1": 0.8098,
+        "top1_ci95": [
+          0.747,
+          0.8599
+        ],
+        "top5": 0.9239,
+        "top5_ci95": [
+          0.8763,
+          0.9541
+        ],
+        "top10": 0.9402,
+        "top10_ci95": [
+          0.8961,
+          0.9663
+        ],
+        "top1_optimistic": 0.8098,
+        "top5_optimistic": 0.9239,
+        "top10_optimistic": 0.9402,
+        "top1_tied": 0.0,
+        "near_miss": 0.0272
+      },
+      "HP:0002664": {
+        "label": "Neoplasm",
+        "n": 271,
+        "top1": 0.8303,
+        "top1_ci95": [
+          0.781,
+          0.8703
+        ],
+        "top5": 0.9373,
+        "top5_ci95": [
+          0.9018,
+          0.9605
+        ],
+        "top10": 0.9668,
+        "top10_ci95": [
+          0.9381,
+          0.9824
+        ],
+        "top1_optimistic": 0.8303,
+        "top5_optimistic": 0.9373,
+        "top10_optimistic": 0.9668,
+        "top1_tied": 0.0,
+        "near_miss": 0.0258
+      },
+      "HP:0002715": {
+        "label": "Abnormality of the immune system",
+        "n": 421,
+        "top1": 0.8504,
+        "top1_ci95": [
+          0.8131,
+          0.8813
+        ],
+        "top5": 0.9596,
+        "top5_ci95": [
+          0.9363,
+          0.9746
+        ],
+        "top10": 0.9691,
+        "top10_ci95": [
+          0.9479,
+          0.9819
+        ],
+        "top1_optimistic": 0.8504,
+        "top5_optimistic": 0.9596,
+        "top10_optimistic": 0.9691,
+        "top1_tied": 0.0,
+        "near_miss": 0.0333
+      },
+      "HP:0025031": {
+        "label": "Abnormality of the digestive system",
+        "n": 239,
+        "top1": 0.749,
+        "top1_ci95": [
+          0.6903,
+          0.7997
+        ],
+        "top5": 0.8828,
+        "top5_ci95": [
+          0.8359,
+          0.9177
+        ],
+        "top10": 0.8996,
+        "top10_ci95": [
+          0.8549,
+          0.9316
+        ],
+        "top1_optimistic": 0.749,
+        "top5_optimistic": 0.8828,
+        "top10_optimistic": 0.8996,
+        "top1_tied": 0.0,
+        "near_miss": 0.0251
+      },
+      "HP:0025142": {
+        "label": "Constitutional symptom",
+        "n": 44,
+        "top1": 0.5227,
+        "top1_ci95": [
+          0.3794,
+          0.6625
+        ],
+        "top5": 0.6136,
+        "top5_ci95": [
+          0.4662,
+          0.7428
+        ],
+        "top10": 0.7045,
+        "top10_ci95": [
+          0.5578,
+          0.8184
+        ],
+        "top1_optimistic": 0.5227,
+        "top5_optimistic": 0.6136,
+        "top10_optimistic": 0.7045,
+        "top1_tied": 0.0,
+        "near_miss": 0.0455
+      },
+      "HP:0025354": {
+        "label": "Abnormal cellular phenotype",
+        "n": 81,
+        "top1": 0.8765,
+        "top1_ci95": [
+          0.7874,
+          0.9315
+        ],
+        "top5": 0.9877,
+        "top5_ci95": [
+          0.9333,
+          0.9978
+        ],
+        "top10": 1.0,
+        "top10_ci95": [
+          0.9547,
+          1.0
+        ],
+        "top1_optimistic": 0.8765,
+        "top5_optimistic": 0.9877,
+        "top10_optimistic": 1.0,
+        "top1_tied": 0.0,
+        "near_miss": 0.0617
+      },
+      "HP:0033127": {
+        "label": "Abnormality of the musculoskeletal system",
+        "n": 2312,
+        "top1": 0.6583,
+        "top1_ci95": [
+          0.6387,
+          0.6774
+        ],
+        "top5": 0.8603,
+        "top5_ci95": [
+          0.8456,
+          0.8738
+        ],
+        "top10": 0.9057,
+        "top10_ci95": [
+          0.8931,
+          0.917
+        ],
+        "top1_optimistic": 0.6583,
+        "top5_optimistic": 0.8603,
+        "top10_optimistic": 0.9057,
+        "top1_tied": 0.0,
+        "near_miss": 0.0757
+      },
+      "HP:0040064": {
+        "label": "Abnormality of limbs",
+        "n": 1706,
+        "top1": 0.6342,
+        "top1_ci95": [
+          0.6111,
+          0.6568
+        ],
+        "top5": 0.8523,
+        "top5_ci95": [
+          0.8347,
+          0.8683
+        ],
+        "top10": 0.9021,
+        "top10_ci95": [
+          0.8871,
+          0.9153
+        ],
+        "top1_optimistic": 0.6342,
+        "top5_optimistic": 0.8523,
+        "top10_optimistic": 0.9021,
+        "top1_tied": 0.0,
+        "near_miss": 0.0914
+      }
+    },
+    "e5-base_qp": {
+      "HP:0000119": {
+        "label": "Abnormality of the genitourinary system",
+        "n": 618,
+        "top1": 0.801,
+        "top1_ci95": [
+          0.7677,
+          0.8305
+        ],
+        "top5": 0.9094,
+        "top5_ci95": [
+          0.8842,
+          0.9296
+        ],
+        "top10": 0.9369,
+        "top10_ci95": [
+          0.9149,
+          0.9535
+        ],
+        "top1_optimistic": 0.801,
+        "top5_optimistic": 0.9094,
+        "top10_optimistic": 0.9369,
+        "top1_tied": 0.0,
+        "near_miss": 0.0194
+      },
+      "HP:0000152": {
+        "label": "Abnormality of head or neck",
+        "n": 601,
+        "top1": 0.7105,
+        "top1_ci95": [
+          0.673,
+          0.7453
+        ],
+        "top5": 0.8419,
+        "top5_ci95": [
+          0.8106,
+          0.8689
+        ],
+        "top10": 0.8785,
+        "top10_ci95": [
+          0.85,
+          0.9023
+        ],
+        "top1_optimistic": 0.7105,
+        "top5_optimistic": 0.8419,
+        "top10_optimistic": 0.8785,
+        "top1_tied": 0.0,
+        "near_miss": 0.0233
+      },
+      "HP:0000478": {
+        "label": "Abnormality of the eye",
+        "n": 599,
+        "top1": 0.7963,
+        "top1_ci95": [
+          0.7622,
+          0.8266
+        ],
+        "top5": 0.9482,
+        "top5_ci95": [
+          0.9275,
+          0.9633
+        ],
+        "top10": 0.9716,
+        "top10_ci95": [
+          0.955,
+          0.9822
+        ],
+        "top1_optimistic": 0.7963,
+        "top5_optimistic": 0.9482,
+        "top10_optimistic": 0.9716,
+        "top1_tied": 0.0,
+        "near_miss": 0.0334
+      },
+      "HP:0000598": {
+        "label": "Abnormality of the ear",
+        "n": 94,
+        "top1": 0.7553,
+        "top1_ci95": [
+          0.6595,
+          0.8311
+        ],
+        "top5": 0.8617,
+        "top5_ci95": [
+          0.7776,
+          0.9174
+        ],
+        "top10": 0.8723,
+        "top10_ci95": [
+          0.79,
+          0.9254
+        ],
+        "top1_optimistic": 0.7553,
+        "top5_optimistic": 0.8617,
+        "top10_optimistic": 0.8723,
+        "top1_tied": 0.0,
+        "near_miss": 0.0106
+      },
+      "HP:0000707": {
+        "label": "Abnormality of the nervous system",
+        "n": 1081,
+        "top1": 0.7308,
+        "top1_ci95": [
+          0.7036,
+          0.7564
+        ],
+        "top5": 0.8733,
+        "top5_ci95": [
+          0.8521,
+          0.8918
+        ],
+        "top10": 0.914,
+        "top10_ci95": [
+          0.8958,
+          0.9293
+        ],
+        "top1_optimistic": 0.7308,
+        "top5_optimistic": 0.8733,
+        "top10_optimistic": 0.914,
+        "top1_tied": 0.0,
+        "near_miss": 0.05
+      },
+      "HP:0000769": {
+        "label": "Abnormality of the breast",
+        "n": 17,
+        "top1": 0.4706,
+        "top1_ci95": [
+          0.2616,
+          0.6904
+        ],
+        "top5": 0.5882,
+        "top5_ci95": [
+          0.3601,
+          0.7839
+        ],
+        "top10": 0.7059,
+        "top10_ci95": [
+          0.4687,
+          0.8672
+        ],
+        "top1_optimistic": 0.4706,
+        "top5_optimistic": 0.5882,
+        "top10_optimistic": 0.7059,
+        "top1_tied": 0.0,
+        "near_miss": 0.0
+      },
+      "HP:0000818": {
+        "label": "Abnormality of the endocrine system",
+        "n": 199,
+        "top1": 0.8291,
+        "top1_ci95": [
+          0.7707,
+          0.8751
+        ],
+        "top5": 0.9598,
+        "top5_ci95": [
+          0.9227,
+          0.9795
+        ],
+        "top10": 0.9749,
+        "top10_ci95": [
+          0.9425,
+          0.9892
+        ],
+        "top1_optimistic": 0.8291,
+        "top5_optimistic": 0.9598,
+        "top10_optimistic": 0.9749,
+        "top1_tied": 0.0,
+        "near_miss": 0.0302
+      },
+      "HP:0001197": {
+        "label": "Abnormality of prenatal development or birth",
+        "n": 93,
+        "top1": 0.8925,
+        "top1_ci95": [
+          0.8133,
+          0.9405
+        ],
+        "top5": 0.9462,
+        "top5_ci95": [
+          0.8803,
+          0.9768
+        ],
+        "top10": 0.9462,
+        "top10_ci95": [
+          0.8803,
+          0.9768
+        ],
+        "top1_optimistic": 0.8925,
+        "top5_optimistic": 0.9462,
+        "top10_optimistic": 0.9462,
+        "top1_tied": 0.0,
+        "near_miss": 0.0
+      },
+      "HP:0001507": {
+        "label": "Growth abnormality",
+        "n": 26,
+        "top1": 0.5769,
+        "top1_ci95": [
+          0.3895,
+          0.7446
+        ],
+        "top5": 0.8846,
+        "top5_ci95": [
+          0.7102,
+          0.96
+        ],
+        "top10": 0.9231,
+        "top10_ci95": [
+          0.7586,
+          0.9786
+        ],
+        "top1_optimistic": 0.5769,
+        "top5_optimistic": 0.8846,
+        "top10_optimistic": 0.9231,
+        "top1_tied": 0.0,
+        "near_miss": 0.0385
+      },
+      "HP:0001574": {
+        "label": "Abnormality of the integument",
+        "n": 390,
+        "top1": 0.7744,
+        "top1_ci95": [
+          0.7303,
+          0.8131
+        ],
+        "top5": 0.8667,
+        "top5_ci95": [
+          0.8293,
+          0.8969
+        ],
+        "top10": 0.8846,
+        "top10_ci95": [
+          0.8491,
+          0.9126
+        ],
+        "top1_optimistic": 0.7744,
+        "top5_optimistic": 0.8667,
+        "top10_optimistic": 0.8846,
+        "top1_tied": 0.0,
+        "near_miss": 0.0154
+      },
+      "HP:0001608": {
+        "label": "Abnormality of the voice",
+        "n": 5,
+        "top1": 0.8,
+        "top1_ci95": [
+          0.3755,
+          0.9638
+        ],
+        "top5": 1.0,
+        "top5_ci95": [
+          0.5655,
+          1.0
+        ],
+        "top10": 1.0,
+        "top10_ci95": [
+          0.5655,
+          1.0
+        ],
+        "top1_optimistic": 0.8,
+        "top5_optimistic": 1.0,
+        "top10_optimistic": 1.0,
+        "top1_tied": 0.0,
+        "near_miss": 0.0
+      },
+      "HP:0001626": {
+        "label": "Abnormality of the cardiovascular system",
+        "n": 352,
+        "top1": 0.821,
+        "top1_ci95": [
+          0.7776,
+          0.8575
+        ],
+        "top5": 0.9489,
+        "top5_ci95": [
+          0.9206,
+          0.9674
+        ],
+        "top10": 0.9631,
+        "top10_ci95": [
+          0.9378,
+          0.9783
+        ],
+        "top1_optimistic": 0.821,
+        "top5_optimistic": 0.9489,
+        "top10_optimistic": 0.9631,
+        "top1_tied": 0.0,
+        "near_miss": 0.0426
+      },
+      "HP:0001871": {
+        "label": "Abnormality of blood and blood-forming tissues",
+        "n": 205,
+        "top1": 0.8732,
+        "top1_ci95": [
+          0.8207,
+          0.912
+        ],
+        "top5": 0.961,
+        "top5_ci95": [
+          0.9249,
+          0.9801
+        ],
+        "top10": 0.961,
+        "top10_ci95": [
+          0.9249,
+          0.9801
+        ],
+        "top1_optimistic": 0.8732,
+        "top5_optimistic": 0.961,
+        "top10_optimistic": 0.961,
+        "top1_tied": 0.0,
+        "near_miss": 0.039
+      },
+      "HP:0001939": {
+        "label": "Abnormality of metabolism/homeostasis",
+        "n": 604,
+        "top1": 0.856,
+        "top1_ci95": [
+          0.8257,
+          0.8817
+        ],
+        "top5": 0.952,
+        "top5_ci95": [
+          0.9319,
+          0.9664
+        ],
+        "top10": 0.9685,
+        "top10_ci95": [
+          0.9514,
+          0.9798
+        ],
+        "top1_optimistic": 0.856,
+        "top5_optimistic": 0.952,
+        "top10_optimistic": 0.9685,
+        "top1_tied": 0.0,
+        "near_miss": 0.0265
+      },
+      "HP:0002086": {
+        "label": "Abnormality of the respiratory system",
+        "n": 184,
+        "top1": 0.837,
+        "top1_ci95": [
+          0.7768,
+          0.8833
+        ],
+        "top5": 0.913,
+        "top5_ci95": [
+          0.8634,
+          0.9458
+        ],
+        "top10": 0.9402,
+        "top10_ci95": [
+          0.8961,
+          0.9663
+        ],
+        "top1_optimistic": 0.837,
+        "top5_optimistic": 0.913,
+        "top10_optimistic": 0.9402,
+        "top1_tied": 0.0,
+        "near_miss": 0.0326
+      },
+      "HP:0002664": {
+        "label": "Neoplasm",
+        "n": 271,
+        "top1": 0.9004,
+        "top1_ci95": [
+          0.8589,
+          0.9306
+        ],
+        "top5": 0.9557,
+        "top5_ci95": [
+          0.9242,
+          0.9745
+        ],
+        "top10": 0.9668,
+        "top10_ci95": [
+          0.9381,
+          0.9824
+        ],
+        "top1_optimistic": 0.9004,
+        "top5_optimistic": 0.9557,
+        "top10_optimistic": 0.9668,
+        "top1_tied": 0.0,
+        "near_miss": 0.0074
+      },
+      "HP:0002715": {
+        "label": "Abnormality of the immune system",
+        "n": 421,
+        "top1": 0.8955,
+        "top1_ci95": [
+          0.8626,
+          0.9212
+        ],
+        "top5": 0.9667,
+        "top5_ci95": [
+          0.945,
+          0.9801
+        ],
+        "top10": 0.9762,
+        "top10_ci95": [
+          0.9568,
+          0.987
+        ],
+        "top1_optimistic": 0.8955,
+        "top5_optimistic": 0.9667,
+        "top10_optimistic": 0.9762,
+        "top1_tied": 0.0,
+        "near_miss": 0.019
+      },
+      "HP:0025031": {
+        "label": "Abnormality of the digestive system",
+        "n": 239,
+        "top1": 0.841,
+        "top1_ci95": [
+          0.7893,
+          0.8819
+        ],
+        "top5": 0.9372,
+        "top5_ci95": [
+          0.899,
+          0.9616
+        ],
+        "top10": 0.954,
+        "top10_ci95": [
+          0.9195,
+          0.9741
+        ],
+        "top1_optimistic": 0.841,
+        "top5_optimistic": 0.9372,
+        "top10_optimistic": 0.954,
+        "top1_tied": 0.0,
+        "near_miss": 0.0293
+      },
+      "HP:0025142": {
+        "label": "Constitutional symptom",
+        "n": 44,
+        "top1": 0.5227,
+        "top1_ci95": [
+          0.3794,
+          0.6625
+        ],
+        "top5": 0.5455,
+        "top5_ci95": [
+          0.4007,
+          0.6829
+        ],
+        "top10": 0.6591,
+        "top10_ci95": [
+          0.5114,
+          0.7812
+        ],
+        "top1_optimistic": 0.5227,
+        "top5_optimistic": 0.5455,
+        "top10_optimistic": 0.6591,
+        "top1_tied": 0.0,
+        "near_miss": 0.0682
+      },
+      "HP:0025354": {
+        "label": "Abnormal cellular phenotype",
+        "n": 81,
+        "top1": 0.8642,
+        "top1_ci95": [
+          0.773,
+          0.9224
+        ],
+        "top5": 1.0,
+        "top5_ci95": [
+          0.9547,
+          1.0
+        ],
+        "top10": 1.0,
+        "top10_ci95": [
+          0.9547,
+          1.0
+        ],
+        "top1_optimistic": 0.8642,
+        "top5_optimistic": 1.0,
+        "top10_optimistic": 1.0,
+        "top1_tied": 0.0,
+        "near_miss": 0.0617
+      },
+      "HP:0033127": {
+        "label": "Abnormality of the musculoskeletal system",
+        "n": 2312,
+        "top1": 0.6635,
+        "top1_ci95": [
+          0.644,
+          0.6825
+        ],
+        "top5": 0.8702,
+        "top5_ci95": [
+          0.8559,
+          0.8833
+        ],
+        "top10": 0.9174,
+        "top10_ci95": [
+          0.9055,
+          0.9279
+        ],
+        "top1_optimistic": 0.6635,
+        "top5_optimistic": 0.8702,
+        "top10_optimistic": 0.9174,
+        "top1_tied": 0.0,
+        "near_miss": 0.0891
+      },
+      "HP:0040064": {
+        "label": "Abnormality of limbs",
+        "n": 1706,
+        "top1": 0.6249,
+        "top1_ci95": [
+          0.6016,
+          0.6475
+        ],
+        "top5": 0.8628,
+        "top5_ci95": [
+          0.8457,
+          0.8783
+        ],
+        "top10": 0.9156,
+        "top10_ci95": [
+          0.9014,
+          0.9279
+        ],
+        "top1_optimistic": 0.6249,
+        "top5_optimistic": 0.8628,
+        "top10_optimistic": 0.9156,
+        "top1_tied": 0.0,
+        "near_miss": 0.109
+      }
+    },
+    "mpnet-multi": {
+      "HP:0000119": {
+        "label": "Abnormality of the genitourinary system",
+        "n": 618,
+        "top1": 0.5566,
+        "top1_ci95": [
+          0.5172,
+          0.5953
+        ],
+        "top5": 0.7346,
+        "top5_ci95": [
+          0.6984,
+          0.7679
+        ],
+        "top10": 0.7783,
+        "top10_ci95": [
+          0.7439,
+          0.8093
+        ],
+        "top1_optimistic": 0.5566,
+        "top5_optimistic": 0.7346,
+        "top10_optimistic": 0.7783,
+        "top1_tied": 0.0,
+        "near_miss": 0.055
+      },
+      "HP:0000152": {
+        "label": "Abnormality of head or neck",
+        "n": 601,
+        "top1": 0.4293,
+        "top1_ci95": [
+          0.3903,
+          0.4692
+        ],
+        "top5": 0.619,
+        "top5_ci95": [
+          0.5795,
+          0.6569
+        ],
+        "top10": 0.6855,
+        "top10_ci95": [
+          0.6473,
+          0.7214
+        ],
+        "top1_optimistic": 0.4293,
+        "top5_optimistic": 0.619,
+        "top10_optimistic": 0.6855,
+        "top1_tied": 0.0,
+        "near_miss": 0.0449
+      },
+      "HP:0000478": {
+        "label": "Abnormality of the eye",
+        "n": 599,
+        "top1": 0.5776,
+        "top1_ci95": [
+          0.5377,
+          0.6166
+        ],
+        "top5": 0.783,
+        "top5_ci95": [
+          0.7482,
+          0.8141
+        ],
+        "top10": 0.828,
+        "top10_ci95": [
+          0.7958,
+          0.8562
+        ],
+        "top1_optimistic": 0.5776,
+        "top5_optimistic": 0.783,
+        "top10_optimistic": 0.828,
+        "top1_tied": 0.0,
+        "near_miss": 0.0584
+      },
+      "HP:0000598": {
+        "label": "Abnormality of the ear",
+        "n": 94,
+        "top1": 0.4362,
+        "top1_ci95": [
+          0.3404,
+          0.537
+        ],
+        "top5": 0.5851,
+        "top5_ci95": [
+          0.4841,
+          0.6795
+        ],
+        "top10": 0.7021,
+        "top10_ci95": [
+          0.6032,
+          0.7852
+        ],
+        "top1_optimistic": 0.4362,
+        "top5_optimistic": 0.5851,
+        "top10_optimistic": 0.7021,
+        "top1_tied": 0.0,
+        "near_miss": 0.0532
+      },
+      "HP:0000707": {
+        "label": "Abnormality of the nervous system",
+        "n": 1081,
+        "top1": 0.5208,
+        "top1_ci95": [
+          0.491,
+          0.5505
+        ],
+        "top5": 0.7456,
+        "top5_ci95": [
+          0.7188,
+          0.7707
+        ],
+        "top10": 0.8085,
+        "top10_ci95": [
+          0.784,
+          0.8309
+        ],
+        "top1_optimistic": 0.5208,
+        "top5_optimistic": 0.7456,
+        "top10_optimistic": 0.8085,
+        "top1_tied": 0.0,
+        "near_miss": 0.0611
+      },
+      "HP:0000769": {
+        "label": "Abnormality of the breast",
+        "n": 17,
+        "top1": 0.4706,
+        "top1_ci95": [
+          0.2616,
+          0.6904
+        ],
+        "top5": 0.5882,
+        "top5_ci95": [
+          0.3601,
+          0.7839
+        ],
+        "top10": 0.6471,
+        "top10_ci95": [
+          0.413,
+          0.8269
+        ],
+        "top1_optimistic": 0.4706,
+        "top5_optimistic": 0.5882,
+        "top10_optimistic": 0.6471,
+        "top1_tied": 0.0,
+        "near_miss": 0.1765
+      },
+      "HP:0000818": {
+        "label": "Abnormality of the endocrine system",
+        "n": 199,
+        "top1": 0.7286,
+        "top1_ci95": [
+          0.663,
+          0.7857
+        ],
+        "top5": 0.8744,
+        "top5_ci95": [
+          0.8211,
+          0.9134
+        ],
+        "top10": 0.8894,
+        "top10_ci95": [
+          0.8383,
+          0.9259
+        ],
+        "top1_optimistic": 0.7286,
+        "top5_optimistic": 0.8744,
+        "top10_optimistic": 0.8894,
+        "top1_tied": 0.0,
+        "near_miss": 0.0352
+      },
+      "HP:0001197": {
+        "label": "Abnormality of prenatal development or birth",
+        "n": 93,
+        "top1": 0.6559,
+        "top1_ci95": [
+          0.5549,
+          0.7446
+        ],
+        "top5": 0.7742,
+        "top5_ci95": [
+          0.6793,
+          0.8473
+        ],
+        "top10": 0.8065,
+        "top10_ci95": [
+          0.7147,
+          0.8739
+        ],
+        "top1_optimistic": 0.6559,
+        "top5_optimistic": 0.7742,
+        "top10_optimistic": 0.8065,
+        "top1_tied": 0.0,
+        "near_miss": 0.0323
+      },
+      "HP:0001507": {
+        "label": "Growth abnormality",
+        "n": 26,
+        "top1": 0.6538,
+        "top1_ci95": [
+          0.4622,
+          0.8059
+        ],
+        "top5": 0.8846,
+        "top5_ci95": [
+          0.7102,
+          0.96
+        ],
+        "top10": 0.9231,
+        "top10_ci95": [
+          0.7586,
+          0.9786
+        ],
+        "top1_optimistic": 0.6538,
+        "top5_optimistic": 0.8846,
+        "top10_optimistic": 0.9231,
+        "top1_tied": 0.0,
+        "near_miss": 0.0
+      },
+      "HP:0001574": {
+        "label": "Abnormality of the integument",
+        "n": 390,
+        "top1": 0.4385,
+        "top1_ci95": [
+          0.3901,
+          0.4881
+        ],
+        "top5": 0.6333,
+        "top5_ci95": [
+          0.5844,
+          0.6796
+        ],
+        "top10": 0.7154,
+        "top10_ci95": [
+          0.6687,
+          0.7579
+        ],
+        "top1_optimistic": 0.4385,
+        "top5_optimistic": 0.6333,
+        "top10_optimistic": 0.7154,
+        "top1_tied": 0.0,
+        "near_miss": 0.0436
+      },
+      "HP:0001608": {
+        "label": "Abnormality of the voice",
+        "n": 5,
+        "top1": 0.8,
+        "top1_ci95": [
+          0.3755,
+          0.9638
+        ],
+        "top5": 1.0,
+        "top5_ci95": [
+          0.5655,
+          1.0
+        ],
+        "top10": 1.0,
+        "top10_ci95": [
+          0.5655,
+          1.0
+        ],
+        "top1_optimistic": 0.8,
+        "top5_optimistic": 1.0,
+        "top10_optimistic": 1.0,
+        "top1_tied": 0.0,
+        "near_miss": 0.0
+      },
+      "HP:0001626": {
+        "label": "Abnormality of the cardiovascular system",
+        "n": 352,
+        "top1": 0.608,
+        "top1_ci95": [
+          0.556,
+          0.6575
+        ],
+        "top5": 0.7898,
+        "top5_ci95": [
+          0.7442,
+          0.8291
+        ],
+        "top10": 0.8438,
+        "top10_ci95": [
+          0.8021,
+          0.8779
+        ],
+        "top1_optimistic": 0.608,
+        "top5_optimistic": 0.7898,
+        "top10_optimistic": 0.8438,
+        "top1_tied": 0.0,
+        "near_miss": 0.071
+      },
+      "HP:0001871": {
+        "label": "Abnormality of blood and blood-forming tissues",
+        "n": 205,
+        "top1": 0.7317,
+        "top1_ci95": [
+          0.6672,
+          0.7877
+        ],
+        "top5": 0.8829,
+        "top5_ci95": [
+          0.8317,
+          0.9201
+        ],
+        "top10": 0.922,
+        "top10_ci95": [
+          0.877,
+          0.9514
+        ],
+        "top1_optimistic": 0.7317,
+        "top5_optimistic": 0.8829,
+        "top10_optimistic": 0.922,
+        "top1_tied": 0.0,
+        "near_miss": 0.0439
+      },
+      "HP:0001939": {
+        "label": "Abnormality of metabolism/homeostasis",
+        "n": 604,
+        "top1": 0.7086,
+        "top1_ci95": [
+          0.6711,
+          0.7434
+        ],
+        "top5": 0.851,
+        "top5_ci95": [
+          0.8204,
+          0.8772
+        ],
+        "top10": 0.8891,
+        "top10_ci95": [
+          0.8615,
+          0.9117
+        ],
+        "top1_optimistic": 0.7086,
+        "top5_optimistic": 0.851,
+        "top10_optimistic": 0.8891,
+        "top1_tied": 0.0,
+        "near_miss": 0.0348
+      },
+      "HP:0002086": {
+        "label": "Abnormality of the respiratory system",
+        "n": 184,
+        "top1": 0.5815,
+        "top1_ci95": [
+          0.5093,
+          0.6504
+        ],
+        "top5": 0.7772,
+        "top5_ci95": [
+          0.7117,
+          0.8313
+        ],
+        "top10": 0.8424,
+        "top10_ci95": [
+          0.7828,
+          0.888
+        ],
+        "top1_optimistic": 0.5815,
+        "top5_optimistic": 0.7772,
+        "top10_optimistic": 0.8424,
+        "top1_tied": 0.0,
+        "near_miss": 0.0707
+      },
+      "HP:0002664": {
+        "label": "Neoplasm",
+        "n": 271,
+        "top1": 0.6199,
+        "top1_ci95": [
+          0.5608,
+          0.6757
+        ],
+        "top5": 0.8524,
+        "top5_ci95": [
+          0.8052,
+          0.8897
+        ],
+        "top10": 0.8745,
+        "top10_ci95": [
+          0.8298,
+          0.9088
+        ],
+        "top1_optimistic": 0.6199,
+        "top5_optimistic": 0.8524,
+        "top10_optimistic": 0.8745,
+        "top1_tied": 0.0,
+        "near_miss": 0.0627
+      },
+      "HP:0002715": {
+        "label": "Abnormality of the immune system",
+        "n": 421,
+        "top1": 0.7031,
+        "top1_ci95": [
+          0.6578,
+          0.7447
+        ],
+        "top5": 0.8337,
+        "top5_ci95": [
+          0.7952,
+          0.8662
+        ],
+        "top10": 0.867,
+        "top10_ci95": [
+          0.8312,
+          0.8961
+        ],
+        "top1_optimistic": 0.7031,
+        "top5_optimistic": 0.8337,
+        "top10_optimistic": 0.867,
+        "top1_tied": 0.0,
+        "near_miss": 0.0309
+      },
+      "HP:0025031": {
+        "label": "Abnormality of the digestive system",
+        "n": 239,
+        "top1": 0.5481,
+        "top1_ci95": [
+          0.4848,
+          0.61
+        ],
+        "top5": 0.728,
+        "top5_ci95": [
+          0.6683,
+          0.7805
+        ],
+        "top10": 0.7741,
+        "top10_ci95": [
+          0.7169,
+          0.8225
+        ],
+        "top1_optimistic": 0.5481,
+        "top5_optimistic": 0.728,
+        "top10_optimistic": 0.7741,
+        "top1_tied": 0.0,
+        "near_miss": 0.0418
+      },
+      "HP:0025142": {
+        "label": "Constitutional symptom",
+        "n": 44,
+        "top1": 0.5909,
+        "top1_ci95": [
+          0.4441,
+          0.7231
+        ],
+        "top5": 0.7045,
+        "top5_ci95": [
+          0.5578,
+          0.8184
+        ],
+        "top10": 0.75,
+        "top10_ci95": [
+          0.6056,
+          0.8543
+        ],
+        "top1_optimistic": 0.5909,
+        "top5_optimistic": 0.7045,
+        "top10_optimistic": 0.75,
+        "top1_tied": 0.0,
+        "near_miss": 0.0682
+      },
+      "HP:0025354": {
+        "label": "Abnormal cellular phenotype",
+        "n": 81,
+        "top1": 0.7778,
+        "top1_ci95": [
+          0.6758,
+          0.8546
+        ],
+        "top5": 0.9012,
+        "top5_ci95": [
+          0.817,
+          0.9491
+        ],
+        "top10": 0.9383,
+        "top10_ci95": [
+          0.8635,
+          0.9733
+        ],
+        "top1_optimistic": 0.7778,
+        "top5_optimistic": 0.9012,
+        "top10_optimistic": 0.9383,
+        "top1_tied": 0.0,
+        "near_miss": 0.037
+      },
+      "HP:0033127": {
+        "label": "Abnormality of the musculoskeletal system",
+        "n": 2312,
+        "top1": 0.4031,
+        "top1_ci95": [
+          0.3833,
+          0.4233
+        ],
+        "top5": 0.6618,
+        "top5_ci95": [
+          0.6422,
+          0.6808
+        ],
+        "top10": 0.7457,
+        "top10_ci95": [
+          0.7275,
+          0.763
+        ],
+        "top1_optimistic": 0.4031,
+        "top5_optimistic": 0.6618,
+        "top10_optimistic": 0.7457,
+        "top1_tied": 0.0,
+        "near_miss": 0.1163
+      },
+      "HP:0040064": {
+        "label": "Abnormality of limbs",
+        "n": 1706,
+        "top1": 0.3558,
+        "top1_ci95": [
+          0.3334,
+          0.3788
+        ],
+        "top5": 0.6477,
+        "top5_ci95": [
+          0.6247,
+          0.67
+        ],
+        "top10": 0.7485,
+        "top10_ci95": [
+          0.7274,
+          0.7685
+        ],
+        "top1_optimistic": 0.3558,
+        "top5_optimistic": 0.6477,
+        "top10_optimistic": 0.7485,
+        "top1_tied": 0.0,
+        "near_miss": 0.1336
+      }
+    },
+    "bge-m3": {
+      "HP:0000119": {
+        "label": "Abnormality of the genitourinary system",
+        "n": 618,
+        "top1": 0.8414,
+        "top1_ci95": [
+          0.8105,
+          0.8681
+        ],
+        "top5": 0.945,
+        "top5_ci95": [
+          0.9241,
+          0.9604
+        ],
+        "top10": 0.9612,
+        "top10_ci95": [
+          0.9429,
+          0.9738
+        ],
+        "top1_optimistic": 0.8414,
+        "top5_optimistic": 0.945,
+        "top10_optimistic": 0.9612,
+        "top1_tied": 0.0,
+        "near_miss": 0.0307
+      },
+      "HP:0000152": {
+        "label": "Abnormality of head or neck",
+        "n": 601,
+        "top1": 0.7854,
+        "top1_ci95": [
+          0.7508,
+          0.8163
+        ],
+        "top5": 0.9101,
+        "top5_ci95": [
+          0.8846,
+          0.9305
+        ],
+        "top10": 0.9318,
+        "top10_ci95": [
+          0.9088,
+          0.9493
+        ],
+        "top1_optimistic": 0.7854,
+        "top5_optimistic": 0.9101,
+        "top10_optimistic": 0.9318,
+        "top1_tied": 0.0,
+        "near_miss": 0.03
+      },
+      "HP:0000478": {
+        "label": "Abnormality of the eye",
+        "n": 599,
+        "top1": 0.8681,
+        "top1_ci95": [
+          0.8387,
+          0.8929
+        ],
+        "top5": 0.98,
+        "top5_ci95": [
+          0.9653,
+          0.9885
+        ],
+        "top10": 0.99,
+        "top10_ci95": [
+          0.9783,
+          0.9954
+        ],
+        "top1_optimistic": 0.8681,
+        "top5_optimistic": 0.98,
+        "top10_optimistic": 0.99,
+        "top1_tied": 0.0,
+        "near_miss": 0.0401
+      },
+      "HP:0000598": {
+        "label": "Abnormality of the ear",
+        "n": 94,
+        "top1": 0.8085,
+        "top1_ci95": [
+          0.7175,
+          0.8753
+        ],
+        "top5": 0.9255,
+        "top5_ci95": [
+          0.8542,
+          0.9635
+        ],
+        "top10": 0.9362,
+        "top10_ci95": [
+          0.8677,
+          0.9704
+        ],
+        "top1_optimistic": 0.8085,
+        "top5_optimistic": 0.9255,
+        "top10_optimistic": 0.9362,
+        "top1_tied": 0.0,
+        "near_miss": 0.0319
+      },
+      "HP:0000707": {
+        "label": "Abnormality of the nervous system",
+        "n": 1081,
+        "top1": 0.766,
+        "top1_ci95": [
+          0.7398,
+          0.7902
+        ],
+        "top5": 0.9195,
+        "top5_ci95": [
+          0.9018,
+          0.9343
+        ],
+        "top10": 0.9417,
+        "top10_ci95": [
+          0.9261,
+          0.9542
+        ],
+        "top1_optimistic": 0.766,
+        "top5_optimistic": 0.9195,
+        "top10_optimistic": 0.9417,
+        "top1_tied": 0.0,
+        "near_miss": 0.0389
+      },
+      "HP:0000769": {
+        "label": "Abnormality of the breast",
+        "n": 17,
+        "top1": 0.5882,
+        "top1_ci95": [
+          0.3601,
+          0.7839
+        ],
+        "top5": 0.7647,
+        "top5_ci95": [
+          0.5274,
+          0.9045
+        ],
+        "top10": 0.7647,
+        "top10_ci95": [
+          0.5274,
+          0.9045
+        ],
+        "top1_optimistic": 0.5882,
+        "top5_optimistic": 0.7647,
+        "top10_optimistic": 0.7647,
+        "top1_tied": 0.0,
+        "near_miss": 0.0
+      },
+      "HP:0000818": {
+        "label": "Abnormality of the endocrine system",
+        "n": 199,
+        "top1": 0.8945,
+        "top1_ci95": [
+          0.8441,
+          0.9299
+        ],
+        "top5": 0.9799,
+        "top5_ci95": [
+          0.9495,
+          0.9922
+        ],
+        "top10": 0.9799,
+        "top10_ci95": [
+          0.9495,
+          0.9922
+        ],
+        "top1_optimistic": 0.8945,
+        "top5_optimistic": 0.9799,
+        "top10_optimistic": 0.9799,
+        "top1_tied": 0.0,
+        "near_miss": 0.005
+      },
+      "HP:0001197": {
+        "label": "Abnormality of prenatal development or birth",
+        "n": 93,
+        "top1": 0.8817,
+        "top1_ci95": [
+          0.8005,
+          0.9327
+        ],
+        "top5": 0.957,
+        "top5_ci95": [
+          0.8946,
+          0.9831
+        ],
+        "top10": 0.9677,
+        "top10_ci95": [
+          0.9094,
+          0.989
+        ],
+        "top1_optimistic": 0.8817,
+        "top5_optimistic": 0.957,
+        "top10_optimistic": 0.9677,
+        "top1_tied": 0.0,
+        "near_miss": 0.0323
+      },
+      "HP:0001507": {
+        "label": "Growth abnormality",
+        "n": 26,
+        "top1": 0.7692,
+        "top1_ci95": [
+          0.5795,
+          0.8897
+        ],
+        "top5": 0.9231,
+        "top5_ci95": [
+          0.7586,
+          0.9786
+        ],
+        "top10": 1.0,
+        "top10_ci95": [
+          0.8713,
+          1.0
+        ],
+        "top1_optimistic": 0.7692,
+        "top5_optimistic": 0.9231,
+        "top10_optimistic": 1.0,
+        "top1_tied": 0.0,
+        "near_miss": 0.0385
+      },
+      "HP:0001574": {
+        "label": "Abnormality of the integument",
+        "n": 390,
+        "top1": 0.8205,
+        "top1_ci95": [
+          0.7794,
+          0.8554
+        ],
+        "top5": 0.9282,
+        "top5_ci95": [
+          0.8982,
+          0.9499
+        ],
+        "top10": 0.941,
+        "top10_ci95": [
+          0.9131,
+          0.9604
+        ],
+        "top1_optimistic": 0.8205,
+        "top5_optimistic": 0.9282,
+        "top10_optimistic": 0.941,
+        "top1_tied": 0.0,
+        "near_miss": 0.0385
+      },
+      "HP:0001608": {
+        "label": "Abnormality of the voice",
+        "n": 5,
+        "top1": 0.4,
+        "top1_ci95": [
+          0.1176,
+          0.7693
+        ],
+        "top5": 1.0,
+        "top5_ci95": [
+          0.5655,
+          1.0
+        ],
+        "top10": 1.0,
+        "top10_ci95": [
+          0.5655,
+          1.0
+        ],
+        "top1_optimistic": 0.4,
+        "top5_optimistic": 1.0,
+        "top10_optimistic": 1.0,
+        "top1_tied": 0.0,
+        "near_miss": 0.4
+      },
+      "HP:0001626": {
+        "label": "Abnormality of the cardiovascular system",
+        "n": 352,
+        "top1": 0.8551,
+        "top1_ci95": [
+          0.8145,
+          0.8881
+        ],
+        "top5": 0.9602,
+        "top5_ci95": [
+          0.9344,
+          0.9762
+        ],
+        "top10": 0.9688,
+        "top10_ci95": [
+          0.9449,
+          0.9825
+        ],
+        "top1_optimistic": 0.8551,
+        "top5_optimistic": 0.9602,
+        "top10_optimistic": 0.9688,
+        "top1_tied": 0.0,
+        "near_miss": 0.0483
+      },
+      "HP:0001871": {
+        "label": "Abnormality of blood and blood-forming tissues",
+        "n": 205,
+        "top1": 0.8829,
+        "top1_ci95": [
+          0.8317,
+          0.9201
+        ],
+        "top5": 0.9707,
+        "top5_ci95": [
+          0.9376,
+          0.9865
+        ],
+        "top10": 0.9805,
+        "top10_ci95": [
+          0.9509,
+          0.9924
+        ],
+        "top1_optimistic": 0.8829,
+        "top5_optimistic": 0.9707,
+        "top10_optimistic": 0.9805,
+        "top1_tied": 0.0,
+        "near_miss": 0.0488
+      },
+      "HP:0001939": {
+        "label": "Abnormality of metabolism/homeostasis",
+        "n": 604,
+        "top1": 0.8841,
+        "top1_ci95": [
+          0.8561,
+          0.9072
+        ],
+        "top5": 0.9669,
+        "top5_ci95": [
+          0.9494,
+          0.9785
+        ],
+        "top10": 0.9768,
+        "top10_ci95": [
+          0.9615,
+          0.9861
+        ],
+        "top1_optimistic": 0.8841,
+        "top5_optimistic": 0.9669,
+        "top10_optimistic": 0.9768,
+        "top1_tied": 0.0,
+        "near_miss": 0.0232
+      },
+      "HP:0002086": {
+        "label": "Abnormality of the respiratory system",
+        "n": 184,
+        "top1": 0.8533,
+        "top1_ci95": [
+          0.7949,
+          0.8972
+        ],
+        "top5": 0.9511,
+        "top5_ci95": [
+          0.9097,
+          0.9741
+        ],
+        "top10": 0.962,
+        "top10_ci95": [
+          0.9236,
+          0.9815
+        ],
+        "top1_optimistic": 0.8533,
+        "top5_optimistic": 0.9511,
+        "top10_optimistic": 0.962,
+        "top1_tied": 0.0,
+        "near_miss": 0.0435
+      },
+      "HP:0002664": {
+        "label": "Neoplasm",
+        "n": 271,
+        "top1": 0.8192,
+        "top1_ci95": [
+          0.769,
+          0.8604
+        ],
+        "top5": 0.952,
+        "top5_ci95": [
+          0.9197,
+          0.9718
+        ],
+        "top10": 0.9594,
+        "top10_ci95": [
+          0.9288,
+          0.9772
+        ],
+        "top1_optimistic": 0.8192,
+        "top5_optimistic": 0.952,
+        "top10_optimistic": 0.9594,
+        "top1_tied": 0.0,
+        "near_miss": 0.0812
+      },
+      "HP:0002715": {
+        "label": "Abnormality of the immune system",
+        "n": 421,
+        "top1": 0.924,
+        "top1_ci95": [
+          0.8947,
+          0.9456
+        ],
+        "top5": 0.9881,
+        "top5_ci95": [
+          0.9725,
+          0.9949
+        ],
+        "top10": 0.9905,
+        "top10_ci95": [
+          0.9758,
+          0.9963
+        ],
+        "top1_optimistic": 0.924,
+        "top5_optimistic": 0.9881,
+        "top10_optimistic": 0.9905,
+        "top1_tied": 0.0,
+        "near_miss": 0.019
+      },
+      "HP:0025031": {
+        "label": "Abnormality of the digestive system",
+        "n": 239,
+        "top1": 0.8159,
+        "top1_ci95": [
+          0.7619,
+          0.8599
+        ],
+        "top5": 0.9498,
+        "top5_ci95": [
+          0.9143,
+          0.971
+        ],
+        "top10": 0.9582,
+        "top10_ci95": [
+          0.9247,
+          0.9771
+        ],
+        "top1_optimistic": 0.8159,
+        "top5_optimistic": 0.9498,
+        "top10_optimistic": 0.9582,
+        "top1_tied": 0.0,
+        "near_miss": 0.0544
+      },
+      "HP:0025142": {
+        "label": "Constitutional symptom",
+        "n": 44,
+        "top1": 0.6364,
+        "top1_ci95": [
+          0.4887,
+          0.7622
+        ],
+        "top5": 0.7273,
+        "top5_ci95": [
+          0.5815,
+          0.8365
+        ],
+        "top10": 0.75,
+        "top10_ci95": [
+          0.6056,
+          0.8543
+        ],
+        "top1_optimistic": 0.6364,
+        "top5_optimistic": 0.7273,
+        "top10_optimistic": 0.75,
+        "top1_tied": 0.0,
+        "near_miss": 0.0455
+      },
+      "HP:0025354": {
+        "label": "Abnormal cellular phenotype",
+        "n": 81,
+        "top1": 0.8765,
+        "top1_ci95": [
+          0.7874,
+          0.9315
+        ],
+        "top5": 0.9877,
+        "top5_ci95": [
+          0.9333,
+          0.9978
+        ],
+        "top10": 0.9877,
+        "top10_ci95": [
+          0.9333,
+          0.9978
+        ],
+        "top1_optimistic": 0.8765,
+        "top5_optimistic": 0.9877,
+        "top10_optimistic": 0.9877,
+        "top1_tied": 0.0,
+        "near_miss": 0.0617
+      },
+      "HP:0033127": {
+        "label": "Abnormality of the musculoskeletal system",
+        "n": 2312,
+        "top1": 0.7686,
+        "top1_ci95": [
+          0.751,
+          0.7853
+        ],
+        "top5": 0.917,
+        "top5_ci95": [
+          0.905,
+          0.9275
+        ],
+        "top10": 0.9343,
+        "top10_ci95": [
+          0.9234,
+          0.9437
+        ],
+        "top1_optimistic": 0.7686,
+        "top5_optimistic": 0.917,
+        "top10_optimistic": 0.9343,
+        "top1_tied": 0.0,
+        "near_miss": 0.0515
+      },
+      "HP:0040064": {
+        "label": "Abnormality of limbs",
+        "n": 1706,
+        "top1": 0.7438,
+        "top1_ci95": [
+          0.7226,
+          0.764
+        ],
+        "top5": 0.9091,
+        "top5_ci95": [
+          0.8946,
+          0.9219
+        ],
+        "top10": 0.9297,
+        "top10_ci95": [
+          0.9165,
+          0.9409
+        ],
+        "top1_optimistic": 0.7438,
+        "top5_optimistic": 0.9091,
+        "top10_optimistic": 0.9297,
+        "top1_tied": 0.0,
+        "near_miss": 0.0621
+      }
+    }
+  },
+  "paired_top1_mcnemar": {
+    "e5-base vs mpnet-multi": {
+      "n": 6976,
+      "a_only": 1835,
+      "b_only": 414,
+      "diff_a_minus_b": 0.2037,
+      "p_value": 1.3992262377396792e-212,
+      "p_holm": 5.596904950958717e-212
+    },
+    "mpnet-multi vs lexical_token_sort": {
+      "n": 6976,
+      "a_only": 1234,
+      "b_only": 1379,
+      "diff_a_minus_b": -0.0208,
+      "p_value": 0.004837465873524118,
+      "p_holm": 0.004837465873524118
+    },
+    "e5-base vs lexical_token_sort": {
+      "n": 6976,
+      "a_only": 1807,
+      "b_only": 531,
+      "diff_a_minus_b": 0.1829,
+      "p_value": 8.868360136912806e-162,
+      "p_holm": 2.660508041073842e-161
+    },
+    "bge-m3 vs e5-base": {
+      "n": 6976,
+      "a_only": 969,
+      "b_only": 358,
+      "diff_a_minus_b": 0.0876,
+      "p_value": 2.73946288242397e-65,
+      "p_holm": 5.47892576484794e-65
+    }
+  }
+}

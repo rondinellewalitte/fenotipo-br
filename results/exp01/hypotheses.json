@@ -1,0 +1,98 @@
+{
+  "best_embedding_by_primary_top1": "bge-m3",
+  "hypotheses": {
+    "H1_ordering": {
+      "pairs": {
+        "bge-m3 > e5-base": {
+          "diff_top1": 0.0876,
+          "p_holm": 5.47892576484794e-65,
+          "confirmed": true
+        },
+        "e5-base > mpnet-multi": {
+          "diff_top1": 0.2037,
+          "p_holm": 5.596904950958717e-212,
+          "confirmed": true
+        },
+        "mpnet-multi > lexical_token_sort": {
+          "diff_top1": -0.0208,
+          "p_holm": 0.004837465873524118,
+          "confirmed": false
+        }
+      },
+      "confirmed": false
+    },
+    "H2_identical_top1_ge_0.85": {
+      "top1": {
+        "lexical_token_sort": 1.0,
+        "e5-base": 1.0,
+        "e5-base_qp": 0.9792,
+        "mpnet-multi": 0.9167,
+        "bge-m3": 0.9792
+      },
+      "confirmed": true
+    },
+    "H3_nonidentical": {
+      "lexical_nonidentical_top1": 0.5347,
+      "lexical_le_0.40": false,
+      "best_identical_minus_nonidentical": 0.1699,
+      "best_drop_ge_0.30": false,
+      "confirmed": false
+    },
+    "H4_top10_minus_top1_ge_0.15": {
+      "gap": 0.1379,
+      "confirmed": false
+    },
+    "H5_stale_lt_current": {
+      "stale_top1": 0.7621,
+      "stale_n": 227,
+      "current_top1": 0.8133,
+      "confirmed": true
+    },
+    "H6_ablation_all_scopes": {
+      "per_method": {
+        "lexical_token_sort": {
+          "delta_all_minus_exact": -0.0004,
+          "ok": true
+        },
+        "e5-base": {
+          "delta_all_minus_exact": -0.0009,
+          "ok": true
+        },
+        "e5-base_qp": {
+          "delta_all_minus_exact": -0.001,
+          "ok": true
+        },
+        "mpnet-multi": {
+          "delta_all_minus_exact": -0.0006,
+          "ok": true
+        },
+        "bge-m3": {
+          "delta_all_minus_exact": -0.001,
+          "ok": true
+        }
+      },
+      "confirmed": true
+    },
+    "H7_e5_query_query_ge_query_passage": {
+      "e5-base": 0.7241,
+      "e5-base_qp": 0.7467,
+      "confirmed": false,
+      "note": "direction only; no significance test was pre-registered for this pair"
+    },
+    "H8_near_miss_share_of_errors_ge_0.20": {
+      "near_miss_rate": 0.0397,
+      "share_of_top1_errors": 0.2107,
+      "confirmed": true
+    }
+  },
+  "summary": {
+    "H1_ordering": false,
+    "H2_identical_top1_ge_0.85": true,
+    "H3_nonidentical": false,
+    "H4_top10_minus_top1_ge_0.15": false,
+    "H5_stale_lt_current": true,
+    "H6_ablation_all_scopes": true,
+    "H7_e5_query_query_ge_query_passage": false,
+    "H8_near_miss_share_of_errors_ge_0.20": true
+  }
+}
