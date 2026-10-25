@@ -1,6 +1,6 @@
 # Revisão de 50 termos HPO sem tradução PT-BR
 
-Gerado por `reports/build_review.py` em 2026-10-25 (commit `6b1ec0b, com mudanças não commitadas`). Os números vêm de `results/`; não edite este arquivo à mão.
+Gerado por `reports/build_review.py` em 2026-10-25 (commit `79a1f34`). Os números vêm de `results/`; não edite este arquivo à mão.
 
 > Apoio à pesquisa. Não é ferramenta diagnóstica nem orienta conduta clínica (ANVISA RDC 657/2022).
 
@@ -40,7 +40,7 @@ Preenchida para os 50 termos pelo modelo `claude-opus-5-5` (prompt `prompts/tran
 
 - **Configuração:** modelo fixo `claude-opus-5-5`, esforço `low` e saída em JSON validado por esquema.
   - A API não aceita mais o parâmetro de temperatura. Por isso, cada resposta é guardada em `results/review/translations.jsonl` e reaproveitada, em vez de ser gerada de novo.
-- **Custo:** as chamadas, com tokens e custo, ficam em `results/review/llm_calls.jsonl`. O resumo está em `results/review/run_summary.json`, com teto de US$ 2,00.
+- **Custo:** as chamadas, com tokens e custo, ficam em `results/review/llm_calls.jsonl`. O resumo está em `results/review/run_summary.json`, com teto de US$ 2,00. Total gasto até agora: US$ 0,33 em 50 chamadas.
 
 ## Depois da revisão
 

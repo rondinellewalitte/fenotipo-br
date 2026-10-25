@@ -1,6 +1,6 @@
 {
-  "api_key_present": true,
-  "translate_requested": true,
+  "api_key_present": false,
+  "translate_requested": false,
   "model": "claude-opus-5-5",
   "prompt_files": [
     "prompts/translate_hpo_label_pt_br_v1.system.md",
@@ -18,16 +18,18 @@
     "cache_read": 0.2
   },
   "n_terms": 50,
-  "n_from_cache": 0,
-  "n_api_calls": 50,
+  "n_from_cache": 50,
+  "n_api_calls": 0,
   "n_not_finished": 0,
   "stopped_by_budget": null,
-  "spent_usd_this_run": 0.3321,
+  "spent_usd_this_run": 0.0,
+  "n_logged_api_calls": 50,
+  "logged_cost_usd_total": 0.3321,
   "n_with_candidate": 50,
   "worst_case_usd_for_all_terms": 1.7,
   "generated_at": "2026-10-25",
   "git": {
-    "commit": "6b1ec0b4c6e13edf680c1002674d55ab60d4ace9",
-    "dirty": true
+    "commit": "79a1f34e9358329d4bd374cc8dbe8110f13780d4",
+    "dirty": false
   }
 }
