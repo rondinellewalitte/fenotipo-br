@@ -138,7 +138,7 @@ def main() -> None:
             f"| {pct(hp['pct_cases_full'])} |"
         )
 
-    md = f"""# Piloto HPO-PTBR: termos em português e a tradução PT do HPO
+    md = f"""# Piloto Fenótipo-BR: termos em português e a tradução PT do HPO
 
 R. Walitte (ORCID 0009-0004-1776-2754). Gerado por `reports/build_piloto.py` a partir de `results/`. Código: Exp 01 `{c1["git"]["commit"][:7]}`, Exp 02 `{c2["git"]["commit"][:7]}`.
 

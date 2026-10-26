@@ -1,4 +1,4 @@
-# Piloto HPO-PTBR: termos em português e a tradução PT do HPO
+# Piloto Fenótipo-BR: termos em português e a tradução PT do HPO
 
 R. Walitte (ORCID 0009-0004-1776-2754). Gerado por `reports/build_piloto.py` a partir de `results/`. Código: Exp 01 `6bb3334`, Exp 02 `f93b18d`.
 

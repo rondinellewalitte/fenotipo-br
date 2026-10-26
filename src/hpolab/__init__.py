@@ -1,1 +1,1 @@
-"""HPO-PTBR Lab: mapping Brazilian Portuguese clinical text to HPO terms."""
+"""Fenótipo-BR: mapping Brazilian Portuguese phenotype terms to the Human Phenotype Ontology."""

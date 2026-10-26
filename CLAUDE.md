@@ -1,4 +1,4 @@
-# HPO-PTBR Lab
+# Fenótipo-BR
 
 Laboratório de pesquisa para medir e melhorar o mapeamento de texto clínico em **português do Brasil** para termos da **Human Phenotype Ontology (HPO)**, com foco em diagnóstico de doenças raras.
 
