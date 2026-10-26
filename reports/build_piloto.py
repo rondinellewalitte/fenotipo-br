@@ -100,7 +100,7 @@ def main() -> None:
     leaf_onto = gen["ontology_terms_under_HP:0000118"]["by_leaf"]
     leaf_ann = gen["case_annotations"]["by_leaf"]
     hpoa = m2["hpoa_check"]
-    k_max = max(c2["gain_k"])
+    k_min, k_max = min(c2["gain_k"]), max(c2["gain_k"])
 
     exp01_table = [
         "| Método | top-1 (IC95) | top-10 | top-1 ponderado, pós-hoc (IC95) |",
@@ -230,7 +230,7 @@ Fontes: {src(R2 / "metrics.json")} e {src(R2 / "out_of_sample.json")}.
 
 ## Próximos passos
 
-1. **Revisão de {k_max} termos em PT-BR por geneticista**, para submeter ao HPO no formato babelon, a partir de {src(R2 / "missing_terms.csv")} (a ordenação do hpoa é alternativa).
+1. **Revisão dos {k_min} termos mais frequentes por geneticista; depois, ampliar para {k_max}.** Submissão ao HPO no formato babelon, a partir de {src(R2 / "missing_terms.csv")} (a ordenação do hpoa é alternativa).
 2. **Exp 03:** vinhetas clínicas em PT-BR, comparando extração direta em português com traduzir e depois extrair. Usar LLMs locais pequenos com RAG sobre os 10 primeiros candidatos do bge-m3. Pergunta de pesquisa: quanto o RAG recupera de um modelo que roda em GPU comum, sem enviar dados para fora.
 3. **Validação com casos publicados em português** (SciELO), anotados por geneticista.
 4. **Efeito dos erros no ranqueamento de genes e doenças.**
