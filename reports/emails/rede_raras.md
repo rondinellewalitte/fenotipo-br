@@ -17,7 +17,7 @@ Num piloto com casos publicados na literatura (Phenopacket Store), só 38% das a
 
 Meu pedido é um só: que um(a) geneticista da Rede RARAS revise esses 50 termos na planilha anexa, que já traz o termo em inglês, a definição e uma tradução automática para corrigir. Quem revisar será coautor(a) da submissão das traduções ao HPO e do artigo do piloto.
 
-Relatório do piloto (PDF anexo); código e resultados: https://github.com/rondinellewalitte/fenotipo-br
+Relatório do piloto (PDF anexo); código e resultados: https://github.com/rondinellewalitte/fenotipo-br e https://doi.org/10.5281/zenodo.23662825
 
 O projeto é de pesquisa aberta e não tem interesse comercial.
 
@@ -31,7 +31,7 @@ ORCID 0009-0004-1776-2754
 
 ## NÃO ENVIAR: notas internas
 
-Gerado em 2026-10-26 (commit `0e3e1d1`). Assunto + corpo: **198 palavras** (limite 200).
+Gerado em 2026-10-26 (commit `10109e1`). Assunto + corpo: **200 palavras** (limite 200).
 
 **Números do e-mail e de onde vêm**
 
@@ -47,5 +47,5 @@ Gerado em 2026-10-26 (commit `0e3e1d1`). Assunto + corpo: **198 palavras** (limi
 **Antes de enviar**
 
 - Preencher `[Nome]` e `[e-mail]` com os dados de quem recebe (coordenação da Rede RARAS). Ajustar "Prezado(a)" ao nome.
-- Conferir que https://github.com/rondinellewalitte/fenotipo-br está público e com o último commit.
+- Conferir que https://github.com/rondinellewalitte/fenotipo-br está público e com o último commit, e que https://doi.org/10.5281/zenodo.23662825 abre o registro no Zenodo.
 - Anexar `reports/review/top50_terms.xlsx` e `reports/piloto.pdf`. Gerar o PDF de novo (`reports/build_piloto_pdf.py`) sempre que o `piloto.md` mudar.
