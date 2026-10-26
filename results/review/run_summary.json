@@ -27,9 +27,33 @@
   "logged_cost_usd_total": 0.3321,
   "n_with_candidate": 50,
   "worst_case_usd_for_all_terms": 1.7,
-  "generated_at": "2026-10-25",
+  "n_author_notes": 6,
+  "author_notes_evidence": {
+    "pt_labels_starting_anomalia": 264,
+    "pt_labels_starting_anormalidade": 0,
+    "abnormality_of_translated": 201,
+    "abnormality_of_as_anomalia": 200,
+    "seizure_branch_translated": 284,
+    "seizure_branch_crise_epileptica": 233,
+    "seizure_branch_convulsao": 11,
+    "absence_under_seizure": true,
+    "epileptic_seizure_synonym_scope": "exact",
+    "tonic_clonic_children_translated": 6,
+    "tonic_clonic_children_convulsao": 3,
+    "circulating_translated": 129,
+    "circulating_hiper_hipo": 0,
+    "hyperlactatemia_synonym_en": null,
+    "poor_weight_gain_scope": "related",
+    "weight_faltering_scope": "exact",
+    "ftt_related_untranslated": [
+      "HP:0001525",
+      "HP:0001531",
+      "HP:0008866"
+    ]
+  },
+  "generated_at": "2026-10-26",
   "git": {
-    "commit": "79a1f34e9358329d4bd374cc8dbe8110f13780d4",
+    "commit": "045d94ee8ccbf19aff3de430261270a1b60397b8",
     "dirty": false
   }
 }

@@ -1,6 +1,6 @@
 # Revisão de 50 termos HPO sem tradução PT-BR
 
-Gerado por `reports/build_review.py` em 2026-10-25 (commit `79a1f34`). Os números vêm de `results/`; não edite este arquivo à mão.
+Gerado por `reports/build_review.py` em 2026-10-26 (commit `045d94e`). Os números vêm de `results/`; não edite este arquivo à mão.
 
 > Apoio à pesquisa. Não é ferramenta diagnóstica nem orienta conduta clínica (ANVISA RDC 657/2022).
 
@@ -21,6 +21,7 @@ Os 50 termos do HPO (v2026-09-01) **sem rótulo oficial em português** que mais
 - **Limites:**
   - Os casos vêm da literatura e foram anotados em inglês. A frequência num ambulatório brasileiro pode ser outra.
   - **Viés de ancoragem:** quem revisa tende a aprovar a tradução candidata que já está na planilha. Por isso pedimos que corrija sem receio e marque explicitamente quando aceitar a candidata sem alteração. A taxa de aceitação deve ser lida como teto do acerto da tradução automática, não como medida independente.
+  - Os 6 termos com observação do autor (`author_notes`) entram à parte nessa taxa, porque a observação também pode influenciar a resposta.
 
 ## Como revisar
 
@@ -28,6 +29,7 @@ Preencha as duas colunas em amarelo:
 
 - **`reviewer_pt`:** o rótulo final em PT-BR, mesmo que seja igual ao candidato. Use grafia brasileira, o termo usual na clínica e na genética médica no Brasil, e a forma de rótulo do HPO (substantivo, só a primeira letra maiúscula, sem ponto final).
 - **`reviewer_notes`:** opcional. Dúvidas, termos alternativos, uso regional.
+- **`author_notes`** (fundo azul, só leitura): observações do autor do projeto em 6 termos, sobre padronização com a tradução oficial do HPO e escolhas clínicas em aberto. São sugestões, não decisões. As contagens citadas nelas vêm dos arquivos do HPO e estão em `results/review/run_summary.json` (`author_notes_evidence`).
 - **Corrija sem receio.** A tradução candidata é só um ponto de partida e pode estar errada ou soar estranha. Corrija sem receio sempre que preferir outro termo. Se aceitar a candidata exatamente como está, copie-a em reviewer_pt e escreva em reviewer_notes: candidata aceita sem alteração. Isso permite medir quanto a tradução automática acertou.
 
 As colunas `label_en`, `definition_en` e `synonyms_en` trazem o conceito oficial em inglês. Sinônimos que não são exatos vêm marcados, por exemplo `[related]`.
