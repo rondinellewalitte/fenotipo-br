@@ -92,6 +92,28 @@ def rank_gold(id_scores: np.ndarray, gold_pos: np.ndarray, k: int = 10) -> dict[
     }
 
 
+def subindex_rows(union: TermIndex, index: TermIndex) -> np.ndarray:
+    """Row of each `index` string inside `union` (same text_key), to slice cached embeddings."""
+    row_of = {text_key(t): i for i, t in enumerate(union.texts)}
+    return np.array([row_of[text_key(t)] for t in index.texts], dtype=np.int64)
+
+
+def top_ids(
+    query_emb: np.ndarray, index_emb: np.ndarray, index: TermIndex, k: int, chunk: int = 256
+) -> tuple[np.ndarray, np.ndarray]:
+    """Top-k id positions and scores per query (dot product of normalized embeddings, id
+    score = max over its strings). Ties keep id order."""
+    pos, scores = [], []
+    for start in range(0, len(query_emb), chunk):
+        s = index.id_scores(query_emb[start : start + chunk] @ index_emb.T)
+        order = np.argsort(-s, axis=1, kind="stable")[:, :k]
+        pos.append(order)
+        scores.append(np.take_along_axis(s, order, axis=1))
+    if not pos:
+        return np.zeros((0, k), dtype=np.int64), np.zeros((0, k), dtype=np.float32)
+    return np.concatenate(pos), np.concatenate(scores)
+
+
 def ids_at_top(id_scores_row: np.ndarray) -> np.ndarray:
     """Positions of every id sharing the maximum score."""
     return np.flatnonzero(id_scores_row == id_scores_row.max())

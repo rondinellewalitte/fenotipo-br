@@ -1,0 +1,3 @@
+Clinical note:
+
+{note}
