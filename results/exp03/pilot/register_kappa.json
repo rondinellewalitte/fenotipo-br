@@ -1,0 +1,31 @@
+{
+  "n_items": 40,
+  "per_class_drawn": {
+    "technical": 14,
+    "lay": 13,
+    "both": 13
+  },
+  "seed": 42,
+  "agreement": 0.9,
+  "cohen_kappa": 0.8498,
+  "kappa_min": 0.6,
+  "d2_strata_status": "confirmatory",
+  "confusion_labeler_x_human": {
+    "both": {
+      "both": 10,
+      "lay": 0,
+      "technical": 0
+    },
+    "lay": {
+      "both": 3,
+      "lay": 12,
+      "technical": 0
+    },
+    "technical": {
+      "both": 0,
+      "lay": 1,
+      "technical": 14
+    }
+  },
+  "checked_by": "project author (not a clinician)"
+}
