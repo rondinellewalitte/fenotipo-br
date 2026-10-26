@@ -61,6 +61,7 @@ from hpolab.hpo import (
 )
 from hpolab.llm import Prompt
 from hpolab.provenance import base_config, paths_dirty
+from hpolab.register import classify
 from hpolab.retrieval import TermIndex, fold, subindex_rows, top_ids
 from hpolab.vignettes import GENERATOR_MODEL, GENERATOR_PROMPT, final_vignettes
 
@@ -79,6 +80,7 @@ PROMPTS = {
     "select": "exp03_select_v1",
 }
 LLM_ARMS = ("A", "B", "C")
+REGISTERS = ("technical", "lay", "both")  # hpolab.register
 TAU_GRID = [round(float(x), 2) for x in np.arange(0.30, 0.951, 0.01)]
 N_BOOT = 10_000
 THREADS = 8
@@ -447,12 +449,14 @@ def _norm(text: str) -> str:
 
 def gold_covariates(cases, ont: Ontology, pt_map: dict) -> pd.DataFrame:
     """Per gold term: has an official PT label; the generator's phrase equals it; surface
-    similarity of the phrase to the English label (back-translation threat, PREREG)."""
+    similarity of the phrase to the English label (back-translation threat, PREREG); and the
+    register of the item in the note: technical, lay or both (hpolab.register)."""
     rows = []
     for c in cases.itertuples():
         for g in c.gold:
             phrase = c.phrases[g]
             sim = fuzz.ratio(fold(phrase), fold(ont.terms[g].label))
+            reg = classify(c.text, phrase, ont.terms[g].label, pt_map.get(g))["register"]
             rows.append(
                 {
                     "case_id": c.case_id,
@@ -461,6 +465,7 @@ def gold_covariates(cases, ont: Ontology, pt_map: dict) -> pd.DataFrame:
                     "phrase_is_pt_label": g in pt_map and _norm(phrase) == _norm(pt_map[g]),
                     "sim_en_label": round(sim, 1),
                     "sim_bin": "<50" if sim < 50 else "50-80" if sim < 80 else ">=80",
+                    "register": reg,
                 }
             )
     return pd.DataFrame(rows)
@@ -528,7 +533,7 @@ def arm_metrics(recs: list[dict], ont: Ontology, idx: np.ndarray, cov: pd.DataFr
             str(k): {"n": len(g), "recall": round(float(g["hit"].mean()), 4)}
             for k, g in cv.groupby(col)
         }
-        for col in ("has_pt_label", "phrase_is_pt_label", "sim_bin")
+        for col in ("has_pt_label", "phrase_is_pt_label", "sim_bin", "register")
     }
     return s
 
@@ -543,6 +548,44 @@ def compute_metrics(records, cases, ont, pt_map, cov) -> dict:
     def counts_of(key):
         rs = sorted(groups[key], key=lambda r: r["case_id"])
         return np.array([cm.counts(set(r["pred"]), set(r["gold"])) for r in rs])
+
+    case_ids = sorted(cases["case_id"])
+    reg_of = {(r.case_id, r.hpo_id): r.register for r in cov.itertuples()}
+    totals = np.array(
+        [
+            [sum(reg_of[(cid, g)] == reg for g in gold) for reg in REGISTERS]
+            for cid, gold in sorted(zip(cases["case_id"], cases["gold"], strict=True))
+        ]
+    )
+
+    def reg_hits(key):
+        by_case = {r["case_id"]: set(r["pred"]) & set(r["gold"]) for r in groups[key]}
+        return np.array(
+            [
+                [sum(reg_of[(cid, g)] == reg for g in by_case[cid]) for reg in REGISTERS]
+                for cid in case_ids
+            ]
+        )
+
+    tech, lay = REGISTERS.index("technical"), REGISTERS.index("lay")
+    register = {}
+    for key in sorted(groups):
+        h = reg_hits(key)
+        register[key] = {
+            "recall": cm.group_recall(h, totals, idx, list(REGISTERS)),
+            "technical_minus_lay": cm.recall_diff(h, h, totals, idx, tech, lay),
+        }
+    for m in MODELS:
+        if f"{m}/A" not in groups:
+            continue
+        ha, hb, hc = (reg_hits(f"{m}/{a}") for a in LLM_ARMS)
+        register[f"{m}/between_arms"] = {
+            reg: {
+                "A-B": cm.recall_diff(ha, hb, totals, idx, j, j),
+                "C-A": cm.recall_diff(hc, ha, totals, idx, j, j),
+            }
+            for j, reg in enumerate(REGISTERS)
+        }
 
     comparisons = {}
     for m in MODELS:
@@ -574,6 +617,7 @@ def compute_metrics(records, cases, ont, pt_map, cov) -> dict:
         "bootstrap": {"unit": "case", "n_boot": N_BOOT, "seed": SEED, "intervals": "percentile"},
         "arms": arms,
         "comparisons": comparisons,
+        "register": register,
     }
 
 
@@ -736,6 +780,35 @@ def evaluate_hypotheses(m: dict) -> dict:
             )
         ),
     }
+    reg = m["register"]
+
+    def tml(key: str) -> dict:
+        return reg[key]["technical_minus_lay"]
+
+    def h6(k):
+        keys = [f"{k}/{arm}" for arm in LLM_ARMS] + ["none/baseline"]
+        per_arm = {key: tml(key) for key in keys}
+        ok = all(v["ci95"] is not None and v["ci95"][0] > 0 for v in per_arm.values())
+        return {"per_arm": per_arm, "confirmed": ok}
+
+    res = per(h6)
+    out["H6_lay_harder_than_technical"] = {
+        "per_model": res,
+        "confirmed_both_models": all(v["confirmed"] for v in res.values()),
+    }
+
+    def between(k, reg_name, pair) -> float:
+        return reg[f"{k}/between_arms"][reg_name][pair]["diff"] or 0.0  # None: empty group
+
+    exp["E6_A_vs_B_gap_larger_in_lay"] = per(
+        lambda k: abs(between(k, "lay", "A-B")) > abs(between(k, "technical", "A-B"))
+    )
+    exp["E7_C_vs_A_gain_larger_in_technical"] = per(
+        lambda k: between(k, "technical", "C-A") > between(k, "lay", "C-A")
+    )
+    exp["E8_baseline_drop_larger_than_A"] = per(
+        lambda k: (tml("none/baseline")["diff"] or 0.0) > (tml(f"{k}/A")["diff"] or 0.0)
+    )
     return {"hypotheses": out, "expectations": exp}
 
 

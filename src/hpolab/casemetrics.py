@@ -92,6 +92,43 @@ def boot_ratio_ci(num: np.ndarray, den: np.ndarray, idx: np.ndarray) -> list[flo
     return [round(float(np.quantile(r, 0.025)), 4), round(float(np.quantile(r, 0.975)), 4)]
 
 
+def group_recall(hits: np.ndarray, totals: np.ndarray, idx: np.ndarray, groups: list[str]) -> dict:
+    """Recall per group of gold items with 95% case-bootstrap intervals.
+    hits, totals: (n_cases, n_groups) counts of found / gold items of each group."""
+    h, t = hits[idx].sum(axis=1), totals[idx].sum(axis=1)  # (n_boot, n_groups)
+    boot = np.divide(h, t, out=np.full(h.shape, np.nan), where=t > 0)
+    out = {}
+    for j, g in enumerate(groups):
+        n = int(totals[:, j].sum())
+        out[g] = {
+            "n": n,
+            "recall": round(float(hits[:, j].sum() / n), 4) if n else None,
+            "ci95": [round(float(x), 4) for x in np.nanquantile(boot[:, j], [0.025, 0.975])]
+            if n
+            else None,
+        }
+    return out
+
+
+def recall_diff(
+    hits_a: np.ndarray, hits_b: np.ndarray, totals: np.ndarray, idx: np.ndarray, ja: int, jb: int
+) -> dict:
+    """recall(arm a, group ja) - recall(arm b, group jb), same cases, with a 95% case-bootstrap
+    interval. Use a = b to compare two groups within one arm, ja = jb to compare two arms."""
+
+    def rec(h, j, sel):
+        num, den = h[sel, j].sum(axis=-1), totals[sel, j].sum(axis=-1)
+        return np.divide(num, den, out=np.full(np.shape(num), np.nan, dtype=float), where=den > 0)
+
+    every = np.arange(len(totals))
+    diff = float(rec(hits_a, ja, every) - rec(hits_b, jb, every))
+    if np.isnan(diff):  # a group without items
+        return {"diff": None, "ci95": None}
+    boot = rec(hits_a, ja, idx) - rec(hits_b, jb, idx)
+    lo, hi = np.nanquantile(boot, [0.025, 0.975])
+    return {"diff": round(diff, 4), "ci95": [round(float(lo), 4), round(float(hi), 4)]}
+
+
 # ---------------------------------------------------------------- error categories
 
 

@@ -15,6 +15,7 @@ from hpolab.extraction import (
     select_schema,
 )
 from hpolab.hpo import parse_obographs
+from hpolab.register import classify, respell
 from hpolab.retrieval import TermIndex, top_ids
 from hpolab.vignettes import (
     MAX_NEGATED,
@@ -254,6 +255,23 @@ def test_check_vignette_drops_items_without_phrase_in_text():
     assert not chk["pass"] and "too_few_present_items:2" in chk["fail"]
 
 
+def test_check_vignette_accepts_shared_and_overlapping_phrases():
+    # "Polegares e háluces alargados": Broad thumb got the phrase "Polegares", Broad hallux
+    # "háluces alargados"; both stretches of one sentence, so both items are kept.
+    its = items(["HP:0011304", "HP:0010055", "HP:0001252"], [])
+    text = "Exame físico: Polegares e háluces alargados. Hipotonia global."
+    phrases = [
+        {"item": "1", "phrase": "Polegares"},
+        {"item": "2", "phrase": "háluces alargados"},
+        {"item": "3", "phrase": "Hipotonia global"},
+    ]
+    chk = check_vignette(text, phrases, its, [], PT_VOCAB, [])
+    assert chk["pass"] and chk["dropped"] == {}, chk
+    same = [{**p, "phrase": "Polegares e háluces alargados"} for p in phrases[:2]] + phrases[2:]
+    chk = check_vignette(text, same, its, [], PT_VOCAB, [])
+    assert chk["pass"] and chk["dropped"] == {}, chk
+
+
 def test_final_vignettes_filters_prompt_model_and_pass():
     base = {"set": "pilot", "prompt_sha256": "s1", "model": "m"}
     recs = [
@@ -395,3 +413,36 @@ def test_top_ids_max_over_strings():
     pos, sc = top_ids(q, emb, idx, k=2)
     assert [idx.ids[p] for p in pos[0]] == ["HP:1", "HP:2"]
     assert sc[0].tolist() == pytest.approx([0.9, 0.5])
+
+
+# ---------------------------------------------------------------- register
+
+
+@pytest.mark.parametrize(
+    "en,pt",
+    [
+        ("hypotonia", "hipotonia"),
+        ("microcephaly", "microcefalia"),
+        ("scoliosis", "escoliose"),
+        ("cardiomyopathy", "cardiomiopatia"),
+        ("uveitis", "uveite"),
+        ("hypermobility", "hipermobilidade"),
+        ("malformation", "malformacao"),
+        ("intellectual", "intelectual"),
+    ],
+)
+def test_respell(en, pt):
+    assert respell(en) == pt
+
+
+def test_register_classes():
+    text = "A mãe acha a filha molinha. Exame físico: hipotonia global. Baixa estatura."
+    assert classify(text, "hipotonia global", "Hypotonia", None)["register"] == "technical"
+    assert classify(text, "molinha", "Hypotonia", None)["register"] == "both"
+    assert classify(text, "Baixa estatura", "Short stature", "Baixa estatura")["register"] == (
+        "technical"
+    )
+    lay = classify(
+        "Demorou para sentar e andar.", "Demorou para sentar e andar", "Motor delay", None
+    )
+    assert lay["register"] == "lay" and lay["technical_sentence"] == ""
