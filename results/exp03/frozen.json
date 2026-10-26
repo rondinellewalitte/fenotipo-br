@@ -1,0 +1,30 @@
+{
+  "frozen_at": "2026-10-26T23:15:28+00:00",
+  "pilot_config_git": {
+    "commit": "a95614cbba5909b78f2670cc5cbf35126cb6e2fb",
+    "dirty": true
+  },
+  "baseline_tau": 0.7,
+  "prompts": {
+    "translate": {
+      "stem": "exp03_translate_pt_en_v1",
+      "sha256": "1cac86b3edc6f621095608974c11a90d964b0c93e223807385dab66f7c22ce14"
+    },
+    "extract": {
+      "stem": "exp03_extract_v1",
+      "sha256": "ee7e2246039990012d6c77b77d1f2bfdcddaf52b0bab2fdee5b1b4932ace685a"
+    },
+    "select": {
+      "stem": "exp03_select_v1",
+      "sha256": "b5ac48de9ba9cd4dbed977ddd44aa16da628e800566d2ba67b23f6d36ff79671"
+    }
+  },
+  "generator_prompt": {
+    "stem": "exp03_vignette_pt_br_v2",
+    "sha256": "87fb1389247a2cb8913cdd0d020ff27b761355cc403695610446d2d1c4df3deb"
+  },
+  "models": {
+    "qwen3-4b": "qwen3:4b-instruct-2507-q4_K_M",
+    "gemma3-4b": "gemma3:4b-it-q4_K_M"
+  }
+}
