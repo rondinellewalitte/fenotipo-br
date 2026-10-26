@@ -21,6 +21,8 @@ ROOT = Path(__file__).resolve().parents[1]
 R2 = ROOT / "results" / "exp02"
 OUT = ROOT / "reports" / "emails" / "rede_raras.md"
 ATTACHMENT = "reports/review/top50_terms.xlsx"
+REPO_URL = "https://github.com/rondinellewalitte/fenotipo-br"
+SENDER = ("Rondinelle Walitte", "rondinellewalitte@gmail.com", "0009-0004-1776-2754")
 N_TERMS = 50
 MAX_WORDS = 200
 # Figure the author approved for the e-mail; the build stops if the results no longer give it.
@@ -80,13 +82,14 @@ Num piloto com casos publicados na literatura (Phenopacket Store), só {pct(base
 
 Meu pedido é um só: que um(a) geneticista da Rede RARAS revise esses {N_TERMS} termos na planilha anexa, que já traz o termo em inglês, a definição e uma tradução automática para corrigir. Quem revisar será coautor(a) da submissão das traduções ao HPO e do artigo do piloto.
 
-Código e resultados: [link]
+Código e resultados: {REPO_URL}
 
 O projeto é de pesquisa aberta e não tem interesse comercial.
 
 Atenciosamente,
-Rondinelle Walitte Pedro de Jesus
-ORCID 0009-0004-1776-2754"""
+{SENDER[0]}
+{SENDER[1]}
+ORCID {SENDER[2]}"""
     words = n_words(subject) + n_words(body)
     if words > MAX_WORDS:
         raise SystemExit(f"E-mail has {words} words (subject + body); the limit is {MAX_WORDS}.")
@@ -125,8 +128,8 @@ Gerado em {datetime.now(UTC).strftime("%Y-%m-%d")} (commit `{sha}`). Assunto + c
 
 **Antes de enviar**
 
-- Preencher `[Nome]` e `[e-mail]`. Ajustar "Prezado(a)" ao nome.
-- Trocar `[link]` pelo endereço do repositório, que ainda não é público.
+- Preencher `[Nome]` e `[e-mail]` com os dados de quem recebe (coordenação da Rede RARAS). Ajustar "Prezado(a)" ao nome.
+- Conferir que {REPO_URL} está público e com o último commit.
 - Anexar `{ATTACHMENT}`. O `reports/review/README.md` explica a revisão e pode ir junto.
 """
     OUT.parent.mkdir(parents=True, exist_ok=True)

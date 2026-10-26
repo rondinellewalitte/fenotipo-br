@@ -9,6 +9,7 @@ authors:
     orcid: "https://orcid.org/0009-0004-1776-2754"
 version: 0.1.0
 license: MIT
+repository-code: "https://github.com/rondinellewalitte/fenotipo-br"
 abstract: >-
   Research pilot measuring how well Brazilian Portuguese phenotype terms map to the Human
   Phenotype Ontology (HPO) when only English labels are searched, and how much of published
