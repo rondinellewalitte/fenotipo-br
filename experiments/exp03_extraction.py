@@ -60,7 +60,7 @@ from hpolab.hpo import (
     pt_labels,
 )
 from hpolab.llm import Prompt
-from hpolab.provenance import base_config, paths_dirty
+from hpolab.provenance import base_config, git_info, paths_dirty
 from hpolab.register import classify
 from hpolab.retrieval import TermIndex, fold, subindex_rows, top_ids
 from hpolab.vignettes import GENERATOR_MODEL, GENERATOR_PROMPT, final_vignettes
@@ -932,6 +932,7 @@ def check_prompt_examples(ont: Ontology) -> list[dict]:
 
 
 def run(args, ont, cases, gen_sha, out_dir) -> None:
+    git_at_start = git_info()  # the code that runs; HEAD may move while a long run is going
     prompts = load_prompts()
     check_prompt_examples(ont)
     load_register_labels(args.set, cases)  # fail before hours of compute, not after
@@ -1015,6 +1016,8 @@ def run(args, ont, cases, gen_sha, out_dir) -> None:
         write_json(out_dir / "hypotheses.json", evaluate_hypotheses(metrics))
 
     cfg = base_config("exp03_extraction", SEED)
+    cfg["git_at_config_write"] = cfg["git"]
+    cfg["git"] = git_at_start
     cfg.update(
         {
             "set": args.set,
