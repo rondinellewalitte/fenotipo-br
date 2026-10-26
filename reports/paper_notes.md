@@ -9,6 +9,7 @@ Decisões de método e limitações que precisam entrar no texto do artigo. Os n
   - Prompt versionado em `prompts/translate_hpo_label_pt_br_v1.*.md`; o sha256 dele fica registrado.
   - Frase para os Métodos: "As saídas do modelo foram armazenadas e reutilizadas; a API não oferece mais controle de amostragem (temperatura)."
   - Custo e tokens por chamada: `results/review/llm_calls.jsonl`. Teto de US$ 2, conferido antes de cada chamada.
+- **Citação do software.** O artigo cita o DOI da versão, não o concept DOI: v0.1.0, [10.5281/zenodo.23662826](https://doi.org/10.5281/zenodo.23662826) (tag `v0.1.0`). Os números do artigo vêm dessa versão, e o concept DOI (10.5281/zenodo.23662825) aponta sempre para a mais recente. Se uma versão nova mudar `results/`, o artigo passa a citar o DOI dela.
 - **Pré-registro.** Hipóteses e desfechos do Exp 01 e do Exp 02 estão em `results/exp0*/PREREG.md`, commitados antes dos resultados. Análises pós-hoc estão datadas em "Desvios".
 
 ## Limitações

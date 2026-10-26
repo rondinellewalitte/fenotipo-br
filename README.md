@@ -1,5 +1,7 @@
 # Fenótipo-BR
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23662825.svg)](https://doi.org/10.5281/zenodo.23662825)
+
 Research lab measuring how well **Brazilian Portuguese** phenotype terms map to the
 [Human Phenotype Ontology](https://hpo.jax.org) (HPO), with a focus on rare-disease
 diagnosis research.
@@ -116,9 +118,14 @@ data/            downloads and caches (not committed)
   - **Phenopacket Store:** BSD 3-Clause, © 2022 Monarch Initiative.
   - **Embedding models:** not redistributed; each is under its own model-card license.
 
-## Citation
+## How to cite
 
-See `CITATION.cff`. Please also cite:
+- **The project (all versions):** concept DOI [10.5281/zenodo.23662825](https://doi.org/10.5281/zenodo.23662825). It always resolves to the latest version.
+- **To reproduce the numbers above:** version 0.1.0, DOI [10.5281/zenodo.23662826](https://doi.org/10.5281/zenodo.23662826) (tag `v0.1.0`). Every number in this README comes from this release; papers should cite it.
+
+> Walitte R. *Fenótipo-BR: mapping Brazilian Portuguese phenotype terms to the Human Phenotype Ontology* (v0.1.0). Zenodo; 2026. https://doi.org/10.5281/zenodo.23662826
+
+Machine-readable metadata: `CITATION.cff` (GitHub's "Cite this repository"). Please also cite the data sources:
 
 - Gargano MA, et al. *The Human Phenotype Ontology in 2024: phenotypes around the world.* Nucleic Acids Res 52(D1):D1333–D1346. https://doi.org/10.1093/nar/gkad1005
 - Danis D, et al. *A corpus of GA4GH phenopackets: Case-level phenotyping for genomic diagnostics and discovery.* HGG Adv 6(1):100371 (2025). https://doi.org/10.1016/j.xhgg.2024.100371

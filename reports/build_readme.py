@@ -8,6 +8,7 @@ a file under results/ (CLAUDE.md, rule 2).
 from __future__ import annotations
 
 import json
+import subprocess
 from pathlib import Path
 
 import pandas as pd
@@ -15,6 +16,10 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 R1, R2 = ROOT / "results" / "exp01", ROOT / "results" / "exp02"
 OUT = ROOT / "README.md"
+# Zenodo: the concept DOI cites the project (resolves to the latest version); the version DOI
+# pins the archived release whose results/ produced the numbers in the README.
+CONCEPT_DOI = "10.5281/zenodo.23662825"
+RELEASE = {"version": "0.1.0", "tag": "v0.1.0", "doi": "10.5281/zenodo.23662826", "year": 2026}
 ROWS = [
     ("bge-m3", "bge-m3"),
     ("e5-base", "multilingual-e5-base (primary, `query:`/`query:`)"),
@@ -40,7 +45,21 @@ def ci(pair) -> str:
     return f"{pair[0] * 100:.1f}–{pair[1] * 100:.1f}"
 
 
+def check_release_results() -> None:
+    """Stop if results/ changed since the release the README cites for its numbers."""
+    diff = subprocess.run(
+        ["git", "diff", "--quiet", RELEASE["tag"], "--", "results/"], cwd=ROOT, capture_output=True
+    )
+    if diff.returncode == 1:
+        raise SystemExit(
+            f"results/ changed since {RELEASE['tag']}; make a new release and update RELEASE."
+        )
+    if diff.returncode != 0:
+        print(f"WARNING: could not compare results/ with tag {RELEASE['tag']}.")
+
+
 def main() -> None:
+    check_release_results()
     hs = load(ROOT / "results" / "hpo_summary.json")
     c1, m1, hyp = load(R1 / "config.json"), load(R1 / "metrics.json"), load(R1 / "hypotheses.json")
     surf, hier = load(R1 / "surface_sim.json"), load(R1 / "hierarchy_errors.json")
@@ -73,6 +92,8 @@ def main() -> None:
         data_rows.append(f"| `{name}` | {e['release_tag']} | `{e['sha256'][:16]}…` |")
 
     md = f"""# Fenótipo-BR
+
+[![DOI](https://zenodo.org/badge/DOI/{CONCEPT_DOI}.svg)](https://doi.org/{CONCEPT_DOI})
 
 Research lab measuring how well **Brazilian Portuguese** phenotype terms map to the
 [Human Phenotype Ontology](https://hpo.jax.org) (HPO), with a focus on rare-disease
@@ -179,9 +200,14 @@ data/            downloads and caches (not committed)
   - **Phenopacket Store:** BSD 3-Clause, © 2022 Monarch Initiative.
   - **Embedding models:** not redistributed; each is under its own model-card license.
 
-## Citation
+## How to cite
 
-See `CITATION.cff`. Please also cite:
+- **The project (all versions):** concept DOI [{CONCEPT_DOI}](https://doi.org/{CONCEPT_DOI}). It always resolves to the latest version.
+- **To reproduce the numbers above:** version {RELEASE["version"]}, DOI [{RELEASE["doi"]}](https://doi.org/{RELEASE["doi"]}) (tag `{RELEASE["tag"]}`). Every number in this README comes from this release; papers should cite it.
+
+> Walitte R. *Fenótipo-BR: mapping Brazilian Portuguese phenotype terms to the Human Phenotype Ontology* (v{RELEASE["version"]}). Zenodo; {RELEASE["year"]}. https://doi.org/{RELEASE["doi"]}
+
+Machine-readable metadata: `CITATION.cff` (GitHub's "Cite this repository"). Please also cite the data sources:
 
 - Gargano MA, et al. *The Human Phenotype Ontology in 2024: phenotypes around the world.* Nucleic Acids Res 52(D1):D1333–D1346. https://doi.org/10.1093/nar/gkad1005
 - Danis D, et al. *A corpus of GA4GH phenopackets: Case-level phenotyping for genomic diagnostics and discovery.* HGG Adv 6(1):100371 (2025). https://doi.org/10.1016/j.xhgg.2024.100371

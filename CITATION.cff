@@ -11,6 +11,14 @@ version: 0.1.0
 date-released: 2026-10-26
 license: MIT
 repository-code: "https://github.com/rondinellewalitte/fenotipo-br"
+doi: 10.5281/zenodo.23662825
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23662825
+    description: "Concept DOI: all versions; resolves to the latest."
+  - type: doi
+    value: 10.5281/zenodo.23662826
+    description: "Version 0.1.0 (tag v0.1.0): the release that produced the reported numbers."
 abstract: >-
   Research pilot measuring how well Brazilian Portuguese phenotype terms map to the Human
   Phenotype Ontology (HPO) when only English labels are searched, and how much of published
