@@ -210,4 +210,32 @@ São julgadas **só no run completo** (n = 300) e por modelo. No H1, a decisão 
 
 ## Desvios
 
-(nenhum até aqui)
+Todos os desvios abaixo são de 26/out/2026 e foram feitos **antes de gerar qualquer vinheta e antes de qualquer chamada a modelo**.
+
+- **Gerador, trava de custo e regra do H1** (decisões do autor):
+  - O gerador continua `claude-opus-5-5`, no piloto e no run completo.
+  - A trava cumulativa sobe de US$ 5 para **US$ 10** (`BUDGET_USD` em `experiments/exp03_vignettes.py`). Ela cobre os ~US$ 8 estimados para o piloto, as 300 vinhetas e as novas tentativas.
+  - A Batches API não será usada.
+  - A regra de decisão do H1 (IC 97,5% e margem −0,03) está confirmada.
+- **Termos sem trecho na vinheta.** Esta regra substitui a anterior, em que uma vinheta com item sem trecho era reprovada.
+  - Um item fica sem trecho quando o gerador não devolve a frase dele, ou quando a frase não aparece literalmente no texto. A comparação ignora maiúsculas e normaliza espaços.
+  - Esse item **sai do gabarito**, ou da lista de negações, daquele caso. A vinheta não é reprovada por isso.
+  - O registro fica em três lugares:
+    - `items[].dropped` e `drop_reason` em `vignettes.jsonl`;
+    - a lista `summary.dropped_items_final` em `vignettes_config_<set>.json`;
+    - a contagem `gold_items_dropped_no_phrase` no `config.json` da extração.
+  - A vinheta só é reprovada se sobrarem menos de 3 termos presentes. Nesse caso há nova tentativa e, depois, substituição. Isso mantém o critério de elegibilidade de 3 a 15 termos.
+  - Motivo: um termo esquecido pelo gerador derrubaria injustamente o recall do extrator.
+  - Se o achado estiver no texto e o extrator o encontrar, ele conta como FP, porque saiu do gabarito. Esses FP ganham a categoria `dropped_from_gold` em `errors.csv` e em `fp_categories`, para medir esse efeito.
+- **Exemplos do prompt de extração.** O arquivo `exp03_extract_v1` foi editado antes de qualquer uso; o sha256 registrado nos resultados é o da versão nova.
+  - Saíram "low-set, posteriorly rotated ears" / "orelhas baixas e rodadas para trás" e "syndactyly of the 2nd and 3rd toes" / "sindactilia do 2º e 3º dedos dos pés".
+  - Entraram "chalazion and hordeolum" / "calázio e terçol" e "seborrheic keratosis on the left temple" / "ceratose seborreica na têmpora esquerda".
+  - Termos correspondentes: HP:0010605 Chalazion, HP:0010606 Hordeolum e HP:0031287 Seborrheic keratosis.
+  - Verificação: nenhum dos 632 casos sorteados (piloto, run completo e reserva) tem esses termos, nem seus pais ou filhos diretos, entre os observados ou excluídos.
+  - A checagem está no código (`hpolab.extraction.PROMPT_EXAMPLE_TERMS` e `example_term_clashes`) e roda nos dois scripts, que param se houver choque. Toda nova versão do prompt de extração precisa atualizar essa lista.
+  - Motivo: os exemplos antigos são termos frequentes no Phenopacket Store, e o modelo poderia copiá-los, produzindo acerto ou erro artificial.
+- **Exemplo de negação no prompt do gerador.** No `exp03_vignette_pt_br_v1`, também editado antes de qualquer uso, o exemplo "nega crises epilépticas" virou só a forma: "nega ...", "não apresenta ...", "sem ...". O motivo é o mesmo: Seizure está entre os termos mais frequentes.
+- **Travas de código** (commit `0fa0040`):
+  - O script das vinhetas recusa chamar a API com código ou prompt não commitado.
+  - `frozen.json` também registra o prompt do gerador.
+  - As 300 vinhetas e o run completo recusam rodar com um prompt do gerador diferente do congelado.

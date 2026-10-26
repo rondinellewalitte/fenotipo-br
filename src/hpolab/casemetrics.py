@@ -166,10 +166,15 @@ def swap_pairs(fp: Iterable[str], fn: Iterable[str], ont: Ontology) -> list[tupl
     return pairs
 
 
-def fp_category(p: str, gold: set[str], negated: set[str], ont: Ontology) -> str:
-    """Descriptive category of one false positive: 'negated' if it is a term the vignette
-    states as absent, else the closest relation to any gold term of the case."""
+def fp_category(
+    p: str, gold: set[str], negated: set[str], ont: Ontology, dropped: frozenset[str] = frozenset()
+) -> str:
+    """Descriptive category of one false positive: 'negated' if the vignette states it as
+    absent; 'dropped_from_gold' if it was an item removed from the gold because the generator
+    gave no phrase found in the text; else the closest relation to any gold term."""
     if p in negated:
         return "negated"
+    if p in dropped:
+        return "dropped_from_gold"
     rels = {ont.relation(p, g) for g in gold}
     return next(r for r in RELATION_ORDER if r in rels)

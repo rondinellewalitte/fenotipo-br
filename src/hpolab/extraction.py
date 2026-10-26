@@ -11,6 +11,28 @@ import re
 
 NONE_ID = "NONE"
 
+# HPO terms behind the examples in prompts/exp03_extract_v1.system.md. A model may copy a
+# prompt example, so these terms (and their direct is_a parents and children) must not occur
+# in any drawn case; update this list with every new extraction prompt version.
+PROMPT_EXAMPLE_TERMS = {
+    "HP:0010605": "Chalazion",
+    "HP:0010606": "Hordeolum",
+    "HP:0031287": "Seborrheic keratosis",
+}
+
+
+def example_term_clashes(case_terms: dict[str, set[str]], ont) -> list[dict]:
+    """(case, example term, clashing term) for every drawn case whose observed or excluded
+    terms include a prompt example term or one of its direct parents or children."""
+    out = []
+    for ex in sorted(PROMPT_EXAMPLE_TERMS):
+        near = {ex} | set(ont.parents.get(ex, ())) | set(ont.children.get(ex, ()))
+        for cid in sorted(case_terms):
+            for t in sorted(case_terms[cid] & near):
+                out.append({"case_id": cid, "example_term": ex, "case_term": t})
+    return out
+
+
 EXTRACT_SCHEMA = {
     "type": "object",
     "properties": {

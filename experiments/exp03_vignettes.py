@@ -30,6 +30,7 @@ import pandas as pd
 
 from hpolab import llm
 from hpolab.data import RAW_DIR, ROOT, iter_phenopackets
+from hpolab.extraction import PROMPT_EXAMPLE_TERMS, example_term_clashes
 from hpolab.hpo import Ontology, load_babelon, load_ontology, pt_labels
 from hpolab.provenance import base_config, paths_dirty
 from hpolab.vignettes import (
@@ -53,7 +54,7 @@ from hpolab.vignettes import (
 
 SEED = 42
 N_PILOT, N_FULL = 50, 300
-BUDGET_USD = 5.00  # cumulative over every Exp 03 API call
+BUDGET_USD = 10.00  # cumulative over every Exp 03 API call (raised from 5 before the pilot)
 EFFORT = "low"
 MAX_TOKENS = 4000
 MAX_ATTEMPTS = 2
@@ -181,7 +182,7 @@ class Generator:
         labels_en = [self.ont.terms[it["hpo_id"]].label for it in item_list]
         if out is None:
             text, phrases = "", []
-            checks = {"pass": False, "fail": ["no_output"], "warn": [], "n_words": 0}
+            checks = {"pass": False, "fail": ["no_output"], "warn": [], "dropped": {}, "n_words": 0}
         else:
             text, phrases = out["vignette"], out["phrases"]
             genes = str(case.gene).split("|")
@@ -199,7 +200,13 @@ class Generator:
             "effort": EFFORT,
             "generated_at": datetime.now(UTC).isoformat(timespec="seconds"),
             "items": [
-                {**it, "label_en": lab, "phrase": phrase_of.get(it["item"], "")}
+                {
+                    **it,
+                    "label_en": lab,
+                    "phrase": phrase_of.get(it["item"], ""),
+                    "dropped": it["item"] in checks["dropped"],
+                    "drop_reason": checks["dropped"].get(it["item"], ""),
+                }
                 for it, lab in zip(item_list, labels_en, strict=True)
             ],
             "vignette": text,
@@ -208,6 +215,8 @@ class Generator:
         llm.append_jsonl(VIGNETTES, rec)
         self.records.append(rec)
         status = "ok" if checks["pass"] else "FAIL " + ";".join(checks["fail"])
+        if checks["dropped"]:
+            status += f"  dropped items: {checks['dropped']}"
         print(f"[{set_name}] {case_id} attempt {n}: {status}  (spent ${self.budget.spent_usd:.4f})")
         return rec
 
@@ -256,6 +265,15 @@ def summarize(set_name: str, prompt: llm.Prompt) -> dict:
         "n_attempts": len(records),
         "n_final": len(final),
         "n_replacements": sum(1 for r in final.values() if r.get("replaces")),
+        "dropped_items_final": [
+            {
+                "case_id": r["case_id"],
+                **{k: it[k] for k in ("item", "hpo_id", "polarity", "drop_reason")},
+            }
+            for r in final.values()
+            for it in r["items"]
+            if it.get("dropped")
+        ],
         "fail_reasons_all_attempts": dict(fails),
         "warnings_final": dict(warns),
         "n_words_final": {
@@ -336,6 +354,10 @@ def main() -> None:
         review(args.set, args.review, ont, prompt)
         return
     sample, counts = build_sample(ont)
+    case_terms = {r.case_id: set(r.observed) | set(r.excluded) for r in sample.itertuples()}
+    clashes = example_term_clashes(case_terms, ont)
+    if clashes:
+        sys.exit(f"Extraction prompt example terms occur in drawn cases: {clashes}")
     write_sample(sample)
     print(f"Sample: {counts} -> {SAMPLE}")
     if args.dry_run:
@@ -376,6 +398,8 @@ def main() -> None:
                 "prompt": GENERATOR_PROMPT,
                 "prompt_sha256": prompt.sha256,
                 "budget_usd_cumulative": BUDGET_USD,
+                "extract_prompt_example_terms": PROMPT_EXAMPLE_TERMS,
+                "example_term_clashes_in_drawn_cases": 0,
                 "price_per_mtok": llm.PRICES[GENERATOR_MODEL],
             },
             "spent_usd_total": round(spent_usd(), 4),

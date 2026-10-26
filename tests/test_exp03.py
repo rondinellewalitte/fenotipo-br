@@ -8,6 +8,7 @@ from hpolab import casemetrics as cm
 from hpolab import ollama
 from hpolab.extraction import (
     NONE_ID,
+    example_term_clashes,
     parse_extraction,
     parse_selection,
     segments,
@@ -168,11 +169,16 @@ def test_label_leaks_keep_accents_and_allow_attested_cognates():
     assert label_leaks(text, ["Ataxia", "Hematuria", "Seizure"], PT_VOCAB) == ["Seizure"]
 
 
+LABELS = ["Hypotonia", "Ataxia", "Hematuria", "Seizure"]
+CLEAN = "Criança com hipotonia, marcha atáxica e hematúria. Mãe nega crises epilépticas."
+
+
 def _items_and_phrases():
-    its = items(["HP:0001252", "HP:0001251"], ["HP:0001250"])
+    its = items(["HP:0001252", "HP:0001251", "HP:0000790"], ["HP:0001250"])
     phrases = [
         {"item": "1", "phrase": "hipotonia"},
         {"item": "2", "phrase": "marcha atáxica"},
+        {"item": "3", "phrase": "hematúria"},
         {"item": "N1", "phrase": "nega crises epilépticas"},
     ]
     return its, phrases
@@ -180,34 +186,37 @@ def _items_and_phrases():
 
 def test_check_vignette_passes_clean_text():
     its, phrases = _items_and_phrases()
-    text = "Criança com hipotonia e marcha atáxica. Mãe nega crises epilépticas."
-    chk = check_vignette(
-        text, phrases, its, ["Hypotonia", "Ataxia", "Seizure"], PT_VOCAB, ["SCN1A"]
-    )
-    assert chk["pass"], chk
+    chk = check_vignette(CLEAN, phrases, its, LABELS, PT_VOCAB, ["SCN1A"])
+    assert chk["pass"] and chk["dropped"] == {}, chk
 
 
 @pytest.mark.parametrize(
     "text,reason",
     [
-        ("hipotonia (HP:0001252), marcha atáxica, nega crises epilépticas", "hpo_id_or_mention"),
-        ("Hypotonia, hipotonia, marcha atáxica, nega crises epilépticas", "english_label"),
-        ("hipotonia, marcha atáxica, nega crises epilépticas; variante em SCN1A", "gene_symbol"),
-        ("hipotonia e nega crises epilépticas", "phrase_not_in_text"),
+        (CLEAN + " (HP:0001252)", "hpo_id_or_mention"),
+        (CLEAN + " Hypotonia.", "english_label"),
+        (CLEAN + " Variante em SCN1A.", "gene_symbol"),
+        ("Criança com hipotonia. Nega crises epilépticas.", "too_few_present_items:1"),
     ],
 )
 def test_check_vignette_failures(text, reason):
     its, phrases = _items_and_phrases()
-    chk = check_vignette(
-        text, phrases, its, ["Hypotonia", "Ataxia", "Seizure"], PT_VOCAB, ["SCN1A"]
-    )
+    chk = check_vignette(text, phrases, its, LABELS, PT_VOCAB, ["SCN1A"])
     assert not chk["pass"] and any(f.startswith(reason) for f in chk["fail"]), chk
 
 
-def test_check_vignette_missing_item():
+def test_check_vignette_drops_items_without_phrase_in_text():
     its, phrases = _items_and_phrases()
-    chk = check_vignette("hipotonia, marcha atáxica", phrases[:2], its, [], PT_VOCAB, [])
-    assert "item_without_phrase:N1" in chk["fail"]
+    text = "Criança com hipotonia, marcha atáxica e hematúria."  # negation missing
+    extra = {"item": "4", "phrase": "baixa estatura"}  # unknown item: warning only
+    chk = check_vignette(text, phrases[:3] + [extra], its, LABELS, PT_VOCAB, [])
+    assert chk["pass"] and chk["dropped"] == {"N1": "no_phrase"}, chk
+    assert "unknown_item:4" in chk["warn"] and "dropped_items:N1" in chk["warn"]
+    chk = check_vignette(text, phrases, its, LABELS, PT_VOCAB, [])
+    assert chk["pass"] and chk["dropped"] == {"N1": "phrase_not_in_text"}
+    chk = check_vignette(CLEAN, phrases[1:], its, LABELS, PT_VOCAB, [])
+    assert chk["dropped"] == {"1": "no_phrase"}
+    assert not chk["pass"] and "too_few_present_items:2" in chk["fail"]
 
 
 def test_final_vignettes_filters_prompt_model_and_pass():
@@ -223,6 +232,12 @@ def test_final_vignettes_filters_prompt_model_and_pass():
 
 
 # ---------------------------------------------------------------- extraction
+
+
+def test_example_term_clashes(ont):
+    assert example_term_clashes({"c1": {"HP:0001250"}}, ont) == []
+    clash = example_term_clashes({"c1": {"HP:0001250"}, "c2": {"HP:0010605"}}, ont)
+    assert clash == [{"case_id": "c2", "example_term": "HP:0010605", "case_term": "HP:0010605"}]
 
 
 def test_select_schema_and_parse_selection():
@@ -308,6 +323,8 @@ def test_swap_pairs_and_fp_category(ont):
     assert cm.fp_category("HP:0001250", gold, {"HP:0001250"}, ont) == "negated"
     assert cm.fp_category("HP:0001250", gold, set(), ont) == "parent_child"
     assert cm.fp_category("HP:0002121", gold, set(), ont) == "sibling"
+    dropped = frozenset({"HP:0002121"})
+    assert cm.fp_category("HP:0002121", gold, set(), ont, dropped) == "dropped_from_gold"
 
 
 # ---------------------------------------------------------------- ollama, retrieval

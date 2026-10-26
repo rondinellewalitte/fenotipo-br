@@ -193,7 +193,10 @@ def check_vignette(
     gene_symbols: list[str],
 ) -> dict:
     """Leak and coverage checks. `fail` lists the reasons the vignette is rejected;
-    `warn` lists things reported but tolerated."""
+    `warn` lists things reported but tolerated; `dropped` maps each item without a phrase
+    found verbatim in the text to the reason. A dropped item leaves the gold (or the negated
+    list) of the case instead of rejecting the vignette, unless fewer than MIN_TERMS present
+    items remain."""
     fail, warn = [], []
     if _HPO_ID_RE.search(text):
         fail.append("hpo_id_or_mention")
@@ -218,10 +221,14 @@ def check_vignette(
     not_in_text = sorted(
         k for k, v in by_item.items() if k in expected and (not v[0] or v[0] not in t)
     )
-    if missing:
-        fail.append("item_without_phrase:" + "|".join(missing))
-    if not_in_text:
-        fail.append("phrase_not_in_text:" + "|".join(not_in_text))
+    dropped = {k: "no_phrase" for k in missing} | {k: "phrase_not_in_text" for k in not_in_text}
+    n_present = sum(
+        1 for it in item_list if it["polarity"] == "present" and it["item"] not in dropped
+    )
+    if n_present < MIN_TERMS:
+        fail.append(f"too_few_present_items:{n_present}")
+    if dropped:
+        warn.append("dropped_items:" + "|".join(sorted(dropped)))
     if unknown:
         warn.append("unknown_item:" + "|".join(unknown))
     if dup:
@@ -232,7 +239,13 @@ def check_vignette(
     n_words = len(text.split())
     if not 60 <= n_words <= 600:
         warn.append(f"length_words:{n_words}")
-    return {"pass": not fail, "fail": fail, "warn": warn, "n_words": n_words}
+    return {
+        "pass": not fail,
+        "fail": fail,
+        "warn": warn,
+        "dropped": dict(sorted(dropped.items())),
+        "n_words": n_words,
+    }
 
 
 def final_vignettes(records: list[dict], set_name: str, prompt_sha: str, model: str) -> dict:

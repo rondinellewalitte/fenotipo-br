@@ -43,7 +43,9 @@ from hpolab import embed, gpu, ollama
 from hpolab.data import RAW_DIR, ROOT
 from hpolab.extraction import (
     EXTRACT_SCHEMA,
+    PROMPT_EXAMPLE_TERMS,
     candidate_lines,
+    example_term_clashes,
     parse_extraction,
     parse_selection,
     segments,
@@ -110,13 +112,15 @@ def load_cases(set_name: str) -> tuple[pd.DataFrame, str]:
     rows = []
     for cid in sorted(final):
         r = final[cid]
+        kept = [it for it in r["items"] if not it.get("dropped")]  # no phrase in the text
         rows.append(
             {
                 "case_id": cid,
                 "text": r["vignette"],
-                "gold": sorted(it["hpo_id"] for it in r["items"] if it["polarity"] == "present"),
-                "negated": sorted(it["hpo_id"] for it in r["items"] if it["polarity"] == "absent"),
-                "phrases": {it["hpo_id"]: it["phrase"] for it in r["items"]},
+                "gold": sorted(it["hpo_id"] for it in kept if it["polarity"] == "present"),
+                "negated": sorted(it["hpo_id"] for it in kept if it["polarity"] == "absent"),
+                "phrases": {it["hpo_id"]: it["phrase"] for it in kept},
+                "dropped": sorted(it["hpo_id"] for it in r["items"] if it.get("dropped")),
             }
         )
     return pd.DataFrame(rows), gen.sha256
@@ -341,6 +345,7 @@ def assemble(cases, model_key, ext, ret, sel) -> list[dict]:
                     "pred": sorted({f["selected"] for f in findings if f["selected"]}),
                     "gold": c.gold,
                     "negated": c.negated,
+                    "dropped": c.dropped,
                     "findings": [
                         {k: f[k] for k in ("text", "candidates", "scores", "selected")}
                         for f in findings
@@ -384,6 +389,7 @@ def baseline_records(cases, segs: dict, tau: float, per_seg: float) -> list[dict
                 "pred": sorted({s["top1"] for s in ss if s["score"] >= tau}),
                 "gold": c.gold,
                 "negated": c.negated,
+                "dropped": c.dropped,
                 "segments": ss,
                 "tau": tau,
                 "flags": [],
@@ -482,7 +488,8 @@ def arm_metrics(recs: list[dict], ont: Ontology, idx: np.ndarray, cov: pd.DataFr
         fp, fn = pred - gold, gold - pred
         n_near += len(cm.near_miss_pairs(fp, fn, ont))
         n_swap += len(cm.swap_pairs(fp, fn, ont))
-        cats.update(cm.fp_category(p, gold, neg, ont) for p in fp)
+        drop = frozenset(r.get("dropped", []))
+        cats.update(cm.fp_category(p, gold, neg, ont, drop) for p in fp)
     tp, fp, fn = s["tp"], s["fp"], s["fn"]
     s["near_miss"] = {
         "pairs": n_near,
@@ -600,7 +607,7 @@ def errors_table(records, ont: Ontology, pt_map: dict, cases) -> pd.DataFrame:
                     "hpo_id": p,
                     "label_en": ont.terms[p].label,
                     "label_pt": pt_map.get(p, ""),
-                    "category": cm.fp_category(p, gold, neg, ont),
+                    "category": cm.fp_category(p, gold, neg, ont, frozenset(r.get("dropped", []))),
                     "near_miss_of": near.get(p, ""),
                     "hand_foot_swap_of": swap.get(p, ""),
                     "paired_with_fp": "",
@@ -794,8 +801,22 @@ def preflight() -> dict:
     return info
 
 
+def check_prompt_examples(ont: Ontology) -> list[dict]:
+    """No drawn case (pilot, full, reserve) may contain an extraction prompt example term."""
+    sample = pd.read_csv(OUT / "sample.csv", dtype=str, keep_default_na=False)
+    case_terms = {
+        r.case_id: set(filter(None, f"{r.observed}|{r.excluded}".split("|")))
+        for r in sample.itertuples()
+    }
+    clashes = example_term_clashes(case_terms, ont)
+    if clashes:
+        sys.exit(f"Extraction prompt example terms occur in drawn cases: {clashes}")
+    return clashes
+
+
 def run(args, ont, cases, gen_sha, out_dir) -> None:
     prompts = load_prompts()
+    check_prompt_examples(ont)
     tau = check_frozen(prompts) if args.set == "full" else None
     pre = preflight()
     device = embed.resolve_device(args.device)
@@ -908,6 +929,8 @@ def run(args, ont, cases, gen_sha, out_dir) -> None:
                 "encode_device": embed.device_info(device),
             },
             "selector_sees": "finding text + candidate id and English label (all arms)",
+            "extract_prompt_example_terms": PROMPT_EXAMPLE_TERMS,
+            "items_dropped_no_phrase": int(cases["dropped"].map(len).sum()),
             "baseline": {
                 "segmenter": "hpolab.extraction.segments",
                 "tau": tau,
