@@ -32,6 +32,7 @@ from hpolab.vignettes import GENERATOR_MODEL, GENERATOR_PROMPT, final_vignettes
 SEED = 42
 PER_CLASS = {"technical": 14, "lay": 13, "both": 13}
 KAPPA_MIN = 0.6
+N_BOOT = 10_000
 CLASSES = ("technical", "lay", "both")
 PILOT = ROOT / "results" / "exp03" / "pilot"
 LABELS = PILOT / "register_check.csv"
@@ -140,6 +141,20 @@ def yes_no(value) -> bool | None:
     return True if v in YES else False if v in NO else None
 
 
+def kappa_ci(key: pd.DataFrame) -> list[float]:
+    """95% CI of kappa: items resampled within each stratum of the draw (the labeler's class),
+    which keeps the 14/13/13 design."""
+    rng = np.random.default_rng(SEED)
+    strata = [g.index.to_numpy() for _, g in key.groupby("labeler_d2")]
+    a, b = key["labeler_d2"].to_numpy(), key["human_d2"].to_numpy()
+    boot = []
+    for _ in range(N_BOOT):
+        idx = np.concatenate([rng.choice(s, len(s), replace=True) for s in strata])
+        boot.append(cohen_kappa(list(a[idx]), list(b[idx])))
+    lo, hi = np.quantile(boot, [0.025, 0.975])
+    return [round(float(lo), 4), round(float(hi), 4)]
+
+
 def score(path) -> None:
     ws = load_workbook(path)["itens"]
     rows = list(ws.iter_rows(min_row=2, values_only=True))
@@ -152,12 +167,15 @@ def score(path) -> None:
     key = pd.read_csv(KEY, dtype={"id": int})
     key["human_d2"] = key["id"].map(human)
     k = cohen_kappa(list(key["labeler_d2"]), list(key["human_d2"]))
+    lo, hi = kappa_ci(key)
     out = {
         "n_items": len(key),
         "per_class_drawn": PER_CLASS,
         "seed": SEED,
         "agreement": round(float((key["labeler_d2"] == key["human_d2"]).mean()), 4),
         "cohen_kappa": round(k, 4),
+        "cohen_kappa_ci95": [lo, hi],
+        "ci_method": f"bootstrap within the drawn strata, {N_BOOT} resamples, seed {SEED}, percentile",
         "kappa_min": KAPPA_MIN,
         "d2_strata_status": "confirmatory" if k >= KAPPA_MIN else "exploratory",
         "confusion_labeler_x_human": pd.crosstab(key["labeler_d2"], key["human_d2"]).to_dict(),

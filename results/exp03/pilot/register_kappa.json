@@ -8,6 +8,11 @@
   "seed": 42,
   "agreement": 0.9,
   "cohen_kappa": 0.8498,
+  "cohen_kappa_ci95": [
+    0.6995,
+    0.9625
+  ],
+  "ci_method": "bootstrap within the drawn strata, 10000 resamples, seed 42, percentile",
   "kappa_min": 0.6,
   "d2_strata_status": "confirmatory",
   "confusion_labeler_x_human": {

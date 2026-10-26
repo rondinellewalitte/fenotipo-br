@@ -287,3 +287,11 @@ Nesse momento existiam as 50 vinhetas v2 do piloto (commit `96aa210`, US$ 2,48 g
   - **E8:** a queda de recall de só técnico para só leigo é maior no baseline do que no braço A.
   - O recall por estrato D1 é relatado de forma descritiva, sem hipótese.
 - **Limitação registrada:** quem conferiu os rótulos não é clínico. A revisão por um geneticista entra no acordo com a Rede RARAS.
+- **Resultado da conferência humana**, feito com o piloto da extração ainda rodando e antes de qualquer métrica de extração (`results/exp03/pilot/register_kappa.json`):
+  - Concordância de 36 em 40 e kappa de Cohen de 0,85.
+  - IC95 de 0,70 a 0,96, por bootstrap dentro dos 3 estratos do sorteio (10.000 reamostragens, seed 42). Com n = 40 o intervalo é largo, mas o limite inferior fica acima de 0,6.
+  - O D2 é **confirmatório**.
+- **Limitação do D2: viés do rotulador para "ambos".** As 4 discordâncias são de fronteira, e 3 delas vão na mesma direção: o rotulador marcou "ambos" onde o autor viu "só leigo", em frases com uma palavra que também é clínica ("dor nas pernas", "febre que vai e volta", "atraso no desenvolvimento" na queixa).
+  - Esse viés não muda a comparação entre braços dentro de um estrato, porque todos os braços usam os mesmos rótulos.
+  - Ele muda o nível absoluto de recall de cada estrato. Itens leigos marcados como "ambos" saem do "só leigo" e deixam o grupo "ambos" mais difícil do que seria.
+  - Os níveis absolutos por estrato devem ser lidos com essa ressalva.
