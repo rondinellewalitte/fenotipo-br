@@ -17,6 +17,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 from datetime import UTC, datetime
 
 import pandas as pd
@@ -51,6 +52,7 @@ COLUMNS = [
     "n_cases",
     "n_genes",
     "candidate_pt",
+    "author_notes",
     "reviewer_pt",
     "reviewer_notes",
 ]
@@ -105,11 +107,100 @@ def build_terms(ont) -> pd.DataFrame:
                 "n_cases": int(r.n_cases),
                 "n_genes": int(r.n_genes),
                 "candidate_pt": "",
+                "author_notes": "",
                 "reviewer_pt": "",
                 "reviewer_notes": "",
             }
         )
     return pd.DataFrame(rows, columns=COLUMNS)
+
+
+def author_notes(ont, pt: pd.Series) -> tuple[dict[str, str], dict]:
+    """Notes from the project author for a few terms: consistency with the official PT
+    translation and open clinical choices. Every count is computed here from the HPO files."""
+
+    def syn_scope(hpo_id: str, text: str) -> str | None:
+        return next((x.scope for x in ont.terms[hpo_id].synonyms if x.text == text), None)
+
+    def under(root: str) -> list[str]:
+        return [i for i in pt.index if root in ont.ancestors(i) and i != root]
+
+    first = pt.str.split().str[0]
+    abn = [i for i in pt.index if ont.terms[i].label.startswith("Abnormality of")]
+    seizure, tonic = under("HP:0001250"), under("HP:0002069")
+    circ_re = r"(Increased|Decreased|Abnormal) circulating .+ (concentration|level)$"
+    circ = [i for i in pt.index if re.match(circ_re, ont.terms[i].label)]
+    ftt = [
+        i
+        for i, t in ont.terms.items()
+        if "failure to thrive" in t.label.lower() and i != "HP:0001508" and i not in pt.index
+    ]
+    ev = {
+        "pt_labels_starting_anomalia": int((first == "Anomalia").sum()),
+        "pt_labels_starting_anormalidade": int((first == "Anormalidade").sum()),
+        "abnormality_of_translated": len(abn),
+        "abnormality_of_as_anomalia": int((first[abn] == "Anomalia").sum()),
+        "seizure_branch_translated": len(seizure),
+        "seizure_branch_crise_epileptica": int(
+            pt[seizure].str.startswith("Crise epiléptica").sum()
+        ),
+        "seizure_branch_convulsao": int(pt[seizure].str.startswith("Convulsão").sum()),
+        "absence_under_seizure": "HP:0001250" in ont.ancestors("HP:0002121"),
+        "epileptic_seizure_synonym_scope": syn_scope("HP:0001250", "Epileptic seizure"),
+        "tonic_clonic_children_translated": len(tonic),
+        "tonic_clonic_children_convulsao": int(
+            pt[tonic].str.match(r"Convulsão t[ôó]nico-clônica").sum()
+        ),
+        "circulating_translated": len(circ),
+        "circulating_hiper_hipo": int(pt[circ].str.match(r"Hiper|Hipo").sum()),
+        "hyperlactatemia_synonym_en": syn_scope("HP:0002151", "Hyperlactatemia"),
+        "poor_weight_gain_scope": syn_scope("HP:0001508", "Poor weight gain"),
+        "weight_faltering_scope": syn_scope("HP:0001508", "Weight faltering"),
+        "ftt_related_untranslated": ftt,
+    }
+    assert ev["absence_under_seizure"] and ev["epileptic_seizure_synonym_scope"] == "exact"
+    assert ev["poor_weight_gain_scope"] == "related" and ev["weight_faltering_scope"] == "exact"
+    assert ev["hyperlactatemia_synonym_en"] is None
+    anomalia = (
+        "Padronização: a tradução oficial do HPO usa 'Anomalia', não 'Anormalidade'. "
+        f"{ev['pt_labels_starting_anomalia']} rótulos oficiais começam com 'Anomalia' e "
+        f"{ev['pt_labels_starting_anormalidade']} com 'Anormalidade'; dos {len(abn)} termos "
+        f"'Abnormality of ...' já traduzidos, {ev['abnormality_of_as_anomalia']} começam com "
+        f"'Anomalia' (ex.: HP:0000002, '{pt['HP:0000002']}')."
+    )
+    ftt_list = ", ".join(f"{i} ({ont.terms[i].label})" for i in ftt)
+    notes = {
+        "HP:0001155": anomalia,
+        "HP:0002353": anomalia,
+        "HP:0001250": (
+            "Decisão clínica: 'Crise epiléptica' ou outro termo? No HPO, 'Epileptic seizure' é "
+            "sinônimo exato, e o termo inclui crises não motoras (ex.: HP:0002121, ausência); "
+            "'Crise convulsiva' pode estreitar o conceito. Nos rótulos oficiais deste ramo, "
+            f"{ev['seizure_branch_crise_epileptica']} de {len(seizure)} começam com "
+            f"'Crise epiléptica' e {ev['seizure_branch_convulsao']} com 'Convulsão'."
+        ),
+        "HP:0002069": (
+            f"Consistência: {ev['tonic_clonic_children_convulsao']} dos {len(tonic)} termos "
+            "abaixo dele no HPO que já têm tradução usam 'Convulsão tônico-clônica ...' (ex.: HP:0007193, "
+            f"'{pt['HP:0007193']}'). Vale alinhar 'Crise' ou 'Convulsão' com a escolha para "
+            "HP:0001250 (Seizure)."
+        ),
+        "HP:0002151": (
+            f"Forma do rótulo: dos {len(circ)} rótulos oficiais do tipo 'Increased/Decreased/"
+            "Abnormal circulating ... concentration', 'Hiper-/Hipo-' aparece em "
+            f"{ev['circulating_hiper_hipo']}; a forma é descritiva (ex.: HP:0002920, "
+            f"'{pt['HP:0002920']}'). Em inglês, 'Hyperlactatemia' não é sinônimo nesta versão "
+            "do HPO. Se 'Hiperlactatemia' for o termo usual, indique-o em reviewer_notes como "
+            "sinônimo."
+        ),
+        "HP:0001508": (
+            "Pedimos sua opinião: no Brasil também se usa 'baixo ganho ponderal'. No HPO, "
+            "'Poor weight gain' é só sinônimo relacionado [related]; os exatos incluem "
+            "'Weight faltering' e 'Postnatal failure to thrive'. A escolha vale também para "
+            f"termos ainda sem tradução: {ftt_list}."
+        ),
+    }
+    return notes, ev
 
 
 def load_cache() -> dict[tuple, dict]:
@@ -259,6 +350,7 @@ def write_xlsx(df: pd.DataFrame, s: dict, prov: dict, examples: list[dict]) -> N
     bold = Font(name="Arial", size=10, bold=True)
     fill_input = PatternFill("solid", fgColor="FFF2CC")  # cells the reviewer fills in
     fill_mt = PatternFill("solid", fgColor="FCE4D6")  # machine translation, read-only
+    fill_author = PatternFill("solid", fgColor="DDEBF7")  # author notes, read-only
     fill_head = PatternFill("solid", fgColor="D9D9D9")
     wrap = Alignment(wrap_text=True, vertical="top")
 
@@ -278,6 +370,10 @@ def write_xlsx(df: pd.DataFrame, s: dict, prov: dict, examples: list[dict]) -> N
             MT_WARNING
             + " Fundo laranja. "
             + candidate_status(s).replace("**", "").replace("`", ""),
+        ),
+        (
+            "author_notes",
+            f"Observações do autor do projeto em {s['n_author_notes']} termos: padronização com a tradução oficial do HPO e escolhas clínicas em aberto. Fundo azul. São sugestões, não decisões; o rótulo final é seu.",
         ),
         (
             "Convenções",
@@ -349,11 +445,13 @@ def write_xlsx(df: pd.DataFrame, s: dict, prov: dict, examples: list[dict]) -> N
         "n_cases": 9,
         "n_genes": 9,
         "candidate_pt": 32,
+        "author_notes": 50,
         "reviewer_pt": 32,
         "reviewer_notes": 40,
     }
     notes = {
         "candidate_pt": MT_WARNING,
+        "author_notes": "Observações do autor do projeto: sugestões, não decisões.",
         "reviewer_pt": "Preencha com o rótulo final em PT-BR (mesmo que igual ao candidato).",
         "reviewer_notes": f"Opcional: dúvidas, termo alternativo, uso regional. Se mantiver a candidata sem mudar nada, escreva: {ACCEPTED_MARK}",
     }
@@ -369,6 +467,8 @@ def write_xlsx(df: pd.DataFrame, s: dict, prov: dict, examples: list[dict]) -> N
             c.font, c.alignment = base, wrap
             if col == "candidate_pt":
                 c.fill, c.font = fill_mt, Font(name="Arial", size=10, italic=True)
+            elif col == "author_notes":
+                c.fill = fill_author
             elif col in TO_FILL:
                 c.fill = fill_input
     ws.freeze_panes = "C2"
@@ -412,6 +512,7 @@ Os {N_TERMS} termos do HPO ({prov["hpo_release"]}) **sem rótulo oficial em port
 - **Limites:**
   - Os casos vêm da literatura e foram anotados em inglês. A frequência num ambulatório brasileiro pode ser outra.
   - **Viés de ancoragem:** quem revisa tende a aprovar a tradução candidata que já está na planilha. Por isso pedimos que corrija sem receio e marque explicitamente quando aceitar a candidata sem alteração. A taxa de aceitação deve ser lida como teto do acerto da tradução automática, não como medida independente.
+  - Os {s["n_author_notes"]} termos com observação do autor (`author_notes`) entram à parte nessa taxa, porque a observação também pode influenciar a resposta.
 
 ## Como revisar
 
@@ -419,6 +520,7 @@ Preencha as duas colunas em amarelo:
 
 - **`reviewer_pt`:** o rótulo final em PT-BR, mesmo que seja igual ao candidato. Use grafia brasileira, o termo usual na clínica e na genética médica no Brasil, e a forma de rótulo do HPO (substantivo, só a primeira letra maiúscula, sem ponto final).
 - **`reviewer_notes`:** opcional. Dúvidas, termos alternativos, uso regional.
+- **`author_notes`** (fundo azul, só leitura): observações do autor do projeto em {s["n_author_notes"]} termos, sobre padronização com a tradução oficial do HPO e escolhas clínicas em aberto. São sugestões, não decisões. As contagens citadas nelas vêm dos arquivos do HPO e estão em `results/review/run_summary.json` (`author_notes_evidence`).
 - **Corrija sem receio.** {NO_FEAR}
 
 As colunas `label_en`, `definition_en` e `synonyms_en` trazem o conceito oficial em inglês. Sinônimos que não são exatos vêm marcados, por exemplo `[related]`.
@@ -450,6 +552,12 @@ def main() -> None:
     prompt = llm.Prompt.load(PROMPT_STEM)
     s = translate(df, prompt, args.translate)
     pt = pt_labels(load_babelon(RAW_DIR / "hp-pt.babelon.tsv"), ont).set_index("hpo_id")
+    notes, evidence = author_notes(ont, pt["pt_label"])
+    missing_ids = set(notes) - set(df["hpo_id"])
+    assert not missing_ids, f"author notes for terms outside the top {N_TERMS}: {missing_ids}"
+    df["author_notes"] = df["hpo_id"].map(notes).fillna("")
+    s["n_author_notes"] = len(notes)
+    s["author_notes_evidence"] = evidence
     examples = [
         {
             "hpo_id": i,
