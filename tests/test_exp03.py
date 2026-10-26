@@ -24,6 +24,7 @@ from hpolab.vignettes import (
     draw,
     eligible,
     final_vignettes,
+    impossible_in_portuguese,
     item_lines,
     items,
     label_leaks,
@@ -164,9 +165,43 @@ def test_items_hide_ids(ont):
 PT_VOCAB = "ataxia\nataxia cerebelar\nhipotonia"
 
 
-def test_label_leaks_keep_accents_and_allow_attested_cognates():
-    text = "Apresenta ataxia, hematúria e um Seizure relatado."
-    assert label_leaks(text, ["Ataxia", "Hematuria", "Seizure"], PT_VOCAB) == ["Seizure"]
+def test_label_leaks_keep_accents_and_spare_cognates():
+    text = (
+        "Apresenta ataxia, hematúria, microtia, diabetes mellitus, pectus carinatum, "
+        "talon cusp, short stature e Seizure."
+    )
+    labels = ["Ataxia", "Hematuria", "Microtia", "Diabetes mellitus", "Pectus carinatum"]
+    labels += ["Talon cusp", "Short stature", "Seizure"]
+    # Seizure looks Portuguese in spelling and passes; the English function-word warning
+    # is the net for English prose (PREREG, Desvios).
+    assert label_leaks(text, labels, PT_VOCAB) == ["Talon cusp", "Short stature"]
+
+
+@pytest.mark.parametrize(
+    "word,impossible",
+    [
+        ("cusp", True),
+        ("delay", True),
+        ("hypotonia", True),
+        ("stature", False),
+        ("microtia", False),
+        ("mellitus", False),
+        ("carinatum", False),
+        ("ptosis", False),
+        ("thumb", True),
+        ("IgG", True),
+    ],
+)
+def test_impossible_in_portuguese(word, impossible):
+    assert impossible_in_portuguese(word) is impossible
+
+
+def test_labeled_description_warning():
+    its, phrases = _items_and_phrases()
+    text = CLEAN.replace("hipotonia", "tônus baixo, compatível com hipotonia")
+    phrases = [{**p, "phrase": "tônus baixo"} if p["item"] == "1" else p for p in phrases]
+    chk = check_vignette(text, phrases, its, LABELS, PT_VOCAB, [])
+    assert chk["pass"] and "labeled_description:1" in chk["warn"], chk
 
 
 LABELS = ["Hypotonia", "Ataxia", "Hematuria", "Seizure"]

@@ -54,7 +54,7 @@ from hpolab.vignettes import (
 
 SEED = 42
 N_PILOT, N_FULL = 50, 300
-BUDGET_USD = 10.00  # cumulative over every Exp 03 API call (raised from 5 before the pilot)
+BUDGET_USD = 12.00  # cumulative over every Exp 03 API call (PREREG, Desvios)
 EFFORT = "low"
 MAX_TOKENS = 4000
 MAX_ATTEMPTS = 2
@@ -308,13 +308,31 @@ def dry_run(sample: pd.DataFrame, set_name: str, ont: Ontology, prompt: llm.Prom
     print("\n--- example prompt (user part) ---\n" + render(first, ont, prompt)[0])
 
 
-def review(set_name: str, n: int, ont: Ontology, prompt: llm.Prompt) -> None:
+def review(
+    set_name: str,
+    n: int,
+    ont: Ontology,
+    prompt: llm.Prompt,
+    prefer: list[str] | None = None,
+    exclude: list[str] | None = None,
+) -> None:
+    """Print n random final vignettes with their gold for human review. With `prefer` (HPO
+    branch ids), cases with a present term under one of those branches are drawn first;
+    `exclude` skips cases already reviewed. Only for reading; no metric uses this choice."""
     pt = pt_labels(load_babelon(RAW_DIR / "hp-pt.babelon.tsv"), ont).set_index("hpo_id")
     final = final_vignettes(load_jsonl(VIGNETTES), set_name, prompt.sha256, GENERATOR_MODEL)
-    ids = sorted(final)
-    pick = sorted(np.random.default_rng(SEED).choice(len(ids), min(n, len(ids)), replace=False))
-    for k in pick:
-        r = final[ids[k]]
+    ids = sorted(set(final) - set(exclude or []))
+    rng = np.random.default_rng(SEED)
+
+    def preferred(cid: str) -> bool:
+        terms = [it["hpo_id"] for it in final[cid]["items"] if it["polarity"] == "present"]
+        return any(b in ont.ancestors(t) for t in terms for b in prefer or [])
+
+    first = [c for c in ids if preferred(c)] if prefer else []
+    rest = [c for c in ids if c not in first]
+    pool = list(rng.permutation(first)) + list(rng.permutation(rest))
+    for cid in sorted(pool[:n]):
+        r = final[cid]
         print(f"\n=== {r['case_id']} ({r['checks']['n_words']} palavras) ===\n{r['vignette']}\n")
         print("| item | estado | HPO | rótulo EN | rótulo PT oficial | frase na vinheta |")
         print("|---|---|---|---|---|---|")
@@ -344,6 +362,8 @@ def main() -> None:
     parser.add_argument("--set", required=True, choices=["pilot", "full"])
     parser.add_argument("--dry-run", action="store_true", help="draw and render, no API calls")
     parser.add_argument("--review", type=int, metavar="N", help="print N random vignettes")
+    parser.add_argument("--prefer", nargs="*", default=[], help="review: HPO branch ids first")
+    parser.add_argument("--exclude", nargs="*", default=[], help="review: case ids to skip")
     parser.add_argument(
         "--allow-dirty", action="store_true", help="call the API on uncommitted code"
     )
@@ -351,7 +371,7 @@ def main() -> None:
     ont = load_ontology(RAW_DIR / "hp.json")
     prompt = llm.Prompt.load(PROMPT_STEM)
     if args.review:
-        review(args.set, args.review, ont, prompt)
+        review(args.set, args.review, ont, prompt, args.prefer, args.exclude)
         return
     sample, counts = build_sample(ont)
     case_terms = {r.case_id: set(r.observed) | set(r.excluded) for r in sample.itertuples()}

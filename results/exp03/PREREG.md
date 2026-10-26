@@ -239,3 +239,23 @@ Todos os desvios abaixo são de 26/out/2026 e foram feitos **antes de gerar qual
   - O script das vinhetas recusa chamar a API com código ou prompt não commitado.
   - `frozen.json` também registra o prompt do gerador.
   - As 300 vinhetas e o run completo recusam rodar com um prompt do gerador diferente do congelado.
+
+### Após a primeira geração do piloto (26/out/2026)
+
+Nesse momento só existiam as 50 vinhetas do piloto feitas com o prompt v1 (commit `bd528a6`, US$ 1,357, 63 chamadas). Nenhuma extração tinha rodado. As mudanças abaixo vêm da revisão humana de 5 vinhetas sorteadas e foram aprovadas pelo autor. As vinhetas v1 continuam em `vignettes.jsonl`, mas não são usadas.
+
+- **Regra de vazamento por rótulo inglês.**
+  - Problema: das 63 tentativas, 13 foram reprovadas e 6 casos (12% do piloto) foram trocados por casos da reserva. Os termos acusados eram cognatos escritos igual em português: Diabetes mellitus, Microtia, Oligodontia, Taurodontia, Pectus carinatum. O único caso real de inglês foi Talon cusp. Manter a regra excluiria da amostra, de forma sistemática, os casos com termos greco-latinos.
+  - Regra nova (`hpolab.vignettes.label_leaks`): o rótulo só conta como vazamento se aparecer no texto, não estiver num rótulo PT oficial e tiver pelo menos uma palavra com grafia impossível em português (`impossible_in_portuguese`). Isso vale para:
+    - as letras ou grupos k, w, y, th, ph, sh, ck, gh, ee, oo;
+    - um final em consoante diferente de r, s, l, m, n, z, x.
+  - Conferência nas tentativas v1, sem nova chamada: das 13 reprovações, 12 passariam e só "Talon cusp" continua reprovada. Nenhuma vinheta aprovada passaria a ser reprovada.
+  - Limite aceito pelo autor: uma palavra inglesa com grafia possível em português, como "Seizure", passa. O aviso de palavras funcionais inglesas continua como rede.
+  - Os 6 casos trocados voltam para a amostra: a nova geração recomeça pelos 50 casos originais do sorteio, e a reserva só é usada para quem for reprovado de novo pela regra nova.
+- **Prompt do gerador v2** (`prompts/exp03_vignette_pt_br_v2.*.md`), com duas regras novas:
+  - **Não rotular a descrição.** Cada item aparece uma vez, com a descrição ou com o termo técnico, nunca os dois juntos. Exemplos v1 que deixaram de valer: "estatura abaixo do esperado (baixa estatura)", "olhos de dimensões reduzidas, compatível com microftalmia", "configurando atraso global do desenvolvimento". Eles entregavam a resposta e facilitavam a extração.
+  - **Não decompor nem explicar com outros achados.** Exemplos v1: "dismetria" ao lado de ataxia, "elevação de transaminases" na hepatite, "telangiectasias" na poiquilodermia, nome de remédio na crise. Esses achados não estão no gabarito e virariam falso positivo do extrator. "Medicação" também foi acrescentada à lista do que não entra.
+  - Monitoramento: o aviso `labeled_description` conta "compatível com", "configurando" e "caracterizando" no texto. É só aviso e não reprova.
+  - As 50 vinhetas do piloto são geradas de novo com o v2. O v2 fica congelado antes das 300, salvo nova revisão.
+- **Trava de custo: US$ 12**, cumulativa, contando os US$ 1,357 já gastos. Projeção: ~US$ 1,1 para refazer o piloto mais ~US$ 6,6 para as 300, total ~US$ 9,1. A folga cobre tentativas extras sem o risco de a trava parar o run completo no meio, o que seria um desvio pior.
+- **Revisão humana:** `--review N --prefer <ramos HPO> --exclude <casos>` sorteia primeiro casos com termos presentes nos ramos pedidos. Para a segunda revisão: pele (HP:0001574) e comportamento (HP:0000708), sem repetir os 5 casos já vistos. A escolha serve só para leitura; nenhuma métrica a usa.

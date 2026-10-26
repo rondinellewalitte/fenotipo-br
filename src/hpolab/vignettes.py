@@ -19,11 +19,14 @@ from hpolab.hpo import PHENOTYPIC_ABNORMALITY, Ontology
 MIN_TERMS, MAX_TERMS = 3, 15
 MAX_NEGATED = 5
 GENERATOR_MODEL = "claude-opus-5-5"
-GENERATOR_PROMPT = "exp03_vignette_pt_br_v1"  # stem under prompts/
+GENERATOR_PROMPT = "exp03_vignette_pt_br_v2"  # stem under prompts/
 
 _HPO_ID_RE = re.compile(r"\bHP\s*[:_]?\s*\d{7}\b|\bHPO\b", re.IGNORECASE)
 _DISEASE_ID_RE = re.compile(r"\b(OMIM|MONDO|ORPHA|ORPHANET)\s*[:_]", re.IGNORECASE)
 _ISO_DURATION_RE = re.compile(r"^P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?$")
+# A description followed by its technical term ("..., compatível com X", "configurando X"):
+# the generator v2 prompt forbids it; counted as a warning to monitor compliance.
+_LABELED_DESCRIPTION_RE = re.compile(r"\b(compatíve(?:l|is) com|configurando|caracterizando)\b")
 # Words that never occur in Portuguese prose; a few of them signal English text.
 ENGLISH_FUNCTION_WORDS = frozenset(
     {"the", "of", "with", "and", "is", "was", "were", "has", "had", "his", "her", "patient"}
@@ -171,15 +174,37 @@ def _contains_phrase(haystack: str, phrase: str) -> bool:
     return re.search(rf"(?<!\w){re.escape(phrase)}(?!\w)", haystack) is not None
 
 
+_NOT_PORTUGUESE_RE = re.compile(r"[kwy]|th|ph|sh|ck|gh|ee|oo")
+_PORTUGUESE_FINAL_CONSONANTS = frozenset("rslmnzx")
+
+
+def impossible_in_portuguese(word: str) -> bool:
+    """Spelling that Portuguese words do not have: k, w, y, th, ph, sh, ck, gh, ee, oo, or a
+    final consonant other than r, s, l, m, n, z, x ('cusp', 'delay', 'short', 'Hypotonia').
+    Greek/Latin terms written the same in both languages pass ('Microtia', 'mellitus')."""
+    w = word.casefold()
+    if _NOT_PORTUGUESE_RE.search(w):
+        return True
+    last = w[-1:]
+    return (
+        last.isalpha()
+        and last not in "aeiouáéíóúâêôãõà"
+        and last not in _PORTUGUESE_FINAL_CONSONANTS
+    )
+
+
 def label_leaks(text: str, labels: list[str], pt_vocab: str) -> list[str]:
-    """English labels found verbatim in the text (case-insensitive, accents kept), except
-    labels that also occur in an official PT label (`pt_vocab`: all PT labels, normalized,
-    one per line), i.e. cognates attested as Portuguese such as 'Ataxia' or 'Glaucoma'."""
+    """English labels found verbatim in the text (case-insensitive, accents kept) that are
+    English, not cognates: some word of the label has a spelling impossible in Portuguese,
+    and the label does not occur in an official PT label (`pt_vocab`: all PT labels,
+    normalized, one per line)."""
     t = _norm(text)
     out = []
     for label in labels:
         lab = _norm(label)
-        if lab and _contains_phrase(t, lab) and not _contains_phrase(pt_vocab, lab):
+        if not lab or not _contains_phrase(t, lab) or _contains_phrase(pt_vocab, lab):
+            continue
+        if any(impossible_in_portuguese(w) for w in re.findall(r"[^\W\d_]+", lab)):
             out.append(label)
     return out
 
@@ -236,6 +261,9 @@ def check_vignette(
     n_en = sum(1 for w in re.findall(r"[a-z]+", t) if w in ENGLISH_FUNCTION_WORDS)
     if n_en:
         warn.append(f"english_function_words:{n_en}")
+    labeled = _LABELED_DESCRIPTION_RE.findall(t)
+    if labeled:
+        warn.append(f"labeled_description:{len(labeled)}")
     n_words = len(text.split())
     if not 60 <= n_words <= 600:
         warn.append(f"length_words:{n_words}")
