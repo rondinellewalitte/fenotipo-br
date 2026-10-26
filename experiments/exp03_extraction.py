@@ -26,7 +26,6 @@ import gzip
 import hashlib
 import json
 import os
-import subprocess
 import sys
 import time
 from collections import Counter
@@ -59,7 +58,7 @@ from hpolab.hpo import (
     pt_labels,
 )
 from hpolab.llm import Prompt
-from hpolab.provenance import base_config
+from hpolab.provenance import base_config, paths_dirty
 from hpolab.retrieval import TermIndex, fold, subindex_rows, top_ids
 from hpolab.vignettes import GENERATOR_MODEL, GENERATOR_PROMPT, final_vignettes
 
@@ -83,7 +82,6 @@ N_BOOT = 10_000
 THREADS = 8
 OUT = ROOT / "results" / "exp03"
 FROZEN = OUT / "frozen.json"
-CODE_PATHS = ("src", "experiments", "prompts")
 
 
 # ---------------------------------------------------------------- inputs
@@ -100,17 +98,6 @@ def load_jsonl(path) -> list[dict]:
 def write_json(path, obj) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(obj, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-
-
-def code_dirty() -> bool:
-    out = subprocess.run(
-        ["git", "status", "--porcelain", "--", *CODE_PATHS],
-        cwd=ROOT,
-        capture_output=True,
-        text=True,
-        check=True,
-    ).stdout
-    return bool(out.strip())
 
 
 def load_cases(set_name: str) -> tuple[pd.DataFrame, str]:
@@ -764,6 +751,9 @@ def check_frozen(prompts: dict[str, Prompt]) -> float:
             sys.exit(f"Prompt {step!r} differs from frozen.json; the full run uses frozen prompts.")
     if fz["models"] != MODELS:
         sys.exit("MODELS differ from frozen.json.")
+    gen = Prompt.load(ROOT / "prompts" / GENERATOR_PROMPT)
+    if fz["generator_prompt"] != {"stem": GENERATOR_PROMPT, "sha256": gen.sha256}:
+        sys.exit("Generator prompt differs from frozen.json.")
     return float(fz["baseline_tau"])
 
 
@@ -779,6 +769,10 @@ def freeze() -> None:
             )["git"],
             "baseline_tau": th["tau"],
             "prompts": {s: {"stem": PROMPTS[s], "sha256": p.sha256} for s, p in prompts.items()},
+            "generator_prompt": {
+                "stem": GENERATOR_PROMPT,
+                "sha256": Prompt.load(ROOT / "prompts" / GENERATOR_PROMPT).sha256,
+            },
             "models": MODELS,
         },
     )
@@ -957,7 +951,7 @@ def main() -> None:
         freeze()
         return
     torch.set_num_threads(THREADS)
-    if not args.allow_dirty and not args.metrics_only and code_dirty():
+    if not args.allow_dirty and not args.metrics_only and paths_dirty():
         sys.exit("Refusing to run: src/, experiments/ or prompts/ has uncommitted changes.")
     ont = load_ontology(RAW_DIR / "hp.json")
     cases, gen_sha = load_cases(args.set)

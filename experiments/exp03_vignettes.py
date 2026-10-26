@@ -31,7 +31,7 @@ import pandas as pd
 from hpolab import llm
 from hpolab.data import RAW_DIR, ROOT, iter_phenopackets
 from hpolab.hpo import Ontology, load_babelon, load_ontology, pt_labels
-from hpolab.provenance import base_config
+from hpolab.provenance import base_config, paths_dirty
 from hpolab.vignettes import (
     GENERATOR_MODEL,
     GENERATOR_PROMPT,
@@ -311,11 +311,24 @@ def review(set_name: str, n: int, ont: Ontology, prompt: llm.Prompt) -> None:
             print(f"avisos: {r['checks']['warn']}")
 
 
+def check_frozen_generator(prompt: llm.Prompt) -> None:
+    """The 300 vignettes use the generator prompt frozen after the pilot (frozen.json)."""
+    frozen = OUT / "frozen.json"
+    if not frozen.exists():
+        sys.exit("frozen.json missing: freeze the pilot before generating the full set.")
+    want = json.loads(frozen.read_text(encoding="utf-8"))["generator_prompt"]
+    if want != {"stem": GENERATOR_PROMPT, "sha256": prompt.sha256}:
+        sys.exit("Generator prompt differs from frozen.json.")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--set", required=True, choices=["pilot", "full"])
     parser.add_argument("--dry-run", action="store_true", help="draw and render, no API calls")
     parser.add_argument("--review", type=int, metavar="N", help="print N random vignettes")
+    parser.add_argument(
+        "--allow-dirty", action="store_true", help="call the API on uncommitted code"
+    )
     args = parser.parse_args()
     ont = load_ontology(RAW_DIR / "hp.json")
     prompt = llm.Prompt.load(PROMPT_STEM)
@@ -328,6 +341,12 @@ def main() -> None:
     if args.dry_run:
         dry_run(sample, args.set, ont, prompt)
         return
+    if paths_dirty() and not args.allow_dirty:
+        sys.exit(
+            "Refusing to call the API: src/, experiments/ or prompts/ has uncommitted changes."
+        )
+    if args.set == "full":
+        check_frozen_generator(prompt)
     if not llm.has_api_key():
         sys.exit("ANTHROPIC_API_KEY is not set; nothing was sent.")
     import anthropic

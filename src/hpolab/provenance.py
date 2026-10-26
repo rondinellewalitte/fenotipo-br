@@ -24,6 +24,18 @@ def git_info() -> dict:
         return {"commit": None, "dirty": None}
 
 
+def paths_dirty(paths: tuple[str, ...] = ("src", "experiments", "prompts")) -> bool:
+    """True if any of `paths` has uncommitted changes (results/ may change freely)."""
+    out = subprocess.run(
+        ["git", "status", "--porcelain", "--", *paths],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=True,
+    ).stdout
+    return bool(out.strip())
+
+
 def lib_versions() -> dict:
     out = {}
     for lib in LIBS:
