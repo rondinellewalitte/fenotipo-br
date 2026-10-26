@@ -1,9 +1,9 @@
 {
   "experiment": "exp03_vignettes",
-  "run_at": "2026-10-26T21:22:47+00:00",
+  "run_at": "2026-10-26T21:36:46+00:00",
   "seed": 42,
   "git": {
-    "commit": "1441672392f053b794a4bcf54a647b68b7367bde",
+    "commit": "fdb2de05ae13a98986d1d4b715c36391e3e840f6",
     "dirty": true
   },
   "data": {
@@ -60,9 +60,9 @@
     "effort": "low",
     "max_tokens": 4000,
     "max_attempts": 2,
-    "prompt": "exp03_vignette_pt_br_v1",
-    "prompt_sha256": "d81b7f40352fb0b79c99ead984fe8421e26ab2ad5770b7f1ee501e86d06603a3",
-    "budget_usd_cumulative": 10.0,
+    "prompt": "exp03_vignette_pt_br_v2",
+    "prompt_sha256": "87fb1389247a2cb8913cdd0d020ff27b761355cc403695610446d2d1c4df3deb",
+    "budget_usd_cumulative": 12.0,
     "extract_prompt_example_terms": {
       "HP:0010605": "Chalazion",
       "HP:0010606": "Hordeolum",
@@ -76,23 +76,23 @@
       "cache_read": 0.2
     }
   },
-  "spent_usd_total": 1.357,
+  "spent_usd_total": 2.4816,
   "summary": {
-    "n_attempts": 63,
+    "n_attempts": 50,
     "n_final": 50,
-    "n_replacements": 6,
+    "n_replacements": 0,
     "dropped_items_final": [],
-    "fail_reasons_all_attempts": {
-      "english_label": 13
+    "fail_reasons_all_attempts": {},
+    "warnings_final": {
+      "labeled_description": 1
     },
-    "warnings_final": {},
     "n_words_final": {
-      "mean": 129.8,
-      "max": 187
+      "mean": 130.2,
+      "max": 200
     },
-    "api_calls": 63,
-    "input_tokens": 125346,
-    "output_tokens": 42780,
-    "cost_usd": 1.357
+    "api_calls": 50,
+    "input_tokens": 106606,
+    "output_tokens": 34911,
+    "cost_usd": 1.1246
   }
 }
