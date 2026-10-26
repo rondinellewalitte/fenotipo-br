@@ -447,10 +447,42 @@ def _norm(text: str) -> str:
     return " ".join(text.split()).casefold()
 
 
-def gold_covariates(cases, ont: Ontology, pt_map: dict) -> pd.DataFrame:
+REGISTER_LABELS = {
+    "pilot": OUT / "pilot" / "register_check.csv",
+    "full": OUT / "register_labels_full.csv",
+}
+
+
+def d2_class(technical: str, lay: str) -> str:
+    t, la = technical.strip().lower() == "yes", lay.strip().lower() == "yes"
+    return "both" if t and la else "technical" if t else "lay" if la else "none"
+
+
+def load_register_labels(set_name: str, cases) -> tuple[dict, dict]:
+    """Clinical register (D2) of every gold item from the blind labels, committed before
+    any extraction of the set (PREREG, Desvios). Returns ({(case, hpo): class}, provenance)."""
+    path = REGISTER_LABELS[set_name]
+    if not path.exists():
+        sys.exit(f"{path} missing: label the {set_name} items blind and commit before extracting.")
+    df = pd.read_csv(path, dtype=str, keep_default_na=False)
+    labels = {(r.case_id, r.hpo_id): d2_class(r.d2_technical, r.d2_lay) for r in df.itertuples()}
+    missing = [
+        (c.case_id, g) for c in cases.itertuples() for g in c.gold if (c.case_id, g) not in labels
+    ]
+    if missing:
+        sys.exit(f"{len(missing)} gold items without a D2 register label, e.g. {missing[:3]}")
+    prov = {
+        "path": path.relative_to(ROOT).as_posix(),
+        "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+    }
+    return labels, prov
+
+
+def gold_covariates(cases, ont: Ontology, pt_map: dict, d2: dict) -> pd.DataFrame:
     """Per gold term: has an official PT label; the generator's phrase equals it; surface
     similarity of the phrase to the English label (back-translation threat, PREREG); and the
-    register of the item in the note: technical, lay or both (hpolab.register)."""
+    register of the item in the note: technical, lay or both, by the literal rule (D1,
+    hpolab.register) and by the blind clinical labels (D2)."""
     rows = []
     for c in cases.itertuples():
         for g in c.gold:
@@ -465,7 +497,8 @@ def gold_covariates(cases, ont: Ontology, pt_map: dict) -> pd.DataFrame:
                     "phrase_is_pt_label": g in pt_map and _norm(phrase) == _norm(pt_map[g]),
                     "sim_en_label": round(sim, 1),
                     "sim_bin": "<50" if sim < 50 else "50-80" if sim < 80 else ">=80",
-                    "register": reg,
+                    "register_d1": reg,
+                    "register_d2": d2[(c.case_id, g)],
                 }
             )
     return pd.DataFrame(rows)
@@ -533,28 +566,21 @@ def arm_metrics(recs: list[dict], ont: Ontology, idx: np.ndarray, cov: pd.DataFr
             str(k): {"n": len(g), "recall": round(float(g["hit"].mean()), 4)}
             for k, g in cv.groupby(col)
         }
-        for col in ("has_pt_label", "phrase_is_pt_label", "sim_bin", "register")
+        for col in ("has_pt_label", "phrase_is_pt_label", "sim_bin", "register_d1", "register_d2")
     }
     return s
 
 
-def compute_metrics(records, cases, ont, pt_map, cov) -> dict:
-    idx = cm.bootstrap_indices(len(cases), N_BOOT, SEED)
-    groups: dict[str, list[dict]] = {}
-    for r in records:
-        groups.setdefault(f"{r['model']}/{r['arm']}", []).append(r)
-    arms = {k: arm_metrics(v, ont, idx, cov) for k, v in sorted(groups.items())}
-
-    def counts_of(key):
-        rs = sorted(groups[key], key=lambda r: r["case_id"])
-        return np.array([cm.counts(set(r["pred"]), set(r["gold"])) for r in rs])
-
+def register_section(groups: dict, cases, cov: pd.DataFrame, col: str, idx: np.ndarray) -> dict:
+    """Recall by register group per arm (case-bootstrap CI), technical - lay within each arm,
+    and A-B / C-A within each group. Items labeled 'none' are left out."""
     case_ids = sorted(cases["case_id"])
-    reg_of = {(r.case_id, r.hpo_id): r.register for r in cov.itertuples()}
+    reg_of = {(r.case_id, r.hpo_id): getattr(r, col) for r in cov.itertuples()}
+    gold_of = dict(zip(cases["case_id"], cases["gold"], strict=True))
     totals = np.array(
         [
-            [sum(reg_of[(cid, g)] == reg for g in gold) for reg in REGISTERS]
-            for cid, gold in sorted(zip(cases["case_id"], cases["gold"], strict=True))
+            [sum(reg_of[(cid, g)] == reg for g in gold_of[cid]) for reg in REGISTERS]
+            for cid in case_ids
         ]
     )
 
@@ -568,10 +594,10 @@ def compute_metrics(records, cases, ont, pt_map, cov) -> dict:
         )
 
     tech, lay = REGISTERS.index("technical"), REGISTERS.index("lay")
-    register = {}
+    out: dict = {"column": col}
     for key in sorted(groups):
         h = reg_hits(key)
-        register[key] = {
+        out[key] = {
             "recall": cm.group_recall(h, totals, idx, list(REGISTERS)),
             "technical_minus_lay": cm.recall_diff(h, h, totals, idx, tech, lay),
         }
@@ -579,13 +605,31 @@ def compute_metrics(records, cases, ont, pt_map, cov) -> dict:
         if f"{m}/A" not in groups:
             continue
         ha, hb, hc = (reg_hits(f"{m}/{a}") for a in LLM_ARMS)
-        register[f"{m}/between_arms"] = {
+        out[f"{m}/between_arms"] = {
             reg: {
                 "A-B": cm.recall_diff(ha, hb, totals, idx, j, j),
                 "C-A": cm.recall_diff(hc, ha, totals, idx, j, j),
             }
             for j, reg in enumerate(REGISTERS)
         }
+    return out
+
+
+def compute_metrics(records, cases, ont, pt_map, cov) -> dict:
+    idx = cm.bootstrap_indices(len(cases), N_BOOT, SEED)
+    groups: dict[str, list[dict]] = {}
+    for r in records:
+        groups.setdefault(f"{r['model']}/{r['arm']}", []).append(r)
+    arms = {k: arm_metrics(v, ont, idx, cov) for k, v in sorted(groups.items())}
+
+    def counts_of(key):
+        rs = sorted(groups[key], key=lambda r: r["case_id"])
+        return np.array([cm.counts(set(r["pred"]), set(r["gold"])) for r in rs])
+
+    register = {
+        name: register_section(groups, cases, cov, col, idx)
+        for name, col in (("d2", "register_d2"), ("d1", "register_d1"))
+    }
 
     comparisons = {}
     for m in MODELS:
@@ -780,7 +824,7 @@ def evaluate_hypotheses(m: dict) -> dict:
             )
         ),
     }
-    reg = m["register"]
+    reg = m["register"]["d2"]  # clinical register (PREREG, Desvios)
 
     def tml(key: str) -> dict:
         return reg[key]["technical_minus_lay"]
@@ -890,6 +934,7 @@ def check_prompt_examples(ont: Ontology) -> list[dict]:
 def run(args, ont, cases, gen_sha, out_dir) -> None:
     prompts = load_prompts()
     check_prompt_examples(ont)
+    load_register_labels(args.set, cases)  # fail before hours of compute, not after
     tau = check_frozen(prompts) if args.set == "full" else None
     pre = preflight()
     device = embed.resolve_device(args.device)
@@ -958,8 +1003,10 @@ def run(args, ont, cases, gen_sha, out_dir) -> None:
     with (out_dir / "predictions.jsonl").open("w", encoding="utf-8") as fh:
         for r in records:
             fh.write(json.dumps(r, ensure_ascii=False) + "\n")
-    cov = gold_covariates(cases, ont, pt_map)
+    d2, d2_prov = load_register_labels(args.set, cases)
+    cov = gold_covariates(cases, ont, pt_map, d2)
     metrics = compute_metrics(records, cases, ont, pt_map, cov)
+    metrics["register_labels"] = d2_prov
     metrics["oracle_spans_bge_m3_en_index"] = oracle
     metrics["baseline_tau"] = tau
     write_json(out_dir / "metrics.json", metrics)
@@ -1021,8 +1068,10 @@ def run(args, ont, cases, gen_sha, out_dir) -> None:
 def metrics_only(args, ont, cases, out_dir) -> None:
     records = load_jsonl(out_dir / "predictions.jsonl")
     _, pt_map = build_indexes(ont)
-    cov = gold_covariates(cases, ont, pt_map)
+    d2, d2_prov = load_register_labels(args.set, cases)
+    cov = gold_covariates(cases, ont, pt_map, d2)
     metrics = compute_metrics(records, cases, ont, pt_map, cov)
+    metrics["register_labels"] = d2_prov
     old = json.loads((out_dir / "metrics.json").read_text(encoding="utf-8"))
     for k in ("oracle_spans_bge_m3_en_index", "baseline_tau"):
         metrics[k] = old.get(k)

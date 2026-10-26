@@ -259,3 +259,31 @@ Nesse momento só existiam as 50 vinhetas do piloto feitas com o prompt v1 (comm
   - As 50 vinhetas do piloto são geradas de novo com o v2. O v2 fica congelado antes das 300, salvo nova revisão.
 - **Trava de custo: US$ 12**, cumulativa, contando os US$ 1,357 já gastos. Projeção: ~US$ 1,1 para refazer o piloto mais ~US$ 6,6 para as 300, total ~US$ 9,1. A folga cobre tentativas extras sem o risco de a trava parar o run completo no meio, o que seria um desvio pior.
 - **Revisão humana:** `--review N --prefer <ramos HPO> --exclude <casos>` sorteia primeiro casos com termos presentes nos ramos pedidos. Para a segunda revisão: pele (HP:0001574) e comportamento (HP:0000708), sem repetir os 5 casos já vistos. A escolha serve só para leitura; nenhuma métrica a usa.
+
+### Antes de qualquer extração: gerador congelado e estratos de registro (26/out/2026)
+
+Nesse momento existiam as 50 vinhetas v2 do piloto (commit `96aa210`, US$ 2,48 gastos no total) e nenhuma extração tinha rodado. As decisões abaixo são do autor.
+
+- **Gerador v2 congelado** para o run completo. Em 5 vinhetas, o mesmo achado aparece em palavras leigas na HDA e de novo com o termo técnico no exame. Isso foi mantido: é como a anamnese real é escrita. A regra do v2 mirava só o termo colado à descrição na mesma frase.
+- **Os prompts dos extratores são os mesmos para os dois modelos.** No benchmark de tempo, num texto sintético fora da amostra, o Gemma pulou as descrições leigas. Isso é um achado, não algo a corrigir. Nenhum ajuste de prompt é feito por modelo; uma mudança de prompt no piloto vale igualmente para os dois.
+- **Estratos de registro de cada item do gabarito.** São dois, e respondem a perguntas diferentes.
+  - **D2, clínico (principal):** o item aparece com termo médico ("só técnico"), só com descrição leiga ("só leigo") ou das duas formas ("ambos")? Pergunta: o extrator entende linguagem leiga, como num prontuário real?
+    - Rótulos de um rotulador às cegas: um agente Claude separado (`claude-opus-5-5`) que vê a vinheta e os itens, mas não a saída da regra. As instruções estão em `prompts/exp03_register_manual_v1.md`.
+    - Piloto: 372 itens em `results/exp03/pilot/register_check.csv` (commit `52d0998`), com 201 só técnico, 103 só leigo e 68 ambos.
+    - **Para as 300, os rótulos são feitos e commitados antes de qualquer extração do run completo** (`results/exp03/register_labels_full.csv`), com as mesmas instruções. O script de extração recusa rodar sem eles.
+  - **D1, literal (secundário):** a regra determinística `hpolab.register` acusa o rótulo PT oficial ou um cognato do rótulo inglês na vinheta? Pergunta: o termo existe no HPO em PT, ligada à pergunta 2 do projeto.
+    - Conferência contra o rotulador às cegas no piloto: 88,7% de concordância na presença de forma técnica.
+    - Pela leitura clínica, o grupo "leigo" da D1 (269 itens) tem só 103 itens leigos de fato. Os outros são termos técnicos sem rótulo PT oficial nem cognato. Por isso a D1 não serve como teste de linguagem leiga.
+  - Itens que o rotulador não encontrou ("none") ficam fora dos estratos.
+- **Conferência humana do D2** (`experiments/exp03_register_check.py`):
+  - 40 itens do piloto sorteados com seed 42 e estratificados pela classe do rotulador: 14 só técnico, 13 só leigo e 13 ambos.
+  - A planilha `reports/review/exp03_register_check_40.xlsx` mostra só a vinheta, o trecho e o conceito HPO, sem o rótulo do rotulador. A chave fica em `results/exp03/pilot/register_human_key.csv`.
+  - O autor marca "termo técnico?" e "descrição leiga?". O resultado vai para `results/exp03/pilot/register_kappa.json`: o kappa de Cohen entre autor e rotulador nas 3 classes.
+  - **Se o kappa ficar abaixo de 0,6, os resultados por estrato D2 (H6, E6–E8) entram só como exploratórios.**
+- **Hipótese e expectativas sobre o D2.** São julgadas no run completo, com bootstrap de casos e B = 10.000, como nas demais.
+  - **H6:** em cada modelo, nos braços A, B e C e no baseline, recall(só técnico) − recall(só leigo) > 0, com limite inferior do IC95 > 0.
+  - **E6:** |recall(A) − recall(B)| é maior no grupo só leigo do que no só técnico. É ali que direto-em-PT e traduz-antes devem se separar.
+  - **E7:** o ganho de C sobre A é maior no grupo só técnico, porque o índice bilíngue só ajuda quando o texto usa palavras do rótulo PT.
+  - **E8:** a queda de recall de só técnico para só leigo é maior no baseline do que no braço A.
+  - O recall por estrato D1 é relatado de forma descritiva, sem hipótese.
+- **Limitação registrada:** quem conferiu os rótulos não é clínico. A revisão por um geneticista entra no acordo com a Rede RARAS.

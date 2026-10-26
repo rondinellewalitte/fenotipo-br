@@ -215,3 +215,14 @@ def fp_category(
         return "dropped_from_gold"
     rels = {ont.relation(p, g) for g in gold}
     return next(r for r in RELATION_ORDER if r in rels)
+
+
+def cohen_kappa(a: list[str], b: list[str]) -> float:
+    """Cohen's kappa between two raters' categorical labels on the same items."""
+    if len(a) != len(b) or not a:
+        raise ValueError("need two label lists of the same non-zero length")
+    cats = sorted(set(a) | set(b))
+    n = len(a)
+    po = sum(x == y for x, y in zip(a, b, strict=True)) / n
+    pe = sum((a.count(c) / n) * (b.count(c) / n) for c in cats)
+    return 1.0 if pe == 1 else (po - pe) / (1 - pe)

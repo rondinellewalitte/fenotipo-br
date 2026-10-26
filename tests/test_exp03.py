@@ -446,3 +446,11 @@ def test_register_classes():
         "Demorou para sentar e andar.", "Demorou para sentar e andar", "Motor delay", None
     )
     assert lay["register"] == "lay" and lay["technical_sentence"] == ""
+
+
+def test_cohen_kappa():
+    a = ["lay", "lay", "technical", "both", "technical", "lay"]
+    assert cm.cohen_kappa(a, a) == 1.0
+    b = ["lay", "technical", "technical", "both", "lay", "lay"]
+    # po = 4/6; pe = (3/6*3/6) + (2/6*2/6) + (1/6*1/6) = 14/36
+    assert cm.cohen_kappa(a, b) == pytest.approx((4 / 6 - 14 / 36) / (1 - 14 / 36))
