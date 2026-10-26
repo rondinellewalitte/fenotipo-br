@@ -70,6 +70,7 @@ uv run python experiments/exp01_weighted.py   # needs Exp 02 inputs
 
 # Reports
 uv run python reports/build_piloto.py
+uv run python reports/build_piloto_pdf.py      # PDF of the report; needs Chrome or Edge
 uv run python reports/build_review.py          # add --translate to fill candidate_pt via the API
 uv run python reports/build_readme.py
 ```

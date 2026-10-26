@@ -20,7 +20,7 @@ from hpolab.provenance import git_info
 ROOT = Path(__file__).resolve().parents[1]
 R2 = ROOT / "results" / "exp02"
 OUT = ROOT / "reports" / "emails" / "rede_raras.md"
-ATTACHMENT = "reports/review/top50_terms.xlsx"
+ATTACHMENTS = ("reports/review/top50_terms.xlsx", "reports/piloto.pdf")
 REPO_URL = "https://github.com/rondinellewalitte/fenotipo-br"
 SENDER = ("Rondinelle Walitte", "rondinellewalitte@gmail.com", "0009-0004-1776-2754")
 N_TERMS = 50
@@ -82,7 +82,7 @@ Num piloto com casos publicados na literatura (Phenopacket Store), só {pct(base
 
 Meu pedido é um só: que um(a) geneticista da Rede RARAS revise esses {N_TERMS} termos na planilha anexa, que já traz o termo em inglês, a definição e uma tradução automática para corrigir. Quem revisar será coautor(a) da submissão das traduções ao HPO e do artigo do piloto.
 
-Código e resultados: {REPO_URL}
+Relatório do piloto (PDF anexo); código e resultados: {REPO_URL}
 
 O projeto é de pesquisa aberta e não tem interesse comercial.
 
@@ -101,7 +101,7 @@ ORCID {SENDER[2]}"""
 # E-mail: Rede RARAS (rascunho, não enviado)
 
 **Para:** [Nome], coordenação da Rede RARAS <[e-mail]>
-**Anexo:** `{ATTACHMENT}`
+**Anexos:** {", ".join(f"`{a}`" for a in ATTACHMENTS)}
 
 ```text
 Assunto: {subject}
@@ -130,7 +130,7 @@ Gerado em {datetime.now(UTC).strftime("%Y-%m-%d")} (commit `{sha}`). Assunto + c
 
 - Preencher `[Nome]` e `[e-mail]` com os dados de quem recebe (coordenação da Rede RARAS). Ajustar "Prezado(a)" ao nome.
 - Conferir que {REPO_URL} está público e com o último commit.
-- Anexar `{ATTACHMENT}`. O `reports/review/README.md` explica a revisão e pode ir junto.
+- Anexar {" e ".join(f"`{a}`" for a in ATTACHMENTS)}. Gerar o PDF de novo (`reports/build_piloto_pdf.py`) sempre que o `piloto.md` mudar.
 """
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(md, encoding="utf-8")

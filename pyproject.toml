@@ -20,6 +20,8 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "markdown-it-py>=4.2.0",
+    "pypdf>=6.21.2",
     "pytest>=8.0",
     "ruff>=0.6",
 ]
