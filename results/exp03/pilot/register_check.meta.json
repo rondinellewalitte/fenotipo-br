@@ -1,0 +1,19 @@
+{
+  "what": "blind clinical register labels (D2) of the present, non-dropped gold items",
+  "labeler": "independent Claude Code subagent (general-purpose), model claude-opus-5-5; not the Anthropic API, so no cost under the Exp 03 API cap",
+  "blind_to": [
+    "hpolab.register rule output",
+    "extraction results (none existed)"
+  ],
+  "instructions": "prompts/exp03_register_manual_v1.md",
+  "instructions_sha256": "3ce2209d74a5749f56edc5d324aef475ff05e601dcf7a62f13d1a1ceeb4ed3c8",
+  "input": "per case: the vignette text and its items (HPO id, English label, official PT label or (none), generator phrase)",
+  "batches": [
+    {
+      "cases": 50,
+      "items": 372,
+      "date": "2026-10-26"
+    }
+  ],
+  "human_check": "results/exp03/pilot/register_kappa.json"
+}

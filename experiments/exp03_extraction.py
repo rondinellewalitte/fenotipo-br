@@ -24,10 +24,12 @@ import argparse
 import gc
 import gzip
 import hashlib
+import http.client
 import json
 import os
 import sys
 import time
+import zlib
 from collections import Counter
 from datetime import UTC, datetime
 
@@ -84,6 +86,8 @@ REGISTERS = ("technical", "lay", "both")  # hpolab.register
 TAU_GRID = [round(float(x), 2) for x in np.arange(0.30, 0.951, 0.01)]
 N_BOOT = 10_000
 THREADS = 8
+CALL_RETRIES = 6
+RETRY_WAIT_S = 20
 OUT = ROOT / "results" / "exp03"
 FROZEN = OUT / "frozen.json"
 
@@ -91,12 +95,26 @@ FROZEN = OUT / "frozen.json"
 # ---------------------------------------------------------------- inputs
 
 
-def load_jsonl(path) -> list[dict]:
+def read_jsonl(path) -> tuple[list[dict], bool]:
+    """(records, complete). A run killed mid-write can leave a truncated last line or gzip
+    member: the records before it are kept and complete is False (those calls are redone)."""
     if not path.exists():
-        return []
+        return [], True
     opener = gzip.open if path.suffix == ".gz" else open
-    with opener(path, "rt", encoding="utf-8") as fh:
-        return [json.loads(line) for line in fh if line.strip()]
+    out: list[dict] = []
+    try:
+        with opener(path, "rt", encoding="utf-8") as fh:
+            for line in fh:
+                if line.strip():
+                    out.append(json.loads(line))
+    except (EOFError, OSError, zlib.error, json.JSONDecodeError) as e:
+        print(f"[resume] {path.name}: unreadable tail after {len(out)} records ({e!r})")
+        return out, False
+    return out, True
+
+
+def load_jsonl(path) -> list[dict]:
+    return read_jsonl(path)[0]
 
 
 def write_json(path, obj) -> None:
@@ -174,8 +192,16 @@ class CallCache:
 
     def __init__(self, path):
         self.path = path
-        self.records = {r["key"]: r for r in load_jsonl(path)}
+        records, complete = read_jsonl(path)
+        self.records = {r["key"]: r for r in records}
         self.new = 0
+        if not complete:  # rewrite without the broken tail, so later appends stay readable
+            tmp = path.with_name(path.name + ".tmp")
+            with gzip.open(tmp, "wt", encoding="utf-8") as fh:
+                for r in records:
+                    fh.write(json.dumps(r, ensure_ascii=False) + "\n")
+            tmp.replace(path)
+            print(f"[resume] {path.name}: rewritten with {len(records)} complete records")
 
     def call(self, model_key: str, digest: str, step: str, prompt: Prompt, user: str, fmt=None):
         opts = {
@@ -190,7 +216,7 @@ class CallCache:
         key = hashlib.sha256(blob.encode("utf-8")).hexdigest()
         if key in self.records:
             return self.records[key]
-        r = ollama.chat(MODELS[model_key], prompt.system, user, opts, fmt)
+        r = self._chat_with_retry(MODELS[model_key], prompt.system, user, opts, fmt)
         used = (r["prompt_eval_count"] or 0) + (r["eval_count"] or 0)
         rec = {
             "key": key,
@@ -212,6 +238,19 @@ class CallCache:
         self.records[key] = rec
         self.new += 1
         return rec
+
+    @staticmethod
+    def _chat_with_retry(tag, system, user, opts, fmt):
+        """Retry while the Ollama server is unreachable (restart, crash); a failure after
+        CALL_RETRIES stops the run, and rerunning resumes from the cache."""
+        for attempt in range(1, CALL_RETRIES + 1):
+            try:
+                return ollama.chat(tag, system, user, opts, fmt)
+            except (OSError, http.client.HTTPException) as e:
+                if attempt == CALL_RETRIES:
+                    raise
+                print(f"[retry] Ollama call failed ({type(e).__name__}: {e}); retry {attempt}")
+                time.sleep(RETRY_WAIT_S)
 
 
 def stage_extract(cases, model_key, digest, prompts, cache) -> dict:
@@ -471,7 +510,9 @@ def load_register_labels(set_name: str, cases) -> tuple[dict, dict]:
     ]
     if missing:
         sys.exit(f"{len(missing)} gold items without a D2 register label, e.g. {missing[:3]}")
+    meta = path.with_name(path.stem + ".meta.json")
     prov = {
+        "labeler": json.loads(meta.read_text(encoding="utf-8")) if meta.exists() else None,
         "path": path.relative_to(ROOT).as_posix(),
         "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
     }

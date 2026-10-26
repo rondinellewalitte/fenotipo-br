@@ -454,3 +454,30 @@ def test_cohen_kappa():
     b = ["lay", "technical", "technical", "both", "lay", "lay"]
     # po = 4/6; pe = (3/6*3/6) + (2/6*2/6) + (1/6*1/6) = 14/36
     assert cm.cohen_kappa(a, b) == pytest.approx((4 / 6 - 14 / 36) / (1 - 14 / 36))
+
+
+def test_call_cache_survives_truncated_tail(tmp_path):
+    import gzip
+    import importlib
+    import json
+    import sys
+
+    from hpolab.data import ROOT
+
+    sys.path.insert(0, str(ROOT / "experiments"))
+    x = importlib.import_module("exp03_extraction")
+    path = tmp_path / "calls.jsonl.gz"
+    for k in ("a", "b"):  # one gzip member per append, as CallCache writes
+        with gzip.open(path, "at", encoding="utf-8") as fh:
+            fh.write(json.dumps({"key": k}) + "\n")
+    whole = gzip.compress(json.dumps({"key": "c"}).encode() + b"\n")
+    with path.open("ab") as fh:  # a run killed in the middle of writing record c
+        fh.write(whole[: len(whole) // 2])
+    records, complete = x.read_jsonl(path)
+    assert [r["key"] for r in records] == ["a", "b"] and not complete
+    cache = x.CallCache(path)  # rewrites the file without the broken tail
+    assert set(cache.records) == {"a", "b"}
+    with gzip.open(path, "at", encoding="utf-8") as fh:
+        fh.write(json.dumps({"key": "c"}) + "\n")
+    records, complete = x.read_jsonl(path)
+    assert [r["key"] for r in records] == ["a", "b", "c"] and complete
