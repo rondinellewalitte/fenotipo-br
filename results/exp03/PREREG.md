@@ -309,6 +309,11 @@ Nesse momento existiam as vinhetas do run completo (commit `60c18c0`; US$ 7,12 e
   - A primeira tentativa de cada caso que agora passa entra como um registro novo (`recheck_of`). O registro antigo continua no arquivo.
   - `final_vignettes` descarta o caso da reserva quando o caso que ele substituiu passa a valer.
   - Exige que as tentativas reaproveitadas passem em todas as outras checagens: vazamento de ID, rótulo inglês e gene, trechos e mínimo de 3 termos presentes. Também exige que o conjunto final volte a ser exatamente o sorteio, sem gene em comum com o piloto nem com a reserva.
+  - **Resultado** (`results/exp03/vignettes_config_full.json` → `summary`, `recheck`):
+    - A tentativa 1 dos 3 casos passa agora em todas as checagens, sem item removido, com 3, 5 e 7 termos presentes.
+    - Os 3 casos da reserva saem. O conjunto final volta a ser exatamente os 300 casos sorteados.
+    - Os 300 genes não se repetem no piloto nem na reserva.
+    - Um quarto caso com Oligozoospermia já tinha passado na 2ª tentativa e fica como está.
 - **Limitação: o gerador das vinhetas e o rotulador do D2 são o mesmo modelo** (`claude-opus-5-5`).
   - O rotulador pode reconhecer o próprio jeito de escrever, por exemplo quais formulações o gerador usa como termo técnico, e classificá-las de forma mais consistente do que um leitor externo.
   - O kappa de 0,85 entre o autor e o rotulador (IC95 0,70–0,96) cobre a maior parte desse risco no piloto.

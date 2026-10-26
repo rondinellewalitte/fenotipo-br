@@ -80,7 +80,24 @@
   "summary": {
     "n_attempts": 308,
     "n_final": 300,
-    "n_replacements": 3,
+    "n_replacements": 0,
+    "rechecked_attempts_now_passing": [
+      {
+        "case_id": "PMID_36546111_F2_1",
+        "attempt": 1,
+        "recheck_of": "2026-10-26T23:20:07+00:00"
+      },
+      {
+        "case_id": "PMID_37804054_proband_AC027",
+        "attempt": 1,
+        "recheck_of": "2026-10-26T23:36:17+00:00"
+      },
+      {
+        "case_id": "PMID_38441556_Patient_09IF026",
+        "attempt": 1,
+        "recheck_of": "2026-10-26T23:46:57+00:00"
+      }
+    ],
     "dropped_items_final": [],
     "fail_reasons_all_attempts": {
       "english_label": 7,
@@ -90,12 +107,19 @@
       "labeled_description": 7
     },
     "n_words_final": {
-      "mean": 128.1,
+      "mean": 127.7,
       "max": 207
     },
     "api_calls": 308,
     "input_tokens": 672680,
     "output_tokens": 221533,
     "cost_usd": 7.1214
+  },
+  "recheck": {
+    "at": "2026-10-26T23:58:56+00:00",
+    "git": {
+      "commit": "540db6982cdf570fec983d6ae931f37ce6f41bd7",
+      "dirty": true
+    }
   }
 }
