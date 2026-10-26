@@ -295,3 +295,22 @@ Nesse momento existiam as 50 vinhetas v2 do piloto (commit `96aa210`, US$ 2,48 g
   - Esse viés não muda a comparação entre braços dentro de um estrato, porque todos os braços usam os mesmos rótulos.
   - Ele muda o nível absoluto de recall de cada estrato. Itens leigos marcados como "ambos" saem do "só leigo" e deixam o grupo "ambos" mais difícil do que seria.
   - Os níveis absolutos por estrato devem ser lidos com essa ressalva.
+
+### Após a geração das 300, antes de rotular e extrair (26/out/2026)
+
+Nesse momento existiam as vinhetas do run completo (commit `60c18c0`; US$ 7,12 em 308 chamadas; US$ 9,60 no total). Não havia nenhum rótulo D2 nem nenhuma extração do run completo. As decisões abaixo são do autor.
+
+- **"oo" deixa de marcar grafia impossível em português.**
+  - Problema: 7 reprovações por rótulo inglês, todas do mesmo termo, "Oligozoospermia", que se escreve igual em português. Três casos foram trocados por casos da reserva, e isso tiraria da amostra uma classe inteira de fenótipos (infertilidade masculina).
+  - Correção: o "oo" sai dos marcadores (`hpolab.vignettes.impossible_in_portuguese`). Palavras inglesas com "oo" seguem pegas por outro marcador, como "foot" e "tooth".
+  - Limite aceito: "loose" e "spoon" passariam se aparecessem soltas no texto.
+- **Reavaliação das tentativas gravadas, sem nova chamada à API** (`exp03_vignettes.py --recheck`).
+  - As tentativas reprovadas do conjunto passam de novo pelas checagens, já com a regra corrigida.
+  - A primeira tentativa de cada caso que agora passa entra como um registro novo (`recheck_of`). O registro antigo continua no arquivo.
+  - `final_vignettes` descarta o caso da reserva quando o caso que ele substituiu passa a valer.
+  - Exige que as tentativas reaproveitadas passem em todas as outras checagens: vazamento de ID, rótulo inglês e gene, trechos e mínimo de 3 termos presentes. Também exige que o conjunto final volte a ser exatamente o sorteio, sem gene em comum com o piloto nem com a reserva.
+- **Limitação: o gerador das vinhetas e o rotulador do D2 são o mesmo modelo** (`claude-opus-5-5`).
+  - O rotulador pode reconhecer o próprio jeito de escrever, por exemplo quais formulações o gerador usa como termo técnico, e classificá-las de forma mais consistente do que um leitor externo.
+  - O kappa de 0,85 entre o autor e o rotulador (IC95 0,70–0,96) cobre a maior parte desse risco no piloto.
+  - A revisão por um geneticista é a checagem independente prevista.
+  - Deve constar nas limitações do artigo.

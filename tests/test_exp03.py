@@ -190,6 +190,9 @@ def test_label_leaks_keep_accents_and_spare_cognates():
         ("carinatum", False),
         ("ptosis", False),
         ("thumb", True),
+        ("oligozoospermia", False),
+        ("foot", True),
+        ("tooth", True),
         ("IgG", True),
     ],
 )
@@ -270,6 +273,19 @@ def test_check_vignette_accepts_shared_and_overlapping_phrases():
     same = [{**p, "phrase": "Polegares e háluces alargados"} for p in phrases[:2]] + phrases[2:]
     chk = check_vignette(text, same, its, [], PT_VOCAB, [])
     assert chk["pass"] and chk["dropped"] == {}, chk
+
+
+def test_final_vignettes_drops_replacement_when_original_passes_after_recheck():
+    base = {"set": "full", "prompt_sha256": "s", "model": "m"}
+    recs = [
+        {**base, "case_id": "x", "checks": {"pass": False}},
+        {**base, "case_id": "x", "checks": {"pass": False}},
+        {**base, "case_id": "r1", "replaces": "x", "checks": {"pass": True}},
+        {**base, "case_id": "y", "checks": {"pass": True}},
+    ]
+    assert sorted(final_vignettes(recs, "full", "s", "m")) == ["r1", "y"]
+    recs.append({**base, "case_id": "x", "recheck_of": 1, "checks": {"pass": True}})
+    assert sorted(final_vignettes(recs, "full", "s", "m")) == ["x", "y"]
 
 
 def test_final_vignettes_filters_prompt_model_and_pass():

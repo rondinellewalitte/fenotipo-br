@@ -254,6 +254,8 @@ def summarize(set_name: str, prompt: llm.Prompt) -> dict:
         if r["set"] == set_name and r["prompt_sha256"] == prompt.sha256
     ]
     final = final_vignettes(records, set_name, prompt.sha256, GENERATOR_MODEL)
+    rechecks = [r for r in records if r.get("recheck_of")]
+    records = [r for r in records if not r.get("recheck_of")]  # API attempts only
     calls = [
         r
         for r in load_jsonl(CALL_LOG)
@@ -265,6 +267,10 @@ def summarize(set_name: str, prompt: llm.Prompt) -> dict:
         "n_attempts": len(records),
         "n_final": len(final),
         "n_replacements": sum(1 for r in final.values() if r.get("replaces")),
+        "rechecked_attempts_now_passing": [
+            {"case_id": r["case_id"], "attempt": r["attempt"], "recheck_of": r["recheck_of"]}
+            for r in rechecks
+        ],
         "dropped_items_final": [
             {
                 "case_id": r["case_id"],
@@ -347,6 +353,57 @@ def review(
             print(f"avisos: {r['checks']['warn']}")
 
 
+def recheck(set_name: str, ont: Ontology, prompt: llm.Prompt) -> list[dict]:
+    """Run the current checks again on stored failing attempts of the set, with no API call.
+    The first attempt of a case that now passes is appended as a new record (recheck_of = its
+    generated_at); final_vignettes then drops the reserve case that had replaced it."""
+    records = load_jsonl(VIGNETTES)
+    sample = pd.read_csv(SAMPLE, dtype=str, keep_default_na=False).set_index("case_id")
+    pt_vocab = pt_vocabulary(ont)
+    mine = [
+        r
+        for r in records
+        if r["set"] == set_name
+        and r["prompt_sha256"] == prompt.sha256
+        and r["model"] == GENERATOR_MODEL
+    ]
+    passing = {r["case_id"] for r in mine if r["checks"]["pass"]}
+    new = []
+    for r in mine:
+        if r["checks"]["pass"] or r["case_id"] in passing or not r["vignette"]:
+            continue
+        item_list = [{k: it[k] for k in ("item", "hpo_id", "polarity")} for it in r["items"]]
+        phrases = [
+            {"item": it["item"], "phrase": it["phrase"]} for it in r["items"] if it["phrase"]
+        ]
+        labels_en = [it["label_en"] for it in r["items"]]
+        genes = str(sample.loc[r["case_id"], "gene"]).split("|")
+        checks = check_vignette(r["vignette"], phrases, item_list, labels_en, pt_vocab, genes)
+        if not checks["pass"]:
+            continue
+        rec = {
+            **r,
+            "items": [
+                {
+                    **it,
+                    "dropped": it["item"] in checks["dropped"],
+                    "drop_reason": checks["dropped"].get(it["item"], ""),
+                }
+                for it in r["items"]
+            ],
+            "checks": checks,
+            "recheck_of": r["generated_at"],
+            "rechecked_at": datetime.now(UTC).isoformat(timespec="seconds"),
+            "previous_fail": r["checks"]["fail"],
+        }
+        llm.append_jsonl(VIGNETTES, rec)
+        passing.add(r["case_id"])
+        new.append(rec)
+        was = r["checks"]["fail"]
+        print(f"[{set_name}] {r['case_id']} attempt {r['attempt']} passes now (was {was})")
+    return new
+
+
 def check_frozen_generator(prompt: llm.Prompt) -> None:
     """The 300 vignettes use the generator prompt frozen after the pilot (frozen.json)."""
     frozen = OUT / "frozen.json"
@@ -363,6 +420,9 @@ def main() -> None:
     parser.add_argument("--dry-run", action="store_true", help="draw and render, no API calls")
     parser.add_argument("--review", type=int, metavar="N", help="print N random vignettes")
     parser.add_argument("--prefer", nargs="*", default=[], help="review: HPO branch ids first")
+    parser.add_argument(
+        "--recheck", action="store_true", help="re-run checks on stored failing attempts (no API)"
+    )
     parser.add_argument("--exclude", nargs="*", default=[], help="review: case ids to skip")
     parser.add_argument(
         "--allow-dirty", action="store_true", help="call the API on uncommitted code"
@@ -372,6 +432,20 @@ def main() -> None:
     prompt = llm.Prompt.load(PROMPT_STEM)
     if args.review:
         review(args.set, args.review, ont, prompt, args.prefer, args.exclude)
+        return
+    if args.recheck:
+        if paths_dirty() and not args.allow_dirty:
+            sys.exit("Refusing to recheck: src/, experiments/ or prompts/ has uncommitted changes.")
+        recheck(args.set, ont, prompt)
+        path = OUT / f"vignettes_config_{args.set}.json"
+        cfg = json.loads(path.read_text(encoding="utf-8"))
+        cfg["summary"] = summarize(args.set, prompt)
+        cfg["recheck"] = {
+            "at": datetime.now(UTC).isoformat(timespec="seconds"),
+            "git": base_config("exp03_vignettes", SEED)["git"],
+        }
+        path.write_text(json.dumps(cfg, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        print(json.dumps(cfg["summary"], indent=2, ensure_ascii=False))
         return
     sample, counts = build_sample(ont)
     case_terms = {r.case_id: set(r.observed) | set(r.excluded) for r in sample.itertuples()}

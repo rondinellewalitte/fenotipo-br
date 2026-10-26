@@ -174,12 +174,13 @@ def _contains_phrase(haystack: str, phrase: str) -> bool:
     return re.search(rf"(?<!\w){re.escape(phrase)}(?!\w)", haystack) is not None
 
 
-_NOT_PORTUGUESE_RE = re.compile(r"[kwy]|th|ph|sh|ck|gh|ee|oo")
+# "oo" is not a marker: Portuguese writes it in Greek roots ("oligozoospermia").
+_NOT_PORTUGUESE_RE = re.compile(r"[kwy]|th|ph|sh|ck|gh|ee")
 _PORTUGUESE_FINAL_CONSONANTS = frozenset("rslmnzx")
 
 
 def impossible_in_portuguese(word: str) -> bool:
-    """Spelling that Portuguese words do not have: k, w, y, th, ph, sh, ck, gh, ee, oo, or a
+    """Spelling that Portuguese words do not have: k, w, y, th, ph, sh, ck, gh, ee, or a
     final consonant other than r, s, l, m, n, z, x ('cusp', 'delay', 'short', 'Hypotonia').
     Greek/Latin terms written the same in both languages pass ('Microtia', 'mellitus')."""
     w = word.casefold()
@@ -279,7 +280,8 @@ def check_vignette(
 def final_vignettes(records: list[dict], set_name: str, prompt_sha: str, model: str) -> dict:
     """{case_id: record} of the vignettes used for `set_name`: the latest passing record per
     case made with this generator prompt and model (replacement cases carry the set name of
-    the case they replace)."""
+    the case they replace). A replacement is dropped when the case it replaced passes after
+    all (an earlier attempt that passes a corrected check, see --recheck)."""
     out: dict[str, dict] = {}
     for r in records:
         if (
@@ -289,4 +291,7 @@ def final_vignettes(records: list[dict], set_name: str, prompt_sha: str, model: 
             and r.get("checks", {}).get("pass")
         ):
             out[r["case_id"]] = r
+    while superseded := [c for c, r in out.items() if r.get("replaces") in out]:
+        for c in superseded:
+            del out[c]
     return out
