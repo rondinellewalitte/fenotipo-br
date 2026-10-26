@@ -72,7 +72,7 @@ def main() -> None:
     for name, e in c1["data"].items():
         data_rows.append(f"| `{name}` | {e['release_tag']} | `{e['sha256'][:16]}…` |")
 
-    md = f"""# HPO-PTBR Lab
+    md = f"""# Fenótipo-BR
 
 Research lab measuring how well **Brazilian Portuguese** phenotype terms map to the
 [Human Phenotype Ontology](https://hpo.jax.org) (HPO), with a focus on rare-disease

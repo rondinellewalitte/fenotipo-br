@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software or its results, please cite it as below, and also cite the HPO and Phenopacket Store papers listed under references."
-title: "HPO-PTBR Lab: mapping Brazilian Portuguese phenotype terms to the Human Phenotype Ontology"
+title: "Fenótipo-BR: mapping Brazilian Portuguese phenotype terms to the Human Phenotype Ontology"
 type: software
 authors:
   - given-names: Rondinelle
@@ -8,6 +8,7 @@ authors:
     alias: "Rondinelle Walitte Pedro de Jesus"
     orcid: "https://orcid.org/0009-0004-1776-2754"
 version: 0.1.0
+date-released: 2026-10-26
 license: MIT
 repository-code: "https://github.com/rondinellewalitte/fenotipo-br"
 abstract: >-

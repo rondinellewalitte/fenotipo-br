@@ -1,5 +1,6 @@
 {
-  "title": "HPO-PTBR Lab: mapping Brazilian Portuguese phenotype terms to the Human Phenotype Ontology",
+  "title": "Fenótipo-BR: mapping Brazilian Portuguese phenotype terms to the Human Phenotype Ontology",
+  "version": "0.1.0",
   "upload_type": "software",
   "description": "<p>Research pilot measuring how well Brazilian Portuguese phenotype terms map to the Human Phenotype Ontology (HPO) when only English labels are searched, and how much of published rare-disease case descriptions already has an official Portuguese HPO label.</p><p>Research support only; not a clinical or diagnostic tool. Uses only public data (HPO, Phenopacket Store); no patient data.</p>",
   "creators": [

@@ -1,7 +1,7 @@
 [project]
 name = "hpolab"
 version = "0.1.0"
-description = "Research lab: mapping Brazilian Portuguese clinical text to HPO terms"
+description = "Fenótipo-BR: mapping Brazilian Portuguese phenotype terms to the Human Phenotype Ontology"
 readme = "README.md"
 authors = [
     { name = "Rondinelle Walitte", email = "rondinellewalitte@gmail.com" }
