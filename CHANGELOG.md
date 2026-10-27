@@ -4,7 +4,9 @@ Each version is a git tag archived on Zenodo (concept DOI
 [10.5281/zenodo.23662825](https://doi.org/10.5281/zenodo.23662825)). Results are not repeated
 here: each entry points to the files that hold them.
 
-## [0.2.0] (unreleased; the date is set when the release is published)
+## [0.2.0] (2026-10-27)
+
+Version DOI [10.5281/zenodo.23688007](https://doi.org/10.5281/zenodo.23688007).
 
 ### Added
 

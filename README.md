@@ -170,9 +170,9 @@ data/            downloads and caches (not committed)
 - **The project (all versions):** concept DOI [10.5281/zenodo.23662825](https://doi.org/10.5281/zenodo.23662825). It always resolves to the latest version.
 - **To reproduce the numbers above:**
   - Exp 01–02: version 0.1.0, DOI [10.5281/zenodo.23662826](https://doi.org/10.5281/zenodo.23662826) (tag `v0.1.0`). Their results are unchanged since that tag, which `reports/build_readme.py` checks.
-  - Exp 03: version 0.2.0 (tag `v0.2.0`). Zenodo assigns its version DOI when the release is published; until then, cite the concept DOI.
+  - Exp 03: version 0.2.0 (tag `v0.2.0`), DOI [10.5281/zenodo.23688007](https://doi.org/10.5281/zenodo.23688007).
 
-> Walitte R. *Fenótipo-BR: mapping Brazilian Portuguese phenotype terms to the Human Phenotype Ontology* (v0.2.0). Zenodo; 2026. https://doi.org/10.5281/zenodo.23662825
+> Walitte R. *Fenótipo-BR: mapping Brazilian Portuguese phenotype terms to the Human Phenotype Ontology* (v0.2.0). Zenodo; 2026. https://doi.org/10.5281/zenodo.23688007
 
 Machine-readable metadata: `CITATION.cff` (GitHub's "Cite this repository"). Please also cite the data sources:
 

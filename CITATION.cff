@@ -19,7 +19,9 @@ identifiers:
   - type: doi
     value: 10.5281/zenodo.23662826
     description: "Version 0.1.0 (tag v0.1.0): the release that produced the Exp 01-02 numbers."
-# The v0.2.0 version DOI (Exp 03 numbers) is added here once Zenodo assigns it.
+  - type: doi
+    value: 10.5281/zenodo.23688007
+    description: "Version 0.2.0 (tag v0.2.0): the release that produced the Exp 03 numbers."
 abstract: >-
   Research pilot measuring how well Brazilian Portuguese phenotype terms map to the Human
   Phenotype Ontology (HPO) when only English labels are searched, how much of published

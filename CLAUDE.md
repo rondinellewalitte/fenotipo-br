@@ -77,8 +77,6 @@ tests/
 - [ ] Exp 04 (planejado): o mesmo protocolo com o Claude via API como extrator (orçamento separado; ver limitação de mesmo modelo em `results/exp03/PREREG.md`).
 - [x] Relatório do piloto: `reports/piloto.md`, gerado por `uv run python reports/build_piloto.py` a partir de `results/`. Não editar o .md à mão; mudar o gerador. PDF para envio: `reports/piloto.pdf`, gerado do .md por `uv run python reports/build_piloto_pdf.py` (Chrome/Edge headless); gerar de novo sempre que o .md mudar.
 - [x] Resumo dos Exp 01–03 (até 2 páginas): `reports/summary.md`, gerado por `uv run python reports/build_summary.py` (`--check-pages` conta as páginas A4). Não editar o .md à mão.
-- [ ] Release v0.2.0 (Exp 03): preparada, não publicada. `CHANGELOG.md` tem v0.1.0 e v0.2.0.
-  - Antes da tag: pôr em `date-released` (`CITATION.cff`) o dia da publicação.
-  - Depois que o Zenodo der o DOI da versão: preencher `RELEASE["doi"]` em `reports/build_readme.py`, acrescentar o DOI no `CITATION.cff` e rodar `build_readme.py` e `build_summary.py` de novo.
-  - O `build_readme.py` confere que os resultados do Exp 01–02 não mudaram desde a v0.1.0 e, quando a tag v0.2.0 existir, que `results/` não mudou desde ela.
+- [x] Release v0.2.0 (Exp 03): publicada em 27/out/2026, DOI da versão 10.5281/zenodo.23688007 (v0.1.0: 10.5281/zenodo.23662826; conceito: 10.5281/zenodo.23662825). `CHANGELOG.md` tem as duas versões.
+  - O `build_readme.py` confere que os resultados do Exp 01–02 não mudaram desde a v0.1.0 e que `results/` não mudou desde a v0.2.0. Resultado novo exige release nova: atualizar `RELEASE` e o `CITATION.cff`.
 - [ ] E-mail para geneticistas: rascunho Rede RARAS em `reports/emails/rede_raras.md` (gerado por `reports/build_email.py`; não editar o .md à mão). Não enviado. Repo público desde 26/out/2026: https://github.com/rondinellewalitte/fenotipo-br
