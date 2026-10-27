@@ -83,6 +83,8 @@ SUMMARIES = [
      "The vignette generator and the D2 labeler are the same model."),
     ("03", "Erros por ramo do HPO", POST,
      "Errors by top-level HPO branch, descriptive; defined before computing."),
+    ("03", "Similaridade de superfície cruzada com registro", POST,
+     "Surface-similarity bands crossed with the clinical register, because the two are correlated by construction and were reported only separately, so the back-translation reading could not be told apart from the register reading; descriptive, defined before computing."),
 ]  # fmt: skip
 DATE = re.compile(r"(\d{1,2})/(\w{3})/(\d{4})")
 

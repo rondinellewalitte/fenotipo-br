@@ -102,28 +102,36 @@
               "ci95": [
                 0.174,
                 0.2677
-              ]
+              ],
+              "n_items": 645,
+              "n_distinct_boot": 9999
             },
             "qwen3-4b/B": {
               "diff": 0.2571,
               "ci95": [
                 0.2096,
                 0.3053
-              ]
+              ],
+              "n_items": 645,
+              "n_distinct_boot": 9999
             },
             "qwen3-4b/C": {
               "diff": 0.2191,
               "ci95": [
                 0.1691,
                 0.2684
-              ]
+              ],
+              "n_items": 645,
+              "n_distinct_boot": 9998
             },
             "none/baseline": {
               "diff": 0.1845,
               "ci95": [
                 0.1466,
                 0.2223
-              ]
+              ],
+              "n_items": 645,
+              "n_distinct_boot": 9993
             }
           },
           "confirmed": true
@@ -135,28 +143,36 @@
               "ci95": [
                 0.364,
                 0.4382
-              ]
+              ],
+              "n_items": 645,
+              "n_distinct_boot": 9998
             },
             "gemma3-4b/B": {
               "diff": 0.3752,
               "ci95": [
                 0.3324,
                 0.4182
-              ]
+              ],
+              "n_items": 645,
+              "n_distinct_boot": 10000
             },
             "gemma3-4b/C": {
               "diff": 0.3721,
               "ci95": [
                 0.3358,
                 0.4082
-              ]
+              ],
+              "n_items": 645,
+              "n_distinct_boot": 9997
             },
             "none/baseline": {
               "diff": 0.1845,
               "ci95": [
                 0.1466,
                 0.2223
-              ]
+              ],
+              "n_items": 645,
+              "n_distinct_boot": 9993
             }
           },
           "confirmed": true

@@ -331,3 +331,14 @@ Nesse momento existiam as vinhetas do run completo (commit `60c18c0`; US$ 7,12 e
   - É **descritivo**, sem hipótese nem intervalo.
   - **Saída:** `results/exp03/by_branch.json` (`experiments/exp03_by_branch.py`). O mesmo script acrescenta ao `errors.csv` uma coluna `branches` com os ramos de cada termo, sem mudar nenhuma outra coluna nem linha.
   - O relatório mostra os ramos com pelo menos 50 termos no gabarito. A tabela completa fica no JSON.
+
+- **Similaridade de superfície cruzada com registro clínico** (revisão crítica externa, 27/out/2026; faltou no desenho). Definido antes de ser calculado:
+  - **Problema.** A defesa contra a ameaça de retrotradução (seção "Estratos") compara a diferença A − B por faixa de `sim_bin` e conclui que a vantagem de B é maior onde a frase está mais longe do rótulo inglês. Mas `sim_bin` e `register_d2` não são independentes: uma frase escrita em palavras leigas fica, por construção, distante do rótulo inglês. Com os dois estratos relatados só em separado, "B ajuda onde a frase é distante do rótulo" e "B ajuda na linguagem leiga" não se distinguem.
+  - **O que se calcula**, a partir de `results/exp03/predictions.jsonl` e das mesmas covariáveis por termo do gabarito (`gold_covariates`), sem nova execução de modelo:
+    - a tabela de contingência `sim_bin` × `register_d2` dos 2.466 termos do gabarito, para medir o quanto os dois estratos se sobrepõem;
+    - para cada modelo × braço e para o baseline, o recall em cada uma das 9 células, com IC95 por bootstrap de casos (B = 10.000, seed 42, as mesmas reamostragens);
+    - dentro de cada célula, a diferença A − B, com IC95;
+    - a diferença A − B por faixa de `sim_bin` **dentro** do estrato "só técnico" e **dentro** do estrato "só leigo". Se a vantagem de B persistir nas faixas baixas de similaridade dentro de um mesmo registro, ela não é explicada pelo registro; se desaparecer, a leitura por `sim_bin` estava medindo registro.
+  - É **descritivo**, sem hipótese e sem critério de decisão. Nenhum resultado pré-registrado muda.
+  - As células com poucos termos têm intervalo granular; o campo `granular` marca isso (ver `casemetrics.recall_diff`).
+  - **Saída:** `results/exp03/strata_cross.json` (`experiments/exp03_strata_cross.py`).

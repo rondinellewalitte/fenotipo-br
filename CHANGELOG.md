@@ -4,6 +4,47 @@ Each version is a git tag archived on Zenodo (concept DOI
 [10.5281/zenodo.23662825](https://doi.org/10.5281/zenodo.23662825)). Results are not repeated
 here: each entry points to the files that hold them.
 
+## [0.2.1] (unreleased)
+
+Statistical reporting fixes from an independent critical review. **No point estimate, interval
+or hypothesis outcome changed**: re-running `exp03_extraction.py --set full --metrics-only`
+leaves `hypotheses.json` identical apart from two added diagnostic fields, and every changed
+value in `metrics.json` is a `p_boot_two_sided`.
+
+Set the version DOI in `RELEASE` (`reports/build_readme.py`) once the tag is deposited; until
+then the manuscript prints a TODO in its place.
+
+### Fixed
+
+- **Bootstrap p-values could be reported as exactly 0.** `casemetrics.paired_diff` now uses the
+  `(k + 1) / (B + 1)` convention, so the smallest reportable value is `2 / (B + 1)`; 10 of the
+  comparisons in `results/exp03/metrics.json` previously read `0.0`. No pre-registered decision
+  uses these p-values, which the `bootstrap` block of `metrics.json` now states.
+
+### Added
+
+- **Post-hoc: surface similarity crossed with clinical register**
+  (`experiments/exp03_strata_cross.py`, `results/exp03/strata_cross.json`), defined in
+  `results/exp03/PREREG.md` before computing. The back-translation defence and the register
+  analysis used strata that are correlated by construction, so they could not be told apart.
+  Within technical-only terms alone, arm B keeps its advantage at low similarity and loses it at
+  high similarity, so the gradient is not a by-product of lay wording.
+- `casemetrics.recall_diff` now reports `n_items` and `n_distinct_boot` behind each recall
+  difference, and flags `granular` when the resample support is too coarse to read as an
+  interval. This is how the D1 "both" stratum (45 gold terms) shows that its limits are coarse.
+- Table 1 of the manuscript gains a "Criteria" column: H4 and H5 are conjunctions in which the
+  criterion about arm A held and the one about the comparator did not.
+- Manuscript: the vignettes' information density, the baseline's fitted threshold, the
+  intersection–union argument about H1's multiplicity adjustment, and the note that the
+  percentile intervals are of a ratio of sums.
+- README: that `--metrics-only` rewrites `errors.csv` and drops the `branches` column, that
+  `vignettes.jsonl` keeps superseded attempts, and the `items_dropped_no_phrase` field name.
+
+### Documented
+
+- `near_miss_pairs` and `swap_pairs` match greedily, so the pair counts are a lower bound that
+  depends on the HPO id order. The pre-registered metric is unchanged.
+
 ## [0.2.0] (2026-10-27)
 
 Version DOI [10.5281/zenodo.23688007](https://doi.org/10.5281/zenodo.23688007).

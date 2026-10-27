@@ -7,7 +7,10 @@
     "unit": "case",
     "n_boot": 10000,
     "seed": 42,
-    "intervals": "percentile"
+    "intervals": "percentile",
+    "p_values": "two-sided, (k+1)/(B+1) convention; smallest reportable p is 2/(B+1)",
+    "note": "no pre-registered decision uses p_boot_two_sided; all use the intervals",
+    "recall_diff_support": "each recall difference carries n_items (gold terms behind it) and n_distinct_boot (distinct resample values). A small n_items makes the percentile limits coarse, so a limit can land exactly on a round number such as 0.0; read those as indicative. `granular` marks a bootstrap too coarse to read as an interval at all."
   },
   "arms": {
     "gemma3-4b/A": {
@@ -881,7 +884,7 @@
           -0.0756,
           -0.0364
         ],
-        "p_boot_two_sided": 0.0,
+        "p_boot_two_sided": 0.0002,
         "n_boot": 10000
       },
       "C-A": {
@@ -894,7 +897,7 @@
           -0.0201,
           0.0045
         ],
-        "p_boot_two_sided": 0.1506,
+        "p_boot_two_sided": 0.1508,
         "n_boot": 10000
       },
       "A-baseline": {
@@ -907,7 +910,7 @@
           0.1734,
           0.2223
         ],
-        "p_boot_two_sided": 0.0,
+        "p_boot_two_sided": 0.0002,
         "n_boot": 10000
       },
       "B-baseline": {
@@ -920,7 +923,7 @@
           0.2277,
           0.2802
         ],
-        "p_boot_two_sided": 0.0,
+        "p_boot_two_sided": 0.0002,
         "n_boot": 10000
       },
       "C-baseline": {
@@ -933,7 +936,7 @@
           0.1661,
           0.2135
         ],
-        "p_boot_two_sided": 0.0,
+        "p_boot_two_sided": 0.0002,
         "n_boot": 10000
       }
     },
@@ -948,7 +951,7 @@
           -0.0624,
           -0.0146
         ],
-        "p_boot_two_sided": 0.0002,
+        "p_boot_two_sided": 0.0004,
         "n_boot": 10000
       },
       "C-A": {
@@ -961,7 +964,7 @@
           -0.0338,
           -0.0054
         ],
-        "p_boot_two_sided": 0.0024,
+        "p_boot_two_sided": 0.0026,
         "n_boot": 10000
       },
       "A-baseline": {
@@ -974,7 +977,7 @@
           0.0634,
           0.1133
         ],
-        "p_boot_two_sided": 0.0,
+        "p_boot_two_sided": 0.0002,
         "n_boot": 10000
       },
       "B-baseline": {
@@ -987,7 +990,7 @@
           0.0963,
           0.1569
         ],
-        "p_boot_two_sided": 0.0,
+        "p_boot_two_sided": 0.0002,
         "n_boot": 10000
       },
       "C-baseline": {
@@ -1000,7 +1003,7 @@
           0.0449,
           0.0933
         ],
-        "p_boot_two_sided": 0.0,
+        "p_boot_two_sided": 0.0002,
         "n_boot": 10000
       }
     },
@@ -1015,7 +1018,7 @@
           -0.1337,
           -0.0851
         ],
-        "p_boot_two_sided": 0.0,
+        "p_boot_two_sided": 0.0002,
         "n_boot": 10000
       },
       "B: gemma3-4b-qwen3-4b": {
@@ -1028,7 +1031,7 @@
           -0.154,
           -0.1001
         ],
-        "p_boot_two_sided": 0.0,
+        "p_boot_two_sided": 0.0002,
         "n_boot": 10000
       },
       "C: gemma3-4b-qwen3-4b": {
@@ -1041,7 +1044,7 @@
           -0.1435,
           -0.0988
         ],
-        "p_boot_two_sided": 0.0,
+        "p_boot_two_sided": 0.0002,
         "n_boot": 10000
       }
     }
@@ -1081,7 +1084,9 @@
           "ci95": [
             0.364,
             0.4382
-          ]
+          ],
+          "n_items": 645,
+          "n_distinct_boot": 9998
         }
       },
       "gemma3-4b/B": {
@@ -1116,7 +1121,9 @@
           "ci95": [
             0.3324,
             0.4182
-          ]
+          ],
+          "n_items": 645,
+          "n_distinct_boot": 10000
         }
       },
       "gemma3-4b/C": {
@@ -1151,7 +1158,9 @@
           "ci95": [
             0.3358,
             0.4082
-          ]
+          ],
+          "n_items": 645,
+          "n_distinct_boot": 9997
         }
       },
       "none/baseline": {
@@ -1186,7 +1195,9 @@
           "ci95": [
             0.1466,
             0.2223
-          ]
+          ],
+          "n_items": 645,
+          "n_distinct_boot": 9993
         }
       },
       "qwen3-4b/A": {
@@ -1221,7 +1232,9 @@
           "ci95": [
             0.174,
             0.2677
-          ]
+          ],
+          "n_items": 645,
+          "n_distinct_boot": 9999
         }
       },
       "qwen3-4b/B": {
@@ -1256,7 +1269,9 @@
           "ci95": [
             0.2096,
             0.3053
-          ]
+          ],
+          "n_items": 645,
+          "n_distinct_boot": 9999
         }
       },
       "qwen3-4b/C": {
@@ -1291,7 +1306,9 @@
           "ci95": [
             0.1691,
             0.2684
-          ]
+          ],
+          "n_items": 645,
+          "n_distinct_boot": 9998
         }
       },
       "qwen3-4b/between_arms": {
@@ -1301,14 +1318,18 @@
             "ci95": [
               -0.116,
               -0.0608
-            ]
+            ],
+            "n_items": 1447,
+            "n_distinct_boot": 7624
           },
           "C-A": {
             "diff": -0.0062,
             "ci95": [
               -0.0223,
               0.01
-            ]
+            ],
+            "n_items": 1447,
+            "n_distinct_boot": 6578
           }
         },
         "lay": {
@@ -1317,14 +1338,18 @@
             "ci95": [
               -0.0909,
               -0.0155
-            ]
+            ],
+            "n_items": 645,
+            "n_distinct_boot": 5657
           },
           "C-A": {
             "diff": -0.0047,
             "ci95": [
               -0.023,
               0.0138
-            ]
+            ],
+            "n_items": 645,
+            "n_distinct_boot": 3887
           }
         },
         "both": {
@@ -1333,14 +1358,18 @@
             "ci95": [
               -0.0809,
               0.0108
-            ]
+            ],
+            "n_items": 374,
+            "n_distinct_boot": 3810
           },
           "C-A": {
             "diff": -0.0027,
             "ci95": [
               -0.0349,
               0.0292
-            ]
+            ],
+            "n_items": 374,
+            "n_distinct_boot": 3081
           }
         }
       },
@@ -1351,14 +1380,18 @@
             "ci95": [
               -0.0613,
               -0.0007
-            ]
+            ],
+            "n_items": 1447,
+            "n_distinct_boot": 8297
           },
           "C-A": {
             "diff": -0.0263,
             "ci95": [
               -0.0429,
               -0.0098
-            ]
+            ],
+            "n_items": 1447,
+            "n_distinct_boot": 7399
           }
         },
         "lay": {
@@ -1367,14 +1400,18 @@
             "ci95": [
               -0.0891,
               -0.0261
-            ]
+            ],
+            "n_items": 645,
+            "n_distinct_boot": 6178
           },
           "C-A": {
             "diff": 0.0031,
             "ci95": [
               -0.0106,
               0.0168
-            ]
+            ],
+            "n_items": 645,
+            "n_distinct_boot": 3428
           }
         },
         "both": {
@@ -1383,14 +1420,18 @@
             "ci95": [
               -0.0734,
               0.0146
-            ]
+            ],
+            "n_items": 374,
+            "n_distinct_boot": 3788
           },
           "C-A": {
             "diff": -0.0241,
             "ci95": [
               -0.0549,
               0.006
-            ]
+            ],
+            "n_items": 374,
+            "n_distinct_boot": 3062
           }
         }
       }
@@ -1429,7 +1470,9 @@
           "ci95": [
             0.2829,
             0.3742
-          ]
+          ],
+          "n_items": 625,
+          "n_distinct_boot": 9998
         }
       },
       "gemma3-4b/B": {
@@ -1464,7 +1507,9 @@
           "ci95": [
             0.2155,
             0.3127
-          ]
+          ],
+          "n_items": 625,
+          "n_distinct_boot": 9998
         }
       },
       "gemma3-4b/C": {
@@ -1499,7 +1544,9 @@
           "ci95": [
             0.2787,
             0.3687
-          ]
+          ],
+          "n_items": 625,
+          "n_distinct_boot": 9997
         }
       },
       "none/baseline": {
@@ -1534,7 +1581,9 @@
           "ci95": [
             0.1161,
             0.2076
-          ]
+          ],
+          "n_items": 625,
+          "n_distinct_boot": 9999
         }
       },
       "qwen3-4b/A": {
@@ -1569,7 +1618,9 @@
           "ci95": [
             0.1622,
             0.248
-          ]
+          ],
+          "n_items": 625,
+          "n_distinct_boot": 9997
         }
       },
       "qwen3-4b/B": {
@@ -1604,7 +1655,9 @@
           "ci95": [
             0.0929,
             0.1768
-          ]
+          ],
+          "n_items": 625,
+          "n_distinct_boot": 9993
         }
       },
       "qwen3-4b/C": {
@@ -1639,7 +1692,9 @@
           "ci95": [
             0.1746,
             0.2647
-          ]
+          ],
+          "n_items": 625,
+          "n_distinct_boot": 9998
         }
       },
       "qwen3-4b/between_arms": {
@@ -1649,14 +1704,18 @@
             "ci95": [
               -0.0524,
               0.0171
-            ]
+            ],
+            "n_items": 625,
+            "n_distinct_boot": 5245
           },
           "C-A": {
             "diff": 0.0048,
             "ci95": [
               -0.0181,
               0.0282
-            ]
+            ],
+            "n_items": 625,
+            "n_distinct_boot": 4283
           }
         },
         "lay": {
@@ -1665,14 +1724,18 @@
             "ci95": [
               -0.1117,
               -0.0642
-            ]
+            ],
+            "n_items": 1796,
+            "n_distinct_boot": 8027
           },
           "C-A": {
             "diff": -0.01,
             "ci95": [
               -0.0237,
               0.0039
-            ]
+            ],
+            "n_items": 1796,
+            "n_distinct_boot": 7259
           }
         },
         "both": {
@@ -1681,14 +1744,18 @@
             "ci95": [
               -0.3208,
               0.0
-            ]
+            ],
+            "n_items": 45,
+            "n_distinct_boot": 1272
           },
           "C-A": {
             "diff": 0.0444,
             "ci95": [
               -0.0645,
               0.1509
-            ]
+            ],
+            "n_items": 45,
+            "n_distinct_boot": 939
           }
         }
       },
@@ -1699,14 +1766,18 @@
             "ci95": [
               -0.0314,
               0.0472
-            ]
+            ],
+            "n_items": 625,
+            "n_distinct_boot": 5524
           },
           "C-A": {
             "diff": -0.0224,
             "ci95": [
               -0.0487,
               0.0033
-            ]
+            ],
+            "n_items": 625,
+            "n_distinct_boot": 4582
           }
         },
         "lay": {
@@ -1715,14 +1786,18 @@
             "ci95": [
               -0.0805,
               -0.0329
-            ]
+            ],
+            "n_items": 1796,
+            "n_distinct_boot": 7970
           },
           "C-A": {
             "diff": -0.0167,
             "ci95": [
               -0.0293,
               -0.004
-            ]
+            ],
+            "n_items": 1796,
+            "n_distinct_boot": 6907
           }
         },
         "both": {
@@ -1731,14 +1806,18 @@
             "ci95": [
               -0.0513,
               0.2258
-            ]
+            ],
+            "n_items": 45,
+            "n_distinct_boot": 1133
           },
           "C-A": {
             "diff": -0.0222,
             "ci95": [
               -0.0789,
               0.0
-            ]
+            ],
+            "n_items": 45,
+            "n_distinct_boot": 353
           }
         }
       }

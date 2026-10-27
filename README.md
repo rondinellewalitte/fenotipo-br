@@ -101,6 +101,12 @@ uv run python experiments/exp03_register_labels.py --merge   # after the batches
 uv run python experiments/exp03_extraction.py --set pilot --freeze
 uv run python experiments/exp03_extraction.py --set full
 uv run python experiments/exp03_by_branch.py
+uv run python experiments/exp03_strata_cross.py
+
+# Metrics only, from the stored predictions (no GPU, no Ollama, no model call).
+# It rewrites errors.csv, so re-run exp03_by_branch.py after it to restore the
+# `branches` column, then exp03_strata_cross.py.
+uv run python experiments/exp03_extraction.py --set full --metrics-only
 
 # Reports
 uv run python reports/build_piloto.py
@@ -118,6 +124,8 @@ uv run --group paper python paper/build_manuscript.py
 Exp 03 notes:
 
 - **Vignettes** need `ANTHROPIC_API_KEY` and stop at a cumulative cap of US$ 12 (`results/exp03/vignettes_config_full.json`). Stored outputs in `results/exp03/vignettes.jsonl` are reused, so a rerun of the same sets makes no API call.
+- **Reading `vignettes.jsonl` directly.** The file keeps every attempt, including the ones superseded by the leak-rule recheck and the reserve cases they replaced, so the `full` set has more records than the 300 final vignettes; summing the present items of every passing record gives more gold terms than the 2466 of the experiment. The final set is the one in `results/exp03/sample.csv`, and `results/exp03/predictions.jsonl` carries the gold standard actually scored.
+- **Field name.** The count of gold items dropped for lack of a verbatim phrase is written to `results/exp03/config.json` as `items_dropped_no_phrase` (the PREREG calls it `gold_items_dropped_no_phrase`); it is 0 in the full set, so the category `dropped_from_gold` never appears in `errors.csv`.
 - **Register labels (D2)** were made by independent Claude Code subagents, one per batch, following `prompts/exp03_register_manual_v1.md`. This is not a scripted step: `--make` writes the batches and `--merge` checks and joins the answers (`results/exp03/register_labels_full.meta.json`).
 - **Extraction** needs [Ollama](https://ollama.com) 0.40.11 with the model tags and digests recorded in `results/exp03/config.json`. Every call is cached in `results/exp03/ollama_calls.jsonl.gz` and reused. The full run took 4.1 h on the same GPU.
 
@@ -175,9 +183,9 @@ data/            downloads and caches (not committed)
 - **The project (all versions):** concept DOI [10.5281/zenodo.23662825](https://doi.org/10.5281/zenodo.23662825). It always resolves to the latest version.
 - **To reproduce the numbers above:**
   - Exp 01–02: version 0.1.0, DOI [10.5281/zenodo.23662826](https://doi.org/10.5281/zenodo.23662826) (tag `v0.1.0`). Their results are unchanged since that tag, which `reports/build_readme.py` checks.
-  - Exp 03: version 0.2.0 (tag `v0.2.0`), DOI [10.5281/zenodo.23688007](https://doi.org/10.5281/zenodo.23688007).
+  - Exp 03: version 0.2.1 (tag `v0.2.1`). Zenodo assigns its version DOI when the release is published; until then, cite the concept DOI.
 
-> Walitte R. *Fenótipo-BR: mapping Brazilian Portuguese phenotype terms to the Human Phenotype Ontology* (v0.2.0). Zenodo; 2026. https://doi.org/10.5281/zenodo.23688007
+> Walitte R. *Fenótipo-BR: mapping Brazilian Portuguese phenotype terms to the Human Phenotype Ontology* (v0.2.1). Zenodo; 2026. https://doi.org/10.5281/zenodo.23662825
 
 Machine-readable metadata: `CITATION.cff` (GitHub's "Cite this repository"). Please also cite the data sources:
 

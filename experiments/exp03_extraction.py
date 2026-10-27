@@ -699,7 +699,19 @@ def compute_metrics(records, cases, ont, pt_map, cov) -> dict:
         "n_gold_terms": int(sum(len(g) for g in cases["gold"])),
         "n_negated_terms": int(sum(len(n) for n in cases["negated"])),
         "headline": "micro-F1, exact HPO id match; per-case sets",
-        "bootstrap": {"unit": "case", "n_boot": N_BOOT, "seed": SEED, "intervals": "percentile"},
+        "bootstrap": {
+            "unit": "case",
+            "n_boot": N_BOOT,
+            "seed": SEED,
+            "intervals": "percentile",
+            "p_values": "two-sided, (k+1)/(B+1) convention; smallest reportable p is 2/(B+1)",
+            "note": "no pre-registered decision uses p_boot_two_sided; all use the intervals",
+            "recall_diff_support": "each recall difference carries n_items (gold terms behind "
+            "it) and n_distinct_boot (distinct resample values). A small n_items makes the "
+            "percentile limits coarse, so a limit can land exactly on a round number such as "
+            "0.0; read those as indicative. `granular` marks a bootstrap too coarse to read "
+            "as an interval at all.",
+        },
         "arms": arms,
         "comparisons": comparisons,
         "register": register,

@@ -67,6 +67,48 @@ def yes(b: bool) -> str:
     return "Yes" if b else "No"
 
 
+def h03_criteria(key: str, h: dict) -> str:
+    """Which half of a composite Exp 03 criterion held. H4 and H5 are conjunctions in which the
+    criterion about arm A held and the one about the comparator did not, so a bare 'No' would
+    read as a failure of the very thing the hypothesis is named after."""
+    per = h["per_model"]
+    models = list(MODELS)
+
+    def vals(field: str) -> str:
+        return ", ".join(dec(per[k][field]) for k in models)
+
+    def all_models(field: str, test) -> bool:
+        return all(test(per[k][field]) for k in models)
+
+    if key == "H4_negation_A_le_0.10_baseline_ge_0.25":
+        base = per[models[0]]["baseline_rate"]
+        a_ok = yes(all_models("A_rate", lambda v: v <= 0.10)).lower()
+        return (
+            f"A ≤ 0.10: {a_ok} ({vals('A_rate')}); "
+            f"baseline ≥ 0.25: {yes(base >= 0.25).lower()} ({dec(base)})"
+        )
+    if key == "H5_ceiling_ge_0.75_selection_loss_ge_0.10":
+        c_ok = yes(all_models("ceiling", lambda v: v >= 0.75)).lower()
+        s_ok = yes(all_models("selection_loss", lambda v: v >= 0.10)).lower()
+        return (
+            f"ceiling ≥ 0.75: {c_ok} ({vals('ceiling')}); "
+            f"selection loss ≥ 0.10: {s_ok} ({vals('selection_loss')})"
+        )
+    if key == "H2_C_better_than_A_gain_le_0.05":
+        return (
+            f"C − A > 0 with 95% CI above 0: "
+            f"{yes(all_models('diff', lambda v: v > 0)).lower()} ({vals('diff')}); "
+            f"gain ≤ 0.05: {yes(all(per[k]['diff'] <= 0.05 for k in models)).lower()}"
+        )
+    if key == "H3_A_beats_baseline_by_0.05":
+        ci_ok = all(per[k]["ci95"][0] > 0 for k in models)
+        return (
+            f"A − baseline ≥ 0.05: {yes(all_models('diff', lambda v: v >= 0.05)).lower()} "
+            f"({vals('diff')}); 95% CI above 0: {yes(ci_ok).lower()}"
+        )
+    return "–"
+
+
 def exp01() -> str:
     m, surf = load(R1 / "metrics.json"), load(R1 / "surface_sim.json")
     n50 = surf["by_method"]["bge-m3"]["<50"]["n"]
@@ -135,18 +177,25 @@ def hypotheses() -> str:
         raise SystemExit("hypothesis keys changed in results/; update tables.py")
     if set(h3["hypotheses"]) != set(HYP03):
         raise SystemExit("Exp 03 hypothesis keys changed in results/; update tables.py")
-    out = ["| Exp | Pre-specified statement | Held |", "|---|---|---|"]
+    out = [
+        "| Exp | Pre-specified statement | Held | Criteria |",
+        "|---|---|---|---|",
+    ]
     for key, text in HYP01.items():
-        out.append(f"| 01 | {key.split('_')[0]}: {text} | {yes(h1['summary'][key])} |")
+        out.append(f"| 01 | {key.split('_')[0]}: {text} | {yes(h1['summary'][key])} | – |")
     for key, text in EXP02_EXP.items():
         out.append(
-            f"| 02 | {key.split('_')[0]} (expectation, no test): {text} | {yes(e2['summary'][key])} |"
+            f"| 02 | {key.split('_')[0]} (expectation, no test): {text} "
+            f"| {yes(e2['summary'][key])} | – |"
         )
     for key, text in HYP03.items():
-        per = h3["hypotheses"][key]["per_model"]
+        h = h3["hypotheses"][key]
+        per = h["per_model"]
         cells = "; ".join(f"{MODELS[k]} {yes(per[k]['confirmed']).lower()}" for k in MODELS)
-        both = h3["hypotheses"][key]["confirmed_both_models"]
-        out.append(f"| 03 | {text} | {yes(both)} ({cells}) |")
+        out.append(
+            f"| 03 | {text} | {yes(h['confirmed_both_models'])} ({cells}) "
+            f"| {h03_criteria(key, h)} |"
+        )
     return "\n".join(out)
 
 

@@ -1,6 +1,6 @@
 # Fenótipo-BR: resumo dos Exp 01 a 03
 
-R. Walitte (ORCID 0009-0004-1776-2754). Versão 0.2.0. Gerado por `reports/build_summary.py`; cada número cita o arquivo de `results/` de onde saiu. Relatórios completos: `reports/piloto.md` (Exp 01–02, v0.1.0) e `reports/exp03.md`.
+R. Walitte (ORCID 0009-0004-1776-2754). Versão 0.2.1. Gerado por `reports/build_summary.py`; cada número cita o arquivo de `results/` de onde saiu. Relatórios completos: `reports/piloto.md` (Exp 01–02, v0.1.0) e `reports/exp03.md`.
 
 > **Apoio à pesquisa, não é ferramenta diagnóstica.** Nada aqui deve orientar conduta clínica (ANVISA RDC 657/2022). Só dados públicos e sintéticos; nenhum dado de paciente.
 
@@ -44,4 +44,4 @@ Ferramentas de extração de fenótipo foram feitas para inglês, e só 36,0% do
 
 ## Versões
 
-HPO v2026-09-01; Phenopacket Store 0.1.27. Código: Exp 01 `6bb3334`, Exp 02 `f93b18d`, Exp 03 `f187e1f` (`config.json` de cada experimento). DOI do projeto: [10.5281/zenodo.23662825](https://doi.org/10.5281/zenodo.23662825); v0.1.0 (Exp 01–02): [10.5281/zenodo.23662826](https://doi.org/10.5281/zenodo.23662826); v0.2.0 (Exp 03): [10.5281/zenodo.23688007](https://doi.org/10.5281/zenodo.23688007).
+HPO v2026-09-01; Phenopacket Store 0.1.27. Código: Exp 01 `6bb3334`, Exp 02 `f93b18d`, Exp 03 `f187e1f` (`config.json` de cada experimento). DOI do projeto: [10.5281/zenodo.23662825](https://doi.org/10.5281/zenodo.23662825); v0.1.0 (Exp 01–02): [10.5281/zenodo.23662826](https://doi.org/10.5281/zenodo.23662826); v0.2.1 (Exp 03): a ser atribuído pelo Zenodo na publicação.

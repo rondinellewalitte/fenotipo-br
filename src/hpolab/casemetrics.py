@@ -20,6 +20,10 @@ from hpolab.hpo import Ontology
 
 RELATION_ORDER = ("parent_child", "sibling", "ancestor_descendant", "close_relative", "distant")
 
+# Below this many distinct values, a case-bootstrap distribution is too granular for its
+# percentile limits to be read as a smooth interval (see `recall_diff`).
+GRANULAR_BOOT_MIN = 200
+
 
 def counts(pred: set[str], gold: set[str]) -> tuple[int, int, int]:
     return len(pred & gold), len(pred - gold), len(gold - pred)
@@ -75,7 +79,12 @@ def paired_diff(c_a: np.ndarray, c_b: np.ndarray, idx: np.ndarray) -> dict:
         lo, hi = np.quantile(boot, [(1 - level) / 2, (1 + level) / 2])
         return [round(float(lo), 4), round(float(hi), 4)]
 
-    p_two = 2 * min(float((boot <= 0).mean()), float((boot >= 0).mean()))
+    # Two-sided bootstrap p-value with the (k + 1) / (B + 1) convention, so the value is never
+    # exactly 0: with B resamples the smallest reportable p is 2 / (B + 1). A bare 0.0 claims
+    # more resolution than B resamples can give. No pre-registered decision uses this p; the
+    # hypotheses are all judged on the intervals above.
+    k = min(int((boot <= 0).sum()), int((boot >= 0).sum()))
+    p_two = 2 * (k + 1) / (len(boot) + 1)
     return {
         "diff": round(float(diff), 4),
         "ci95": interval(0.95),
@@ -126,7 +135,16 @@ def recall_diff(
         return {"diff": None, "ci95": None}
     boot = rec(hits_a, ja, idx) - rec(hits_b, jb, idx)
     lo, hi = np.nanquantile(boot, [0.025, 0.975])
-    return {"diff": round(diff, 4), "ci95": [round(float(lo), 4), round(float(hi), 4)]}
+    out = {"diff": round(diff, 4), "ci95": [round(float(lo), 4), round(float(hi), 4)]}
+    # Few gold items spread over many cases give a bootstrap with few distinct values, so the
+    # interval is granular and a limit can land exactly on a round number (0.0 among them).
+    # Report that support, so such an interval is read as indicative and not as a boundary
+    # effect. Nothing here changes `diff` or `ci95`.
+    out["n_items"] = int(min(totals[:, ja].sum(), totals[:, jb].sum()))
+    out["n_distinct_boot"] = int(np.unique(boot[~np.isnan(boot)]).size)
+    if out["n_distinct_boot"] < GRANULAR_BOOT_MIN:
+        out["granular"] = True
+    return out
 
 
 # ---------------------------------------------------------------- error categories
@@ -134,7 +152,9 @@ def recall_diff(
 
 def near_miss_pairs(fp: Iterable[str], fn: Iterable[str], ont: Ontology) -> list[tuple[str, str]]:
     """One-to-one (FP, FN) pairs where the FP is a direct is_a parent or child of the FN.
-    Greedy in sorted order, so the count is deterministic."""
+    Greedy in sorted order, so the count is deterministic. Greedy matching is not of maximum
+    cardinality, so the number of pairs is a lower bound and depends on the HPO id order; the
+    pre-registered metric is this greedy count, kept unchanged."""
     free = sorted(fn)
     pairs = []
     for p in sorted(fp):
