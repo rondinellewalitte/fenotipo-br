@@ -319,3 +319,15 @@ Nesse momento existiam as vinhetas do run completo (commit `60c18c0`; US$ 7,12 e
   - O kappa de 0,85 entre o autor e o rotulador (IC95 0,70–0,96) cobre a maior parte desse risco no piloto.
   - A revisão por um geneticista é a checagem independente prevista.
   - Deve constar nas limitações do artigo.
+
+### Pós-hoc, depois do run completo (27/out/2026)
+
+- **Erros por ramo do HPO** (regra 5 do CLAUDE.md; faltou no desenho). Definido antes de ser calculado:
+  - **Ramos:** os filhos diretos de HP:0000118. Um termo em vários ramos conta em cada um (`Ontology.top_branches`), como no Exp 01.
+  - **O que se conta**, para cada modelo × braço e para o baseline, a partir de `results/exp03/predictions.jsonl`, sem nova execução:
+    - n de termos do gabarito no ramo, TP, FN e recall (TP/n);
+    - FP com termo no ramo;
+    - precisão do ramo, TP/(TP + FP).
+  - É **descritivo**, sem hipótese nem intervalo.
+  - **Saída:** `results/exp03/by_branch.json` (`experiments/exp03_by_branch.py`). O mesmo script acrescenta ao `errors.csv` uma coluna `branches` com os ramos de cada termo, sem mudar nenhuma outra coluna nem linha.
+  - O relatório mostra os ramos com pelo menos 50 termos no gabarito. A tabela completa fica no JSON.
