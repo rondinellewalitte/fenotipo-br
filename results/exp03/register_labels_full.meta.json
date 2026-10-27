@@ -1,0 +1,57 @@
+{
+  "what": "blind clinical register labels (D2) of the present, non-dropped gold items, full set",
+  "labeler": "independent Claude Code subagents (general-purpose), model claude-opus-5-5, one per batch; not the Anthropic API, so no cost under the Exp 03 API cap",
+  "blind_to": [
+    "hpolab.register rule output",
+    "extraction results (none existed for the full set)"
+  ],
+  "instructions": "prompts/exp03_register_manual_v1.md",
+  "instructions_sha256": "3ce2209d74a5749f56edc5d324aef475ff05e601dcf7a62f13d1a1ceeb4ed3c8",
+  "batch_files": "results/exp03/register_batches",
+  "n_items": 2466,
+  "classes": {
+    "technical": 1447,
+    "lay": 645,
+    "both": 374
+  },
+  "calibration": {
+    "cases": [
+      "PMID_15976030_kindred_A_patient_8",
+      "PMID_33949776_Second_patient",
+      "PMID_37055165_Individual_F6_1"
+    ],
+    "reference": "pilot labels checked by the author (results/exp03/pilot/register_kappa.json)",
+    "per_batch": {
+      "1": {
+        "items": 25,
+        "agreement_with_pilot_labels": 0.88,
+        "kappa_with_pilot_labels": 0.7449
+      },
+      "2": {
+        "items": 25,
+        "agreement_with_pilot_labels": 0.84,
+        "kappa_with_pilot_labels": 0.705
+      },
+      "3": {
+        "items": 25,
+        "agreement_with_pilot_labels": 0.92,
+        "kappa_with_pilot_labels": 0.8366
+      },
+      "4": {
+        "items": 25,
+        "agreement_with_pilot_labels": 0.96,
+        "kappa_with_pilot_labels": 0.9211
+      },
+      "5": {
+        "items": 25,
+        "agreement_with_pilot_labels": 0.96,
+        "kappa_with_pilot_labels": 0.9211
+      },
+      "6": {
+        "items": 25,
+        "agreement_with_pilot_labels": 1.0,
+        "kappa_with_pilot_labels": 1.0
+      }
+    }
+  }
+}
