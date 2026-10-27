@@ -1,6 +1,6 @@
 [project]
 name = "hpolab"
-version = "0.1.0"
+version = "0.2.0"
 description = "Fenótipo-BR: mapping Brazilian Portuguese phenotype terms to the Human Phenotype Ontology"
 readme = "README.md"
 authors = [

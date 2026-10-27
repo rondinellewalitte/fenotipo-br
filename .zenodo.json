@@ -1,8 +1,8 @@
 {
   "title": "Fenótipo-BR: mapping Brazilian Portuguese phenotype terms to the Human Phenotype Ontology",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "upload_type": "software",
-  "description": "<p>Research pilot measuring how well Brazilian Portuguese phenotype terms map to the Human Phenotype Ontology (HPO) when only English labels are searched, and how much of published rare-disease case descriptions already has an official Portuguese HPO label.</p><p>Research support only; not a clinical or diagnostic tool. Uses only public data (HPO, Phenopacket Store); no patient data.</p>",
+  "description": "<p>Research pilot measuring how well Brazilian Portuguese phenotype terms map to the Human Phenotype Ontology (HPO) when only English labels are searched (Exp 01), how much of published rare-disease case descriptions already has an official Portuguese HPO label (Exp 02), and whether small local LLMs extract HPO terms from Portuguese clinical text better directly or after translating it to English (Exp 03, synthetic vignettes).</p><p>Research support only; not a clinical or diagnostic tool. Uses only public data (HPO, Phenopacket Store) and synthetic text; no patient data.</p>",
   "creators": [
     {
       "name": "Walitte, Rondinelle",
@@ -16,7 +16,9 @@
     "rare diseases",
     "phenotype normalization",
     "sentence embeddings",
-    "phenopackets"
+    "phenopackets",
+    "large language models",
+    "phenotype extraction"
   ],
   "related_identifiers": [
     {
@@ -30,5 +32,5 @@
       "scheme": "doi"
     }
   ],
-  "notes": "Full name: Rondinelle Walitte Pedro de Jesus. HPO data used under the HPO license (version v2026-09-01); Phenopacket Store v0.1.27 under BSD 3-Clause. Raw data files are not redistributed; see NOTICE.md."
+  "notes": "Full name: Rondinelle Walitte Pedro de Jesus. HPO data used under the HPO license (version v2026-09-01); Phenopacket Store v0.1.27 under BSD 3-Clause. Raw data files and model weights are not redistributed; see NOTICE.md. Exp 03 vignettes are synthetic text written by Claude (Anthropic API); the local LLMs (Qwen3-4B Instruct 2507, Gemma 3 4B) ran through Ollama."
 }

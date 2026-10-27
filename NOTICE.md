@@ -34,8 +34,9 @@ world. *Nucleic Acids Research* 52(D1):D1333–D1346. https://doi.org/10.1093/na
 ## Phenopacket Store
 
 Phenopacket Store v0.1.27 (https://github.com/monarch-initiative/phenopacket-store),
-distributed under the BSD 3-Clause License. `results/exp02/cases.csv.gz` and the other
-Exp 02 outputs contain values derived from it. The license text is reproduced below as it
+distributed under the BSD 3-Clause License. `results/exp02/cases.csv.gz`, the other
+Exp 02 outputs and the Exp 03 case sample (`results/exp03/sample.csv`, and the term lists
+behind `results/exp03/vignettes.jsonl`) contain values derived from it. The license text is reproduced below as it
 requires.
 
 Citation: Danis D, et al. A corpus of GA4GH phenopackets: Case-level phenotyping for
@@ -79,3 +80,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 `sentence-transformers/paraphrase-multilingual-mpnet-base-v2` are downloaded from Hugging
 Face at the revisions recorded in `results/exp01/config.json`. They are not redistributed
 here, and each model is under the license on its model card.
+
+## Local LLMs (Exp 03)
+
+`qwen3:4b-instruct-2507-q4_K_M` and `gemma3:4b-it-q4_K_M` were pulled through Ollama at the
+digests recorded in `results/exp03/config.json`. Their weights are not redistributed here,
+and each model is under its own license.
+
+## Synthetic vignettes (Exp 03)
+
+`results/exp03/vignettes.jsonl` holds synthetic Portuguese text written by Claude
+(`claude-opus-5-5`, Anthropic API) from the English HPO labels and definitions of each case's
+terms. The text describes no real patient.
