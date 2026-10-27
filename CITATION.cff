@@ -8,8 +8,6 @@ authors:
     alias: "Rondinelle Walitte Pedro de Jesus"
     orcid: "https://orcid.org/0009-0004-1776-2754"
 version: 0.2.0
-# WARNING: provisional date (when v0.2.0 was prepared). Set date-released to the day the
-# v0.2.0 release is published, and commit it, before creating the tag.
 date-released: 2026-10-27
 license: MIT
 repository-code: "https://github.com/rondinellewalitte/fenotipo-br"
