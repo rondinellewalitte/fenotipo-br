@@ -109,6 +109,10 @@ uv run python reports/build_review.py          # add --translate to fill candida
 uv run python reports/build_exp03.py
 uv run python reports/build_summary.py
 uv run python reports/build_readme.py
+
+# Manuscript draft (needs the paper dependency group)
+uv run python paper/refs.py --fetch           # re-checks the references in Crossref and PubMed
+uv run --group paper python paper/build_manuscript.py
 ```
 
 Exp 03 notes:
@@ -138,6 +142,7 @@ experiments/     one script per experiment
 results/expNN/   generated outputs: config.json, metrics.json, PREREG.md, ...
 reports/         Portuguese report, review package for clinicians, document generators
 prompts/         versioned LLM prompts
+paper/           manuscript draft (English), its tables, figures and checked references
 data/            downloads and caches (not committed)
 ```
 

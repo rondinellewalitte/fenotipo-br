@@ -1,0 +1,2770 @@
+{
+  "fetched_at": "2026-10-27T10:33:47+00:00",
+  "refs": {
+    "gargano2024": {
+      "doi": "10.1093/nar/gkad1005",
+      "type": "journal-article",
+      "title": "The Human Phenotype Ontology in 2024: phenotypes around the world",
+      "authors": [
+        {
+          "family": "Gargano",
+          "given": "Michael A"
+        },
+        {
+          "family": "Matentzoglu",
+          "given": "Nicolas"
+        },
+        {
+          "family": "Coleman",
+          "given": "Ben"
+        },
+        {
+          "family": "Addo-Lartey",
+          "given": "Eunice B"
+        },
+        {
+          "family": "Anagnostopoulos",
+          "given": "Anna V"
+        },
+        {
+          "family": "Anderton",
+          "given": "Joel"
+        },
+        {
+          "family": "Avillach",
+          "given": "Paul"
+        },
+        {
+          "family": "Bagley",
+          "given": "Anita M"
+        },
+        {
+          "family": "Bakštein",
+          "given": "Eduard"
+        },
+        {
+          "family": "Balhoff",
+          "given": "James P"
+        },
+        {
+          "family": "Baynam",
+          "given": "Gareth"
+        },
+        {
+          "family": "Bello",
+          "given": "Susan M"
+        },
+        {
+          "family": "Berk",
+          "given": "Michael"
+        },
+        {
+          "family": "Bertram",
+          "given": "Holli"
+        },
+        {
+          "family": "Bishop",
+          "given": "Somer"
+        },
+        {
+          "family": "Blau",
+          "given": "Hannah"
+        },
+        {
+          "family": "Bodenstein",
+          "given": "David F"
+        },
+        {
+          "family": "Botas",
+          "given": "Pablo"
+        },
+        {
+          "family": "Boztug",
+          "given": "Kaan"
+        },
+        {
+          "family": "Čady",
+          "given": "Jolana"
+        },
+        {
+          "family": "Callahan",
+          "given": "Tiffany J"
+        },
+        {
+          "family": "Cameron",
+          "given": "Rhiannon"
+        },
+        {
+          "family": "Carbon",
+          "given": "Seth J"
+        },
+        {
+          "family": "Castellanos",
+          "given": "Francisco"
+        },
+        {
+          "family": "Caufield",
+          "given": "J Harry"
+        },
+        {
+          "family": "Chan",
+          "given": "Lauren E"
+        },
+        {
+          "family": "Chute",
+          "given": "Christopher G"
+        },
+        {
+          "family": "Cruz-Rojo",
+          "given": "Jaime"
+        },
+        {
+          "family": "Dahan-Oliel",
+          "given": "Noémi"
+        },
+        {
+          "family": "Davids",
+          "given": "Jon R"
+        },
+        {
+          "family": "de Dieuleveult",
+          "given": "Maud"
+        },
+        {
+          "family": "de Souza",
+          "given": "Vinicius"
+        },
+        {
+          "family": "de Vries",
+          "given": "Bert B A"
+        },
+        {
+          "family": "de Vries",
+          "given": "Esther"
+        },
+        {
+          "family": "DePaulo",
+          "given": "J Raymond"
+        },
+        {
+          "family": "Derfalvi",
+          "given": "Beata"
+        },
+        {
+          "family": "Dhombres",
+          "given": "Ferdinand"
+        },
+        {
+          "family": "Diaz-Byrd",
+          "given": "Claudia"
+        },
+        {
+          "family": "Dingemans",
+          "given": "Alexander J M"
+        },
+        {
+          "family": "Donadille",
+          "given": "Bruno"
+        },
+        {
+          "family": "Duyzend",
+          "given": "Michael"
+        },
+        {
+          "family": "Elfeky",
+          "given": "Reem"
+        },
+        {
+          "family": "Essaid",
+          "given": "Shahim"
+        },
+        {
+          "family": "Fabrizzi",
+          "given": "Carolina"
+        },
+        {
+          "family": "Fico",
+          "given": "Giovanna"
+        },
+        {
+          "family": "Firth",
+          "given": "Helen V"
+        },
+        {
+          "family": "Freudenberg-Hua",
+          "given": "Yun"
+        },
+        {
+          "family": "Fullerton",
+          "given": "Janice M"
+        },
+        {
+          "family": "Gabriel",
+          "given": "Davera L"
+        },
+        {
+          "family": "Gilmour",
+          "given": "Kimberly"
+        },
+        {
+          "family": "Giordano",
+          "given": "Jessica"
+        },
+        {
+          "family": "Goes",
+          "given": "Fernando S"
+        },
+        {
+          "family": "Moses",
+          "given": "Rachel Gore"
+        },
+        {
+          "family": "Green",
+          "given": "Ian"
+        },
+        {
+          "family": "Griese",
+          "given": "Matthias"
+        },
+        {
+          "family": "Groza",
+          "given": "Tudor"
+        },
+        {
+          "family": "Gu",
+          "given": "Weihong"
+        },
+        {
+          "family": "Guthrie",
+          "given": "Julia"
+        },
+        {
+          "family": "Gyori",
+          "given": "Benjamin"
+        },
+        {
+          "family": "Hamosh",
+          "given": "Ada"
+        },
+        {
+          "family": "Hanauer",
+          "given": "Marc"
+        },
+        {
+          "family": "Hanušová",
+          "given": "Kateřina"
+        },
+        {
+          "family": "He",
+          "given": "Yongqun (Oliver)"
+        },
+        {
+          "family": "Hegde",
+          "given": "Harshad"
+        },
+        {
+          "family": "Helbig",
+          "given": "Ingo"
+        },
+        {
+          "family": "Holasová",
+          "given": "Kateřina"
+        },
+        {
+          "family": "Hoyt",
+          "given": "Charles Tapley"
+        },
+        {
+          "family": "Huang",
+          "given": "Shangzhi"
+        },
+        {
+          "family": "Hurwitz",
+          "given": "Eric"
+        },
+        {
+          "family": "Jacobsen",
+          "given": "Julius O B"
+        },
+        {
+          "family": "Jiang",
+          "given": "Xiaofeng"
+        },
+        {
+          "family": "Joseph",
+          "given": "Lisa"
+        },
+        {
+          "family": "Keramatian",
+          "given": "Kamyar"
+        },
+        {
+          "family": "King",
+          "given": "Bryan"
+        },
+        {
+          "family": "Knoflach",
+          "given": "Katrin"
+        },
+        {
+          "family": "Koolen",
+          "given": "David A"
+        },
+        {
+          "family": "Kraus",
+          "given": "Megan L"
+        },
+        {
+          "family": "Kroll",
+          "given": "Carlo"
+        },
+        {
+          "family": "Kusters",
+          "given": "Maaike"
+        },
+        {
+          "family": "Ladewig",
+          "given": "Markus S"
+        },
+        {
+          "family": "Lagorce",
+          "given": "David"
+        },
+        {
+          "family": "Lai",
+          "given": "Meng-Chuan"
+        },
+        {
+          "family": "Lapunzina",
+          "given": "Pablo"
+        },
+        {
+          "family": "Laraway",
+          "given": "Bryan"
+        },
+        {
+          "family": "Lewis-Smith",
+          "given": "David"
+        },
+        {
+          "family": "Li",
+          "given": "Xiarong"
+        },
+        {
+          "family": "Lucano",
+          "given": "Caterina"
+        },
+        {
+          "family": "Majd",
+          "given": "Marzieh"
+        },
+        {
+          "family": "Marazita",
+          "given": "Mary L"
+        },
+        {
+          "family": "Martinez-Glez",
+          "given": "Victor"
+        },
+        {
+          "family": "McHenry",
+          "given": "Toby H"
+        },
+        {
+          "family": "McInnis",
+          "given": "Melvin G"
+        },
+        {
+          "family": "McMurry",
+          "given": "Julie A"
+        },
+        {
+          "family": "Mihulová",
+          "given": "Michaela"
+        },
+        {
+          "family": "Millett",
+          "given": "Caitlin E"
+        },
+        {
+          "family": "Mitchell",
+          "given": "Philip B"
+        },
+        {
+          "family": "Moslerová",
+          "given": "Veronika"
+        },
+        {
+          "family": "Narutomi",
+          "given": "Kenji"
+        },
+        {
+          "family": "Nematollahi",
+          "given": "Shahrzad"
+        },
+        {
+          "family": "Nevado",
+          "given": "Julian"
+        },
+        {
+          "family": "Nierenberg",
+          "given": "Andrew A"
+        },
+        {
+          "family": "Čajbiková",
+          "given": "Nikola Novák"
+        },
+        {
+          "family": "Nurnberger",
+          "given": "John I"
+        },
+        {
+          "family": "Ogishima",
+          "given": "Soichi"
+        },
+        {
+          "family": "Olson",
+          "given": "Daniel"
+        },
+        {
+          "family": "Ortiz",
+          "given": "Abigail"
+        },
+        {
+          "family": "Pachajoa",
+          "given": "Harry"
+        },
+        {
+          "family": "Perez de Nanclares",
+          "given": "Guiomar"
+        },
+        {
+          "family": "Peters",
+          "given": "Amy"
+        },
+        {
+          "family": "Putman",
+          "given": "Tim"
+        },
+        {
+          "family": "Rapp",
+          "given": "Christina K"
+        },
+        {
+          "family": "Rath",
+          "given": "Ana"
+        },
+        {
+          "family": "Reese",
+          "given": "Justin"
+        },
+        {
+          "family": "Rekerle",
+          "given": "Lauren"
+        },
+        {
+          "family": "Roberts",
+          "given": "Angharad M"
+        },
+        {
+          "family": "Roy",
+          "given": "Suzy"
+        },
+        {
+          "family": "Sanders",
+          "given": "Stephan J"
+        },
+        {
+          "family": "Schuetz",
+          "given": "Catharina"
+        },
+        {
+          "family": "Schulte",
+          "given": "Eva C"
+        },
+        {
+          "family": "Schulze",
+          "given": "Thomas G"
+        },
+        {
+          "family": "Schwarz",
+          "given": "Martin"
+        },
+        {
+          "family": "Scott",
+          "given": "Katie"
+        },
+        {
+          "family": "Seelow",
+          "given": "Dominik"
+        },
+        {
+          "family": "Seitz",
+          "given": "Berthold"
+        },
+        {
+          "family": "Shen",
+          "given": "Yiping"
+        },
+        {
+          "family": "Similuk",
+          "given": "Morgan N"
+        },
+        {
+          "family": "Simon",
+          "given": "Eric S"
+        },
+        {
+          "family": "Singh",
+          "given": "Balwinder"
+        },
+        {
+          "family": "Smedley",
+          "given": "Damian"
+        },
+        {
+          "family": "Smith",
+          "given": "Cynthia L"
+        },
+        {
+          "family": "Smolinsky",
+          "given": "Jake T"
+        },
+        {
+          "family": "Sperry",
+          "given": "Sarah"
+        },
+        {
+          "family": "Stafford",
+          "given": "Elizabeth"
+        },
+        {
+          "family": "Stefancsik",
+          "given": "Ray"
+        },
+        {
+          "family": "Steinhaus",
+          "given": "Robin"
+        },
+        {
+          "family": "Strawbridge",
+          "given": "Rebecca"
+        },
+        {
+          "family": "Sundaramurthi",
+          "given": "Jagadish Chandrabose"
+        },
+        {
+          "family": "Talapova",
+          "given": "Polina"
+        },
+        {
+          "family": "Tenorio Castano",
+          "given": "Jair A"
+        },
+        {
+          "family": "Tesner",
+          "given": "Pavel"
+        },
+        {
+          "family": "Thomas",
+          "given": "Rhys H"
+        },
+        {
+          "family": "Thurm",
+          "given": "Audrey"
+        },
+        {
+          "family": "Turnovec",
+          "given": "Marek"
+        },
+        {
+          "family": "van Gijn",
+          "given": "Marielle E"
+        },
+        {
+          "family": "Vasilevsky",
+          "given": "Nicole A"
+        },
+        {
+          "family": "Vlčková",
+          "given": "Markéta"
+        },
+        {
+          "family": "Walden",
+          "given": "Anita"
+        },
+        {
+          "family": "Wang",
+          "given": "Kai"
+        },
+        {
+          "family": "Wapner",
+          "given": "Ron"
+        },
+        {
+          "family": "Ware",
+          "given": "James S"
+        },
+        {
+          "family": "Wiafe",
+          "given": "Addo A"
+        },
+        {
+          "family": "Wiafe",
+          "given": "Samuel A"
+        },
+        {
+          "family": "Wiggins",
+          "given": "Lisa D"
+        },
+        {
+          "family": "Williams",
+          "given": "Andrew E"
+        },
+        {
+          "family": "Wu",
+          "given": "Chen"
+        },
+        {
+          "family": "Wyrwoll",
+          "given": "Margot J"
+        },
+        {
+          "family": "Xiong",
+          "given": "Hui"
+        },
+        {
+          "family": "Yalin",
+          "given": "Nefize"
+        },
+        {
+          "family": "Yamamoto",
+          "given": "Yasunori"
+        },
+        {
+          "family": "Yatham",
+          "given": "Lakshmi N"
+        },
+        {
+          "family": "Yocum",
+          "given": "Anastasia K"
+        },
+        {
+          "family": "Young",
+          "given": "Allan H"
+        },
+        {
+          "family": "Yüksel",
+          "given": "Zafer"
+        },
+        {
+          "family": "Zandi",
+          "given": "Peter P"
+        },
+        {
+          "family": "Zankl",
+          "given": "Andreas"
+        },
+        {
+          "family": "Zarante",
+          "given": "Ignacio"
+        },
+        {
+          "family": "Zvolský",
+          "given": "Miroslav"
+        },
+        {
+          "family": "Toro",
+          "given": "Sabrina"
+        },
+        {
+          "family": "Carmody",
+          "given": "Leigh C"
+        },
+        {
+          "family": "Harris",
+          "given": "Nomi L"
+        },
+        {
+          "family": "Munoz-Torres",
+          "given": "Monica C"
+        },
+        {
+          "family": "Danis",
+          "given": "Daniel"
+        },
+        {
+          "family": "Mungall",
+          "given": "Christopher J"
+        },
+        {
+          "family": "Köhler",
+          "given": "Sebastian"
+        },
+        {
+          "family": "Haendel",
+          "given": "Melissa A"
+        },
+        {
+          "family": "Robinson",
+          "given": "Peter N"
+        }
+      ],
+      "editors": [],
+      "container": "Nucleic Acids Research",
+      "short_container": "",
+      "publisher": "Oxford University Press (OUP)",
+      "year": 2024,
+      "volume": "52",
+      "issue": "D1",
+      "page": "D1333-D1346",
+      "pmid": "37953324",
+      "checked": {
+        "crossref_title_contains": "Human Phenotype Ontology in 2024",
+        "source": "api.crossref.org"
+      }
+    },
+    "kohler2021": {
+      "doi": "10.1093/nar/gkaa1043",
+      "type": "journal-article",
+      "title": "The Human Phenotype Ontology in 2021",
+      "authors": [
+        {
+          "family": "Köhler",
+          "given": "Sebastian"
+        },
+        {
+          "family": "Gargano",
+          "given": "Michael"
+        },
+        {
+          "family": "Matentzoglu",
+          "given": "Nicolas"
+        },
+        {
+          "family": "Carmody",
+          "given": "Leigh C"
+        },
+        {
+          "family": "Lewis-Smith",
+          "given": "David"
+        },
+        {
+          "family": "Vasilevsky",
+          "given": "Nicole A"
+        },
+        {
+          "family": "Danis",
+          "given": "Daniel"
+        },
+        {
+          "family": "Balagura",
+          "given": "Ganna"
+        },
+        {
+          "family": "Baynam",
+          "given": "Gareth"
+        },
+        {
+          "family": "Brower",
+          "given": "Amy M"
+        },
+        {
+          "family": "Callahan",
+          "given": "Tiffany J"
+        },
+        {
+          "family": "Chute",
+          "given": "Christopher G"
+        },
+        {
+          "family": "Est",
+          "given": "Johanna L"
+        },
+        {
+          "family": "Galer",
+          "given": "Peter D"
+        },
+        {
+          "family": "Ganesan",
+          "given": "Shiva"
+        },
+        {
+          "family": "Griese",
+          "given": "Matthias"
+        },
+        {
+          "family": "Haimel",
+          "given": "Matthias"
+        },
+        {
+          "family": "Pazmandi",
+          "given": "Julia"
+        },
+        {
+          "family": "Hanauer",
+          "given": "Marc"
+        },
+        {
+          "family": "Harris",
+          "given": "Nomi L"
+        },
+        {
+          "family": "Hartnett",
+          "given": "Michael J"
+        },
+        {
+          "family": "Hastreiter",
+          "given": "Maximilian"
+        },
+        {
+          "family": "Hauck",
+          "given": "Fabian"
+        },
+        {
+          "family": "He",
+          "given": "Yongqun"
+        },
+        {
+          "family": "Jeske",
+          "given": "Tim"
+        },
+        {
+          "family": "Kearney",
+          "given": "Hugh"
+        },
+        {
+          "family": "Kindle",
+          "given": "Gerhard"
+        },
+        {
+          "family": "Klein",
+          "given": "Christoph"
+        },
+        {
+          "family": "Knoflach",
+          "given": "Katrin"
+        },
+        {
+          "family": "Krause",
+          "given": "Roland"
+        },
+        {
+          "family": "Lagorce",
+          "given": "David"
+        },
+        {
+          "family": "McMurry",
+          "given": "Julie A"
+        },
+        {
+          "family": "Miller",
+          "given": "Jillian A"
+        },
+        {
+          "family": "Munoz-Torres",
+          "given": "Monica C"
+        },
+        {
+          "family": "Peters",
+          "given": "Rebecca L"
+        },
+        {
+          "family": "Rapp",
+          "given": "Christina K"
+        },
+        {
+          "family": "Rath",
+          "given": "Ana M"
+        },
+        {
+          "family": "Rind",
+          "given": "Shahmir A"
+        },
+        {
+          "family": "Rosenberg",
+          "given": "Avi Z"
+        },
+        {
+          "family": "Segal",
+          "given": "Michael M"
+        },
+        {
+          "family": "Seidel",
+          "given": "Markus G"
+        },
+        {
+          "family": "Smedley",
+          "given": "Damian"
+        },
+        {
+          "family": "Talmy",
+          "given": "Tomer"
+        },
+        {
+          "family": "Thomas",
+          "given": "Yarlalu"
+        },
+        {
+          "family": "Wiafe",
+          "given": "Samuel A"
+        },
+        {
+          "family": "Xian",
+          "given": "Julie"
+        },
+        {
+          "family": "Yüksel",
+          "given": "Zafer"
+        },
+        {
+          "family": "Helbig",
+          "given": "Ingo"
+        },
+        {
+          "family": "Mungall",
+          "given": "Christopher J"
+        },
+        {
+          "family": "Haendel",
+          "given": "Melissa A"
+        },
+        {
+          "family": "Robinson",
+          "given": "Peter N"
+        }
+      ],
+      "editors": [],
+      "container": "Nucleic Acids Research",
+      "short_container": "",
+      "publisher": "Oxford University Press (OUP)",
+      "year": 2021,
+      "volume": "49",
+      "issue": "D1",
+      "page": "D1207-D1217",
+      "pmid": "33264411",
+      "checked": {
+        "crossref_title_contains": "Human Phenotype Ontology in 2021",
+        "source": "api.crossref.org"
+      }
+    },
+    "vasilevsky2018": {
+      "doi": "10.1038/s41588-018-0096-x",
+      "type": "journal-article",
+      "title": "Plain-language medical vocabulary for precision diagnosis",
+      "authors": [
+        {
+          "family": "Vasilevsky",
+          "given": "Nicole A."
+        },
+        {
+          "family": "Foster",
+          "given": "Erin D."
+        },
+        {
+          "family": "Engelstad",
+          "given": "Mark E."
+        },
+        {
+          "family": "Carmody",
+          "given": "Leigh"
+        },
+        {
+          "family": "Might",
+          "given": "Matt"
+        },
+        {
+          "family": "Chambers",
+          "given": "Chip"
+        },
+        {
+          "family": "Dawkins",
+          "given": "Hugh J. S."
+        },
+        {
+          "family": "Lewis",
+          "given": "Janine"
+        },
+        {
+          "family": "Della Rocca",
+          "given": "Maria G."
+        },
+        {
+          "family": "Snyder",
+          "given": "Michelle"
+        },
+        {
+          "family": "Boerkoel",
+          "given": "Cornelius F."
+        },
+        {
+          "family": "Rath",
+          "given": "Ana"
+        },
+        {
+          "family": "Terry",
+          "given": "Sharon F."
+        },
+        {
+          "family": "Kent",
+          "given": "Alastair"
+        },
+        {
+          "family": "Searle",
+          "given": "Beverly"
+        },
+        {
+          "family": "Baynam",
+          "given": "Gareth"
+        },
+        {
+          "family": "Jones",
+          "given": "Erik"
+        },
+        {
+          "family": "Gavin",
+          "given": "Pam"
+        },
+        {
+          "family": "Bamshad",
+          "given": "Michael"
+        },
+        {
+          "family": "Chong",
+          "given": "Jessica"
+        },
+        {
+          "family": "Groza",
+          "given": "Tudor"
+        },
+        {
+          "family": "Adams",
+          "given": "David"
+        },
+        {
+          "family": "Resnick",
+          "given": "Adam C."
+        },
+        {
+          "family": "Heath",
+          "given": "Allison P."
+        },
+        {
+          "family": "Mungall",
+          "given": "Chris"
+        },
+        {
+          "family": "Holm",
+          "given": "Ingrid A."
+        },
+        {
+          "family": "Rageth",
+          "given": "Kayli"
+        },
+        {
+          "family": "Brownstein",
+          "given": "Catherine A."
+        },
+        {
+          "family": "Shefchek",
+          "given": "Kent"
+        },
+        {
+          "family": "McMurry",
+          "given": "Julie A."
+        },
+        {
+          "family": "Robinson",
+          "given": "Peter N."
+        },
+        {
+          "family": "Köhler",
+          "given": "Sebastian"
+        },
+        {
+          "family": "Haendel",
+          "given": "Melissa A."
+        }
+      ],
+      "editors": [],
+      "container": "Nature Genetics",
+      "short_container": "Nat Genet",
+      "publisher": "Springer Science and Business Media LLC",
+      "year": 2018,
+      "volume": "50",
+      "issue": "4",
+      "page": "474-476",
+      "pmid": "29632381",
+      "checked": {
+        "crossref_title_contains": "Plain-language medical vocabulary",
+        "source": "api.crossref.org"
+      }
+    },
+    "robinson2012": {
+      "doi": "10.1002/humu.22080",
+      "type": "journal-article",
+      "title": "Deep phenotyping for precision medicine",
+      "authors": [
+        {
+          "family": "Robinson",
+          "given": "Peter N."
+        }
+      ],
+      "editors": [],
+      "container": "Human Mutation",
+      "short_container": "Hum. Mutat.",
+      "publisher": "Hindawi Limited",
+      "year": 2012,
+      "volume": "33",
+      "issue": "5",
+      "page": "777-780",
+      "pmid": "22504886",
+      "checked": {
+        "crossref_title_contains": "Deep phenotyping for precision medicine",
+        "source": "api.crossref.org"
+      }
+    },
+    "jacobsen2022": {
+      "doi": "10.1038/s41587-022-01357-4",
+      "type": "journal-article",
+      "title": "The GA4GH Phenopacket schema defines a computable representation of clinical data",
+      "authors": [
+        {
+          "family": "Jacobsen",
+          "given": "Julius O. B."
+        },
+        {
+          "family": "Baudis",
+          "given": "Michael"
+        },
+        {
+          "family": "Baynam",
+          "given": "Gareth S."
+        },
+        {
+          "family": "Beckmann",
+          "given": "Jacques S."
+        },
+        {
+          "family": "Beltran",
+          "given": "Sergi"
+        },
+        {
+          "family": "Buske",
+          "given": "Orion J."
+        },
+        {
+          "family": "Callahan",
+          "given": "Tiffany J."
+        },
+        {
+          "family": "Chute",
+          "given": "Christopher G."
+        },
+        {
+          "family": "Courtot",
+          "given": "Mélanie"
+        },
+        {
+          "family": "Danis",
+          "given": "Daniel"
+        },
+        {
+          "family": "Elemento",
+          "given": "Olivier"
+        },
+        {
+          "family": "Essenwanger",
+          "given": "Andrea"
+        },
+        {
+          "family": "Freimuth",
+          "given": "Robert R."
+        },
+        {
+          "family": "Gargano",
+          "given": "Michael A."
+        },
+        {
+          "family": "Groza",
+          "given": "Tudor"
+        },
+        {
+          "family": "Hamosh",
+          "given": "Ada"
+        },
+        {
+          "family": "Harris",
+          "given": "Nomi L."
+        },
+        {
+          "family": "Kaliyaperumal",
+          "given": "Rajaram"
+        },
+        {
+          "family": "Lloyd",
+          "given": "Kevin C. Kent"
+        },
+        {
+          "family": "Khalifa",
+          "given": "Aly"
+        },
+        {
+          "family": "Krawitz",
+          "given": "Peter M."
+        },
+        {
+          "family": "Köhler",
+          "given": "Sebastian"
+        },
+        {
+          "family": "Laraway",
+          "given": "Brian J."
+        },
+        {
+          "family": "Lehväslaiho",
+          "given": "Heikki"
+        },
+        {
+          "family": "Matalonga",
+          "given": "Leslie"
+        },
+        {
+          "family": "McMurry",
+          "given": "Julie A."
+        },
+        {
+          "family": "Metke-Jimenez",
+          "given": "Alejandro"
+        },
+        {
+          "family": "Mungall",
+          "given": "Christopher J."
+        },
+        {
+          "family": "Munoz-Torres",
+          "given": "Monica C."
+        },
+        {
+          "family": "Ogishima",
+          "given": "Soichi"
+        },
+        {
+          "family": "Papakonstantinou",
+          "given": "Anastasios"
+        },
+        {
+          "family": "Piscia",
+          "given": "Davide"
+        },
+        {
+          "family": "Pontikos",
+          "given": "Nikolas"
+        },
+        {
+          "family": "Queralt-Rosinach",
+          "given": "Núria"
+        },
+        {
+          "family": "Roos",
+          "given": "Marco"
+        },
+        {
+          "family": "Sass",
+          "given": "Julian"
+        },
+        {
+          "family": "Schofield",
+          "given": "Paul N."
+        },
+        {
+          "family": "Seelow",
+          "given": "Dominik"
+        },
+        {
+          "family": "Siapos",
+          "given": "Anastasios"
+        },
+        {
+          "family": "Smedley",
+          "given": "Damian"
+        },
+        {
+          "family": "Smith",
+          "given": "Lindsay D."
+        },
+        {
+          "family": "Steinhaus",
+          "given": "Robin"
+        },
+        {
+          "family": "Sundaramurthi",
+          "given": "Jagadish Chandrabose"
+        },
+        {
+          "family": "Swietlik",
+          "given": "Emilia M."
+        },
+        {
+          "family": "Thun",
+          "given": "Sylvia"
+        },
+        {
+          "family": "Vasilevsky",
+          "given": "Nicole A."
+        },
+        {
+          "family": "Wagner",
+          "given": "Alex H."
+        },
+        {
+          "family": "Warner",
+          "given": "Jeremy L."
+        },
+        {
+          "family": "Weiland",
+          "given": "Claus"
+        },
+        {
+          "family": "The GAGH Phenopacket Modeling Consortium",
+          "given": ""
+        },
+        {
+          "family": "Axton",
+          "given": "Myles"
+        },
+        {
+          "family": "Babb",
+          "given": "Lawrence"
+        },
+        {
+          "family": "Boerkoel",
+          "given": "Cornelius F."
+        },
+        {
+          "family": "Chaudhari",
+          "given": "Bimal P."
+        },
+        {
+          "family": "Chin",
+          "given": "Hui-Lin"
+        },
+        {
+          "family": "Dumontier",
+          "given": "Michel"
+        },
+        {
+          "family": "Gazzaz",
+          "given": "Nour"
+        },
+        {
+          "family": "Hansen",
+          "given": "David P."
+        },
+        {
+          "family": "Hochheiser",
+          "given": "Harry"
+        },
+        {
+          "family": "Kinsler",
+          "given": "Veronica A."
+        },
+        {
+          "family": "Lochmüller",
+          "given": "Hanns"
+        },
+        {
+          "family": "Mankovich",
+          "given": "Alexander R."
+        },
+        {
+          "family": "Saunders",
+          "given": "Gary I."
+        },
+        {
+          "family": "Sergouniotis",
+          "given": "Panagiotis I."
+        },
+        {
+          "family": "Thompson",
+          "given": "Rachel"
+        },
+        {
+          "family": "Zankl",
+          "given": "Andreas"
+        },
+        {
+          "family": "Haendel",
+          "given": "Melissa A."
+        },
+        {
+          "family": "Robinson",
+          "given": "Peter N."
+        }
+      ],
+      "editors": [],
+      "container": "Nature Biotechnology",
+      "short_container": "Nat Biotechnol",
+      "publisher": "Springer Science and Business Media LLC",
+      "year": 2022,
+      "volume": "40",
+      "issue": "6",
+      "page": "817-820",
+      "pmid": "35705716",
+      "checked": {
+        "crossref_title_contains": "phenopacket schema",
+        "source": "api.crossref.org"
+      }
+    },
+    "danis2025": {
+      "doi": "10.1016/j.xhgg.2024.100371",
+      "type": "journal-article",
+      "title": "A corpus of GA4GH phenopackets: Case-level phenotyping for genomic diagnostics and discovery",
+      "authors": [
+        {
+          "family": "Danis",
+          "given": "Daniel"
+        },
+        {
+          "family": "Bamshad",
+          "given": "Michael J."
+        },
+        {
+          "family": "Bridges",
+          "given": "Yasemin"
+        },
+        {
+          "family": "Caballero-Oteyza",
+          "given": "Andrés"
+        },
+        {
+          "family": "Cacheiro",
+          "given": "Pilar"
+        },
+        {
+          "family": "Carmody",
+          "given": "Leigh C."
+        },
+        {
+          "family": "Chimirri",
+          "given": "Leonardo"
+        },
+        {
+          "family": "Chong",
+          "given": "Jessica X."
+        },
+        {
+          "family": "Coleman",
+          "given": "Ben"
+        },
+        {
+          "family": "Dalgleish",
+          "given": "Raymond"
+        },
+        {
+          "family": "Freeman",
+          "given": "Peter J."
+        },
+        {
+          "family": "Graefe",
+          "given": "Adam S.L."
+        },
+        {
+          "family": "Groza",
+          "given": "Tudor"
+        },
+        {
+          "family": "Hansen",
+          "given": "Peter"
+        },
+        {
+          "family": "Jacobsen",
+          "given": "Julius O.B."
+        },
+        {
+          "family": "Klocperk",
+          "given": "Adam"
+        },
+        {
+          "family": "Kusters",
+          "given": "Maaike"
+        },
+        {
+          "family": "Ladewig",
+          "given": "Markus S."
+        },
+        {
+          "family": "Marcello",
+          "given": "Allison J."
+        },
+        {
+          "family": "Mattina",
+          "given": "Teresa"
+        },
+        {
+          "family": "Mungall",
+          "given": "Christopher J."
+        },
+        {
+          "family": "Munoz-Torres",
+          "given": "Monica C."
+        },
+        {
+          "family": "Reese",
+          "given": "Justin T."
+        },
+        {
+          "family": "Rehburg",
+          "given": "Filip"
+        },
+        {
+          "family": "Reis",
+          "given": "Bárbara C.S."
+        },
+        {
+          "family": "Schuetz",
+          "given": "Catharina"
+        },
+        {
+          "family": "Smedley",
+          "given": "Damian"
+        },
+        {
+          "family": "Strauss",
+          "given": "Timmy"
+        },
+        {
+          "family": "Sundaramurthi",
+          "given": "Jagadish Chandrabose"
+        },
+        {
+          "family": "Thun",
+          "given": "Sylvia"
+        },
+        {
+          "family": "Wissink",
+          "given": "Kyran"
+        },
+        {
+          "family": "Wagstaff",
+          "given": "John F."
+        },
+        {
+          "family": "Zocche",
+          "given": "David"
+        },
+        {
+          "family": "Haendel",
+          "given": "Melissa A."
+        },
+        {
+          "family": "Robinson",
+          "given": "Peter N."
+        }
+      ],
+      "editors": [],
+      "container": "Human Genetics and Genomics Advances",
+      "short_container": "Human Genetics and Genomics Advances",
+      "publisher": "Elsevier BV",
+      "year": 2025,
+      "volume": "6",
+      "issue": "1",
+      "page": "100371",
+      "pmid": "39394689",
+      "checked": {
+        "crossref_title_contains": "corpus of GA4GH phenopackets",
+        "source": "api.crossref.org"
+      }
+    },
+    "nguengangwakap2020": {
+      "doi": "10.1038/s41431-019-0508-0",
+      "type": "journal-article",
+      "title": "Estimating cumulative point prevalence of rare diseases: analysis of the Orphanet database",
+      "authors": [
+        {
+          "family": "Nguengang Wakap",
+          "given": "Stéphanie"
+        },
+        {
+          "family": "Lambert",
+          "given": "Deborah M."
+        },
+        {
+          "family": "Olry",
+          "given": "Annie"
+        },
+        {
+          "family": "Rodwell",
+          "given": "Charlotte"
+        },
+        {
+          "family": "Gueydan",
+          "given": "Charlotte"
+        },
+        {
+          "family": "Lanneau",
+          "given": "Valérie"
+        },
+        {
+          "family": "Murphy",
+          "given": "Daniel"
+        },
+        {
+          "family": "Le Cam",
+          "given": "Yann"
+        },
+        {
+          "family": "Rath",
+          "given": "Ana"
+        }
+      ],
+      "editors": [],
+      "container": "European Journal of Human Genetics",
+      "short_container": "Eur J Hum Genet",
+      "publisher": "Springer Science and Business Media LLC",
+      "year": 2020,
+      "volume": "28",
+      "issue": "2",
+      "page": "165-173",
+      "pmid": "31527858",
+      "checked": {
+        "crossref_title_contains": "prevalence of rare diseases",
+        "source": "api.crossref.org"
+      }
+    },
+    "felix2022": {
+      "doi": "10.1186/s13023-022-02254-4",
+      "type": "journal-article",
+      "title": "Epidemiology of rare diseases in Brazil: protocol of the Brazilian Rare Diseases Network (RARAS-BRDN)",
+      "authors": [
+        {
+          "family": "Félix",
+          "given": "Têmis Maria"
+        },
+        {
+          "family": "de Oliveira",
+          "given": "Bibiana Mello"
+        },
+        {
+          "family": "Artifon",
+          "given": "Milena"
+        },
+        {
+          "family": "Carvalho",
+          "given": "Isabelle"
+        },
+        {
+          "family": "Bernardi",
+          "given": "Filipe Andrade"
+        },
+        {
+          "family": "Schwartz",
+          "given": "Ida V. D."
+        },
+        {
+          "family": "Saute",
+          "given": "Jonas A."
+        },
+        {
+          "family": "Ferraz",
+          "given": "Victor E. F."
+        },
+        {
+          "family": "Acosta",
+          "given": "Angelina X."
+        },
+        {
+          "family": "Sorte",
+          "given": "Ney Boa"
+        },
+        {
+          "family": "Alves",
+          "given": "Domingos"
+        },
+        {
+          "family": "RARAS Network group",
+          "given": ""
+        },
+        {
+          "family": "Amorim",
+          "given": "Tatiana"
+        },
+        {
+          "family": "Adjuto",
+          "given": "Gisele Maria Araujo Felix"
+        },
+        {
+          "family": "Almeida",
+          "given": "Rosemarie Elizabeth Schimidt"
+        },
+        {
+          "family": "Brandão",
+          "given": "Flávia Resedá"
+        },
+        {
+          "family": "Bueno",
+          "given": "Larissa Souza Mario"
+        },
+        {
+          "family": "de Andrade",
+          "given": "Maria Denise Fernandes Carvalho"
+        },
+        {
+          "family": "Cagliari",
+          "given": "Cristina Iacovelo"
+        },
+        {
+          "family": "Cardoso",
+          "given": "Maria Terezinha"
+        },
+        {
+          "family": "Carvalho",
+          "given": "Ellaine Doris Fernandes"
+        },
+        {
+          "family": "Costa",
+          "given": "Marcela Câmara Machado"
+        },
+        {
+          "family": "El-Husny",
+          "given": "Antonette"
+        },
+        {
+          "family": "Faccini",
+          "given": "Lavinia Schuler"
+        },
+        {
+          "family": "Fock",
+          "given": "Rodrigo Ambrosio"
+        },
+        {
+          "family": "Florêncio",
+          "given": "Rodrigo Neves"
+        },
+        {
+          "family": "Galera",
+          "given": "Marcial Francis"
+        },
+        {
+          "family": "Giugliani",
+          "given": "Roberto"
+        },
+        {
+          "family": "de Rosso Giuliani",
+          "given": "Liane"
+        },
+        {
+          "family": "Grumach",
+          "given": "Anette S."
+        },
+        {
+          "family": "Horovitz",
+          "given": "Dafne G."
+        },
+        {
+          "family": "Llerena-Junior",
+          "given": "Juan Clinton"
+        },
+        {
+          "family": "Kim",
+          "given": "Chong A. E."
+        },
+        {
+          "family": "Maia",
+          "given": "Rayana Elias"
+        },
+        {
+          "family": "Martins",
+          "given": "Ana Maria"
+        },
+        {
+          "family": "de Medeiros",
+          "given": "Paula Frassinetti Vasconcelos"
+        },
+        {
+          "family": "de Castro Musolino",
+          "given": "Nina Rosa"
+        },
+        {
+          "family": "Nita",
+          "given": "Marcelo Eidi"
+        },
+        {
+          "family": "da Silva Nunesmaia",
+          "given": "Henrique Gil"
+        },
+        {
+          "family": "de Oliveira",
+          "given": "Jose Carlison Santos"
+        },
+        {
+          "family": "Paiva",
+          "given": "Wagner José Martins"
+        },
+        {
+          "family": "Pimentel",
+          "given": "Helena"
+        },
+        {
+          "family": "de Camargo Pinto",
+          "given": "Louise Lapagesse"
+        },
+        {
+          "family": "Prazeres",
+          "given": "Vânia Mesquita Gadelha"
+        },
+        {
+          "family": "de Freitas Rodrigues Ribeiro",
+          "given": "Betânia"
+        },
+        {
+          "family": "Ribeiro",
+          "given": "Erlane"
+        },
+        {
+          "family": "Rodrigues",
+          "given": "Márcia Maria Jardim"
+        },
+        {
+          "family": "Salles",
+          "given": "Maria José Sparça"
+        },
+        {
+          "family": "Sanseverino",
+          "given": "Maria Teresa Vieira"
+        },
+        {
+          "family": "dos Santos",
+          "given": "Eliane Pereira"
+        },
+        {
+          "family": "Santos",
+          "given": "Mara Lucia Schmitz Ferreira"
+        },
+        {
+          "family": "Sarti",
+          "given": "Flávia Mori"
+        },
+        {
+          "family": "da Silva",
+          "given": "Luiz Carlos Santana"
+        },
+        {
+          "family": "da Silva",
+          "given": "Raquel Tavares Boy"
+        },
+        {
+          "family": "Steiner",
+          "given": "Carlos Eduardo"
+        },
+        {
+          "family": "Tavares",
+          "given": "Ana Beatriz Winter"
+        },
+        {
+          "family": "Teixeira",
+          "given": "Thais Bonfim"
+        },
+        {
+          "family": "Vergara",
+          "given": "Alberto"
+        },
+        {
+          "family": "Zen",
+          "given": "Paulo Ricardo Gazzola"
+        },
+        {
+          "family": "Zuchetti",
+          "given": "Marcos Guimarães"
+        }
+      ],
+      "editors": [],
+      "container": "Orphanet Journal of Rare Diseases",
+      "short_container": "Orphanet J Rare Dis",
+      "publisher": "Springer Science and Business Media LLC",
+      "year": 2022,
+      "volume": "17",
+      "issue": "1",
+      "page": "84",
+      "pmid": "35209917",
+      "checked": {
+        "crossref_title_contains": "Brazilian Rare Diseases Network",
+        "source": "api.crossref.org"
+      }
+    },
+    "smedley2015": {
+      "doi": "10.1038/nprot.2015.124",
+      "type": "journal-article",
+      "title": "Next-generation diagnostics and disease-gene discovery with the Exomiser",
+      "authors": [
+        {
+          "family": "Smedley",
+          "given": "Damian"
+        },
+        {
+          "family": "Jacobsen",
+          "given": "Julius O B"
+        },
+        {
+          "family": "Jäger",
+          "given": "Marten"
+        },
+        {
+          "family": "Köhler",
+          "given": "Sebastian"
+        },
+        {
+          "family": "Holtgrewe",
+          "given": "Manuel"
+        },
+        {
+          "family": "Schubach",
+          "given": "Max"
+        },
+        {
+          "family": "Siragusa",
+          "given": "Enrico"
+        },
+        {
+          "family": "Zemojtel",
+          "given": "Tomasz"
+        },
+        {
+          "family": "Buske",
+          "given": "Orion J"
+        },
+        {
+          "family": "Washington",
+          "given": "Nicole L"
+        },
+        {
+          "family": "Bone",
+          "given": "William P"
+        },
+        {
+          "family": "Haendel",
+          "given": "Melissa A"
+        },
+        {
+          "family": "Robinson",
+          "given": "Peter N"
+        }
+      ],
+      "editors": [],
+      "container": "Nature Protocols",
+      "short_container": "Nat Protoc",
+      "publisher": "Springer Science and Business Media LLC",
+      "year": 2015,
+      "volume": "10",
+      "issue": "12",
+      "page": "2004-2015",
+      "pmid": "26562621",
+      "checked": {
+        "crossref_title_contains": "Exomiser",
+        "source": "api.crossref.org"
+      }
+    },
+    "robinson2020": {
+      "doi": "10.1016/j.ajhg.2020.06.021",
+      "type": "journal-article",
+      "title": "Interpretable Clinical Genomics with a Likelihood Ratio Paradigm",
+      "authors": [
+        {
+          "family": "Robinson",
+          "given": "Peter N."
+        },
+        {
+          "family": "Ravanmehr",
+          "given": "Vida"
+        },
+        {
+          "family": "Jacobsen",
+          "given": "Julius O.B."
+        },
+        {
+          "family": "Danis",
+          "given": "Daniel"
+        },
+        {
+          "family": "Zhang",
+          "given": "Xingmin Aaron"
+        },
+        {
+          "family": "Carmody",
+          "given": "Leigh C."
+        },
+        {
+          "family": "Gargano",
+          "given": "Michael A."
+        },
+        {
+          "family": "Thaxton",
+          "given": "Courtney L."
+        },
+        {
+          "family": "Karlebach",
+          "given": "Guy"
+        },
+        {
+          "family": "Reese",
+          "given": "Justin"
+        },
+        {
+          "family": "Holtgrewe",
+          "given": "Manuel"
+        },
+        {
+          "family": "Köhler",
+          "given": "Sebastian"
+        },
+        {
+          "family": "McMurry",
+          "given": "Julie A."
+        },
+        {
+          "family": "Haendel",
+          "given": "Melissa A."
+        },
+        {
+          "family": "Smedley",
+          "given": "Damian"
+        }
+      ],
+      "editors": [],
+      "container": "The American Journal of Human Genetics",
+      "short_container": "The American Journal of Human Genetics",
+      "publisher": "Elsevier BV",
+      "year": 2020,
+      "volume": "107",
+      "issue": "3",
+      "page": "403-417",
+      "pmid": "32755546",
+      "checked": {
+        "crossref_title_contains": "likelihood ratio",
+        "source": "api.crossref.org"
+      }
+    },
+    "deisseroth2019": {
+      "doi": "10.1038/s41436-018-0381-1",
+      "type": "journal-article",
+      "title": "ClinPhen extracts and prioritizes patient phenotypes directly from medical records to expedite genetic disease diagnosis",
+      "authors": [
+        {
+          "family": "Deisseroth",
+          "given": "Cole A."
+        },
+        {
+          "family": "Birgmeier",
+          "given": "Johannes"
+        },
+        {
+          "family": "Bodle",
+          "given": "Ethan E."
+        },
+        {
+          "family": "Kohler",
+          "given": "Jennefer N."
+        },
+        {
+          "family": "Matalon",
+          "given": "Dena R."
+        },
+        {
+          "family": "Nazarenko",
+          "given": "Yelena"
+        },
+        {
+          "family": "Genetti",
+          "given": "Casie A."
+        },
+        {
+          "family": "Brownstein",
+          "given": "Catherine A."
+        },
+        {
+          "family": "Schmitz-Abe",
+          "given": "Klaus"
+        },
+        {
+          "family": "Schoch",
+          "given": "Kelly"
+        },
+        {
+          "family": "Cope",
+          "given": "Heidi"
+        },
+        {
+          "family": "Signer",
+          "given": "Rebecca"
+        },
+        {
+          "family": "Martinez-Agosto",
+          "given": "Julian A."
+        },
+        {
+          "family": "Shashi",
+          "given": "Vandana"
+        },
+        {
+          "family": "Beggs",
+          "given": "Alan H."
+        },
+        {
+          "family": "Wheeler",
+          "given": "Matthew T."
+        },
+        {
+          "family": "Bernstein",
+          "given": "Jonathan A."
+        },
+        {
+          "family": "Bejerano",
+          "given": "Gill"
+        }
+      ],
+      "editors": [],
+      "container": "Genetics in Medicine",
+      "short_container": "Genetics in Medicine",
+      "publisher": "Elsevier BV",
+      "year": 2019,
+      "volume": "21",
+      "issue": "7",
+      "page": "1585-1593",
+      "pmid": "30514889",
+      "checked": {
+        "crossref_title_contains": "ClinPhen",
+        "source": "api.crossref.org"
+      }
+    },
+    "luo2021": {
+      "doi": "10.1093/bioinformatics/btab019",
+      "type": "journal-article",
+      "title": "PhenoTagger: a hybrid method for phenotype concept recognition using human phenotype ontology",
+      "authors": [
+        {
+          "family": "Luo",
+          "given": "Ling"
+        },
+        {
+          "family": "Yan",
+          "given": "Shankai"
+        },
+        {
+          "family": "Lai",
+          "given": "Po-Ting"
+        },
+        {
+          "family": "Veltri",
+          "given": "Daniel"
+        },
+        {
+          "family": "Oler",
+          "given": "Andrew"
+        },
+        {
+          "family": "Xirasagar",
+          "given": "Sandhya"
+        },
+        {
+          "family": "Ghosh",
+          "given": "Rajarshi"
+        },
+        {
+          "family": "Similuk",
+          "given": "Morgan"
+        },
+        {
+          "family": "Robinson",
+          "given": "Peter N"
+        },
+        {
+          "family": "Lu",
+          "given": "Zhiyong"
+        }
+      ],
+      "editors": [
+        {
+          "family": "Wren",
+          "given": "Jonathan"
+        }
+      ],
+      "container": "Bioinformatics",
+      "short_container": "",
+      "publisher": "Oxford University Press (OUP)",
+      "year": 2021,
+      "volume": "37",
+      "issue": "13",
+      "page": "1884-1890",
+      "pmid": "33471061",
+      "checked": {
+        "crossref_title_contains": "PhenoTagger",
+        "source": "api.crossref.org"
+      }
+    },
+    "groza2024": {
+      "doi": "10.1186/s12911-024-02439-w",
+      "type": "journal-article",
+      "title": "An evaluation of GPT models for phenotype concept recognition",
+      "authors": [
+        {
+          "family": "Groza",
+          "given": "Tudor"
+        },
+        {
+          "family": "Caufield",
+          "given": "Harry"
+        },
+        {
+          "family": "Gration",
+          "given": "Dylan"
+        },
+        {
+          "family": "Baynam",
+          "given": "Gareth"
+        },
+        {
+          "family": "Haendel",
+          "given": "Melissa A."
+        },
+        {
+          "family": "Robinson",
+          "given": "Peter N."
+        },
+        {
+          "family": "Mungall",
+          "given": "Christopher J."
+        },
+        {
+          "family": "Reese",
+          "given": "Justin T."
+        }
+      ],
+      "editors": [],
+      "container": "BMC Medical Informatics and Decision Making",
+      "short_container": "BMC Med Inform Decis Mak",
+      "publisher": "Springer Science and Business Media LLC",
+      "year": 2024,
+      "volume": "24",
+      "issue": "1",
+      "page": "30",
+      "pmid": "38297371",
+      "checked": {
+        "crossref_title_contains": "GPT models for phenotype concept recognition",
+        "source": "api.crossref.org"
+      }
+    },
+    "garcia2025": {
+      "doi": "10.1186/s13073-025-01521-w",
+      "type": "journal-article",
+      "title": "Improving automated deep phenotyping through large language models using retrieval-augmented generation",
+      "authors": [
+        {
+          "family": "Garcia",
+          "given": "Brandon T."
+        },
+        {
+          "family": "Westerfield",
+          "given": "Lauren"
+        },
+        {
+          "family": "Yelemali",
+          "given": "Priya"
+        },
+        {
+          "family": "Gogate",
+          "given": "Nikhita"
+        },
+        {
+          "family": "Rivera-Munoz",
+          "given": "E. Andres"
+        },
+        {
+          "family": "Du",
+          "given": "Haowei"
+        },
+        {
+          "family": "Dawood",
+          "given": "Moez"
+        },
+        {
+          "family": "Jolly",
+          "given": "Angad"
+        },
+        {
+          "family": "Lupski",
+          "given": "James R."
+        },
+        {
+          "family": "Posey",
+          "given": "Jennifer E."
+        }
+      ],
+      "editors": [],
+      "container": "Genome Medicine",
+      "short_container": "Genome Med",
+      "publisher": "Springer Science and Business Media LLC",
+      "year": 2025,
+      "volume": "17",
+      "issue": "1",
+      "page": "91",
+      "pmid": "40826123",
+      "checked": {
+        "crossref_title_contains": "retrieval-augmented generation",
+        "source": "api.crossref.org"
+      }
+    },
+    "reese2026": {
+      "doi": "10.1038/s41431-026-02054-5",
+      "type": "journal-article",
+      "title": "Systematic benchmarking demonstrates large language models have not reached the diagnostic accuracy of traditional rare-disease decision support tools",
+      "authors": [
+        {
+          "family": "Reese",
+          "given": "Justin T."
+        },
+        {
+          "family": "Chimirri",
+          "given": "Leonardo"
+        },
+        {
+          "family": "Bridges",
+          "given": "Yasemin"
+        },
+        {
+          "family": "Danis",
+          "given": "Daniel"
+        },
+        {
+          "family": "Caufield",
+          "given": "J. Harry"
+        },
+        {
+          "family": "Gargano",
+          "given": "Michael A."
+        },
+        {
+          "family": "Kroll",
+          "given": "Carlo"
+        },
+        {
+          "family": "Schmeder",
+          "given": "Andrew"
+        },
+        {
+          "family": "Liu",
+          "given": "Fengchen"
+        },
+        {
+          "family": "Wissink",
+          "given": "Kyran"
+        },
+        {
+          "family": "McMurry",
+          "given": "Julie A."
+        },
+        {
+          "family": "Graefe",
+          "given": "Adam S. L."
+        },
+        {
+          "family": "Niyonkuru",
+          "given": "Enock"
+        },
+        {
+          "family": "Korn",
+          "given": "Daniel R."
+        },
+        {
+          "family": "Casiraghi",
+          "given": "Elena"
+        },
+        {
+          "family": "Valentini",
+          "given": "Giorgio"
+        },
+        {
+          "family": "Jacobsen",
+          "given": "Julius O. B."
+        },
+        {
+          "family": "Haendel",
+          "given": "Melissa"
+        },
+        {
+          "family": "Smedley",
+          "given": "Damian"
+        },
+        {
+          "family": "Mungall",
+          "given": "Christopher J."
+        },
+        {
+          "family": "Robinson",
+          "given": "Peter N."
+        }
+      ],
+      "editors": [],
+      "container": "European Journal of Human Genetics",
+      "short_container": "Eur J Hum Genet",
+      "publisher": "Springer Science and Business Media LLC",
+      "year": 2026,
+      "volume": "34",
+      "issue": "4",
+      "page": "498-504",
+      "pmid": "41735669",
+      "checked": {
+        "crossref_title_contains": "Systematic benchmarking",
+        "source": "api.crossref.org"
+      }
+    },
+    "neveol2018": {
+      "doi": "10.1186/s13326-018-0179-8",
+      "type": "journal-article",
+      "title": "Clinical Natural Language Processing in languages other than English: opportunities and challenges",
+      "authors": [
+        {
+          "family": "Névéol",
+          "given": "Aurélie"
+        },
+        {
+          "family": "Dalianis",
+          "given": "Hercules"
+        },
+        {
+          "family": "Velupillai",
+          "given": "Sumithra"
+        },
+        {
+          "family": "Savova",
+          "given": "Guergana"
+        },
+        {
+          "family": "Zweigenbaum",
+          "given": "Pierre"
+        }
+      ],
+      "editors": [],
+      "container": "Journal of Biomedical Semantics",
+      "short_container": "J Biomed Semant",
+      "publisher": "Springer Science and Business Media LLC",
+      "year": 2018,
+      "volume": "9",
+      "issue": "1",
+      "page": "12",
+      "pmid": "29602312",
+      "checked": {
+        "crossref_title_contains": "languages other than English",
+        "source": "api.crossref.org"
+      }
+    },
+    "oliveira2022": {
+      "doi": "10.1186/s13326-022-00269-1",
+      "type": "journal-article",
+      "title": "SemClinBr - a multi-institutional and multi-specialty semantically annotated corpus for Portuguese clinical NLP tasks",
+      "authors": [
+        {
+          "family": "Oliveira",
+          "given": "Lucas Emanuel Silva e"
+        },
+        {
+          "family": "Peters",
+          "given": "Ana Carolina"
+        },
+        {
+          "family": "da Silva",
+          "given": "Adalniza Moura Pucca"
+        },
+        {
+          "family": "Gebeluca",
+          "given": "Caroline Pilatti"
+        },
+        {
+          "family": "Gumiel",
+          "given": "Yohan Bonescki"
+        },
+        {
+          "family": "Cintho",
+          "given": "Lilian Mie Mukai"
+        },
+        {
+          "family": "Carvalho",
+          "given": "Deborah Ribeiro"
+        },
+        {
+          "family": "Al Hasan",
+          "given": "Sadid"
+        },
+        {
+          "family": "Moro",
+          "given": "Claudia Maria Cabral"
+        }
+      ],
+      "editors": [],
+      "container": "Journal of Biomedical Semantics",
+      "short_container": "J Biomed Semant",
+      "publisher": "Springer Science and Business Media LLC",
+      "year": 2022,
+      "volume": "13",
+      "issue": "1",
+      "page": "13",
+      "pmid": "35527259",
+      "checked": {
+        "crossref_title_contains": "SemClinBr",
+        "source": "api.crossref.org"
+      }
+    },
+    "schneider2020": {
+      "doi": "10.18653/v1/2020.clinicalnlp-1.7",
+      "type": "proceedings-article",
+      "title": "BioBERTpt - A Portuguese Neural Language Model for Clinical Named Entity Recognition",
+      "authors": [
+        {
+          "family": "Schneider",
+          "given": "Elisa Terumi Rubel"
+        },
+        {
+          "family": "de Souza",
+          "given": "João Vitor Andrioli"
+        },
+        {
+          "family": "Knafou",
+          "given": "Julien"
+        },
+        {
+          "family": "Oliveira",
+          "given": "Lucas Emanuel Silva e"
+        },
+        {
+          "family": "Copara",
+          "given": "Jenny"
+        },
+        {
+          "family": "Gumiel",
+          "given": "Yohan Bonescki"
+        },
+        {
+          "family": "Oliveira",
+          "given": "Lucas Ferro Antunes de"
+        },
+        {
+          "family": "Paraiso",
+          "given": "Emerson Cabrera"
+        },
+        {
+          "family": "Teodoro",
+          "given": "Douglas"
+        },
+        {
+          "family": "Barra",
+          "given": "Cláudia Maria Cabral Moro"
+        }
+      ],
+      "editors": [],
+      "container": "Proceedings of the 3rd Clinical Natural Language Processing Workshop",
+      "short_container": "",
+      "publisher": "Association for Computational Linguistics",
+      "year": 2020,
+      "volume": null,
+      "issue": null,
+      "page": "65-72",
+      "pmid": null,
+      "checked": {
+        "crossref_title_contains": "BioBERTpt",
+        "source": "api.crossref.org"
+      }
+    },
+    "chen2024": {
+      "doi": "10.18653/v1/2024.findings-acl.137",
+      "type": "proceedings-article",
+      "title": "M3-Embedding: Multi-Linguality, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation",
+      "authors": [
+        {
+          "family": "Chen",
+          "given": "Jianlyu"
+        },
+        {
+          "family": "Xiao",
+          "given": "Shitao"
+        },
+        {
+          "family": "Zhang",
+          "given": "Peitian"
+        },
+        {
+          "family": "Luo",
+          "given": "Kun"
+        },
+        {
+          "family": "Lian",
+          "given": "Defu"
+        },
+        {
+          "family": "Liu",
+          "given": "Zheng"
+        }
+      ],
+      "editors": [],
+      "container": "Findings of the Association for Computational Linguistics ACL 2024",
+      "short_container": "",
+      "publisher": "Association for Computational Linguistics",
+      "year": 2024,
+      "volume": null,
+      "issue": null,
+      "page": "2318-2335",
+      "pmid": null,
+      "checked": {
+        "crossref_title_contains": "M3-Embedding",
+        "source": "api.crossref.org"
+      }
+    },
+    "reimers2020": {
+      "doi": "10.18653/v1/2020.emnlp-main.365",
+      "type": "proceedings-article",
+      "title": "Making Monolingual Sentence Embeddings Multilingual using Knowledge Distillation",
+      "authors": [
+        {
+          "family": "Reimers",
+          "given": "Nils"
+        },
+        {
+          "family": "Gurevych",
+          "given": "Iryna"
+        }
+      ],
+      "editors": [],
+      "container": "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+      "short_container": "",
+      "publisher": "Association for Computational Linguistics",
+      "year": 2020,
+      "volume": null,
+      "issue": null,
+      "page": "4512-4525",
+      "pmid": null,
+      "checked": {
+        "crossref_title_contains": "Multilingual using Knowledge Distillation",
+        "source": "api.crossref.org"
+      }
+    },
+    "sainz2023": {
+      "doi": "10.18653/v1/2023.findings-emnlp.722",
+      "type": "proceedings-article",
+      "title": "NLP Evaluation in trouble: On the Need to Measure LLM Data Contamination for each Benchmark",
+      "authors": [
+        {
+          "family": "Sainz",
+          "given": "Oscar"
+        },
+        {
+          "family": "Campos",
+          "given": "Jon"
+        },
+        {
+          "family": "García-Ferrero",
+          "given": "Iker"
+        },
+        {
+          "family": "Etxaniz",
+          "given": "Julen"
+        },
+        {
+          "family": "de Lacalle",
+          "given": "Oier Lopez"
+        },
+        {
+          "family": "Agirre",
+          "given": "Eneko"
+        }
+      ],
+      "editors": [],
+      "container": "Findings of the Association for Computational Linguistics: EMNLP 2023",
+      "short_container": "",
+      "publisher": "Association for Computational Linguistics",
+      "year": 2023,
+      "volume": null,
+      "issue": null,
+      "page": "10776-10787",
+      "pmid": null,
+      "checked": {
+        "crossref_title_contains": "Data Contamination",
+        "source": "api.crossref.org"
+      }
+    },
+    "cohen1960": {
+      "doi": "10.1177/001316446002000104",
+      "type": "journal-article",
+      "title": "A Coefficient of Agreement for Nominal Scales",
+      "authors": [
+        {
+          "family": "Cohen",
+          "given": "Jacob"
+        }
+      ],
+      "editors": [],
+      "container": "Educational and Psychological Measurement",
+      "short_container": "Educational and Psychological Measurement",
+      "publisher": "SAGE Publications",
+      "year": 1960,
+      "volume": "20",
+      "issue": "1",
+      "page": "37-46",
+      "pmid": null,
+      "checked": {
+        "crossref_title_contains": "coefficient of agreement",
+        "source": "api.crossref.org"
+      }
+    },
+    "mcnemar1947": {
+      "doi": "10.1007/bf02295996",
+      "type": "journal-article",
+      "title": "Note on the Sampling Error of the Difference Between Correlated Proportions or Percentages",
+      "authors": [
+        {
+          "family": "McNemar",
+          "given": "Quinn"
+        }
+      ],
+      "editors": [],
+      "container": "Psychometrika",
+      "short_container": "Psychometrika",
+      "publisher": "Cambridge University Press (CUP)",
+      "year": 1947,
+      "volume": "12",
+      "issue": "2",
+      "page": "153-157",
+      "pmid": "20254758",
+      "checked": {
+        "crossref_title_contains": "Correlated Proportions",
+        "source": "api.crossref.org"
+      }
+    },
+    "efron1993": {
+      "doi": "10.1007/978-1-4899-4541-9",
+      "type": "book",
+      "title": "An Introduction to the Bootstrap",
+      "authors": [
+        {
+          "family": "Efron",
+          "given": "Bradley"
+        },
+        {
+          "family": "Tibshirani",
+          "given": "Robert J."
+        }
+      ],
+      "editors": [],
+      "container": "",
+      "short_container": "",
+      "publisher": "Springer US",
+      "year": 1993,
+      "volume": null,
+      "issue": null,
+      "page": null,
+      "pmid": null,
+      "checked": {
+        "crossref_title_contains": "Introduction to the Bootstrap",
+        "source": "api.crossref.org"
+      }
+    }
+  }
+}
