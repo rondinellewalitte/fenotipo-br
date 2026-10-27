@@ -16,7 +16,7 @@ Em texto clínico em português do Brasil, um LLM pequeno que roda localmente (4
 
 - **Casos:** 300 casos do Phenopacket Store 0.1.27, um por gene, com 3 a 15 termos observados; HPO v2026-09-01.
   - Gabarito: 2.466 termos. Negações mostradas na vinheta: 959.
-  - Termos fora do gabarito por falta de trecho na vinheta: 0. Casos trocados por reserva: 0.
+  - Termos fora do gabarito por falta de trecho na vinheta: 0. Casos trocados por reserva: 0. Casos restaurados pela reavaliação sem nova chamada (regra de grafia corrigida antes de rotular e extrair): 3.
 - **Vinhetas:** escritas por `claude-opus-5-5` (prompt `exp03_vignette_pt_br_v2`), que nunca é extrator neste experimento.
   - Custo deste conjunto: US$ 7,12 em 308 chamadas. Gasto acumulado do Exp 03: US$ 9,60 (`results/exp03/vignettes_config_full.json`).
 - **Extratores:** `qwen3:4b-instruct-2507-q4_K_M` (0edcdef34593), `gemma3:4b-it-q4_K_M` (68ceab7e468a), via Ollama 0.40.11, temperatura 0, seed 42, contexto de 4.096 tokens. Prompts congelados após o piloto (`results/exp03/frozen.json`).
@@ -84,7 +84,14 @@ Fonte: `results/exp03/metrics.json` → `comparisons`.
 | `E7_C_vs_A_gain_larger_in_technical` | não | não |
 | `E8_baseline_drop_larger_than_A` | não | não |
 
-Fonte: `results/exp03/hypotheses.json`. Critérios em `results/exp03/PREREG.md`.
+- **H1 (primária, não inferioridade, margem −0,03):** Qwen3-4B Instruct 2507: A − B = −0,056 (IC 97,5% −0,076 a −0,036); B superior a A; Gemma 3 4B: A − B = −0,038 (IC 97,5% −0,062 a −0,015); B superior a A.
+- **H2 (índice bilíngue):** Qwen3-4B Instruct 2507: C − A = −0,008 (IC95 −0,018 a 0,003); sem diferença demonstrada; Gemma 3 4B: C − A = −0,019 (IC95 −0,032 a −0,007); A superior a C.
+- **H3 (LLM contra baseline):** Qwen3-4B Instruct 2507: A − baseline = +0,198 (IC95 0,176 a 0,219); Gemma 3 4B: A − baseline = +0,088 (IC95 0,067 a 0,110).
+- **H4 (negação, critério duplo):** Qwen3-4B Instruct 2507: FP em negação do A 4,9% (critério ≤ 10%: sim), baseline 11,4% (critério ≥ 25%: não); Gemma 3 4B: FP em negação do A 6,9% (critério ≤ 10%: sim), baseline 11,4% (critério ≥ 25%: não).
+- **H5 (teto e perda na escolha, critério duplo):** Qwen3-4B Instruct 2507: teto de recuperação 0,736 (critério ≥ 0,75: não), perda na escolha 0,159 (critério ≥ 0,10: sim); Gemma 3 4B: teto de recuperação 0,537 (critério ≥ 0,75: não), perda na escolha 0,151 (critério ≥ 0,10: sim).
+- **H6 (leigo mais difícil que técnico):** Qwen3-4B Instruct 2507: técnico − leigo com IC95 acima de zero em 4 de 4 braços (A, B, C e baseline); Gemma 3 4B: técnico − leigo com IC95 acima de zero em 4 de 4 braços (A, B, C e baseline).
+
+Fonte: `results/exp03/hypotheses.json` e `results/exp03/metrics.json` → `comparisons`. Critérios em `results/exp03/PREREG.md`.
 
 ### Traduzir antes ajuda onde? Estratos de retrotradução
 
@@ -157,6 +164,28 @@ Fonte: `results/exp03/metrics.json` → `register.d2` e `recall_by_stratum.regis
 
 - **Oráculo de frases:** com a frase exata do gerador, sem LLM, o bge-m3 põe o termo certo em 1º lugar em 49,5% e entre os 10 primeiros em 74,7% dos 2.466 termos.
 - **Falsos positivos por categoria** e exemplos de cada erro: `results/exp03/errors.csv`.
+
+### Por ramo do HPO (pós-hoc, descritivo)
+
+| Ramo | n | Recall Qwen3-4B A | Recall Qwen3-4B B | Recall Gemma A | Recall Gemma B | Recall Baseline |
+|---|---|---|---|---|---|---|
+| Abnormality of the nervous system | 773 | 0,543 | 0,626 | 0,270 | 0,290 | 0,223 |
+| Abnormality of the musculoskeletal system | 478 | 0,517 | 0,609 | 0,416 | 0,462 | 0,293 |
+| Abnormality of head or neck | 324 | 0,546 | 0,688 | 0,518 | 0,556 | 0,352 |
+| Abnormality of the eye | 227 | 0,683 | 0,709 | 0,507 | 0,555 | 0,432 |
+| Abnormality of limbs | 168 | 0,542 | 0,571 | 0,423 | 0,542 | 0,268 |
+| Abnormality of metabolism/homeostasis | 146 | 0,753 | 0,794 | 0,541 | 0,438 | 0,479 |
+| Abnormality of the immune system | 143 | 0,629 | 0,615 | 0,357 | 0,420 | 0,294 |
+| Abnormality of the integument | 130 | 0,369 | 0,500 | 0,323 | 0,377 | 0,185 |
+| Abnormality of the cardiovascular system | 125 | 0,560 | 0,664 | 0,328 | 0,448 | 0,144 |
+| Abnormality of blood and blood-forming tissues | 114 | 0,737 | 0,789 | 0,465 | 0,535 | 0,333 |
+| Abnormality of the genitourinary system | 96 | 0,604 | 0,562 | 0,323 | 0,396 | 0,302 |
+| Abnormality of the digestive system | 85 | 0,494 | 0,718 | 0,188 | 0,365 | 0,200 |
+| Growth abnormality | 70 | 0,614 | 0,700 | 0,514 | 0,557 | 0,543 |
+| Abnormality of the respiratory system | 55 | 0,509 | 0,618 | 0,309 | 0,309 | 0,127 |
+| Abnormality of the ear | 54 | 0,685 | 0,796 | 0,518 | 0,574 | 0,370 |
+
+Ramos com pelo menos 50 termos no gabarito; um termo em vários ramos conta em cada um. Tabela completa (com FP e precisão): `results/exp03/by_branch.json`. Exemplos de erro por ramo: coluna `branches` de `results/exp03/errors.csv`. Definição: `results/exp03/PREREG.md`, Desvios de 27/out/2026.
 
 ### Custo computacional
 

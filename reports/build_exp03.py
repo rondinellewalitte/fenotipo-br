@@ -124,6 +124,82 @@ def render(base: Path, set_name: str) -> str:
         for name, e in hyp["expectations"].items():
             hyp_rows.append(f"| `{name}` | " + " | ".join(yes(e[k]) for k in models) + " |")
 
+    def direction(pair, a: str, b: str) -> str:
+        lo, hi = pair
+        if hi < 0:
+            return f"{b} superior a {a}"
+        if lo > 0:
+            return f"{a} superior a {b}"
+        return "sem diferença demonstrada"
+
+    hyp_detail: list[str] = []
+    if hyp:
+        hh = hyp["hypotheses"]
+        h1 = [
+            f"{MODELS[k]}: A − B = {sgn(comp[k]['A-B']['diff'])} (IC 97,5% {ci(comp[k]['A-B']['ci97_5'])}); "
+            f"{direction(comp[k]['A-B']['ci97_5'], 'A', 'B')}"
+            for k in models
+        ]
+        h2 = [
+            f"{MODELS[k]}: C − A = {sgn(comp[k]['C-A']['diff'])} (IC95 {ci(comp[k]['C-A']['ci95'])}); "
+            f"{direction(comp[k]['C-A']['ci95'], 'C', 'A')}"
+            for k in models
+        ]
+        h3 = [
+            f"{MODELS[k]}: A − baseline = {sgn(comp[k]['A-baseline']['diff'])} (IC95 {ci(comp[k]['A-baseline']['ci95'])})"
+            for k in models
+        ]
+        h4 = [
+            f"{MODELS[k]}: FP em negação do A {pct(v['A_rate'])} (critério ≤ 10%: {yes(v['A_rate'] <= 0.10)}), "
+            f"baseline {pct(v['baseline_rate'])} (critério ≥ 25%: {yes(v['baseline_rate'] >= 0.25)})"
+            for k, v in hh["H4_negation_A_le_0.10_baseline_ge_0.25"]["per_model"].items()
+            if k in models
+        ]
+        h5 = [
+            f"{MODELS[k]}: teto de recuperação {dec(v['ceiling'])} (critério ≥ 0,75: {yes(v['ceiling'] >= 0.75)}), "
+            f"perda na escolha {dec(v['selection_loss'])} (critério ≥ 0,10: {yes(v['selection_loss'] >= 0.10)})"
+            for k, v in hh["H5_ceiling_ge_0.75_selection_loss_ge_0.10"]["per_model"].items()
+            if k in models
+        ]
+        h6 = []
+        for k, v in hh["H6_lay_harder_than_technical"]["per_model"].items():
+            if k not in models:
+                continue
+            ok = sum(1 for x in v["per_arm"].values() if x["ci95"] and x["ci95"][0] > 0)
+            h6.append(
+                f"{MODELS[k]}: técnico − leigo com IC95 acima de zero em {ok} de {len(v['per_arm'])} braços (A, B, C e baseline)"
+            )
+        for name, lines in (
+            ("H1 (primária, não inferioridade, margem −0,03)", h1),
+            ("H2 (índice bilíngue)", h2),
+            ("H3 (LLM contra baseline)", h3),
+            ("H4 (negação, critério duplo)", h4),
+            ("H5 (teto e perda na escolha, critério duplo)", h5),
+            ("H6 (leigo mais difícil que técnico)", h6),
+        ):
+            hyp_detail.append(f"- **{name}:** " + "; ".join(lines) + ".")
+
+    branch_rows: list[str] = []
+    bpath = base / "by_branch.json"
+    if bpath.exists():
+        bb = load(bpath)
+        cols = [f"{k}/{a}" for k in models for a in ("A", "B")] + ["none/baseline"]
+        ref = bb["by_arm"][f"{models[0]}/A"]
+        keep = [b for b, v in ref.items() if v["n_gold"] >= 50]
+        names = [
+            f"{MODELS[c.split('/')[0]].split()[0]} {c.split('/')[1]}"
+            if c != "none/baseline"
+            else "Baseline"
+            for c in cols
+        ]
+        branch_rows = [
+            "| Ramo | n | " + " | ".join(f"Recall {n}" for n in names) + " |",
+            "|---|---|" + "---|" * len(cols),
+        ]
+        for b in keep:
+            cells = " | ".join(dec(bb["by_arm"][c].get(b, {}).get("recall")) for c in cols)
+            branch_rows.append(f"| {bb['branch_labels'][b]} | {ref[b]['n_gold']} | {cells} |")
+
     reg = m["register"]["d2"]
     reg_rows = [
         "| Modelo | Braço | "
@@ -234,7 +310,7 @@ Em texto clínico em português do Brasil, um LLM pequeno que roda localmente (4
 
 - **Casos:** {num(c["n_cases"])} casos do Phenopacket Store {c["phenopacket_store_release"]}, um por gene, com 3 a 15 termos observados; HPO {c["hpo_release"]}.
   - Gabarito: {num(m["n_gold_terms"])} termos. Negações mostradas na vinheta: {num(m["n_negated_terms"])}.
-  - Termos fora do gabarito por falta de trecho na vinheta: {num(len(vs["dropped_items_final"]))}. Casos trocados por reserva: {num(vs["n_replacements"])}.
+  - Termos fora do gabarito por falta de trecho na vinheta: {num(len(vs["dropped_items_final"]))}. Casos trocados por reserva: {num(vs["n_replacements"])}. Casos restaurados pela reavaliação sem nova chamada (regra de grafia corrigida antes de rotular e extrair): {num(len(vs.get("rechecked_attempts_now_passing", [])))}.
 - **Vinhetas:** escritas por `{vcfg["generator"]["model"]}` (prompt `{vcfg["generator"]["prompt"]}`), que nunca é extrator neste experimento.
   - Custo deste conjunto: {usd(vs["cost_usd"])} em {num(vs["api_calls"])} chamadas. Gasto acumulado do Exp 03: {usd(vcfg["spent_usd_total"])} ({src(R3 / f"vignettes_config_{set_name}.json")}).
 - **Extratores:** {digests}, via Ollama {oll["ollama_version"]}, temperatura 0, seed {c["seed"]}, contexto de {num(c["llm_options"]["num_ctx"])} tokens. Prompts congelados após o piloto ({src(R3 / "frozen.json")}).
@@ -265,7 +341,9 @@ Fonte: {src(base / "metrics.json")} → `comparisons`.
 
 {chr(10).join(hyp_rows) if hyp_rows else "Não avaliadas: as hipóteses só são julgadas no run completo."}
 
-{f"Fonte: {src(hyp_path)}. Critérios em {src(R3 / 'PREREG.md')}." if hyp else ""}
+{chr(10).join(hyp_detail)}
+
+{f"Fonte: {src(hyp_path)} e {src(base / 'metrics.json')} → `comparisons`. Critérios em {src(R3 / 'PREREG.md')}." if hyp else ""}
 
 ### Traduzir antes ajuda onde? Estratos de retrotradução
 
@@ -293,6 +371,12 @@ Fonte: {src(base / "metrics.json")} → `register.d2` e `recall_by_stratum.regis
 
 - **Oráculo de frases:** com a frase exata do gerador, sem LLM, o bge-m3 põe o termo certo em 1º lugar em {pct(oracle["top1"])} e entre os 10 primeiros em {pct(oracle["top10"])} dos {num(oracle["n_gold_phrases"])} termos.
 - **Falsos positivos por categoria** e exemplos de cada erro: {src(base / "errors.csv")}.
+
+### Por ramo do HPO (pós-hoc, descritivo)
+
+{chr(10).join(branch_rows) if branch_rows else "Não calculado para este conjunto."}
+
+{f"Ramos com pelo menos 50 termos no gabarito; um termo em vários ramos conta em cada um. Tabela completa (com FP e precisão): {src(bpath)}. Exemplos de erro por ramo: coluna `branches` de {src(base / 'errors.csv')}. Definição: {src(R3 / 'PREREG.md')}, Desvios de 27/out/2026." if branch_rows else ""}
 
 ### Custo computacional
 
