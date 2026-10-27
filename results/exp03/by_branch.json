@@ -1,0 +1,1268 @@
+{
+  "note": "post-hoc, descriptive (PREREG, Desvios 27/out/2026); a term counts in each of its branches",
+  "branch_labels": {
+    "HP:0000119": "Abnormality of the genitourinary system",
+    "HP:0000152": "Abnormality of head or neck",
+    "HP:0000478": "Abnormality of the eye",
+    "HP:0000598": "Abnormality of the ear",
+    "HP:0000707": "Abnormality of the nervous system",
+    "HP:0000769": "Abnormality of the breast",
+    "HP:0000818": "Abnormality of the endocrine system",
+    "HP:0001197": "Abnormality of prenatal development or birth",
+    "HP:0001507": "Growth abnormality",
+    "HP:0001574": "Abnormality of the integument",
+    "HP:0001608": "Abnormality of the voice",
+    "HP:0001626": "Abnormality of the cardiovascular system",
+    "HP:0001871": "Abnormality of blood and blood-forming tissues",
+    "HP:0001939": "Abnormality of metabolism/homeostasis",
+    "HP:0002086": "Abnormality of the respiratory system",
+    "HP:0002664": "Neoplasm",
+    "HP:0002715": "Abnormality of the immune system",
+    "HP:0025031": "Abnormality of the digestive system",
+    "HP:0025142": "Constitutional symptom",
+    "HP:0025354": "Abnormal cellular phenotype",
+    "HP:0033127": "Abnormality of the musculoskeletal system",
+    "HP:0040064": "Abnormality of limbs",
+    "HP:0045027": "Abnormality of the thoracic cavity"
+  },
+  "by_arm": {
+    "gemma3-4b/A": {
+      "HP:0000707": {
+        "n_gold": 773,
+        "tp": 209,
+        "fn": 564,
+        "fp": 239,
+        "recall": 0.2704,
+        "precision": 0.4665
+      },
+      "HP:0033127": {
+        "n_gold": 478,
+        "tp": 199,
+        "fn": 279,
+        "fp": 334,
+        "recall": 0.4163,
+        "precision": 0.3734
+      },
+      "HP:0000152": {
+        "n_gold": 324,
+        "tp": 168,
+        "fn": 156,
+        "fp": 200,
+        "recall": 0.5185,
+        "precision": 0.4565
+      },
+      "HP:0000478": {
+        "n_gold": 227,
+        "tp": 115,
+        "fn": 112,
+        "fp": 96,
+        "recall": 0.5066,
+        "precision": 0.545
+      },
+      "HP:0040064": {
+        "n_gold": 168,
+        "tp": 71,
+        "fn": 97,
+        "fp": 148,
+        "recall": 0.4226,
+        "precision": 0.3242
+      },
+      "HP:0001939": {
+        "n_gold": 146,
+        "tp": 79,
+        "fn": 67,
+        "fp": 42,
+        "recall": 0.5411,
+        "precision": 0.6529
+      },
+      "HP:0002715": {
+        "n_gold": 143,
+        "tp": 51,
+        "fn": 92,
+        "fp": 31,
+        "recall": 0.3566,
+        "precision": 0.622
+      },
+      "HP:0001574": {
+        "n_gold": 130,
+        "tp": 42,
+        "fn": 88,
+        "fp": 136,
+        "recall": 0.3231,
+        "precision": 0.236
+      },
+      "HP:0001626": {
+        "n_gold": 125,
+        "tp": 41,
+        "fn": 84,
+        "fp": 46,
+        "recall": 0.328,
+        "precision": 0.4713
+      },
+      "HP:0001871": {
+        "n_gold": 114,
+        "tp": 53,
+        "fn": 61,
+        "fp": 24,
+        "recall": 0.4649,
+        "precision": 0.6883
+      },
+      "HP:0000119": {
+        "n_gold": 96,
+        "tp": 31,
+        "fn": 65,
+        "fp": 51,
+        "recall": 0.3229,
+        "precision": 0.378
+      },
+      "HP:0025031": {
+        "n_gold": 85,
+        "tp": 16,
+        "fn": 69,
+        "fp": 23,
+        "recall": 0.1882,
+        "precision": 0.4103
+      },
+      "HP:0001507": {
+        "n_gold": 70,
+        "tp": 36,
+        "fn": 34,
+        "fp": 15,
+        "recall": 0.5143,
+        "precision": 0.7059
+      },
+      "HP:0002086": {
+        "n_gold": 55,
+        "tp": 17,
+        "fn": 38,
+        "fp": 28,
+        "recall": 0.3091,
+        "precision": 0.3778
+      },
+      "HP:0000598": {
+        "n_gold": 54,
+        "tp": 28,
+        "fn": 26,
+        "fp": 24,
+        "recall": 0.5185,
+        "precision": 0.5385
+      },
+      "HP:0000818": {
+        "n_gold": 39,
+        "tp": 14,
+        "fn": 25,
+        "fp": 9,
+        "recall": 0.359,
+        "precision": 0.6087
+      },
+      "HP:0025354": {
+        "n_gold": 26,
+        "tp": 13,
+        "fn": 13,
+        "fp": 7,
+        "recall": 0.5,
+        "precision": 0.65
+      },
+      "HP:0025142": {
+        "n_gold": 18,
+        "tp": 3,
+        "fn": 15,
+        "fp": 8,
+        "recall": 0.1667,
+        "precision": 0.2727
+      },
+      "HP:0001197": {
+        "n_gold": 14,
+        "tp": 0,
+        "fn": 14,
+        "fp": 22,
+        "recall": 0.0,
+        "precision": 0.0
+      },
+      "HP:0002664": {
+        "n_gold": 11,
+        "tp": 5,
+        "fn": 6,
+        "fp": 5,
+        "recall": 0.4545,
+        "precision": 0.5
+      },
+      "HP:0001608": {
+        "n_gold": 0,
+        "tp": 0,
+        "fn": 0,
+        "fp": 3,
+        "recall": null,
+        "precision": 0.0
+      },
+      "HP:0000769": {
+        "n_gold": 0,
+        "tp": 0,
+        "fn": 0,
+        "fp": 2,
+        "recall": null,
+        "precision": 0.0
+      }
+    },
+    "gemma3-4b/B": {
+      "HP:0000707": {
+        "n_gold": 773,
+        "tp": 224,
+        "fn": 549,
+        "fp": 254,
+        "recall": 0.2898,
+        "precision": 0.4686
+      },
+      "HP:0033127": {
+        "n_gold": 478,
+        "tp": 221,
+        "fn": 257,
+        "fp": 307,
+        "recall": 0.4623,
+        "precision": 0.4186
+      },
+      "HP:0000152": {
+        "n_gold": 324,
+        "tp": 180,
+        "fn": 144,
+        "fp": 197,
+        "recall": 0.5556,
+        "precision": 0.4775
+      },
+      "HP:0000478": {
+        "n_gold": 227,
+        "tp": 126,
+        "fn": 101,
+        "fp": 87,
+        "recall": 0.5551,
+        "precision": 0.5915
+      },
+      "HP:0040064": {
+        "n_gold": 168,
+        "tp": 91,
+        "fn": 77,
+        "fp": 138,
+        "recall": 0.5417,
+        "precision": 0.3974
+      },
+      "HP:0001939": {
+        "n_gold": 146,
+        "tp": 64,
+        "fn": 82,
+        "fp": 52,
+        "recall": 0.4384,
+        "precision": 0.5517
+      },
+      "HP:0002715": {
+        "n_gold": 143,
+        "tp": 60,
+        "fn": 83,
+        "fp": 37,
+        "recall": 0.4196,
+        "precision": 0.6186
+      },
+      "HP:0001574": {
+        "n_gold": 130,
+        "tp": 49,
+        "fn": 81,
+        "fp": 106,
+        "recall": 0.3769,
+        "precision": 0.3161
+      },
+      "HP:0001626": {
+        "n_gold": 125,
+        "tp": 56,
+        "fn": 69,
+        "fp": 41,
+        "recall": 0.448,
+        "precision": 0.5773
+      },
+      "HP:0001871": {
+        "n_gold": 114,
+        "tp": 61,
+        "fn": 53,
+        "fp": 18,
+        "recall": 0.5351,
+        "precision": 0.7722
+      },
+      "HP:0000119": {
+        "n_gold": 96,
+        "tp": 38,
+        "fn": 58,
+        "fp": 39,
+        "recall": 0.3958,
+        "precision": 0.4935
+      },
+      "HP:0025031": {
+        "n_gold": 85,
+        "tp": 31,
+        "fn": 54,
+        "fp": 21,
+        "recall": 0.3647,
+        "precision": 0.5962
+      },
+      "HP:0001507": {
+        "n_gold": 70,
+        "tp": 39,
+        "fn": 31,
+        "fp": 18,
+        "recall": 0.5571,
+        "precision": 0.6842
+      },
+      "HP:0002086": {
+        "n_gold": 55,
+        "tp": 17,
+        "fn": 38,
+        "fp": 24,
+        "recall": 0.3091,
+        "precision": 0.4146
+      },
+      "HP:0000598": {
+        "n_gold": 54,
+        "tp": 31,
+        "fn": 23,
+        "fp": 19,
+        "recall": 0.5741,
+        "precision": 0.62
+      },
+      "HP:0000818": {
+        "n_gold": 39,
+        "tp": 14,
+        "fn": 25,
+        "fp": 11,
+        "recall": 0.359,
+        "precision": 0.56
+      },
+      "HP:0025354": {
+        "n_gold": 26,
+        "tp": 8,
+        "fn": 18,
+        "fp": 5,
+        "recall": 0.3077,
+        "precision": 0.6154
+      },
+      "HP:0025142": {
+        "n_gold": 18,
+        "tp": 4,
+        "fn": 14,
+        "fp": 6,
+        "recall": 0.2222,
+        "precision": 0.4
+      },
+      "HP:0001197": {
+        "n_gold": 14,
+        "tp": 3,
+        "fn": 11,
+        "fp": 1,
+        "recall": 0.2143,
+        "precision": 0.75
+      },
+      "HP:0002664": {
+        "n_gold": 11,
+        "tp": 6,
+        "fn": 5,
+        "fp": 1,
+        "recall": 0.5455,
+        "precision": 0.8571
+      },
+      "HP:0001608": {
+        "n_gold": 0,
+        "tp": 0,
+        "fn": 0,
+        "fp": 6,
+        "recall": null,
+        "precision": 0.0
+      },
+      "HP:0000769": {
+        "n_gold": 0,
+        "tp": 0,
+        "fn": 0,
+        "fp": 2,
+        "recall": null,
+        "precision": 0.0
+      }
+    },
+    "gemma3-4b/C": {
+      "HP:0000707": {
+        "n_gold": 773,
+        "tp": 183,
+        "fn": 590,
+        "fp": 261,
+        "recall": 0.2367,
+        "precision": 0.4122
+      },
+      "HP:0033127": {
+        "n_gold": 478,
+        "tp": 197,
+        "fn": 281,
+        "fp": 328,
+        "recall": 0.4121,
+        "precision": 0.3752
+      },
+      "HP:0000152": {
+        "n_gold": 324,
+        "tp": 174,
+        "fn": 150,
+        "fp": 201,
+        "recall": 0.537,
+        "precision": 0.464
+      },
+      "HP:0000478": {
+        "n_gold": 227,
+        "tp": 116,
+        "fn": 111,
+        "fp": 105,
+        "recall": 0.511,
+        "precision": 0.5249
+      },
+      "HP:0040064": {
+        "n_gold": 168,
+        "tp": 72,
+        "fn": 96,
+        "fp": 171,
+        "recall": 0.4286,
+        "precision": 0.2963
+      },
+      "HP:0001939": {
+        "n_gold": 146,
+        "tp": 76,
+        "fn": 70,
+        "fp": 40,
+        "recall": 0.5205,
+        "precision": 0.6552
+      },
+      "HP:0002715": {
+        "n_gold": 143,
+        "tp": 51,
+        "fn": 92,
+        "fp": 31,
+        "recall": 0.3566,
+        "precision": 0.622
+      },
+      "HP:0001574": {
+        "n_gold": 130,
+        "tp": 36,
+        "fn": 94,
+        "fp": 118,
+        "recall": 0.2769,
+        "precision": 0.2338
+      },
+      "HP:0001626": {
+        "n_gold": 125,
+        "tp": 43,
+        "fn": 82,
+        "fp": 45,
+        "recall": 0.344,
+        "precision": 0.4886
+      },
+      "HP:0001871": {
+        "n_gold": 114,
+        "tp": 50,
+        "fn": 64,
+        "fp": 23,
+        "recall": 0.4386,
+        "precision": 0.6849
+      },
+      "HP:0000119": {
+        "n_gold": 96,
+        "tp": 33,
+        "fn": 63,
+        "fp": 49,
+        "recall": 0.3438,
+        "precision": 0.4024
+      },
+      "HP:0025031": {
+        "n_gold": 85,
+        "tp": 16,
+        "fn": 69,
+        "fp": 22,
+        "recall": 0.1882,
+        "precision": 0.4211
+      },
+      "HP:0001507": {
+        "n_gold": 70,
+        "tp": 31,
+        "fn": 39,
+        "fp": 21,
+        "recall": 0.4429,
+        "precision": 0.5962
+      },
+      "HP:0002086": {
+        "n_gold": 55,
+        "tp": 18,
+        "fn": 37,
+        "fp": 33,
+        "recall": 0.3273,
+        "precision": 0.3529
+      },
+      "HP:0000598": {
+        "n_gold": 54,
+        "tp": 30,
+        "fn": 24,
+        "fp": 17,
+        "recall": 0.5556,
+        "precision": 0.6383
+      },
+      "HP:0000818": {
+        "n_gold": 39,
+        "tp": 13,
+        "fn": 26,
+        "fp": 10,
+        "recall": 0.3333,
+        "precision": 0.5652
+      },
+      "HP:0025354": {
+        "n_gold": 26,
+        "tp": 12,
+        "fn": 14,
+        "fp": 7,
+        "recall": 0.4615,
+        "precision": 0.6316
+      },
+      "HP:0025142": {
+        "n_gold": 18,
+        "tp": 2,
+        "fn": 16,
+        "fp": 10,
+        "recall": 0.1111,
+        "precision": 0.1667
+      },
+      "HP:0001197": {
+        "n_gold": 14,
+        "tp": 0,
+        "fn": 14,
+        "fp": 22,
+        "recall": 0.0,
+        "precision": 0.0
+      },
+      "HP:0002664": {
+        "n_gold": 11,
+        "tp": 4,
+        "fn": 7,
+        "fp": 2,
+        "recall": 0.3636,
+        "precision": 0.6667
+      },
+      "HP:0001608": {
+        "n_gold": 0,
+        "tp": 0,
+        "fn": 0,
+        "fp": 4,
+        "recall": null,
+        "precision": 0.0
+      },
+      "HP:0000769": {
+        "n_gold": 0,
+        "tp": 0,
+        "fn": 0,
+        "fp": 1,
+        "recall": null,
+        "precision": 0.0
+      }
+    },
+    "none/baseline": {
+      "HP:0000707": {
+        "n_gold": 773,
+        "tp": 172,
+        "fn": 601,
+        "fp": 393,
+        "recall": 0.2225,
+        "precision": 0.3044
+      },
+      "HP:0033127": {
+        "n_gold": 478,
+        "tp": 140,
+        "fn": 338,
+        "fp": 223,
+        "recall": 0.2929,
+        "precision": 0.3857
+      },
+      "HP:0000152": {
+        "n_gold": 324,
+        "tp": 114,
+        "fn": 210,
+        "fp": 146,
+        "recall": 0.3519,
+        "precision": 0.4385
+      },
+      "HP:0000478": {
+        "n_gold": 227,
+        "tp": 98,
+        "fn": 129,
+        "fp": 110,
+        "recall": 0.4317,
+        "precision": 0.4712
+      },
+      "HP:0040064": {
+        "n_gold": 168,
+        "tp": 45,
+        "fn": 123,
+        "fp": 85,
+        "recall": 0.2679,
+        "precision": 0.3462
+      },
+      "HP:0001939": {
+        "n_gold": 146,
+        "tp": 70,
+        "fn": 76,
+        "fp": 41,
+        "recall": 0.4795,
+        "precision": 0.6306
+      },
+      "HP:0002715": {
+        "n_gold": 143,
+        "tp": 42,
+        "fn": 101,
+        "fp": 32,
+        "recall": 0.2937,
+        "precision": 0.5676
+      },
+      "HP:0001574": {
+        "n_gold": 130,
+        "tp": 24,
+        "fn": 106,
+        "fp": 66,
+        "recall": 0.1846,
+        "precision": 0.2667
+      },
+      "HP:0001626": {
+        "n_gold": 125,
+        "tp": 18,
+        "fn": 107,
+        "fp": 92,
+        "recall": 0.144,
+        "precision": 0.1636
+      },
+      "HP:0001871": {
+        "n_gold": 114,
+        "tp": 38,
+        "fn": 76,
+        "fp": 70,
+        "recall": 0.3333,
+        "precision": 0.3519
+      },
+      "HP:0000119": {
+        "n_gold": 96,
+        "tp": 29,
+        "fn": 67,
+        "fp": 91,
+        "recall": 0.3021,
+        "precision": 0.2417
+      },
+      "HP:0025031": {
+        "n_gold": 85,
+        "tp": 17,
+        "fn": 68,
+        "fp": 70,
+        "recall": 0.2,
+        "precision": 0.1954
+      },
+      "HP:0001507": {
+        "n_gold": 70,
+        "tp": 38,
+        "fn": 32,
+        "fp": 32,
+        "recall": 0.5429,
+        "precision": 0.5429
+      },
+      "HP:0002086": {
+        "n_gold": 55,
+        "tp": 7,
+        "fn": 48,
+        "fp": 17,
+        "recall": 0.1273,
+        "precision": 0.2917
+      },
+      "HP:0000598": {
+        "n_gold": 54,
+        "tp": 20,
+        "fn": 34,
+        "fp": 13,
+        "recall": 0.3704,
+        "precision": 0.6061
+      },
+      "HP:0000818": {
+        "n_gold": 39,
+        "tp": 13,
+        "fn": 26,
+        "fp": 31,
+        "recall": 0.3333,
+        "precision": 0.2955
+      },
+      "HP:0025354": {
+        "n_gold": 26,
+        "tp": 13,
+        "fn": 13,
+        "fp": 8,
+        "recall": 0.5,
+        "precision": 0.619
+      },
+      "HP:0025142": {
+        "n_gold": 18,
+        "tp": 3,
+        "fn": 15,
+        "fp": 11,
+        "recall": 0.1667,
+        "precision": 0.2143
+      },
+      "HP:0001197": {
+        "n_gold": 14,
+        "tp": 4,
+        "fn": 10,
+        "fp": 4,
+        "recall": 0.2857,
+        "precision": 0.5
+      },
+      "HP:0002664": {
+        "n_gold": 11,
+        "tp": 1,
+        "fn": 10,
+        "fp": 3,
+        "recall": 0.0909,
+        "precision": 0.25
+      },
+      "HP:0001608": {
+        "n_gold": 0,
+        "tp": 0,
+        "fn": 0,
+        "fp": 1,
+        "recall": null,
+        "precision": 0.0
+      }
+    },
+    "qwen3-4b/A": {
+      "HP:0000707": {
+        "n_gold": 773,
+        "tp": 420,
+        "fn": 353,
+        "fp": 559,
+        "recall": 0.5433,
+        "precision": 0.429
+      },
+      "HP:0033127": {
+        "n_gold": 478,
+        "tp": 247,
+        "fn": 231,
+        "fp": 313,
+        "recall": 0.5167,
+        "precision": 0.4411
+      },
+      "HP:0000152": {
+        "n_gold": 324,
+        "tp": 177,
+        "fn": 147,
+        "fp": 187,
+        "recall": 0.5463,
+        "precision": 0.4863
+      },
+      "HP:0000478": {
+        "n_gold": 227,
+        "tp": 155,
+        "fn": 72,
+        "fp": 95,
+        "recall": 0.6828,
+        "precision": 0.62
+      },
+      "HP:0040064": {
+        "n_gold": 168,
+        "tp": 91,
+        "fn": 77,
+        "fp": 124,
+        "recall": 0.5417,
+        "precision": 0.4233
+      },
+      "HP:0001939": {
+        "n_gold": 146,
+        "tp": 110,
+        "fn": 36,
+        "fp": 39,
+        "recall": 0.7534,
+        "precision": 0.7383
+      },
+      "HP:0002715": {
+        "n_gold": 143,
+        "tp": 90,
+        "fn": 53,
+        "fp": 47,
+        "recall": 0.6294,
+        "precision": 0.6569
+      },
+      "HP:0001574": {
+        "n_gold": 130,
+        "tp": 48,
+        "fn": 82,
+        "fp": 142,
+        "recall": 0.3692,
+        "precision": 0.2526
+      },
+      "HP:0001626": {
+        "n_gold": 125,
+        "tp": 70,
+        "fn": 55,
+        "fp": 55,
+        "recall": 0.56,
+        "precision": 0.56
+      },
+      "HP:0001871": {
+        "n_gold": 114,
+        "tp": 84,
+        "fn": 30,
+        "fp": 22,
+        "recall": 0.7368,
+        "precision": 0.7925
+      },
+      "HP:0000119": {
+        "n_gold": 96,
+        "tp": 58,
+        "fn": 38,
+        "fp": 52,
+        "recall": 0.6042,
+        "precision": 0.5273
+      },
+      "HP:0025031": {
+        "n_gold": 85,
+        "tp": 42,
+        "fn": 43,
+        "fp": 44,
+        "recall": 0.4941,
+        "precision": 0.4884
+      },
+      "HP:0001507": {
+        "n_gold": 70,
+        "tp": 43,
+        "fn": 27,
+        "fp": 22,
+        "recall": 0.6143,
+        "precision": 0.6615
+      },
+      "HP:0002086": {
+        "n_gold": 55,
+        "tp": 28,
+        "fn": 27,
+        "fp": 35,
+        "recall": 0.5091,
+        "precision": 0.4444
+      },
+      "HP:0000598": {
+        "n_gold": 54,
+        "tp": 37,
+        "fn": 17,
+        "fp": 14,
+        "recall": 0.6852,
+        "precision": 0.7255
+      },
+      "HP:0000818": {
+        "n_gold": 39,
+        "tp": 23,
+        "fn": 16,
+        "fp": 7,
+        "recall": 0.5897,
+        "precision": 0.7667
+      },
+      "HP:0025354": {
+        "n_gold": 26,
+        "tp": 20,
+        "fn": 6,
+        "fp": 7,
+        "recall": 0.7692,
+        "precision": 0.7407
+      },
+      "HP:0025142": {
+        "n_gold": 18,
+        "tp": 9,
+        "fn": 9,
+        "fp": 37,
+        "recall": 0.5,
+        "precision": 0.1957
+      },
+      "HP:0001197": {
+        "n_gold": 14,
+        "tp": 7,
+        "fn": 7,
+        "fp": 29,
+        "recall": 0.5,
+        "precision": 0.1944
+      },
+      "HP:0002664": {
+        "n_gold": 11,
+        "tp": 8,
+        "fn": 3,
+        "fp": 1,
+        "recall": 0.7273,
+        "precision": 0.8889
+      },
+      "HP:0001608": {
+        "n_gold": 0,
+        "tp": 0,
+        "fn": 0,
+        "fp": 11,
+        "recall": null,
+        "precision": 0.0
+      },
+      "HP:0000769": {
+        "n_gold": 0,
+        "tp": 0,
+        "fn": 0,
+        "fp": 2,
+        "recall": null,
+        "precision": 0.0
+      }
+    },
+    "qwen3-4b/B": {
+      "HP:0000707": {
+        "n_gold": 773,
+        "tp": 484,
+        "fn": 289,
+        "fp": 597,
+        "recall": 0.6261,
+        "precision": 0.4477
+      },
+      "HP:0033127": {
+        "n_gold": 478,
+        "tp": 291,
+        "fn": 187,
+        "fp": 278,
+        "recall": 0.6088,
+        "precision": 0.5114
+      },
+      "HP:0000152": {
+        "n_gold": 324,
+        "tp": 223,
+        "fn": 101,
+        "fp": 140,
+        "recall": 0.6883,
+        "precision": 0.6143
+      },
+      "HP:0000478": {
+        "n_gold": 227,
+        "tp": 161,
+        "fn": 66,
+        "fp": 94,
+        "recall": 0.7093,
+        "precision": 0.6314
+      },
+      "HP:0040064": {
+        "n_gold": 168,
+        "tp": 96,
+        "fn": 72,
+        "fp": 113,
+        "recall": 0.5714,
+        "precision": 0.4593
+      },
+      "HP:0001939": {
+        "n_gold": 146,
+        "tp": 116,
+        "fn": 30,
+        "fp": 39,
+        "recall": 0.7945,
+        "precision": 0.7484
+      },
+      "HP:0002715": {
+        "n_gold": 143,
+        "tp": 88,
+        "fn": 55,
+        "fp": 52,
+        "recall": 0.6154,
+        "precision": 0.6286
+      },
+      "HP:0001574": {
+        "n_gold": 130,
+        "tp": 65,
+        "fn": 65,
+        "fp": 128,
+        "recall": 0.5,
+        "precision": 0.3368
+      },
+      "HP:0001626": {
+        "n_gold": 125,
+        "tp": 83,
+        "fn": 42,
+        "fp": 46,
+        "recall": 0.664,
+        "precision": 0.6434
+      },
+      "HP:0001871": {
+        "n_gold": 114,
+        "tp": 90,
+        "fn": 24,
+        "fp": 26,
+        "recall": 0.7895,
+        "precision": 0.7759
+      },
+      "HP:0000119": {
+        "n_gold": 96,
+        "tp": 54,
+        "fn": 42,
+        "fp": 49,
+        "recall": 0.5625,
+        "precision": 0.5243
+      },
+      "HP:0025031": {
+        "n_gold": 85,
+        "tp": 61,
+        "fn": 24,
+        "fp": 49,
+        "recall": 0.7176,
+        "precision": 0.5545
+      },
+      "HP:0001507": {
+        "n_gold": 70,
+        "tp": 49,
+        "fn": 21,
+        "fp": 21,
+        "recall": 0.7,
+        "precision": 0.7
+      },
+      "HP:0002086": {
+        "n_gold": 55,
+        "tp": 34,
+        "fn": 21,
+        "fp": 27,
+        "recall": 0.6182,
+        "precision": 0.5574
+      },
+      "HP:0000598": {
+        "n_gold": 54,
+        "tp": 43,
+        "fn": 11,
+        "fp": 8,
+        "recall": 0.7963,
+        "precision": 0.8431
+      },
+      "HP:0000818": {
+        "n_gold": 39,
+        "tp": 29,
+        "fn": 10,
+        "fp": 5,
+        "recall": 0.7436,
+        "precision": 0.8529
+      },
+      "HP:0025354": {
+        "n_gold": 26,
+        "tp": 19,
+        "fn": 7,
+        "fp": 7,
+        "recall": 0.7308,
+        "precision": 0.7308
+      },
+      "HP:0025142": {
+        "n_gold": 18,
+        "tp": 10,
+        "fn": 8,
+        "fp": 35,
+        "recall": 0.5556,
+        "precision": 0.2222
+      },
+      "HP:0001197": {
+        "n_gold": 14,
+        "tp": 7,
+        "fn": 7,
+        "fp": 4,
+        "recall": 0.5,
+        "precision": 0.6364
+      },
+      "HP:0002664": {
+        "n_gold": 11,
+        "tp": 9,
+        "fn": 2,
+        "fp": 1,
+        "recall": 0.8182,
+        "precision": 0.9
+      },
+      "HP:0001608": {
+        "n_gold": 0,
+        "tp": 0,
+        "fn": 0,
+        "fp": 5,
+        "recall": null,
+        "precision": 0.0
+      },
+      "HP:0000769": {
+        "n_gold": 0,
+        "tp": 0,
+        "fn": 0,
+        "fp": 2,
+        "recall": null,
+        "precision": 0.0
+      }
+    },
+    "qwen3-4b/C": {
+      "HP:0000707": {
+        "n_gold": 773,
+        "tp": 391,
+        "fn": 382,
+        "fp": 595,
+        "recall": 0.5058,
+        "precision": 0.3966
+      },
+      "HP:0033127": {
+        "n_gold": 478,
+        "tp": 241,
+        "fn": 237,
+        "fp": 320,
+        "recall": 0.5042,
+        "precision": 0.4296
+      },
+      "HP:0000152": {
+        "n_gold": 324,
+        "tp": 198,
+        "fn": 126,
+        "fp": 163,
+        "recall": 0.6111,
+        "precision": 0.5485
+      },
+      "HP:0000478": {
+        "n_gold": 227,
+        "tp": 157,
+        "fn": 70,
+        "fp": 103,
+        "recall": 0.6916,
+        "precision": 0.6038
+      },
+      "HP:0040064": {
+        "n_gold": 168,
+        "tp": 91,
+        "fn": 77,
+        "fp": 130,
+        "recall": 0.5417,
+        "precision": 0.4118
+      },
+      "HP:0001939": {
+        "n_gold": 146,
+        "tp": 110,
+        "fn": 36,
+        "fp": 33,
+        "recall": 0.7534,
+        "precision": 0.7692
+      },
+      "HP:0002715": {
+        "n_gold": 143,
+        "tp": 90,
+        "fn": 53,
+        "fp": 51,
+        "recall": 0.6294,
+        "precision": 0.6383
+      },
+      "HP:0001574": {
+        "n_gold": 130,
+        "tp": 47,
+        "fn": 83,
+        "fp": 148,
+        "recall": 0.3615,
+        "precision": 0.241
+      },
+      "HP:0001626": {
+        "n_gold": 125,
+        "tp": 66,
+        "fn": 59,
+        "fp": 60,
+        "recall": 0.528,
+        "precision": 0.5238
+      },
+      "HP:0001871": {
+        "n_gold": 114,
+        "tp": 82,
+        "fn": 32,
+        "fp": 32,
+        "recall": 0.7193,
+        "precision": 0.7193
+      },
+      "HP:0000119": {
+        "n_gold": 96,
+        "tp": 61,
+        "fn": 35,
+        "fp": 46,
+        "recall": 0.6354,
+        "precision": 0.5701
+      },
+      "HP:0025031": {
+        "n_gold": 85,
+        "tp": 41,
+        "fn": 44,
+        "fp": 50,
+        "recall": 0.4824,
+        "precision": 0.4505
+      },
+      "HP:0001507": {
+        "n_gold": 70,
+        "tp": 46,
+        "fn": 24,
+        "fp": 21,
+        "recall": 0.6571,
+        "precision": 0.6866
+      },
+      "HP:0002086": {
+        "n_gold": 55,
+        "tp": 30,
+        "fn": 25,
+        "fp": 32,
+        "recall": 0.5455,
+        "precision": 0.4839
+      },
+      "HP:0000598": {
+        "n_gold": 54,
+        "tp": 39,
+        "fn": 15,
+        "fp": 14,
+        "recall": 0.7222,
+        "precision": 0.7358
+      },
+      "HP:0000818": {
+        "n_gold": 39,
+        "tp": 23,
+        "fn": 16,
+        "fp": 6,
+        "recall": 0.5897,
+        "precision": 0.7931
+      },
+      "HP:0025354": {
+        "n_gold": 26,
+        "tp": 20,
+        "fn": 6,
+        "fp": 7,
+        "recall": 0.7692,
+        "precision": 0.7407
+      },
+      "HP:0025142": {
+        "n_gold": 18,
+        "tp": 9,
+        "fn": 9,
+        "fp": 38,
+        "recall": 0.5,
+        "precision": 0.1915
+      },
+      "HP:0001197": {
+        "n_gold": 14,
+        "tp": 7,
+        "fn": 7,
+        "fp": 28,
+        "recall": 0.5,
+        "precision": 0.2
+      },
+      "HP:0002664": {
+        "n_gold": 11,
+        "tp": 6,
+        "fn": 5,
+        "fp": 3,
+        "recall": 0.5455,
+        "precision": 0.6667
+      },
+      "HP:0001608": {
+        "n_gold": 0,
+        "tp": 0,
+        "fn": 0,
+        "fp": 11,
+        "recall": null,
+        "precision": 0.0
+      },
+      "HP:0000769": {
+        "n_gold": 0,
+        "tp": 0,
+        "fn": 0,
+        "fp": 2,
+        "recall": null,
+        "precision": 0.0
+      }
+    }
+  }
+}
