@@ -305,6 +305,7 @@ Fonte: {src(base / "metrics.json")} → `register.d2` e `recall_by_stratum.regis
 - **Contaminação.** Os casos vêm de artigos publicados. O gerador pode ter visto o artigo; os extratores podem ter visto o artigo ou o Phenopacket Store.
 - **Retrotradução.** Ver a tabela de estratos acima.
 - **Rótulos de registro.** Foram feitos por um agente e conferidos pelo autor, que não é clínico, com viés do rotulador para "ambos". A revisão por um geneticista está prevista no contato com a Rede RARAS.
+- **Gerador e rotulador são o mesmo modelo** (`{vcfg["generator"]["model"]}`). O rotulador pode reconhecer o próprio jeito de escrever. O kappa com o autor cobre a maior parte desse risco; a checagem independente é a revisão por geneticista.
 - **Quantização.** Os resultados valem para as versões Q4_K_M dos modelos.
 
 ## Próximos passos
