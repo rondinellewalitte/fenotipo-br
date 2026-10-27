@@ -1,0 +1,1814 @@
+{
+  "n_cases": 300,
+  "n_gold_terms": 2466,
+  "n_negated_terms": 959,
+  "headline": "micro-F1, exact HPO id match; per-case sets",
+  "bootstrap": {
+    "unit": "case",
+    "n_boot": 10000,
+    "seed": 42,
+    "intervals": "percentile"
+  },
+  "arms": {
+    "gemma3-4b/A": {
+      "n_cases": 300,
+      "tp": 952,
+      "fp": 1161,
+      "fn": 1514,
+      "micro": {
+        "precision": 0.4505,
+        "recall": 0.3861,
+        "f1": 0.4158
+      },
+      "macro": {
+        "precision": 0.4705,
+        "recall": 0.3917,
+        "f1": 0.412
+      },
+      "negation_fp": {
+        "rate": 0.0688,
+        "n_negated_shown": 959,
+        "n_negated_predicted": 66,
+        "ci95": [
+          0.0529,
+          0.0857
+        ]
+      },
+      "near_miss": {
+        "pairs": 215,
+        "share_of_fp": 0.1852,
+        "relaxed_micro": {
+          "precision": 0.5523,
+          "recall": 0.4732,
+          "f1": 0.5097
+        },
+        "note": "FP that is a direct is_a parent/child of an FN of the same case, paired 1:1"
+      },
+      "hand_foot_swap": {
+        "pairs": 0,
+        "share_of_fp": 0.0
+      },
+      "fp_categories": {
+        "ancestor_descendant": 78,
+        "close_relative": 133,
+        "distant": 523,
+        "negated": 66,
+        "parent_child": 240,
+        "sibling": 121
+      },
+      "seconds_per_case": {
+        "mean": 7.29,
+        "median": 6.94,
+        "p90": 11.83
+      },
+      "flags": {},
+      "retrieval_ceiling_recall": 0.5373,
+      "selection_loss": 0.1512,
+      "findings_per_case": 7.15,
+      "absent_per_case": 1.48,
+      "none_rate": 0.0005,
+      "recall_by_stratum": {
+        "has_pt_label": {
+          "False": {
+            "n": 1491,
+            "recall": 0.3159
+          },
+          "True": {
+            "n": 975,
+            "recall": 0.4933
+          }
+        },
+        "phrase_is_pt_label": {
+          "False": {
+            "n": 2267,
+            "recall": 0.3582
+          },
+          "True": {
+            "n": 199,
+            "recall": 0.7035
+          }
+        },
+        "sim_bin": {
+          "50-80": {
+            "n": 472,
+            "recall": 0.5678
+          },
+          "<50": {
+            "n": 1894,
+            "recall": 0.3247
+          },
+          ">=80": {
+            "n": 100,
+            "recall": 0.69
+          }
+        },
+        "register_d1": {
+          "both": {
+            "n": 45,
+            "recall": 0.5778
+          },
+          "lay": {
+            "n": 1796,
+            "recall": 0.2973
+          },
+          "technical": {
+            "n": 625,
+            "recall": 0.6272
+          }
+        },
+        "register_d2": {
+          "both": {
+            "n": 374,
+            "recall": 0.4198
+          },
+          "lay": {
+            "n": 645,
+            "recall": 0.1023
+          },
+          "technical": {
+            "n": 1447,
+            "recall": 0.5038
+          }
+        }
+      }
+    },
+    "gemma3-4b/B": {
+      "n_cases": 300,
+      "tp": 1045,
+      "fp": 1091,
+      "fn": 1421,
+      "micro": {
+        "precision": 0.4892,
+        "recall": 0.4238,
+        "f1": 0.4542
+      },
+      "macro": {
+        "precision": 0.5148,
+        "recall": 0.4305,
+        "f1": 0.4529
+      },
+      "negation_fp": {
+        "rate": 0.0553,
+        "n_negated_shown": 959,
+        "n_negated_predicted": 53,
+        "ci95": [
+          0.0389,
+          0.0726
+        ]
+      },
+      "near_miss": {
+        "pairs": 245,
+        "share_of_fp": 0.2246,
+        "relaxed_micro": {
+          "precision": 0.6039,
+          "recall": 0.5231,
+          "f1": 0.5606
+        },
+        "note": "FP that is a direct is_a parent/child of an FN of the same case, paired 1:1"
+      },
+      "hand_foot_swap": {
+        "pairs": 0,
+        "share_of_fp": 0.0
+      },
+      "fp_categories": {
+        "ancestor_descendant": 72,
+        "close_relative": 121,
+        "distant": 445,
+        "negated": 53,
+        "parent_child": 275,
+        "sibling": 125
+      },
+      "seconds_per_case": {
+        "mean": 11.45,
+        "median": 11.01,
+        "p90": 17.41
+      },
+      "flags": {},
+      "retrieval_ceiling_recall": 0.5872,
+      "selection_loss": 0.1634,
+      "findings_per_case": 7.28,
+      "absent_per_case": 1.21,
+      "none_rate": 0.0009,
+      "recall_by_stratum": {
+        "has_pt_label": {
+          "False": {
+            "n": 1491,
+            "recall": 0.3628
+          },
+          "True": {
+            "n": 975,
+            "recall": 0.5169
+          }
+        },
+        "phrase_is_pt_label": {
+          "False": {
+            "n": 2267,
+            "recall": 0.4032
+          },
+          "True": {
+            "n": 199,
+            "recall": 0.6583
+          }
+        },
+        "sim_bin": {
+          "50-80": {
+            "n": 472,
+            "recall": 0.553
+          },
+          "<50": {
+            "n": 1894,
+            "recall": 0.3812
+          },
+          ">=80": {
+            "n": 100,
+            "recall": 0.62
+          }
+        },
+        "register_d1": {
+          "both": {
+            "n": 45,
+            "recall": 0.4889
+          },
+          "lay": {
+            "n": 1796,
+            "recall": 0.3541
+          },
+          "technical": {
+            "n": 625,
+            "recall": 0.6192
+          }
+        },
+        "register_d2": {
+          "both": {
+            "n": 374,
+            "recall": 0.4492
+          },
+          "lay": {
+            "n": 645,
+            "recall": 0.1597
+          },
+          "technical": {
+            "n": 1447,
+            "recall": 0.5349
+          }
+        }
+      }
+    },
+    "gemma3-4b/C": {
+      "n_cases": 300,
+      "tp": 907,
+      "fp": 1204,
+      "fn": 1559,
+      "micro": {
+        "precision": 0.4297,
+        "recall": 0.3678,
+        "f1": 0.3963
+      },
+      "macro": {
+        "precision": 0.4475,
+        "recall": 0.373,
+        "f1": 0.393
+      },
+      "negation_fp": {
+        "rate": 0.0667,
+        "n_negated_shown": 959,
+        "n_negated_predicted": 64,
+        "ci95": [
+          0.0505,
+          0.0845
+        ]
+      },
+      "near_miss": {
+        "pairs": 245,
+        "share_of_fp": 0.2035,
+        "relaxed_micro": {
+          "precision": 0.5457,
+          "recall": 0.4672,
+          "f1": 0.5034
+        },
+        "note": "FP that is a direct is_a parent/child of an FN of the same case, paired 1:1"
+      },
+      "hand_foot_swap": {
+        "pairs": 1,
+        "share_of_fp": 0.0008
+      },
+      "fp_categories": {
+        "ancestor_descendant": 89,
+        "close_relative": 138,
+        "distant": 509,
+        "negated": 64,
+        "parent_child": 263,
+        "sibling": 141
+      },
+      "seconds_per_case": {
+        "mean": 7.29,
+        "median": 6.97,
+        "p90": 11.79
+      },
+      "flags": {},
+      "retrieval_ceiling_recall": 0.5357,
+      "selection_loss": 0.1679,
+      "findings_per_case": 7.15,
+      "absent_per_case": 1.48,
+      "none_rate": 0.0005,
+      "recall_by_stratum": {
+        "has_pt_label": {
+          "False": {
+            "n": 1491,
+            "recall": 0.271
+          },
+          "True": {
+            "n": 975,
+            "recall": 0.5159
+          }
+        },
+        "phrase_is_pt_label": {
+          "False": {
+            "n": 2267,
+            "recall": 0.337
+          },
+          "True": {
+            "n": 199,
+            "recall": 0.7186
+          }
+        },
+        "sim_bin": {
+          "50-80": {
+            "n": 472,
+            "recall": 0.5148
+          },
+          "<50": {
+            "n": 1894,
+            "recall": 0.3136
+          },
+          ">=80": {
+            "n": 100,
+            "recall": 0.7
+          }
+        },
+        "register_d1": {
+          "both": {
+            "n": 45,
+            "recall": 0.5556
+          },
+          "lay": {
+            "n": 1796,
+            "recall": 0.2806
+          },
+          "technical": {
+            "n": 625,
+            "recall": 0.6048
+          }
+        },
+        "register_d2": {
+          "both": {
+            "n": 374,
+            "recall": 0.3957
+          },
+          "lay": {
+            "n": 645,
+            "recall": 0.1054
+          },
+          "technical": {
+            "n": 1447,
+            "recall": 0.4775
+          }
+        }
+      }
+    },
+    "none/baseline": {
+      "n_cases": 300,
+      "tp": 722,
+      "fp": 1218,
+      "fn": 1744,
+      "micro": {
+        "precision": 0.3722,
+        "recall": 0.2928,
+        "f1": 0.3277
+      },
+      "macro": {
+        "precision": 0.3539,
+        "recall": 0.2823,
+        "f1": 0.303
+      },
+      "negation_fp": {
+        "rate": 0.1137,
+        "n_negated_shown": 959,
+        "n_negated_predicted": 109,
+        "ci95": [
+          0.0932,
+          0.1352
+        ]
+      },
+      "near_miss": {
+        "pairs": 192,
+        "share_of_fp": 0.1576,
+        "relaxed_micro": {
+          "precision": 0.4711,
+          "recall": 0.3706,
+          "f1": 0.4149
+        },
+        "note": "FP that is a direct is_a parent/child of an FN of the same case, paired 1:1"
+      },
+      "hand_foot_swap": {
+        "pairs": 0,
+        "share_of_fp": 0.0
+      },
+      "fp_categories": {
+        "ancestor_descendant": 57,
+        "close_relative": 163,
+        "distant": 583,
+        "negated": 109,
+        "parent_child": 208,
+        "sibling": 98
+      },
+      "seconds_per_case": {
+        "mean": 0.23,
+        "median": 0.23,
+        "p90": 0.3
+      },
+      "flags": {},
+      "recall_by_stratum": {
+        "has_pt_label": {
+          "False": {
+            "n": 1491,
+            "recall": 0.2448
+          },
+          "True": {
+            "n": 975,
+            "recall": 0.3662
+          }
+        },
+        "phrase_is_pt_label": {
+          "False": {
+            "n": 2267,
+            "recall": 0.2713
+          },
+          "True": {
+            "n": 199,
+            "recall": 0.5377
+          }
+        },
+        "sim_bin": {
+          "50-80": {
+            "n": 472,
+            "recall": 0.411
+          },
+          "<50": {
+            "n": 1894,
+            "recall": 0.254
+          },
+          ">=80": {
+            "n": 100,
+            "recall": 0.47
+          }
+        },
+        "register_d1": {
+          "both": {
+            "n": 45,
+            "recall": 0.3778
+          },
+          "lay": {
+            "n": 1796,
+            "recall": 0.2494
+          },
+          "technical": {
+            "n": 625,
+            "recall": 0.4112
+          }
+        },
+        "register_d2": {
+          "both": {
+            "n": 374,
+            "recall": 0.3583
+          },
+          "lay": {
+            "n": 645,
+            "recall": 0.1535
+          },
+          "technical": {
+            "n": 1447,
+            "recall": 0.3379
+          }
+        }
+      }
+    },
+    "qwen3-4b/A": {
+      "n_cases": 300,
+      "tp": 1423,
+      "fp": 1529,
+      "fn": 1043,
+      "micro": {
+        "precision": 0.482,
+        "recall": 0.577,
+        "f1": 0.5253
+      },
+      "macro": {
+        "precision": 0.4966,
+        "recall": 0.5854,
+        "f1": 0.5275
+      },
+      "negation_fp": {
+        "rate": 0.049,
+        "n_negated_shown": 959,
+        "n_negated_predicted": 47,
+        "ci95": [
+          0.0339,
+          0.0649
+        ]
+      },
+      "near_miss": {
+        "pairs": 276,
+        "share_of_fp": 0.1805,
+        "relaxed_micro": {
+          "precision": 0.5755,
+          "recall": 0.689,
+          "f1": 0.6272
+        },
+        "note": "FP that is a direct is_a parent/child of an FN of the same case, paired 1:1"
+      },
+      "hand_foot_swap": {
+        "pairs": 2,
+        "share_of_fp": 0.0013
+      },
+      "fp_categories": {
+        "ancestor_descendant": 117,
+        "close_relative": 218,
+        "distant": 613,
+        "negated": 47,
+        "parent_child": 347,
+        "sibling": 187
+      },
+      "seconds_per_case": {
+        "mean": 11.25,
+        "median": 10.94,
+        "p90": 17.29
+      },
+      "flags": {
+        "extract_unparsed": 2,
+        "output_truncated": 2
+      },
+      "retrieval_ceiling_recall": 0.7364,
+      "selection_loss": 0.1594,
+      "findings_per_case": 10.89,
+      "absent_per_case": 4.43,
+      "none_rate": 0.067,
+      "recall_by_stratum": {
+        "has_pt_label": {
+          "False": {
+            "n": 1491,
+            "recall": 0.554
+          },
+          "True": {
+            "n": 975,
+            "recall": 0.6123
+          }
+        },
+        "phrase_is_pt_label": {
+          "False": {
+            "n": 2267,
+            "recall": 0.5571
+          },
+          "True": {
+            "n": 199,
+            "recall": 0.804
+          }
+        },
+        "sim_bin": {
+          "50-80": {
+            "n": 472,
+            "recall": 0.7246
+          },
+          "<50": {
+            "n": 1894,
+            "recall": 0.5259
+          },
+          ">=80": {
+            "n": 100,
+            "recall": 0.85
+          }
+        },
+        "register_d1": {
+          "both": {
+            "n": 45,
+            "recall": 0.4889
+          },
+          "lay": {
+            "n": 1796,
+            "recall": 0.5256
+          },
+          "technical": {
+            "n": 625,
+            "recall": 0.7312
+          }
+        },
+        "register_d2": {
+          "both": {
+            "n": 374,
+            "recall": 0.6444
+          },
+          "lay": {
+            "n": 645,
+            "recall": 0.4124
+          },
+          "technical": {
+            "n": 1447,
+            "recall": 0.633
+          }
+        }
+      }
+    },
+    "qwen3-4b/B": {
+      "n_cases": 300,
+      "tp": 1599,
+      "fp": 1434,
+      "fn": 867,
+      "micro": {
+        "precision": 0.5272,
+        "recall": 0.6484,
+        "f1": 0.5816
+      },
+      "macro": {
+        "precision": 0.5484,
+        "recall": 0.6582,
+        "f1": 0.588
+      },
+      "negation_fp": {
+        "rate": 0.0323,
+        "n_negated_shown": 959,
+        "n_negated_predicted": 31,
+        "ci95": [
+          0.0201,
+          0.0461
+        ]
+      },
+      "near_miss": {
+        "pairs": 286,
+        "share_of_fp": 0.1994,
+        "relaxed_micro": {
+          "precision": 0.6215,
+          "recall": 0.7644,
+          "f1": 0.6856
+        },
+        "note": "FP that is a direct is_a parent/child of an FN of the same case, paired 1:1"
+      },
+      "hand_foot_swap": {
+        "pairs": 0,
+        "share_of_fp": 0.0
+      },
+      "fp_categories": {
+        "ancestor_descendant": 122,
+        "close_relative": 265,
+        "distant": 468,
+        "negated": 31,
+        "parent_child": 380,
+        "sibling": 168
+      },
+      "seconds_per_case": {
+        "mean": 15.11,
+        "median": 15.01,
+        "p90": 21.46
+      },
+      "flags": {
+        "extract_unparsed": 3,
+        "output_truncated": 3
+      },
+      "retrieval_ceiling_recall": 0.8114,
+      "selection_loss": 0.163,
+      "findings_per_case": 10.79,
+      "absent_per_case": 5.04,
+      "none_rate": 0.0315,
+      "recall_by_stratum": {
+        "has_pt_label": {
+          "False": {
+            "n": 1491,
+            "recall": 0.6291
+          },
+          "True": {
+            "n": 975,
+            "recall": 0.6779
+          }
+        },
+        "phrase_is_pt_label": {
+          "False": {
+            "n": 2267,
+            "recall": 0.6365
+          },
+          "True": {
+            "n": 199,
+            "recall": 0.7839
+          }
+        },
+        "sim_bin": {
+          "50-80": {
+            "n": 472,
+            "recall": 0.7648
+          },
+          "<50": {
+            "n": 1894,
+            "recall": 0.6093
+          },
+          ">=80": {
+            "n": 100,
+            "recall": 0.84
+          }
+        },
+        "register_d1": {
+          "both": {
+            "n": 45,
+            "recall": 0.6444
+          },
+          "lay": {
+            "n": 1796,
+            "recall": 0.6136
+          },
+          "technical": {
+            "n": 625,
+            "recall": 0.7488
+          }
+        },
+        "register_d2": {
+          "both": {
+            "n": 374,
+            "recall": 0.6791
+          },
+          "lay": {
+            "n": 645,
+            "recall": 0.4651
+          },
+          "technical": {
+            "n": 1447,
+            "recall": 0.7222
+          }
+        }
+      }
+    },
+    "qwen3-4b/C": {
+      "n_cases": 300,
+      "tp": 1410,
+      "fp": 1575,
+      "fn": 1056,
+      "micro": {
+        "precision": 0.4724,
+        "recall": 0.5718,
+        "f1": 0.5173
+      },
+      "macro": {
+        "precision": 0.4889,
+        "recall": 0.5835,
+        "f1": 0.5227
+      },
+      "negation_fp": {
+        "rate": 0.049,
+        "n_negated_shown": 959,
+        "n_negated_predicted": 47,
+        "ci95": [
+          0.0343,
+          0.0651
+        ]
+      },
+      "near_miss": {
+        "pairs": 306,
+        "share_of_fp": 0.1943,
+        "relaxed_micro": {
+          "precision": 0.5749,
+          "recall": 0.6959,
+          "f1": 0.6296
+        },
+        "note": "FP that is a direct is_a parent/child of an FN of the same case, paired 1:1"
+      },
+      "hand_foot_swap": {
+        "pairs": 2,
+        "share_of_fp": 0.0013
+      },
+      "fp_categories": {
+        "ancestor_descendant": 131,
+        "close_relative": 236,
+        "distant": 598,
+        "negated": 47,
+        "parent_child": 372,
+        "sibling": 191
+      },
+      "seconds_per_case": {
+        "mean": 11.24,
+        "median": 10.89,
+        "p90": 17.18
+      },
+      "flags": {
+        "extract_unparsed": 2,
+        "output_truncated": 2
+      },
+      "retrieval_ceiling_recall": 0.7384,
+      "selection_loss": 0.1666,
+      "findings_per_case": 10.89,
+      "absent_per_case": 4.43,
+      "none_rate": 0.0588,
+      "recall_by_stratum": {
+        "has_pt_label": {
+          "False": {
+            "n": 1491,
+            "recall": 0.5131
+          },
+          "True": {
+            "n": 975,
+            "recall": 0.6615
+          }
+        },
+        "phrase_is_pt_label": {
+          "False": {
+            "n": 2267,
+            "recall": 0.547
+          },
+          "True": {
+            "n": 199,
+            "recall": 0.8543
+          }
+        },
+        "sim_bin": {
+          "50-80": {
+            "n": 472,
+            "recall": 0.6907
+          },
+          "<50": {
+            "n": 1894,
+            "recall": 0.5269
+          },
+          ">=80": {
+            "n": 100,
+            "recall": 0.86
+          }
+        },
+        "register_d1": {
+          "both": {
+            "n": 45,
+            "recall": 0.5333
+          },
+          "lay": {
+            "n": 1796,
+            "recall": 0.5156
+          },
+          "technical": {
+            "n": 625,
+            "recall": 0.736
+          }
+        },
+        "register_d2": {
+          "both": {
+            "n": 374,
+            "recall": 0.6417
+          },
+          "lay": {
+            "n": 645,
+            "recall": 0.4078
+          },
+          "technical": {
+            "n": 1447,
+            "recall": 0.6268
+          }
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "qwen3-4b": {
+      "A-B": {
+        "diff": -0.0563,
+        "ci95": [
+          -0.0733,
+          -0.0391
+        ],
+        "ci97_5": [
+          -0.0756,
+          -0.0364
+        ],
+        "p_boot_two_sided": 0.0,
+        "n_boot": 10000
+      },
+      "C-A": {
+        "diff": -0.0079,
+        "ci95": [
+          -0.0185,
+          0.0029
+        ],
+        "ci97_5": [
+          -0.0201,
+          0.0045
+        ],
+        "p_boot_two_sided": 0.1506,
+        "n_boot": 10000
+      },
+      "A-baseline": {
+        "diff": 0.1976,
+        "ci95": [
+          0.176,
+          0.2192
+        ],
+        "ci97_5": [
+          0.1734,
+          0.2223
+        ],
+        "p_boot_two_sided": 0.0,
+        "n_boot": 10000
+      },
+      "B-baseline": {
+        "diff": 0.2538,
+        "ci95": [
+          0.2312,
+          0.2771
+        ],
+        "ci97_5": [
+          0.2277,
+          0.2802
+        ],
+        "p_boot_two_sided": 0.0,
+        "n_boot": 10000
+      },
+      "C-baseline": {
+        "diff": 0.1896,
+        "ci95": [
+          0.1688,
+          0.2108
+        ],
+        "ci97_5": [
+          0.1661,
+          0.2135
+        ],
+        "p_boot_two_sided": 0.0,
+        "n_boot": 10000
+      }
+    },
+    "gemma3-4b": {
+      "A-B": {
+        "diff": -0.0383,
+        "ci95": [
+          -0.0594,
+          -0.0179
+        ],
+        "ci97_5": [
+          -0.0624,
+          -0.0146
+        ],
+        "p_boot_two_sided": 0.0002,
+        "n_boot": 10000
+      },
+      "C-A": {
+        "diff": -0.0195,
+        "ci95": [
+          -0.0321,
+          -0.0071
+        ],
+        "ci97_5": [
+          -0.0338,
+          -0.0054
+        ],
+        "p_boot_two_sided": 0.0024,
+        "n_boot": 10000
+      },
+      "A-baseline": {
+        "diff": 0.0881,
+        "ci95": [
+          0.0665,
+          0.1104
+        ],
+        "ci97_5": [
+          0.0634,
+          0.1133
+        ],
+        "p_boot_two_sided": 0.0,
+        "n_boot": 10000
+      },
+      "B-baseline": {
+        "diff": 0.1264,
+        "ci95": [
+          0.1002,
+          0.153
+        ],
+        "ci97_5": [
+          0.0963,
+          0.1569
+        ],
+        "p_boot_two_sided": 0.0,
+        "n_boot": 10000
+      },
+      "C-baseline": {
+        "diff": 0.0686,
+        "ci95": [
+          0.0475,
+          0.0902
+        ],
+        "ci97_5": [
+          0.0449,
+          0.0933
+        ],
+        "p_boot_two_sided": 0.0,
+        "n_boot": 10000
+      }
+    },
+    "models_exploratory": {
+      "A: gemma3-4b-qwen3-4b": {
+        "diff": -0.1095,
+        "ci95": [
+          -0.1309,
+          -0.0887
+        ],
+        "ci97_5": [
+          -0.1337,
+          -0.0851
+        ],
+        "p_boot_two_sided": 0.0,
+        "n_boot": 10000
+      },
+      "B: gemma3-4b-qwen3-4b": {
+        "diff": -0.1274,
+        "ci95": [
+          -0.1509,
+          -0.1032
+        ],
+        "ci97_5": [
+          -0.154,
+          -0.1001
+        ],
+        "p_boot_two_sided": 0.0,
+        "n_boot": 10000
+      },
+      "C: gemma3-4b-qwen3-4b": {
+        "diff": -0.121,
+        "ci95": [
+          -0.1408,
+          -0.1016
+        ],
+        "ci97_5": [
+          -0.1435,
+          -0.0988
+        ],
+        "p_boot_two_sided": 0.0,
+        "n_boot": 10000
+      }
+    }
+  },
+  "register": {
+    "d2": {
+      "column": "register_d2",
+      "gemma3-4b/A": {
+        "recall": {
+          "technical": {
+            "n": 1447,
+            "recall": 0.5038,
+            "ci95": [
+              0.4726,
+              0.5343
+            ]
+          },
+          "lay": {
+            "n": 645,
+            "recall": 0.1023,
+            "ci95": [
+              0.0793,
+              0.1276
+            ]
+          },
+          "both": {
+            "n": 374,
+            "recall": 0.4198,
+            "ci95": [
+              0.3724,
+              0.4674
+            ]
+          }
+        },
+        "technical_minus_lay": {
+          "diff": 0.4015,
+          "ci95": [
+            0.364,
+            0.4382
+          ]
+        }
+      },
+      "gemma3-4b/B": {
+        "recall": {
+          "technical": {
+            "n": 1447,
+            "recall": 0.5349,
+            "ci95": [
+              0.5039,
+              0.5668
+            ]
+          },
+          "lay": {
+            "n": 645,
+            "recall": 0.1597,
+            "ci95": [
+              0.1286,
+              0.193
+            ]
+          },
+          "both": {
+            "n": 374,
+            "recall": 0.4492,
+            "ci95": [
+              0.3963,
+              0.5013
+            ]
+          }
+        },
+        "technical_minus_lay": {
+          "diff": 0.3752,
+          "ci95": [
+            0.3324,
+            0.4182
+          ]
+        }
+      },
+      "gemma3-4b/C": {
+        "recall": {
+          "technical": {
+            "n": 1447,
+            "recall": 0.4775,
+            "ci95": [
+              0.4477,
+              0.5075
+            ]
+          },
+          "lay": {
+            "n": 645,
+            "recall": 0.1054,
+            "ci95": [
+              0.0817,
+              0.1301
+            ]
+          },
+          "both": {
+            "n": 374,
+            "recall": 0.3957,
+            "ci95": [
+              0.3477,
+              0.4439
+            ]
+          }
+        },
+        "technical_minus_lay": {
+          "diff": 0.3721,
+          "ci95": [
+            0.3358,
+            0.4082
+          ]
+        }
+      },
+      "none/baseline": {
+        "recall": {
+          "technical": {
+            "n": 1447,
+            "recall": 0.3379,
+            "ci95": [
+              0.3118,
+              0.3638
+            ]
+          },
+          "lay": {
+            "n": 645,
+            "recall": 0.1535,
+            "ci95": [
+              0.1288,
+              0.1798
+            ]
+          },
+          "both": {
+            "n": 374,
+            "recall": 0.3583,
+            "ci95": [
+              0.3095,
+              0.4069
+            ]
+          }
+        },
+        "technical_minus_lay": {
+          "diff": 0.1845,
+          "ci95": [
+            0.1466,
+            0.2223
+          ]
+        }
+      },
+      "qwen3-4b/A": {
+        "recall": {
+          "technical": {
+            "n": 1447,
+            "recall": 0.633,
+            "ci95": [
+              0.6035,
+              0.6619
+            ]
+          },
+          "lay": {
+            "n": 645,
+            "recall": 0.4124,
+            "ci95": [
+              0.374,
+              0.4507
+            ]
+          },
+          "both": {
+            "n": 374,
+            "recall": 0.6444,
+            "ci95": [
+              0.5959,
+              0.6919
+            ]
+          }
+        },
+        "technical_minus_lay": {
+          "diff": 0.2206,
+          "ci95": [
+            0.174,
+            0.2677
+          ]
+        }
+      },
+      "qwen3-4b/B": {
+        "recall": {
+          "technical": {
+            "n": 1447,
+            "recall": 0.7222,
+            "ci95": [
+              0.6945,
+              0.7488
+            ]
+          },
+          "lay": {
+            "n": 645,
+            "recall": 0.4651,
+            "ci95": [
+              0.4239,
+              0.506
+            ]
+          },
+          "both": {
+            "n": 374,
+            "recall": 0.6791,
+            "ci95": [
+              0.6309,
+              0.7249
+            ]
+          }
+        },
+        "technical_minus_lay": {
+          "diff": 0.2571,
+          "ci95": [
+            0.2096,
+            0.3053
+          ]
+        }
+      },
+      "qwen3-4b/C": {
+        "recall": {
+          "technical": {
+            "n": 1447,
+            "recall": 0.6268,
+            "ci95": [
+              0.5973,
+              0.6564
+            ]
+          },
+          "lay": {
+            "n": 645,
+            "recall": 0.4078,
+            "ci95": [
+              0.3683,
+              0.4469
+            ]
+          },
+          "both": {
+            "n": 374,
+            "recall": 0.6417,
+            "ci95": [
+              0.5936,
+              0.6883
+            ]
+          }
+        },
+        "technical_minus_lay": {
+          "diff": 0.2191,
+          "ci95": [
+            0.1691,
+            0.2684
+          ]
+        }
+      },
+      "qwen3-4b/between_arms": {
+        "technical": {
+          "A-B": {
+            "diff": -0.0891,
+            "ci95": [
+              -0.116,
+              -0.0608
+            ]
+          },
+          "C-A": {
+            "diff": -0.0062,
+            "ci95": [
+              -0.0223,
+              0.01
+            ]
+          }
+        },
+        "lay": {
+          "A-B": {
+            "diff": -0.0527,
+            "ci95": [
+              -0.0909,
+              -0.0155
+            ]
+          },
+          "C-A": {
+            "diff": -0.0047,
+            "ci95": [
+              -0.023,
+              0.0138
+            ]
+          }
+        },
+        "both": {
+          "A-B": {
+            "diff": -0.0348,
+            "ci95": [
+              -0.0809,
+              0.0108
+            ]
+          },
+          "C-A": {
+            "diff": -0.0027,
+            "ci95": [
+              -0.0349,
+              0.0292
+            ]
+          }
+        }
+      },
+      "gemma3-4b/between_arms": {
+        "technical": {
+          "A-B": {
+            "diff": -0.0311,
+            "ci95": [
+              -0.0613,
+              -0.0007
+            ]
+          },
+          "C-A": {
+            "diff": -0.0263,
+            "ci95": [
+              -0.0429,
+              -0.0098
+            ]
+          }
+        },
+        "lay": {
+          "A-B": {
+            "diff": -0.0574,
+            "ci95": [
+              -0.0891,
+              -0.0261
+            ]
+          },
+          "C-A": {
+            "diff": 0.0031,
+            "ci95": [
+              -0.0106,
+              0.0168
+            ]
+          }
+        },
+        "both": {
+          "A-B": {
+            "diff": -0.0294,
+            "ci95": [
+              -0.0734,
+              0.0146
+            ]
+          },
+          "C-A": {
+            "diff": -0.0241,
+            "ci95": [
+              -0.0549,
+              0.006
+            ]
+          }
+        }
+      }
+    },
+    "d1": {
+      "column": "register_d1",
+      "gemma3-4b/A": {
+        "recall": {
+          "technical": {
+            "n": 625,
+            "recall": 0.6272,
+            "ci95": [
+              0.5865,
+              0.6667
+            ]
+          },
+          "lay": {
+            "n": 1796,
+            "recall": 0.2973,
+            "ci95": [
+              0.2734,
+              0.3224
+            ]
+          },
+          "both": {
+            "n": 45,
+            "recall": 0.5778,
+            "ci95": [
+              0.4167,
+              0.7209
+            ]
+          }
+        },
+        "technical_minus_lay": {
+          "diff": 0.3299,
+          "ci95": [
+            0.2829,
+            0.3742
+          ]
+        }
+      },
+      "gemma3-4b/B": {
+        "recall": {
+          "technical": {
+            "n": 625,
+            "recall": 0.6192,
+            "ci95": [
+              0.5775,
+              0.6595
+            ]
+          },
+          "lay": {
+            "n": 1796,
+            "recall": 0.3541,
+            "ci95": [
+              0.3257,
+              0.3834
+            ]
+          },
+          "both": {
+            "n": 45,
+            "recall": 0.4889,
+            "ci95": [
+              0.3226,
+              0.64
+            ]
+          }
+        },
+        "technical_minus_lay": {
+          "diff": 0.2651,
+          "ci95": [
+            0.2155,
+            0.3127
+          ]
+        }
+      },
+      "gemma3-4b/C": {
+        "recall": {
+          "technical": {
+            "n": 625,
+            "recall": 0.6048,
+            "ci95": [
+              0.5641,
+              0.6444
+            ]
+          },
+          "lay": {
+            "n": 1796,
+            "recall": 0.2806,
+            "ci95": [
+              0.2573,
+              0.3051
+            ]
+          },
+          "both": {
+            "n": 45,
+            "recall": 0.5556,
+            "ci95": [
+              0.3928,
+              0.7018
+            ]
+          }
+        },
+        "technical_minus_lay": {
+          "diff": 0.3242,
+          "ci95": [
+            0.2787,
+            0.3687
+          ]
+        }
+      },
+      "none/baseline": {
+        "recall": {
+          "technical": {
+            "n": 625,
+            "recall": 0.4112,
+            "ci95": [
+              0.3683,
+              0.4535
+            ]
+          },
+          "lay": {
+            "n": 1796,
+            "recall": 0.2494,
+            "ci95": [
+              0.2301,
+              0.2691
+            ]
+          },
+          "both": {
+            "n": 45,
+            "recall": 0.3778,
+            "ci95": [
+              0.2281,
+              0.5217
+            ]
+          }
+        },
+        "technical_minus_lay": {
+          "diff": 0.1618,
+          "ci95": [
+            0.1161,
+            0.2076
+          ]
+        }
+      },
+      "qwen3-4b/A": {
+        "recall": {
+          "technical": {
+            "n": 625,
+            "recall": 0.7312,
+            "ci95": [
+              0.6924,
+              0.7675
+            ]
+          },
+          "lay": {
+            "n": 1796,
+            "recall": 0.5256,
+            "ci95": [
+              0.4994,
+              0.5519
+            ]
+          },
+          "both": {
+            "n": 45,
+            "recall": 0.4889,
+            "ci95": [
+              0.3415,
+              0.6304
+            ]
+          }
+        },
+        "technical_minus_lay": {
+          "diff": 0.2056,
+          "ci95": [
+            0.1622,
+            0.248
+          ]
+        }
+      },
+      "qwen3-4b/B": {
+        "recall": {
+          "technical": {
+            "n": 625,
+            "recall": 0.7488,
+            "ci95": [
+              0.7085,
+              0.7868
+            ]
+          },
+          "lay": {
+            "n": 1796,
+            "recall": 0.6136,
+            "ci95": [
+              0.5892,
+              0.6376
+            ]
+          },
+          "both": {
+            "n": 45,
+            "recall": 0.6444,
+            "ci95": [
+              0.5091,
+              0.7778
+            ]
+          }
+        },
+        "technical_minus_lay": {
+          "diff": 0.1352,
+          "ci95": [
+            0.0929,
+            0.1768
+          ]
+        }
+      },
+      "qwen3-4b/C": {
+        "recall": {
+          "technical": {
+            "n": 625,
+            "recall": 0.736,
+            "ci95": [
+              0.6949,
+              0.7765
+            ]
+          },
+          "lay": {
+            "n": 1796,
+            "recall": 0.5156,
+            "ci95": [
+              0.4906,
+              0.5405
+            ]
+          },
+          "both": {
+            "n": 45,
+            "recall": 0.5333,
+            "ci95": [
+              0.375,
+              0.6757
+            ]
+          }
+        },
+        "technical_minus_lay": {
+          "diff": 0.2204,
+          "ci95": [
+            0.1746,
+            0.2647
+          ]
+        }
+      },
+      "qwen3-4b/between_arms": {
+        "technical": {
+          "A-B": {
+            "diff": -0.0176,
+            "ci95": [
+              -0.0524,
+              0.0171
+            ]
+          },
+          "C-A": {
+            "diff": 0.0048,
+            "ci95": [
+              -0.0181,
+              0.0282
+            ]
+          }
+        },
+        "lay": {
+          "A-B": {
+            "diff": -0.088,
+            "ci95": [
+              -0.1117,
+              -0.0642
+            ]
+          },
+          "C-A": {
+            "diff": -0.01,
+            "ci95": [
+              -0.0237,
+              0.0039
+            ]
+          }
+        },
+        "both": {
+          "A-B": {
+            "diff": -0.1556,
+            "ci95": [
+              -0.3208,
+              0.0
+            ]
+          },
+          "C-A": {
+            "diff": 0.0444,
+            "ci95": [
+              -0.0645,
+              0.1509
+            ]
+          }
+        }
+      },
+      "gemma3-4b/between_arms": {
+        "technical": {
+          "A-B": {
+            "diff": 0.008,
+            "ci95": [
+              -0.0314,
+              0.0472
+            ]
+          },
+          "C-A": {
+            "diff": -0.0224,
+            "ci95": [
+              -0.0487,
+              0.0033
+            ]
+          }
+        },
+        "lay": {
+          "A-B": {
+            "diff": -0.0568,
+            "ci95": [
+              -0.0805,
+              -0.0329
+            ]
+          },
+          "C-A": {
+            "diff": -0.0167,
+            "ci95": [
+              -0.0293,
+              -0.004
+            ]
+          }
+        },
+        "both": {
+          "A-B": {
+            "diff": 0.0889,
+            "ci95": [
+              -0.0513,
+              0.2258
+            ]
+          },
+          "C-A": {
+            "diff": -0.0222,
+            "ci95": [
+              -0.0789,
+              0.0
+            ]
+          }
+        }
+      }
+    }
+  },
+  "register_labels": {
+    "labeler": {
+      "what": "blind clinical register labels (D2) of the present, non-dropped gold items, full set",
+      "labeler": "independent Claude Code subagents (general-purpose), model claude-opus-5-5, one per batch; not the Anthropic API, so no cost under the Exp 03 API cap",
+      "blind_to": [
+        "hpolab.register rule output",
+        "extraction results (none existed for the full set)"
+      ],
+      "instructions": "prompts/exp03_register_manual_v1.md",
+      "instructions_sha256": "3ce2209d74a5749f56edc5d324aef475ff05e601dcf7a62f13d1a1ceeb4ed3c8",
+      "batch_files": "results/exp03/register_batches",
+      "n_items": 2466,
+      "classes": {
+        "technical": 1447,
+        "lay": 645,
+        "both": 374
+      },
+      "calibration": {
+        "cases": [
+          "PMID_15976030_kindred_A_patient_8",
+          "PMID_33949776_Second_patient",
+          "PMID_37055165_Individual_F6_1"
+        ],
+        "reference": "pilot labels checked by the author (results/exp03/pilot/register_kappa.json)",
+        "per_batch": {
+          "1": {
+            "items": 25,
+            "agreement_with_pilot_labels": 0.88,
+            "kappa_with_pilot_labels": 0.7449
+          },
+          "2": {
+            "items": 25,
+            "agreement_with_pilot_labels": 0.84,
+            "kappa_with_pilot_labels": 0.705
+          },
+          "3": {
+            "items": 25,
+            "agreement_with_pilot_labels": 0.92,
+            "kappa_with_pilot_labels": 0.8366
+          },
+          "4": {
+            "items": 25,
+            "agreement_with_pilot_labels": 0.96,
+            "kappa_with_pilot_labels": 0.9211
+          },
+          "5": {
+            "items": 25,
+            "agreement_with_pilot_labels": 0.96,
+            "kappa_with_pilot_labels": 0.9211
+          },
+          "6": {
+            "items": 25,
+            "agreement_with_pilot_labels": 1.0,
+            "kappa_with_pilot_labels": 1.0
+          }
+        }
+      }
+    },
+    "path": "results/exp03/register_labels_full.csv",
+    "sha256": "f39e157480d8df747634d8f6fe4ec5ce0ae1b65468655d2c07d259b04a1fd4a6"
+  },
+  "oracle_spans_bge_m3_en_index": {
+    "n_gold_phrases": 2466,
+    "top1": 0.4951,
+    "top10": 0.7474
+  },
+  "baseline_tau": 0.7
+}

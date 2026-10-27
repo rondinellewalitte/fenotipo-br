@@ -1,0 +1,202 @@
+{
+  "hypotheses": {
+    "H1_A_noninferior_to_B_margin_0.03": {
+      "per_model": {
+        "qwen3-4b": {
+          "diff": -0.0563,
+          "ci97_5": [
+            -0.0756,
+            -0.0364
+          ],
+          "confirmed": false
+        },
+        "gemma3-4b": {
+          "diff": -0.0383,
+          "ci97_5": [
+            -0.0624,
+            -0.0146
+          ],
+          "confirmed": false
+        }
+      },
+      "confirmed_both_models": false
+    },
+    "H2_C_better_than_A_gain_le_0.05": {
+      "per_model": {
+        "qwen3-4b": {
+          "diff": -0.0079,
+          "ci95": [
+            -0.0185,
+            0.0029
+          ],
+          "confirmed": false
+        },
+        "gemma3-4b": {
+          "diff": -0.0195,
+          "ci95": [
+            -0.0321,
+            -0.0071
+          ],
+          "confirmed": false
+        }
+      },
+      "confirmed_both_models": false
+    },
+    "H3_A_beats_baseline_by_0.05": {
+      "per_model": {
+        "qwen3-4b": {
+          "diff": 0.1976,
+          "ci95": [
+            0.176,
+            0.2192
+          ],
+          "confirmed": true
+        },
+        "gemma3-4b": {
+          "diff": 0.0881,
+          "ci95": [
+            0.0665,
+            0.1104
+          ],
+          "confirmed": true
+        }
+      },
+      "confirmed_both_models": true
+    },
+    "H4_negation_A_le_0.10_baseline_ge_0.25": {
+      "per_model": {
+        "qwen3-4b": {
+          "A_rate": 0.049,
+          "baseline_rate": 0.1137,
+          "confirmed": false
+        },
+        "gemma3-4b": {
+          "A_rate": 0.0688,
+          "baseline_rate": 0.1137,
+          "confirmed": false
+        }
+      },
+      "confirmed_both_models": false
+    },
+    "H5_ceiling_ge_0.75_selection_loss_ge_0.10": {
+      "per_model": {
+        "qwen3-4b": {
+          "ceiling": 0.7364,
+          "selection_loss": 0.1594,
+          "confirmed": false
+        },
+        "gemma3-4b": {
+          "ceiling": 0.5373,
+          "selection_loss": 0.1512,
+          "confirmed": false
+        }
+      },
+      "confirmed_both_models": false
+    },
+    "H6_lay_harder_than_technical": {
+      "per_model": {
+        "qwen3-4b": {
+          "per_arm": {
+            "qwen3-4b/A": {
+              "diff": 0.2206,
+              "ci95": [
+                0.174,
+                0.2677
+              ]
+            },
+            "qwen3-4b/B": {
+              "diff": 0.2571,
+              "ci95": [
+                0.2096,
+                0.3053
+              ]
+            },
+            "qwen3-4b/C": {
+              "diff": 0.2191,
+              "ci95": [
+                0.1691,
+                0.2684
+              ]
+            },
+            "none/baseline": {
+              "diff": 0.1845,
+              "ci95": [
+                0.1466,
+                0.2223
+              ]
+            }
+          },
+          "confirmed": true
+        },
+        "gemma3-4b": {
+          "per_arm": {
+            "gemma3-4b/A": {
+              "diff": 0.4015,
+              "ci95": [
+                0.364,
+                0.4382
+              ]
+            },
+            "gemma3-4b/B": {
+              "diff": 0.3752,
+              "ci95": [
+                0.3324,
+                0.4182
+              ]
+            },
+            "gemma3-4b/C": {
+              "diff": 0.3721,
+              "ci95": [
+                0.3358,
+                0.4082
+              ]
+            },
+            "none/baseline": {
+              "diff": 0.1845,
+              "ci95": [
+                0.1466,
+                0.2223
+              ]
+            }
+          },
+          "confirmed": true
+        }
+      },
+      "confirmed_both_models": true
+    }
+  },
+  "expectations": {
+    "E1_A_f1_in_0.35_0.65": {
+      "qwen3-4b": true,
+      "gemma3-4b": true
+    },
+    "E2_near_miss_ge_0.10_of_fp": {
+      "qwen3-4b": true,
+      "gemma3-4b": true
+    },
+    "E3_hand_foot_le_0.02_of_fp": {
+      "qwen3-4b": true,
+      "gemma3-4b": true
+    },
+    "E4_time": {
+      "qwen3-4b": false,
+      "gemma3-4b": true
+    },
+    "E5_pt_label_strata": {
+      "qwen3-4b": true,
+      "gemma3-4b": true
+    },
+    "E6_A_vs_B_gap_larger_in_lay": {
+      "qwen3-4b": false,
+      "gemma3-4b": true
+    },
+    "E7_C_vs_A_gain_larger_in_technical": {
+      "qwen3-4b": false,
+      "gemma3-4b": false
+    },
+    "E8_baseline_drop_larger_than_A": {
+      "qwen3-4b": false,
+      "gemma3-4b": false
+    }
+  }
+}
