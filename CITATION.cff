@@ -7,8 +7,8 @@ authors:
     family-names: Walitte
     alias: "Rondinelle Walitte Pedro de Jesus"
     orcid: "https://orcid.org/0009-0004-1776-2754"
-version: 0.2.0
-date-released: 2026-10-27
+version: 0.2.1
+date-released: 2026-10-28
 license: MIT
 repository-code: "https://github.com/rondinellewalitte/fenotipo-br"
 doi: 10.5281/zenodo.23662825
@@ -21,7 +21,8 @@ identifiers:
     description: "Version 0.1.0 (tag v0.1.0): the release that produced the Exp 01-02 numbers."
   - type: doi
     value: 10.5281/zenodo.23688007
-    description: "Version 0.2.0 (tag v0.2.0): the release that produced the Exp 03 numbers."
+    description: "Version 0.2.0 (tag v0.2.0): first release with Exp 03; v0.2.1 corrects its statistical reporting."
+# The v0.2.1 version DOI (the version of the current numbers) is added here once Zenodo assigns it.
 abstract: >-
   Research pilot measuring how well Brazilian Portuguese phenotype terms map to the Human
   Phenotype Ontology (HPO) when only English labels are searched, how much of published

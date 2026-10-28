@@ -431,7 +431,7 @@ Across three analyses, the language of the input was not the main obstacle to ma
 
 ## Data and code availability
 
-Code, pre-specification files, prompts, result files, vignettes, register labels and every local-model call with its output are at {REPO} and archived on Zenodo. The version that produced every number in this manuscript is v{RELEASE["version"]}, {doi_text}. The generators of this manuscript (`paper/`) were added to the repository after that release; they read its result files unchanged and will be archived with the next release. The concept DOI for all versions is [{CONCEPT_DOI}](https://doi.org/{CONCEPT_DOI}). HPO {hpo_rel} and Phenopacket Store {ppkt} are not redistributed. They are downloaded by script and verified against recorded SHA-256 hashes. The local models are identified by Ollama tag and digest; their weights are not redistributed.
+Code, pre-specification files, prompts, result files, vignettes, register labels and every local-model call with its output are at {REPO} and archived on Zenodo. The version that produced every number in this manuscript is v{RELEASE["version"]}, {doi_text}. The generators of this manuscript (`paper/`) are archived in the same release. The concept DOI for all versions is [{CONCEPT_DOI}](https://doi.org/{CONCEPT_DOI}). HPO {hpo_rel} and Phenopacket Store {ppkt} are not redistributed. They are downloaded by script and verified against recorded SHA-256 hashes. The local models are identified by Ollama tag and digest; their weights are not redistributed.
 
 ## Ethics statement
 

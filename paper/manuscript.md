@@ -202,7 +202,7 @@ Across three analyses, the language of the input was not the main obstacle to ma
 
 ## Data and code availability
 
-Code, pre-specification files, prompts, result files, vignettes, register labels and every local-model call with its output are at https://github.com/rondinellewalitte/fenotipo-br and archived on Zenodo. The version that produced every number in this manuscript is v0.2.1, [TODO: version DOI, to be minted when v0.2.1 is deposited]. The generators of this manuscript (`paper/`) were added to the repository after that release; they read its result files unchanged and will be archived with the next release. The concept DOI for all versions is [10.5281/zenodo.23662825](https://doi.org/10.5281/zenodo.23662825). HPO v2026-09-01 and Phenopacket Store 0.1.27 are not redistributed. They are downloaded by script and verified against recorded SHA-256 hashes. The local models are identified by Ollama tag and digest; their weights are not redistributed.
+Code, pre-specification files, prompts, result files, vignettes, register labels and every local-model call with its output are at https://github.com/rondinellewalitte/fenotipo-br and archived on Zenodo. The version that produced every number in this manuscript is v0.2.1, [TODO: version DOI, to be minted when v0.2.1 is deposited]. The generators of this manuscript (`paper/`) are archived in the same release. The concept DOI for all versions is [10.5281/zenodo.23662825](https://doi.org/10.5281/zenodo.23662825). HPO v2026-09-01 and Phenopacket Store 0.1.27 are not redistributed. They are downloaded by script and verified against recorded SHA-256 hashes. The local models are identified by Ollama tag and digest; their weights are not redistributed.
 
 ## Ethics statement
 
