@@ -25,7 +25,7 @@ V010 = {"version": "0.1.0", "tag": "v0.1.0", "doi": "10.5281/zenodo.23662826", "
 V010_RESULTS = ("results/", ":(exclude)results/exp03")
 # v0.2.1 corrects the bootstrap p-value floor and adds the strata cross; no point estimate,
 # interval or hypothesis outcome changed. Set "doi" once the tag is deposited on Zenodo.
-RELEASE = {"version": "0.2.1", "tag": "v0.2.1", "doi": "", "year": 2026}
+RELEASE = {"version": "0.2.1", "tag": "v0.2.1", "doi": "10.5281/zenodo.23747958", "year": 2026}
 V020 = {"version": "0.2.0", "tag": "v0.2.0", "doi": "10.5281/zenodo.23688007", "year": 2026}
 MODELS = {"qwen3-4b": "Qwen3-4B Instruct 2507", "gemma3-4b": "Gemma 3 4B"}
 SHORT = {"qwen3-4b": "Qwen3-4B", "gemma3-4b": "Gemma 3 4B"}

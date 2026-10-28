@@ -11,8 +11,7 @@ or hypothesis outcome changed**: re-running `exp03_extraction.py --set full --me
 leaves `hypotheses.json` identical apart from two added diagnostic fields, and every changed
 value in `metrics.json` is a `p_boot_two_sided`.
 
-Set the version DOI in `RELEASE` (`reports/build_readme.py`) once the tag is deposited; until
-then the manuscript prints a TODO in its place.
+Version DOI [10.5281/zenodo.23747958](https://doi.org/10.5281/zenodo.23747958).
 
 ### Fixed
 
